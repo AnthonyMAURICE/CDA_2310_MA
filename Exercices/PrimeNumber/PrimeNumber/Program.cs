@@ -5,8 +5,8 @@
         static void Main(string[] args)
         {
             int number;
-
-
+            number = int.Parse(Console.ReadLine());
+            IsPrime(number);
         }
 
         public static bool IsPrime(int _testNumber)

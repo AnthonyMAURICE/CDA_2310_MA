@@ -15,7 +15,7 @@
         public static bool IsPalindrome(string _test)
         {
             _test = _test.ToLower().Replace(" ", "");
-            if(_test.Length > 0)
+            if(_test.Length > 1)
             {
                 int counter = _test.Length - 1;
                 for(int i = 0; i < _test.Length; i++)
