@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "yEg3jOCJ7pcg1hqzehc39kBgTd/2DGDLmy6vG/WaDEd7S4V/fClu0KdK7qEOL7BEOUSOQmsDtphjvA/cEvR3VQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\Exercice_Barnabe\\Exercice_Barnabe\\Exercice_Barnabe.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\amaurice\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
+    "C:\\Users\\amaurice\\.nuget\\packages\\moq\\4.20.70\\moq.4.20.70.nupkg.sha512",
+    "C:\\Users\\amaurice\\.nuget\\packages\\system.diagnostics.eventlog\\6.0.0\\system.diagnostics.eventlog.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

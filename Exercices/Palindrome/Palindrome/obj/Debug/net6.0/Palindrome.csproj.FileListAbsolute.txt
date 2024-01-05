@@ -1,0 +1,15 @@
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Palindrome\Palindrome\bin\Debug\net6.0\Palindrome.exe
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Palindrome\Palindrome\bin\Debug\net6.0\Palindrome.deps.json
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Palindrome\Palindrome\bin\Debug\net6.0\Palindrome.runtimeconfig.json
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Palindrome\Palindrome\bin\Debug\net6.0\Palindrome.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Palindrome\Palindrome\bin\Debug\net6.0\Palindrome.pdb
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Palindrome\Palindrome\obj\Debug\net6.0\Palindrome.csproj.AssemblyReference.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Palindrome\Palindrome\obj\Debug\net6.0\Palindrome.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Palindrome\Palindrome\obj\Debug\net6.0\Palindrome.AssemblyInfoInputs.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Palindrome\Palindrome\obj\Debug\net6.0\Palindrome.AssemblyInfo.cs
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Palindrome\Palindrome\obj\Debug\net6.0\Palindrome.csproj.CoreCompileInputs.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Palindrome\Palindrome\obj\Debug\net6.0\Palindrome.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Palindrome\Palindrome\obj\Debug\net6.0\refint\Palindrome.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Palindrome\Palindrome\obj\Debug\net6.0\Palindrome.pdb
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Palindrome\Palindrome\obj\Debug\net6.0\Palindrome.genruntimeconfig.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Palindrome\Palindrome\obj\Debug\net6.0\ref\Palindrome.dll
