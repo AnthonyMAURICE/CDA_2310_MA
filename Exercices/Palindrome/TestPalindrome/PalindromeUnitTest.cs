@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestPlatform.TestHost;
 namespace TestPalindrome
 {
     [TestClass]
-    public class UnitTest1
+    public class PalindromeUnitTest
     {
         [TestMethod]
         public void TestMethod1()
