@@ -11,21 +11,25 @@
 
         public static bool IsPrime(int _testNumber)
         {
+            bool isPrime;
+            int i = 2;
             if(_testNumber < 2)
             {
-               return false;
+                isPrime = false;
             }
             else
             {
-                for (int i = 2; i < _testNumber; i++)
+                isPrime = true;
+                while(i < _testNumber && isPrime)
                 {
                     if (_testNumber % i == 0)
                     {
-                        return false;
+                        isPrime = false;
                     }
-                }
-                return true;
+                    i++;
+                }  
             }
+            return isPrime;
         }
     }
 }
