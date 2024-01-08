@@ -302,12 +302,12 @@ namespace Exercices_suite
             else
             {
                 Console.WriteLine("Vous avez perdu !");
-            }
+            }*/
             
 
 
 
-        }*/
+        }
 
         }
     }

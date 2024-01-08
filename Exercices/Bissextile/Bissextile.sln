@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bissextile", "Bissextile\Bissextile.csproj", "{65237D02-588C-480D-9931-896C685C7E99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestBissextile", "TestBissextile\TestBissextile.csproj", "{4D1C4F89-C0C6-40E3-9CAF-7FCF2ABFC790}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65237D02-588C-480D-9931-896C685C7E99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65237D02-588C-480D-9931-896C685C7E99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65237D02-588C-480D-9931-896C685C7E99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65237D02-588C-480D-9931-896C685C7E99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D1C4F89-C0C6-40E3-9CAF-7FCF2ABFC790}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D1C4F89-C0C6-40E3-9CAF-7FCF2ABFC790}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D1C4F89-C0C6-40E3-9CAF-7FCF2ABFC790}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D1C4F89-C0C6-40E3-9CAF-7FCF2ABFC790}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {08AEF51C-F9F6-48CE-A83E-83BC501477A9}
+	EndGlobalSection
+EndGlobal
