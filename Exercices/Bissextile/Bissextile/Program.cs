@@ -7,7 +7,7 @@
             
             Console.WriteLine("Entrez une année : ");
             int annee = int.Parse(Console.ReadLine());
-            Bissextile(annee);
+            Console.WriteLine(Bissextile(annee));
         }
 
         public static bool Bissextile(int _annee)
