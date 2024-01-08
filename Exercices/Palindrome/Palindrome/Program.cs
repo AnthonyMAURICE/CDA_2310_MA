@@ -18,9 +18,10 @@
             {
                 int i = 0;
                 int j = _test.Length - 1;
-                while(i < _test.Length / 2 && palin == true) // boucle sur la moitié de la chaine de caractères testée, tant que le booléen "palin" est à true
+                while(i <= _test.Length / 2 && palin == true) // boucle sur la moitié de la chaine de caractères testée, tant que le booléen "palin" est à true
                 {
-                    if (!_test[i].Equals(_test[j])) // si non-correspondance trouvée, passe "palin" à false
+                    Console.WriteLine(i);
+                    if (!_test[i].Equals(_test[j])) // si non-correspondance trouvée, passe " palin" à false
                     {
                         palin = false;
                     }
