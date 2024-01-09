@@ -1,0 +1,17 @@
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Yaourt\Exercice_Yaourt\bin\Debug\net6.0\Exercice_Yaourt.exe
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Yaourt\Exercice_Yaourt\bin\Debug\net6.0\Exercice_Yaourt.deps.json
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Yaourt\Exercice_Yaourt\bin\Debug\net6.0\Exercice_Yaourt.runtimeconfig.json
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Yaourt\Exercice_Yaourt\bin\Debug\net6.0\Exercice_Yaourt.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Yaourt\Exercice_Yaourt\bin\Debug\net6.0\Exercice_Yaourt.pdb
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Yaourt\Exercice_Yaourt\obj\Debug\net6.0\Exercice_Yaourt.csproj.AssemblyReference.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Yaourt\Exercice_Yaourt\obj\Debug\net6.0\Exercice_Yaourt.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Yaourt\Exercice_Yaourt\obj\Debug\net6.0\Exercice_Yaourt.AssemblyInfoInputs.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Yaourt\Exercice_Yaourt\obj\Debug\net6.0\Exercice_Yaourt.AssemblyInfo.cs
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Yaourt\Exercice_Yaourt\obj\Debug\net6.0\Exercice_Yaourt.csproj.CoreCompileInputs.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Yaourt\Exercice_Yaourt\obj\Debug\net6.0\Exercice_Yaourt.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Yaourt\Exercice_Yaourt\obj\Debug\net6.0\refint\Exercice_Yaourt.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Yaourt\Exercice_Yaourt\obj\Debug\net6.0\Exercice_Yaourt.pdb
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Yaourt\Exercice_Yaourt\obj\Debug\net6.0\Exercice_Yaourt.genruntimeconfig.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Yaourt\Exercice_Yaourt\obj\Debug\net6.0\ref\Exercice_Yaourt.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Yaourt\Exercice_Yaourt\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Yaourt\Exercice_Yaourt\obj\Debug\net6.0\Exercice_Yaourt.csproj.CopyComplete
