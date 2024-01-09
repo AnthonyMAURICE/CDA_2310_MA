@@ -9,6 +9,33 @@ namespace Exercice_Yaourt
     public class PollResults
     {
         public List<string> results { get; set; }
+
+        public static string PollResult(PollResults _results) // méthode retournant les deux couleurs plébiscitées sous forme de chaine de caractères
+        {
+            List<string> poll = new();
+            SortedDictionary<string, int> pollResultsList = new();
+            string resultsOfPoll = "";
+            foreach (var result in _results.results) // boucle récupérant la partie "results" du fichier json
+            {
+                poll.Add(result.ToString()); // pour la stocker dans une liste de chaine de caractères
+            }
+
+            var occurences = poll.GroupBy(i => i); // elle même stockée dans une variable sous forme de paires clés/valeurs
+
+            foreach (var data in occurences) // pour boucler dessus
+            {
+                pollResultsList.Add(data.Key, data.Count()); // et mettre dans un Dictionaire les paires clé/occurrences 
+                //Console.WriteLine(data.Key + " " + data.Count()); //servait à contrôler les résultats
+            }
+
+            foreach (var item in pollResultsList.OrderByDescending(r => r.Value).Take(2)) // pour finalement les mettre en ordre descendant et récupérer les deux premières valeurs
+            {
+                resultsOfPoll += $"{item.Key} "; // pour les stocker dans une chaine de caractères
+            }
+
+            return resultsOfPoll; // et au final, la retourner
+        }
+
     }
         
  
@@ -30,33 +57,9 @@ namespace Exercice_Yaourt
             var json = await client.GetStringAsync(client.BaseAddress);
             string colorFile = json.ToString();
             PollResults results = JsonSerializer.Deserialize<PollResults>(colorFile);
-            Console.WriteLine(PollResult(results));
+            Console.WriteLine(PollResults.PollResult(results));
         }
 
-        public static string PollResult(PollResults _results)
-        {
-            List<string> poll = new();
-            SortedDictionary<string, int> pollResultsList = new();
-            string resultsOfPoll = "";
-            foreach (var result in _results.results)
-            {
-                poll.Add(result.ToString());
-            }
-            
-            var occurences = poll.GroupBy(i => i);
-            
-            foreach(var data in occurences)
-            {
-                pollResultsList.Add(data.Key, data.Count());
-                Console.WriteLine(data.Key + " " + data.Count());
-            }
-
-            foreach (var item in pollResultsList.OrderByDescending(r => r.Value).Take(2))
-            {
-                resultsOfPoll += $"{item.Key} ";
-            }
-
-            return resultsOfPoll;
-        }
+        
     }
 }
