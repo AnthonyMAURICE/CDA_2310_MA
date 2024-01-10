@@ -4,32 +4,79 @@
     {
         static void Main(string[] args)
         {
-            int i = 2, number;
-            Console.WriteLine("Entrez un nombre positif : ");
-            string temp = Console.ReadLine();
-            try
+            int number;
+            int iterator = 2;
+            string saisie;
+            
+            Console.WriteLine("Nombre à entrer : ");
+            saisie = Console.ReadLine();
+            int.TryParse(saisie, out number);
+            int[] suiteFibo = new int[number];
+            saisie = Fibonacci(number, iterator, suiteFibo);
+            Console.WriteLine(saisie);
+        }
+
+
+        static string Fibonacci(int number, int iterator, int[] suiteFibo)
+        {
+
+            if (iterator < number)
             {
-                number = int.Parse(temp);
-                string suite = "";
-                Console.WriteLine(Fibonacci(number, i, suite));
+                if(iterator < 2)
+                {
+                    suiteFibo[0] = 0;
+                    suiteFibo[1] = 1;
+                }
+                else
+                {
+                    suiteFibo[iterator] = suiteFibo[iterator - 1] + suiteFibo[iterator - 2];
+                }
+                
+                Fibonacci(number, ++iterator, suiteFibo);
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
+            
+            return string.Join(" ", suiteFibo);
         }
         
-        public static string Fibonacci(int _number, int i, string _suite)
+        /*
+        static string Fibonacci(int number)
+        {
+            int i = 0;
+            long nombreSuivant;
+            long nombrePrecedant = 0;
+            long nombreCourant = 1;
+            //Console.WriteLine("Entrez un nombre positif : ");
+            //string temp = Console.ReadLine();
+            //int.TryParse(temp, out number);
+            string suite = "";
+
+            if(number > 2)
+            {
+                while(i < number)
+                {
+                    nombreSuivant = nombrePrecedant + nombreCourant;
+                    suite += "\n" + nombreSuivant;
+                    nombrePrecedant = nombreCourant;
+                    nombreCourant = nombreSuivant;
+                    i++;
+                }
+            }
+            else
+            {
+                number = 2;
+            }
+
+            return "Les " + number + " premiers nombres sont :\n" + suite;
+            
+        }*/
+        /*
+        public static void Fibonacci(int _number, int i, string _suite)
         {
             
-            
-
-            if (i < _number)
-            {
-                Fibonacci(_number, ++i, _suite);
-            }
-            return _suite;
         }
+        */
 
+        
     }
+    
 }
