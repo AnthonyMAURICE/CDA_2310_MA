@@ -12,15 +12,10 @@ namespace Exercice_Yaourt
 
         public static string PollResult(PollResults _results) // méthode retournant les deux couleurs plébiscitées sous forme de chaine de caractères
         {
-            List<string> poll = new();
             SortedDictionary<string, int> pollResultsList = new();
             string resultsOfPoll = "";
-            foreach (var result in _results.results) // boucle récupérant la partie "results" du fichier json
-            {
-                poll.Add(result.ToString()); // pour la stocker dans une liste de chaine de caractères
-            }
 
-            var occurences = poll.GroupBy(i => i); // elle même stockée dans une variable sous forme de paires clés/valeurs
+            var occurences = _results.results.GroupBy(i => i); // liste récupérée et stockée dans une variable sous forme de paires clés/valeurs
 
             foreach (var data in occurences) // pour boucler dessus
             {

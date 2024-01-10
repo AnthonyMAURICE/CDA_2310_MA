@@ -1,0 +1,15 @@
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_fonctions\Exercice_fonctions\bin\Debug\net6.0\Exercice_fonctions.exe
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_fonctions\Exercice_fonctions\bin\Debug\net6.0\Exercice_fonctions.deps.json
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_fonctions\Exercice_fonctions\bin\Debug\net6.0\Exercice_fonctions.runtimeconfig.json
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_fonctions\Exercice_fonctions\bin\Debug\net6.0\Exercice_fonctions.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_fonctions\Exercice_fonctions\bin\Debug\net6.0\Exercice_fonctions.pdb
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_fonctions\Exercice_fonctions\obj\Debug\net6.0\Exercice_fonctions.csproj.AssemblyReference.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_fonctions\Exercice_fonctions\obj\Debug\net6.0\Exercice_fonctions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_fonctions\Exercice_fonctions\obj\Debug\net6.0\Exercice_fonctions.AssemblyInfoInputs.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_fonctions\Exercice_fonctions\obj\Debug\net6.0\Exercice_fonctions.AssemblyInfo.cs
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_fonctions\Exercice_fonctions\obj\Debug\net6.0\Exercice_fonctions.csproj.CoreCompileInputs.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_fonctions\Exercice_fonctions\obj\Debug\net6.0\Exercice_fonctions.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_fonctions\Exercice_fonctions\obj\Debug\net6.0\refint\Exercice_fonctions.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_fonctions\Exercice_fonctions\obj\Debug\net6.0\Exercice_fonctions.pdb
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_fonctions\Exercice_fonctions\obj\Debug\net6.0\Exercice_fonctions.genruntimeconfig.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_fonctions\Exercice_fonctions\obj\Debug\net6.0\ref\Exercice_fonctions.dll
