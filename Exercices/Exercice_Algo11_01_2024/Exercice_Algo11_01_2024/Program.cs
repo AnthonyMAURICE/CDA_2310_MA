@@ -26,8 +26,9 @@
         public static void PoweredGreater(int[] _numbers)
         {
             double poweredGreater;
-            int temp = 0;
+            int temp = _numbers.Max();
 
+            /*
             for(int j = 0; j < _numbers.Length; j++) // boucle sur le tableau pour trouver la valeur la plus élevée
             {
                 if(temp < _numbers[j]) // si la variable temporaire contient une valeur inférieure à celle trouvée dans le tableau
@@ -35,6 +36,7 @@
                     temp = _numbers[j]; // elle en prend la valeur
                 }
             }
+            */
 
             poweredGreater = Math.Pow(temp, 2); // puis est élevée au carré
             Console.WriteLine("Valeur la plus grande (" + temp + ") élevée au carré : " + poweredGreater);

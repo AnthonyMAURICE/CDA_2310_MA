@@ -6,48 +6,25 @@
         {
             int number;
             string saisie;
+            string result = "";
             Console.WriteLine("Nombre à entrer : ");
             saisie = Console.ReadLine();
             int.TryParse(saisie, out number);
-            Console.WriteLine(FibonacciSecond(number));
+            Console.WriteLine("Les " + number + " premiers nombres de la suite de Fibonacci sont : ");
+            for (int i = 0; i < number; i++)
+            {
+                result += (FibonacciSecond(i).ToString() + "\n");
+            }
+            Console.WriteLine(result);
         }
 
-        /*
-        static string Fibonacci(int number, int iterator, int[] suiteFibo)
+        static long FibonacciSecond(int _number)
         {
-
-            if (iterator < number)
+            if (_number < 2)
             {
-                if(iterator < 2)
-                {
-                    suiteFibo[0] = 0;
-                    suiteFibo[1] = 1;
-                }
-                else
-                {
-                    suiteFibo[iterator] = suiteFibo[iterator - 1] + suiteFibo[iterator - 2];
-                }
-                
-                Fibonacci(number, ++iterator, suiteFibo);
+                return 1;
             }
-            
-            return string.Join(" ", suiteFibo);
-        }
-        */
-
-        static string FibonacciSecond(int _number)
-        {
-            string results = "";
-            
-
-            if(_number >= 2)
-            {
-
-            }
-            
-            results += "0\n1\n" + results;
-                    
-            return results;
+            return (FibonacciSecond(_number - 1) + FibonacciSecond(_number - 2));
         }
         
         /*
