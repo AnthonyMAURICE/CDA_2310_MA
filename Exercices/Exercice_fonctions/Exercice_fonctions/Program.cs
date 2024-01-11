@@ -5,11 +5,14 @@
         static void Main(string[] args)
         {
             int number;
-            string saisie;
+            string? saisie;
             string result = "";
-            Console.WriteLine("Nombre à entrer : ");
-            saisie = Console.ReadLine();
-            int.TryParse(saisie, out number);
+            do
+            {
+                Console.WriteLine("Nombres de la suite de Fibonacci (entrez un nombre entier positif) : ");
+                saisie = Console.ReadLine();
+            } while (!int.TryParse(saisie, out number) || number <= 0);
+            
             Console.WriteLine("Les " + number + " premiers nombres de la suite de Fibonacci sont : ");
             for (int i = 0; i < number; i++)
             {
