@@ -1,0 +1,15 @@
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Algo11_01_2024\Exercice_Algo11_01_2024\obj\Debug\net6.0\Exercice_Algo11_01_2024.csproj.AssemblyReference.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Algo11_01_2024\Exercice_Algo11_01_2024\obj\Debug\net6.0\Exercice_Algo11_01_2024.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Algo11_01_2024\Exercice_Algo11_01_2024\obj\Debug\net6.0\Exercice_Algo11_01_2024.AssemblyInfoInputs.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Algo11_01_2024\Exercice_Algo11_01_2024\obj\Debug\net6.0\Exercice_Algo11_01_2024.AssemblyInfo.cs
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Algo11_01_2024\Exercice_Algo11_01_2024\obj\Debug\net6.0\Exercice_Algo11_01_2024.csproj.CoreCompileInputs.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Algo11_01_2024\Exercice_Algo11_01_2024\bin\Debug\net6.0\Exercice_Algo11_01_2024.exe
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Algo11_01_2024\Exercice_Algo11_01_2024\bin\Debug\net6.0\Exercice_Algo11_01_2024.deps.json
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Algo11_01_2024\Exercice_Algo11_01_2024\bin\Debug\net6.0\Exercice_Algo11_01_2024.runtimeconfig.json
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Algo11_01_2024\Exercice_Algo11_01_2024\bin\Debug\net6.0\Exercice_Algo11_01_2024.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Algo11_01_2024\Exercice_Algo11_01_2024\bin\Debug\net6.0\Exercice_Algo11_01_2024.pdb
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Algo11_01_2024\Exercice_Algo11_01_2024\obj\Debug\net6.0\Exercice_Algo11_01_2024.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Algo11_01_2024\Exercice_Algo11_01_2024\obj\Debug\net6.0\refint\Exercice_Algo11_01_2024.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Algo11_01_2024\Exercice_Algo11_01_2024\obj\Debug\net6.0\Exercice_Algo11_01_2024.pdb
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Algo11_01_2024\Exercice_Algo11_01_2024\obj\Debug\net6.0\Exercice_Algo11_01_2024.genruntimeconfig.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Exercice_Algo11_01_2024\Exercice_Algo11_01_2024\obj\Debug\net6.0\ref\Exercice_Algo11_01_2024.dll

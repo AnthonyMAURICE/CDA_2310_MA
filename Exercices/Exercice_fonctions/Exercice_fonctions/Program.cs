@@ -5,18 +5,14 @@
         static void Main(string[] args)
         {
             int number;
-            int iterator = 2;
             string saisie;
-            
             Console.WriteLine("Nombre à entrer : ");
             saisie = Console.ReadLine();
             int.TryParse(saisie, out number);
-            int[] suiteFibo = new int[number];
-            saisie = Fibonacci(number, iterator, suiteFibo);
-            Console.WriteLine(saisie);
+            Console.WriteLine(FibonacciSecond(number));
         }
 
-
+        /*
         static string Fibonacci(int number, int iterator, int[] suiteFibo)
         {
 
@@ -36,6 +32,22 @@
             }
             
             return string.Join(" ", suiteFibo);
+        }
+        */
+
+        static string FibonacciSecond(int _number)
+        {
+            string results = "";
+            
+
+            if(_number >= 2)
+            {
+
+            }
+            
+            results += "0\n1\n" + results;
+                    
+            return results;
         }
         
         /*
