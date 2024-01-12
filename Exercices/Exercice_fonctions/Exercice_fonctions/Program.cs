@@ -1,5 +1,6 @@
 ﻿namespace Exercice_fonctions
 {
+    
     internal class Program
     {
         static void Main(string[] args)
@@ -16,18 +17,31 @@
             Console.WriteLine("Les " + number + " premiers nombres de la suite de Fibonacci sont : ");
             for (int i = 0; i < number; i++)
             {
-                result += (FibonacciSecond(i).ToString() + "\n");
+                result += FibonacciSecond(i).ToString() + "\n";
             }
             Console.WriteLine(result);
         }
 
+        public static SortedDictionary<int, long> memo = new();
+
         static long FibonacciSecond(int _number)
         {
-            if (_number < 2)
+            long result;
+            if(_number <= 1)
             {
-                return 1;
+                return _number;
             }
-            return (FibonacciSecond(_number - 1) + FibonacciSecond(_number - 2));
+            else if (memo.ContainsKey(_number))
+            {
+                return memo[_number];
+            }
+            else
+            {
+                result = FibonacciSecond(_number - 1) + FibonacciSecond(_number - 2);
+                memo.Add(_number, result);
+                return result;
+            }
+
         }
         
         /*

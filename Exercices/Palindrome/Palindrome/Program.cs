@@ -4,7 +4,7 @@
     {
         public static void Main(string[] args)
         {
-            string chaineDeTest;
+            string? chaineDeTest;
             Console.WriteLine("Saisissez la chaine de caractères à tester : ");
             chaineDeTest = Console.ReadLine();
             Console.WriteLine(IsPalindrome(chaineDeTest));
