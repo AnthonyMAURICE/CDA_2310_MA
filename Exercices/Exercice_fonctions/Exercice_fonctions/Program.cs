@@ -41,7 +41,6 @@
                 memo.Add(_number, result);
                 return result;
             }
-
         }
         
         /*
@@ -74,15 +73,6 @@
 
             return "Les " + number + " premiers nombres sont :\n" + suite;
             
-        }*/
-        /*
-        public static void Fibonacci(int _number, int i, string _suite)
-        {
-            
-        }
-        */
-
-        
+        }*/                
     }
-    
 }
