@@ -1,0 +1,15 @@
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\TestObject\TestObject\bin\Debug\net6.0\TestObject.exe
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\TestObject\TestObject\bin\Debug\net6.0\TestObject.deps.json
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\TestObject\TestObject\bin\Debug\net6.0\TestObject.runtimeconfig.json
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\TestObject\TestObject\bin\Debug\net6.0\TestObject.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\TestObject\TestObject\bin\Debug\net6.0\TestObject.pdb
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\TestObject\TestObject\obj\Debug\net6.0\TestObject.csproj.AssemblyReference.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\TestObject\TestObject\obj\Debug\net6.0\TestObject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\TestObject\TestObject\obj\Debug\net6.0\TestObject.AssemblyInfoInputs.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\TestObject\TestObject\obj\Debug\net6.0\TestObject.AssemblyInfo.cs
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\TestObject\TestObject\obj\Debug\net6.0\TestObject.csproj.CoreCompileInputs.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\TestObject\TestObject\obj\Debug\net6.0\TestObject.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\TestObject\TestObject\obj\Debug\net6.0\refint\TestObject.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\TestObject\TestObject\obj\Debug\net6.0\TestObject.pdb
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\TestObject\TestObject\obj\Debug\net6.0\TestObject.genruntimeconfig.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\TestObject\TestObject\obj\Debug\net6.0\ref\TestObject.dll
