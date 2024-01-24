@@ -1,0 +1,39 @@
+{
+    "users": [
+        {
+            "id": 0,
+            "userName": "Trinity",
+            "lastName": "lastName1",
+            "firstName": "firstName1",
+            "DOB": "16/07/1945"
+        },
+        {
+            "id": 1,
+            "userName": "Pervaïa Molnia",
+            "lastName": "lastName2",
+            "firstName": "firstName2",
+            "DOB": "29/08/1949"
+        },
+        {
+            "id": 2,
+            "userName": "Mike",
+            "lastName": "lastName3",
+            "firstName": "firstName3",
+            "DOB": "01/11/1952"
+        },
+        {
+            "id": 3,
+            "userName": "Bravo",
+            "lastName": "lastName4",
+            "firstName": "firstName4",
+            "DOB": "01/03/1954"
+        },
+        {
+            "id": 4,
+            "userName": "Tsar",
+            "lastName": "lastName5",
+            "firstName": "firstName5",
+            "DOB": "30/10/1961"
+        }
+    ]
+}

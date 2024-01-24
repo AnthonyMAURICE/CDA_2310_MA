@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+//using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,7 +8,7 @@ namespace TestObject
 {
     public class Animal
     {
-        private string species;
+        public string species;
 
         public Animal(string _species)
         {
@@ -24,5 +24,10 @@ namespace TestObject
         {
             Console.WriteLine(this.species + " se déplace");
         }
+
+       
+        
+        
+
     }
 }
