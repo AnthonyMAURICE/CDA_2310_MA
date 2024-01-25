@@ -20,7 +20,6 @@ function randomize(candidates){
 
 function displayCandidats(shuffledArray){
     for (elem of shuffledArray){
-        // version première, avec createElement et appendChild
         const candidateWrapper = document.createElement('div');
         sectionWrapper.appendChild(candidateWrapper);
         candidateWrapper.classList.add("candidat");
@@ -28,13 +27,5 @@ function displayCandidats(shuffledArray){
         candidateWrapper.appendChild(paragraph);
         const datas = document.createTextNode(elem.name);
         paragraph.appendChild(datas);
-
-        /* Autre version, avec innerHTML et backtick
-
-        sectionWrapper.innerHTML += `<div class ="candidat">
-                                        <p>${elem.name}</p>
-                                    </div>`
-
-        */
     }
 }
