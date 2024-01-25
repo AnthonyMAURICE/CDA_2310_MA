@@ -1,0 +1,34 @@
+{
+    "series": [
+        {
+            "name": "Death of Thrones",
+            "seasons": 5,
+            "genre": "Dramatic comedy",
+            "views": 550001            
+        },
+        {
+            "name": "The end is near",
+            "seasons": 2,
+            "genre": "Teen comedy",
+            "views": 459564            
+        },
+        {
+            "name": "My neighbour is a killer clown",
+            "seasons": 3,
+            "genre": "Biopic",
+            "views": 358666            
+        },
+        {
+            "name": "It Came From Outer Space !",
+            "seasons": 8,
+            "genre": "Science-fiction",
+            "views": 343597            
+        },
+        {
+            "name": "My Dear Cthulhu",
+            "seasons": 2,
+            "genre": "Fantasy",
+            "views": 299999            
+        }
+    ]
+}

@@ -1,0 +1,166 @@
+{
+    "countries": [
+        {
+            "name": "Allemagne",
+            "capitalCity": "Berlin",
+            "joined": "01/01/1958",
+            "population": 83130000
+        },
+        {
+            "name": "Autriche",
+            "capitalCity": "Vienne",
+            "joined": "01/01/1995",
+            "population": 8508000
+        },
+        {
+            "name": "Belgique",
+            "capitalCity": "Bruxelles",
+            "joined": "01/01/1958",
+            "population": 11204000
+        },
+        {
+            "name": "Bulgarie",
+            "capitalCity": "Sofia",
+            "joined": "01/01/2007",
+            "population": 7246000
+        },
+        {
+            "name": "Chypre",
+            "capitalCity": "Nicosie",
+            "joined": "01/05/2004",
+            "population": 858000
+        },
+        {
+            "name": "Croatie",
+            "capitalCity": "Zagreb",
+            "joined": "01/07/2013",
+            "population": 4246000
+        },
+        {
+            "name": "Danemark",
+            "capitalCity": "Copenhague",
+            "joined": "01/01/1973",
+            "population": 5627000
+        },
+        {
+            "name": "Espagne",
+            "capitalCity": "Madrid",
+            "joined": "01/01/1986",
+            "population": 47385000
+        },
+        {
+            "name": "Estonie",
+            "capitalCity": "Tallinn",
+            "joined": "01/05/2004",
+            "population": 1316000
+        },
+        {
+            "name": "Finlande",
+            "capitalCity": "Helsinki",
+            "joined": "01/01/1995",
+            "population": 5451000
+        },
+        {
+            "name": "France",
+            "capitalCity": "Paris",
+            "joined": "01/01/1958",
+            "population": 67800000
+        },
+        {
+            "name": "Grèce",
+            "capitalCity": "Athènes",
+            "joined": "01/01/1981",
+            "population": 10993000
+        },
+        {
+            "name": "Hongrie",
+            "capitalCity": "Budapest",
+            "joined": "01/05/2004",
+            "population": 9879000
+        },
+        {
+            "name": "Irlande",
+            "capitalCity": "Dublin",
+            "joined": "01/01/1973",
+            "population": 4604000
+        },
+        {
+            "name": "Italie",
+            "capitalCity": "Rome",
+            "joined": "01/01/1958",
+            "population": 60783000
+        },
+        {
+            "name": "Lettonie",
+            "capitalCity": "Riga",
+            "joined": "01/05/2004",
+            "population": 2001000
+        },
+        {
+            "name": "Lituanie",
+            "capitalCity": "Vilnius",
+            "joined": "01/05/2004",
+            "population": 2943000
+        },
+        {
+            "name": "Luxembourg",
+            "capitalCity": "Luxembourg",
+            "joined": "01/01/1958",
+            "population": 550000
+        },
+        {
+            "name": "Malte",
+            "capitalCity": "La Valette",
+            "joined": "01/05/2004",
+            "population": 425000
+        },
+        {
+            "name": "Pays-Bas",
+            "capitalCity": "Amsterdam",
+            "joined": "01/01/1958",
+            "population": 16829000
+        },
+        {
+            "name": "Pologne",
+            "capitalCity": "Varsovie",
+            "joined": "01/05/2004",
+            "population": 38496000
+        },
+        {
+            "name": "Portugal",
+            "capitalCity": "Lisbonne",
+            "joined": "01/01/1986",
+            "population": 10427000
+        },
+        {
+            "name": "Roumanie",
+            "capitalCity": "Bucarest",
+            "joined": "01/01/2007",
+            "population": 19943000
+        },
+        {
+            "name": "Slovaquie",
+            "capitalCity": "Bratislava",
+            "joined": "01/05/2004",
+            "population": 5416000
+        },
+        {
+            "name": "Slovénie",
+            "capitalCity": "Ljubjana",
+            "joined": "01/05/2004",
+            "population": 2061000
+        },
+        {
+            "name": "Suède",
+            "capitalCity": "Stockholm",
+            "joined": "01/01/1995",
+            "population": 9645000
+        },
+        {
+            "name": "Tchéquie",
+            "capitalCity": "Prague",
+            "joined": "01/05/2004",
+            "population": 10512000
+        }
+    ]
+}
