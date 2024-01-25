@@ -1,7 +1,42 @@
 {
-    "vols": [
+    "compagnies": [
         {
-            
+            "airfrance": [
+                {
+                    "name": "Air France",
+                    "departure": [
+                        {
+                            "aeroDepart": "Orly",
+                            "flights": [
+                                {
+                                    "fightID": 1,
+                                    "flightNumber": "AF-110",
+                                    "destination": "McMurdo / Antartica",
+                                    "departure": "01/06/2024 / 9h30 CEST"
+                                },
+                                {
+                                    "fightID": 2,
+                                    "flightNumber": "AF-666",
+                                    "destination": "R'lyeh / South Pacific",
+                                    "departure": "01/06/2024 / 10h00 CEST"
+                                },
+                                {
+                                    "fightID": 3,
+                                    "flightNumber": "AF-000",
+                                    "destination": "Nowhere / Unending Void",
+                                    "departure": "01/06/2024 / 11h45 CEST"
+                                },
+                                {
+                                    "fightID": 4,
+                                    "flightNumber": "AF-017",
+                                    "destination": "Silent Sea / Moon",
+                                    "departure": "01/06/2024 / 19h30 CEST"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
