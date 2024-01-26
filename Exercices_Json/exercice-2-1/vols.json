@@ -1,5 +1,5 @@
 {
-    "compagnies": [
+    "companies": [
         {
             "airfrance": [
                 {
@@ -12,25 +12,25 @@
                                     "flightID": 1,
                                     "flightNumber": "AF-110",
                                     "destination": "McMurdo / Antartica",
-                                    "departure": "01/06/2024 / 9h30 CEST"
+                                    "departureTime": "01/06/2024 / 9h30 CEST"
                                 },
                                 {
                                     "flightID": 2,
                                     "flightNumber": "AF-666",
                                     "destination": "R'lyeh / South Pacific",
-                                    "departure": "01/06/2024 / 10h00 CEST"
+                                    "departureTime": "01/06/2024 / 10h00 CEST"
                                 },
                                 {
                                     "flightID": 3,
                                     "flightNumber": "AF-000",
                                     "destination": "Nowhere / Unending Void",
-                                    "departure": "01/06/2024 / 11h45 CEST"
+                                    "departureTime": "01/06/2024 / 11h45 CEST"
                                 },
                                 {
                                     "flightID": 4,
                                     "flightNumber": "AF-017",
                                     "destination": "Silent Sea / Moon",
-                                    "departure": "01/06/2024 / 19h30 CEST"
+                                    "departureTime": "01/06/2024 / 19h30 CEST"
                                 }
                             ]
                         }
