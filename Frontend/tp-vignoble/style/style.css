@@ -1,0 +1,139 @@
+/* Généralités et reset css*/
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    color: white;
+    height: 100vh;
+    background-image: url(../assets/bg_motif.gif);
+}
+
+/* Header */
+
+.logo{
+    position: absolute;
+    top: 6%;
+    left: 10%;
+}
+
+nav{
+    padding: 20px;
+    background-color: black;
+    border-bottom: 1px solid lightgray;
+}
+
+.navbar{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hidden-menu{
+    display: none;
+    margin-top: 30px;
+    background-color: black;
+    opacity: 0.75;
+}
+
+li{
+    padding: 10px;
+    list-style: none;
+    height: 40px;
+}
+
+.nav-element{
+    width: 10%;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+/* menu déroulant */
+
+.html:hover > .first{
+    display: flex;
+    flex-flow: column;
+}
+
+.css:hover > .second{
+    display: flex;
+    flex-flow: column;
+}
+
+.app:hover > .third{
+    display: flex;
+    flex-flow: column;
+}
+
+/* main container */
+
+main{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.main-img{
+    box-shadow:  0 0 0.5em white;
+}
+
+.main-section{
+    padding: 25px 25px;
+}
+
+.main-section, .products{
+    width: 55%;
+    background-color: rgb(65, 65, 65);
+}
+
+.main-container{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.caption{
+    background-color: white;
+    color: brown;
+    width: 900px;
+    text-align: center;
+    font-size: 20px;
+    padding: 15px;
+}
+
+.products{
+    display: flex;
+    justify-content: center;
+}
+
+.elem-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.elem-column{
+    display: flex;
+    flex-flow: column;
+    width: 25%;
+    margin: 10px 25px;
+}
+
+.elem-column p{
+    color: black;
+    margin: 15px 0;
+}
+
+.btn{
+    background-color: gray;
+    align-self: center;
+    padding: 15px;
+    width: 50%;
+    color: white;
+    border-color: white;
+}
