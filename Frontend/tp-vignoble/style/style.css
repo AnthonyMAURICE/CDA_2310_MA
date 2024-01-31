@@ -12,40 +12,70 @@ body{
     background-image: url(../assets/bg_motif.gif);
 }
 
+@font-face{
+    font-family: titleFont;
+    src: url(../fonts/channel-webfont.ttf);
+}
+
+a, h2, h3, h4{
+    font-family: titleFont;
+    font-size: 20px
+}
+
+p{
+    font-family: Tahoma, sans-serif;
+}
+
+hr{
+    width: 98%;
+    margin: 0 10px;
+    color: white;
+}
+
+.row{
+    display: flex;
+}
+
+.col{
+    display: flex;
+    flex-flow: column;
+}
+
+.paragraph{
+    color: black;
+    font-weight: bold;
+}
+
 /* Header */
 
 .logo{
     position: absolute;
     top: 6%;
-    left: 10%;
+    left: 15%;
 }
 
 nav{
-    padding: 20px;
+    padding: 16px;
     background-color: black;
     border-bottom: 1px solid lightgray;
 }
 
 .navbar{
-    display: flex;
     justify-content: flex-end;
 }
 
 .hidden-menu{
     display: none;
-    margin-top: 30px;
-    background-color: black;
-    opacity: 0.75;
 }
 
 li{
     padding: 10px;
     list-style: none;
-    height: 40px;
+    height: 50px;
 }
 
 .nav-element{
-    width: 10%;
+    width: 11%;
 }
 
 a{
@@ -53,87 +83,195 @@ a{
     color: white;
 }
 
+a:hover{
+    color: darkred;
+}
+
 /* menu déroulant */
 
-.html:hover > .first{
+.html:hover > .first, .css:hover > .second, .app:hover > .third{
     display: flex;
     flex-flow: column;
 }
 
-.css:hover > .second{
-    display: flex;
-    flex-flow: column;
+.hidden-element{
+    border: 1px solid white;
+    width: 250px;
+    background-color: black;
+    opacity: 0.75;
 }
 
-.app:hover > .third{
-    display: flex;
-    flex-flow: column;
+.hidden-element > a{
+    font-size: 20px;
+    padding-left: 10px;
 }
 
 /* main container */
 
 main{
-    display: flex;
-    flex-flow: column;
     align-items: center;
 }
 
 .main-img{
+    height: 100%;
+    max-width: 900px;
     box-shadow:  0 0 0.5em white;
 }
 
 .main-section{
-    padding: 25px 25px;
+    padding: 10px 25px;
 }
 
-.main-section, .products{
-    width: 55%;
+.main-section, .products, .wine-section, .separation{
+    width: 50%;
     background-color: rgb(65, 65, 65);
 }
 
 .main-container{
-    display: flex;
-    flex-flow: column;
     align-items: center;
 }
 
 .caption{
     background-color: white;
-    color: brown;
+    color: rgb(190, 3, 3);
     width: 900px;
     text-align: center;
     font-size: 20px;
     padding: 15px;
 }
 
+/* section 2 */
+
 .products{
-    display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    padding: 25px 0;
 }
 
 .elem-row{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-evenly;
+}
+
+.elem-title{
+    font-size: 20px;
 }
 
 .elem-column{
-    display: flex;
-    flex-flow: column;
-    width: 25%;
-    margin: 10px 25px;
+    width: 30%;
+    position: relative;
+}
+
+.elem-img{
+    height: 60px;
+}
+
+.image-back{
+    position: absolute;
+    right: 0px;
+    top: -15px;
 }
 
 .elem-column p{
-    color: black;
     margin: 15px 0;
+    text-align: center;
 }
 
 .btn{
     background-color: gray;
     align-self: center;
     padding: 15px;
-    width: 50%;
     color: white;
-    border-color: white;
+    border: none;
+}
+
+.btn:hover{
+    animation: btn-anim 1000ms forwards;
+}
+
+/* section 3 */
+
+.aside-menu{
+    width: 35%;
+    background-color: rgb(100, 100, 100);
+    text-align: center;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+.wine-title{
+    padding: 10px;
+    font-size: 15px;
+    border-bottom: 1px solid white;
+}
+
+.aside-row{
+    padding: 10px 25px;
+    border-bottom: 1px solid white;
+}
+
+.list-img{
+    padding: 0 15px;
+}
+
+.aside-row p{
+    color: black;
+}
+
+.section-gifts{
+    width: 65%;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgb(100, 100, 100);
+}
+
+.menu-col{
+    margin: 10px;
+}
+
+.section-gifts h3{
+    text-align: center;
+}
+
+.section-gifts h4{
+    font-size: 11px;
+}
+
+.menu-p{
+    margin: 10px 0;
+}
+
+.section-img{
+    border: 3px solid white;
+    max-height: 220px;
+}
+
+.wine-link{
+    color: black;
+    font-size: 15px;
+    font-family: Tahoma, sans-serif;
+}
+
+/* footer */
+
+#footer{
+    width: 50%;
+    margin: auto;
+    justify-content: space-around;
+    align-items: center;
+    background-image: url(../assets/footer-bg.png);
+}
+
+.footer-ul{
+    justify-content: space-evenly;
+}
+
+.footer-li a{
+    font-size: 15px;
+}
+
+/* animations */
+
+@keyframes btn-anim{
+    from{color: white; transform: rotate(0); opacity: 1;}
+    to{color: red; transform: rotate(-15deg); opacity: 0.25;}
 }
