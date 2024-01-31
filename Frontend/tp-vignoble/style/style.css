@@ -22,7 +22,7 @@ a, h2, h3, h4{
     font-size: 20px
 }
 
-p{
+p, .wine-link{
     font-family: Tahoma, sans-serif;
 }
 
@@ -217,7 +217,7 @@ main{
 }
 
 .section-gifts{
-    width: 65%;
+    width: 70%;
     margin: 20px;
     padding: 10px;
     border-radius: 5px;
@@ -225,7 +225,7 @@ main{
 }
 
 .menu-col{
-    margin: 10px;
+    margin: 7px;
 }
 
 .section-gifts h3{
@@ -233,11 +233,12 @@ main{
 }
 
 .section-gifts h4{
-    font-size: 11px;
+    font-size: 12px;
 }
 
 .menu-p{
-    margin: 10px 0;
+    margin: 10px 10px;
+    text-align: justify;
 }
 
 .section-img{
@@ -248,7 +249,6 @@ main{
 .wine-link{
     color: black;
     font-size: 15px;
-    font-family: Tahoma, sans-serif;
 }
 
 /* footer */
@@ -272,6 +272,6 @@ main{
 /* animations */
 
 @keyframes btn-anim{
-    from{color: white; transform: rotate(0); opacity: 1;}
-    to{color: red; transform: rotate(-15deg); opacity: 0.25;}
+    from{color: white; transform: rotate(0); text-shadow: none; opacity: 1;}
+    to{color: red; transform: rotate(-15deg); text-shadow:  0 0 0.5em white;; opacity: 0.25;}
 }
