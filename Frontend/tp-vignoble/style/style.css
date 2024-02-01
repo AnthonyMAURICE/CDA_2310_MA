@@ -8,13 +8,12 @@
 
 body{
     color: white;
-    height: 100vh;
     background-image: url(../assets/bg_motif.gif);
 }
 
 @font-face{
     font-family: titleFont;
-    src: url(../fonts/channel-webfont.ttf);
+    src: url(../fonts/channel-webfont.woff);
 }
 
 a, h2, h3, h4{
@@ -23,7 +22,10 @@ a, h2, h3, h4{
 }
 
 p, .wine-link{
+    color: black;
+    font-weight: bold;
     font-family: Tahoma, sans-serif;
+    text-align: center;
 }
 
 hr{
@@ -34,6 +36,7 @@ hr{
 
 .row{
     display: flex;
+    flex-flow: row;
 }
 
 .col{
@@ -41,12 +44,11 @@ hr{
     flex-flow: column;
 }
 
-.paragraph{
-    color: black;
-    font-weight: bold;
-}
-
 /* Header */
+
+header{
+    background-image: url(../assets/header.png);
+}
 
 .logo{
     position: absolute;
@@ -56,7 +58,6 @@ hr{
 
 nav{
     padding: 16px;
-    background-color: black;
     border-bottom: 1px solid lightgray;
 }
 
@@ -102,7 +103,6 @@ a:hover{
 }
 
 .hidden-element > a{
-    font-size: 20px;
     padding-left: 10px;
 }
 
@@ -113,16 +113,18 @@ main{
 }
 
 .main-img{
-    height: 100%;
-    max-width: 900px;
-    box-shadow:  0 0 0.5em white;
+    width: 100%;
 }
 
 .main-section{
     padding: 10px 25px;
 }
 
-.main-section, .products, .wine-section, .separation{
+figure, figcaption{
+    box-shadow:  0 0 0.5em white;
+}
+
+.main-section, .products, .wine-section, .separation, footer{
     width: 50%;
     background-color: rgb(65, 65, 65);
 }
@@ -134,7 +136,6 @@ main{
 .caption{
     background-color: white;
     color: rgb(190, 3, 3);
-    width: 900px;
     text-align: center;
     font-size: 20px;
     padding: 15px;
@@ -152,7 +153,7 @@ main{
 }
 
 .elem-title{
-    font-size: 20px;
+    padding: 10px;
 }
 
 .elem-column{
@@ -172,7 +173,6 @@ main{
 
 .elem-column p{
     margin: 15px 0;
-    text-align: center;
 }
 
 .btn{
@@ -238,7 +238,7 @@ main{
 
 .menu-p{
     margin: 10px 10px;
-    text-align: justify;
+    text-align: left;
 }
 
 .section-img{
@@ -254,24 +254,19 @@ main{
 /* footer */
 
 #footer{
-    width: 50%;
     margin: auto;
     justify-content: space-around;
     align-items: center;
     background-image: url(../assets/footer-bg.png);
 }
 
-.footer-ul{
-    justify-content: space-evenly;
-}
-
 .footer-li a{
-    font-size: 15px;
+    font-size: 12px;
 }
 
 /* animations */
 
 @keyframes btn-anim{
-    from{color: white; transform: rotate(0); text-shadow: none; opacity: 1;}
-    to{color: red; transform: rotate(-15deg); text-shadow:  0 0 0.5em white;; opacity: 0.25;}
+    from{color: white; transform: rotate(0) scale(1); text-shadow: none; opacity: 1;}
+    to{color: red; transform: rotate(-15deg) scale(1.2); text-shadow:  1px 1px 0.5em white;; opacity: 0.25;}
 }
