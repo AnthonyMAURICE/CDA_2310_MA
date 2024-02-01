@@ -47,6 +47,7 @@ hr{
 /* Header */
 
 header{
+    
     background-image: url(../assets/header.png);
 }
 
@@ -108,8 +109,14 @@ a:hover{
 
 /* main container */
 
-main{
+
+main, footer{
     align-items: center;
+    background-image: url(../assets/container.png);
+}
+
+section{
+    background-color: rgb(65, 65, 65, 0.4);
 }
 
 .main-img{
@@ -126,7 +133,6 @@ figure, figcaption{
 
 .main-section, .products, .wine-section, .separation, footer{
     width: 50%;
-    background-color: rgb(65, 65, 65);
 }
 
 .main-container{
@@ -191,7 +197,7 @@ figure, figcaption{
 
 .aside-menu{
     width: 35%;
-    background-color: rgb(100, 100, 100);
+    background-color: rgb(80, 80, 80);
     text-align: center;
     margin: 20px;
     border-radius: 5px;
@@ -221,7 +227,7 @@ figure, figcaption{
     margin: 20px;
     padding: 10px;
     border-radius: 5px;
-    background-color: rgb(100, 100, 100);
+    background-color: rgb(80, 80, 80);
 }
 
 .menu-col{
@@ -253,12 +259,19 @@ figure, figcaption{
 
 /* footer */
 
+footer{
+    width: 100%;
+}
+
 #footer{
+    width: 50%;
     margin: auto;
-    justify-content: space-around;
+    display: flex;
     align-items: center;
     background-image: url(../assets/footer-bg.png);
 }
+
+
 
 .footer-li a{
     font-size: 12px;
@@ -269,4 +282,60 @@ figure, figcaption{
 @keyframes btn-anim{
     from{color: white; transform: rotate(0) scale(1); text-shadow: none; opacity: 1;}
     to{color: red; transform: rotate(-15deg) scale(1.2); text-shadow:  1px 1px 0.5em white;; opacity: 0.25;}
+}
+
+@media screen and (max-width: 1280px) {
+
+    .navbar{
+        justify-content: center;
+    }
+
+    .nav-element{
+        width: 10%;
+        text-align: center;
+    }
+
+    .logo{
+        display: none;
+    }
+
+    a, h2, h3, h4{
+        font-size: 12px
+    }
+
+    .products, .wine-section{
+        flex-flow: column;
+        align-items: center;
+        width: 50%;
+    }
+
+    .elem-column{
+        width: 50%;
+        margin: 20px 0;
+    }
+
+    .aside-menu{
+        width: 70%;
+    }
+
+    p{
+        font-size: 12px;
+    }
+
+    .menu-col > h4{
+        font-size: 7px;
+    }
+
+    footer > img{
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+
+    .menu-row{
+        flex-flow: column;
+    }
+
 }
