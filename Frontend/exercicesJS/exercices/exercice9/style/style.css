@@ -1,0 +1,21 @@
+body{
+    background-color: lightblue;
+}
+
+form{
+    border: 1px solid white;
+    display: flex;
+    padding: 10px;
+    width: 45%;
+}
+
+.form-element{
+    display: flex;
+    flex-flow: column;
+    margin: 15px;
+}
+
+button{
+    width: 50%;
+    margin-top: 5px;
+}

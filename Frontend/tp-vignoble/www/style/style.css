@@ -18,7 +18,7 @@ body{
 
 a, h2, h3, h4{
     font-family: titleFont;
-    font-size: 20px
+    font-size: 1.2rem;
 }
 
 p, .wine-link{
@@ -96,6 +96,12 @@ a:hover{
     flex-flow: column;
 }
 
+
+.shown{
+    display: flex;
+    flex-flow: column;
+}
+
 .hidden-element{
     border: 1px solid white;
     width: 250px;
@@ -143,7 +149,7 @@ figure, figcaption{
     background-color: white;
     color: rgb(190, 3, 3);
     text-align: center;
-    font-size: 20px;
+    font-size: 1.2rem;
     padding: 15px;
 }
 
@@ -164,6 +170,7 @@ figure, figcaption{
 
 .elem-column{
     width: 30%;
+    min-height: 250px;
     position: relative;
 }
 
@@ -178,7 +185,7 @@ figure, figcaption{
 }
 
 .elem-column p{
-    margin: 15px 0;
+    margin: 30px 0;
 }
 
 .btn{
@@ -190,7 +197,7 @@ figure, figcaption{
 }
 
 .btn:hover{
-    animation: btn-anim 1000ms forwards;
+    animation: btn-anim ease-in-out 1000ms forwards;
 }
 
 /* section 3 */
@@ -205,7 +212,7 @@ figure, figcaption{
 
 .wine-title{
     padding: 10px;
-    font-size: 15px;
+    font-size: 1.3rem;
     border-bottom: 1px solid white;
 }
 
@@ -239,7 +246,7 @@ figure, figcaption{
 }
 
 .section-gifts h4{
-    font-size: 12px;
+    font-size: 0.7rem;
 }
 
 .menu-p{
@@ -250,11 +257,12 @@ figure, figcaption{
 .section-img{
     border: 3px solid white;
     max-height: 220px;
+    max-width: 220px;
 }
 
 .wine-link{
     color: black;
-    font-size: 15px;
+    font-size: 1rem;
 }
 
 /* footer */
@@ -268,13 +276,14 @@ footer{
     margin: auto;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-image: url(../assets/footer-bg.png);
 }
 
 
 
 .footer-li a{
-    font-size: 12px;
+    font-size: 1rem;
 }
 
 /* animations */
@@ -287,11 +296,11 @@ footer{
 @media screen and (max-width: 1280px) {
 
     .navbar{
-        justify-content: center;
+        justify-content: space-between;
     }
 
     .nav-element{
-        width: 10%;
+        width: 20%;
         text-align: center;
     }
 
@@ -300,7 +309,7 @@ footer{
     }
 
     a, h2, h3, h4{
-        font-size: 12px
+        font-size: 0.8rem
     }
 
     .products, .wine-section{
@@ -319,23 +328,58 @@ footer{
     }
 
     p{
-        font-size: 12px;
+        font-size: 0.8rem;
     }
 
     .menu-col > h4{
-        font-size: 7px;
+        font-size: 0.8rem;
     }
 
-    footer > img{
+    #footer{
+        justify-content: center;
+    }
+
+    #footer > img{
         display: none;
     }
 
+    .footer-li a{
+
+        text-align: center;
+        font-size: 0.8rem;
+    }
 }
 
 @media screen and (max-width: 900px) {
 
     .menu-row{
         flex-flow: column;
+    }
+
+    a, h2, h3, h4{
+        text-align: center;
+        font-size: 1rem;
+    }
+
+    .main-section, .products, .wine-section, .separation, footer{
+        width: 80%;
+    }
+
+    .menu-row{
+        align-items: center;
+    }
+
+    footer{
+        margin: auto;
+    }
+
+    #footer{
+        width: 100%;
+    }
+
+    .footer-ul{
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
 }
