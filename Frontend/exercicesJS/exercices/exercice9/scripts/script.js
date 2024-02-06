@@ -1,8 +1,10 @@
 const formulaire = document.querySelector('form');
-const btn = document.querySelectorAll('button')
+const btn = document.querySelectorAll('.btn-color')
 const inputs = document.querySelectorAll('input');
-let controledInputs = false;
-window.addEventListener("load", updateMouseHexa);
+const hex = document.getElementById('hex');
+const rgbButton = document.getElementById('rgb');
+
+window.addEventListener("load", updateMouseColor);
 
 for(button of btn){
     button.addEventListener("click", function(){
@@ -10,35 +12,44 @@ for(button of btn){
     });
 }
 
-formulaire.addEventListener("mouseleave", control);
+hex.addEventListener("click", controlHexa);
+rgbButton.addEventListener("click", controlRGB);
 
-function control(){
+function controlHexa(){
     let pattern = /^[a-fA-F0-9_]+$/;
     let hexColor = "#";
-    let rgb = "rgb(";
-    let iteration = inputs.length;
     for(let input of inputs){
         if(input.value.length == 2 && pattern.test(input.value)){
             hexColor += input.value;
         }else{
-            if(!isNaN(Number(input.value))&& input.value >= 0 && input.value <= 255){
-                --iteration? rgb += Number(input.value) + ", " : rgb += Number(input.value) + ")";
-            }
-            updateMouseRgb(rgb)
+            input.value = "error";
         }
-        updateMouseHexa(hexColor);
     }
+    formulaire.addEventListener("mouseleave", function(){
+        updateMouseColor(hexColor)
+    });
+}
+
+function controlRGB(){
+    let rgb = "rgb(";
+    let iterator = inputs.length;
+    for(let input of inputs){
+        if(!isNaN(Number(input.value))){
+            rgb += Number(input.value) + (--iterator? ", ": "");
+        }else{
+            input.value = "error";
+        }
+    }
+    rgb += ")";
+    formulaire.addEventListener("mouseleave", function(){
+        updateMouseColor(rgb)
+    });
 }
 
 function updateColor(_btn){
     formulaire.style.backgroundColor = _btn.id;
 }
 
-function updateMouseRgb(rgb){
-    console.log(rgb);
-    formulaire.style.backgroundColor = rgb;
-}
-
-function updateMouseHexa(hex){
-    formulaire.style.backgroundColor = hex;
+function updateMouseColor(color){
+    formulaire.style.backgroundColor = color;
 }
