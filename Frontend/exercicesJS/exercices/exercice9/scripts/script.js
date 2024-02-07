@@ -1,8 +1,8 @@
 const formulaire = document.querySelector('form');
 const btn = document.querySelectorAll('.btn-color')
 const inputs = document.querySelectorAll('.colorInput');
-const hex = document.getElementById('hex');
-const rgbButton = document.getElementById('rgb');
+const hex = document.querySelector('#hex');
+const rgbButton = document.querySelector('#rgb');
 
 window.addEventListener("load", controlHexa);
 
@@ -38,7 +38,7 @@ function controlRGB(){
     let rgb = "rgb(";
     let iterator = inputs.length;
     for(let input of inputs){
-        if(!isNaN(Number(input.value))){
+        if(!isNaN(Number(input.value)) && input >= 0 && input <= 255){
             rgb += Number(input.value) + (--iterator? ", ": "");
         }else{
             input.value = "error";

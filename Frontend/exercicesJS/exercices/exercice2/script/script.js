@@ -6,7 +6,7 @@ const startButton = document.getElementById('start-btn');
 const stopButton = document.getElementById('stop-btn');
 
 const timer = document.addEventListener("DOMContentLoaded", function(){
-    setInterval("displayTime()", 500)
+    setInterval("displayTime()", 1000)
 });
 
 dateBtn.addEventListener("click", displayDate);

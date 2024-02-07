@@ -10,7 +10,7 @@ body{
 
 main{
     margin: 25px;
-    width: 45%;
+    width: 50%;
     border: 1px solid white;
     border-radius: 15px;
     box-shadow: 15px 15px 10px grey;
@@ -48,11 +48,31 @@ input, button{
 }
 
 select{
-    width: 100px;
+    width: 150px;
 }
 
 .buttons{
     display: flex;
     flex-flow: column;
     width: 100px;
+}
+
+table{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+tr{
+    display: flex;
+    width: 80%;
+    height: 30px;
+    margin: 25px;
+}
+
+td{
+    width: 150px;
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px;
 }
