@@ -2,8 +2,10 @@ const dateInput = document.getElementById('date');
 const timeInput = document.getElementById('time');
 const dateBtn = document.getElementById('btn-date');
 const timeBtn = document.getElementById('btn-time');
+const startButton = document.getElementById('start-btn');
+const stopButton = document.getElementById('stop-btn');
 
-document.addEventListener("DOMContentLoaded", function(){
+const timer = document.addEventListener("DOMContentLoaded", function(){
     setInterval("displayTime()", 500)
 });
 

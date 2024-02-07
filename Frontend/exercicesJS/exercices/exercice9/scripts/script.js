@@ -1,10 +1,10 @@
 const formulaire = document.querySelector('form');
 const btn = document.querySelectorAll('.btn-color')
-const inputs = document.querySelectorAll('input');
+const inputs = document.querySelectorAll('.colorInput');
 const hex = document.getElementById('hex');
 const rgbButton = document.getElementById('rgb');
 
-window.addEventListener("load", updateMouseColor);
+window.addEventListener("load", controlHexa);
 
 for(button of btn){
     button.addEventListener("click", function(){
@@ -12,8 +12,13 @@ for(button of btn){
     });
 }
 
-hex.addEventListener("click", controlHexa);
-rgbButton.addEventListener("click", controlRGB);
+formulaire.addEventListener("mouseleave", function(){
+    if(hex.checked == true){
+        controlHexa();
+    }else if(rgbButton.checked == true){
+        controlRGB();
+    }
+});
 
 function controlHexa(){
     let pattern = /^[a-fA-F0-9_]+$/;
@@ -25,12 +30,11 @@ function controlHexa(){
             input.value = "error";
         }
     }
-    formulaire.addEventListener("mouseleave", function(){
-        updateMouseColor(hexColor)
-    });
+    updateMouseColor(hexColor)
 }
 
 function controlRGB(){
+    console.log("test")
     let rgb = "rgb(";
     let iterator = inputs.length;
     for(let input of inputs){
@@ -41,9 +45,8 @@ function controlRGB(){
         }
     }
     rgb += ")";
-    formulaire.addEventListener("mouseleave", function(){
-        updateMouseColor(rgb)
-    });
+    console.log(rgb)
+    updateMouseColor(rgb)
 }
 
 function updateColor(_btn){
