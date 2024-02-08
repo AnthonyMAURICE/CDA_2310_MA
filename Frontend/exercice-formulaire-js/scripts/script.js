@@ -39,7 +39,7 @@ currentMonth.addEventListener("change", astro);
 function formok(){
     if(lastName.value != "" && email.value != "" && firstName.value != ""){
         validButton.removeAttribute("disabled");
-        validate();
+        pseudoConstructor();
         return true;
     }else{
         validButton.setAttribute("disabled", "true");
@@ -48,7 +48,7 @@ function formok(){
 }
 
 
-function validate(){
+function pseudoConstructor(){
     const pseudo = astro() + nameAsNumber(lastName.value) + nameAsNumber(firstName.value);
     pseudoInput.value = pseudo;
 }

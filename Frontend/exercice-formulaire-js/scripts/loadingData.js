@@ -1,3 +1,4 @@
+const lists = document.querySelectorAll('.list');
 const dayNumber = document.querySelector('#list-days');
 const currentYear = document.querySelector('#list-year');
 const currentMonth = document.querySelector('#list-month');
@@ -7,7 +8,7 @@ const months = [...Array(12).keys()].map(key => new Date(0, key).toLocaleString(
 dob();
 
 function dob(){
-    for(let k = 1915; k < dateNow.getFullYear(); k++){
+    for(let k = 1915; k <= dateNow.getFullYear(); k++){
         currentYear.appendChild(years(k));
     }
     for(let j = 0; j < months.length; j++){
@@ -16,12 +17,11 @@ function dob(){
     monthCheck(currentYear, currentMonth);
 }
 
-currentMonth.addEventListener("change", function(){
+for(let list of lists){
+    list.addEventListener("change", function(){
     monthCheck(currentYear, currentMonth);
 })
-currentYear.addEventListener("change", function(){
-    monthCheck(currentYear, currentMonth);
-})
+}
 
 function monthCheck(year, month){
     if(month.value == "février"){

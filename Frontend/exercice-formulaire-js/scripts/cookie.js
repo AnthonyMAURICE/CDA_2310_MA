@@ -1,4 +1,4 @@
-validButton.addEventListener("click", changePage);
+validButton.addEventListener("click", controlDate);
 
 function setCookie(cname, cvalue, maxAge){
     document.cookie = cname + "=" + cvalue + "; max-age= "+ maxAge+"; path=./;"; 
@@ -14,4 +14,14 @@ function changePage(){
     setCookie("cpseudo", pseudoInput.value, 86400);
     setCookie("cmail", mail.value, 86400);
     window.location.href = "../accueil.html";
+}
+
+function controlDate(){
+    let dateComp = Date.parse(currentYear.value + "-" + months.indexOf(currentMonth.value) + "-" + dayNumber.value);
+    if(dateNow.getTime() < dateComp){
+        alert("Date invalide !")
+        location.reload()
+    }else{
+        changePage();
+    }
 }

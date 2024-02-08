@@ -68,22 +68,21 @@ function bissextile(year){
 
 function displayDays(){
     const disDay = document.createElement('p')
-    const daysUntil = document.createTextNode(isNaN(daysTillBirthday(monthIndex, dayValue))? "Bon anniversaire !" : "Nombre de jours avant votre prochain anniversaire : " + daysTillBirthday(monthIndex, dayValue));
+    const daysUntil = document.createTextNode(daysTillBirthday(monthIndex, dayValue) == 365? "Bon anniversaire !" : "Nombre de jours avant votre prochain anniversaire : " + daysTillBirthday(monthIndex, dayValue));
     disDay.appendChild(daysUntil);
     return disDay;
 }
 
 function getCookie(cname){
     let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for(let i = 0; i <ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
+    let decodedCookie = decodeURIComponent(document.cookie).split(';');
+    for(let i = 0; i <decodedCookie.length; i++) {
+        let cookie = decodedCookie[i];
+        while (cookie.charAt(0) == ' ') {
+            cookie = cookie.substring(1);
         }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
+        if (cookie.indexOf(name) == 0) {
+            return cookie.substring(name.length, cookie.length);
         }
     }
     return "";
