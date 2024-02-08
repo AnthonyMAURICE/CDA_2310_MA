@@ -1,24 +1,27 @@
 const dayNumber = document.querySelector('#list-days');
 const currentYear = document.querySelector('#list-year');
 const currentMonth = document.querySelector('#list-month');
-const mail = document.querySelector('#mail');
+const dateNow = new Date();
 const months = [...Array(12).keys()].map(key => new Date(0, key).toLocaleString('fr', { month: 'long' }));
-let day = 31;
 
 dob();
 
 function dob(){
-    for(let k = 1915; k < 2024; k++){
+    for(let k = 1915; k < dateNow.getFullYear(); k++){
         currentYear.appendChild(years(k));
     }
     for(let j = 0; j < months.length; j++){
         currentMonth.appendChild(month(j));
     }
-    days(31);
-    currentMonth.addEventListener("change", function(){
-        monthCheck(currentYear, currentMonth);
-    })
+    monthCheck(currentYear, currentMonth);
 }
+
+currentMonth.addEventListener("change", function(){
+    monthCheck(currentYear, currentMonth);
+})
+currentYear.addEventListener("change", function(){
+    monthCheck(currentYear, currentMonth);
+})
 
 function days(day){
     dayNumber.replaceChildren()
@@ -36,7 +39,6 @@ function daysNumbers(i){
 
 function month(j){
     const option = document.createElement('option');
-    option.classList.add('month-list');
     const monthItem = document.createTextNode(months[j]);
     option.appendChild(monthItem);
     return option;
@@ -58,7 +60,6 @@ function bissextile(year){
 }
 
 function monthCheck(year, month){
-    console.log("test")
     if(month.value == "février"){
         if(bissextile(year.value)){
             days(29);
@@ -73,7 +74,6 @@ function monthCheck(year, month){
 }
 
 function thrityDaysMonths(){
-    console.log(currentMonth.value)
     if(currentMonth.value == "avril" || currentMonth.value == "juin" || currentMonth.value == "septembre" || currentMonth.value == "novembre"){
         return true;
     }else{

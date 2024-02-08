@@ -1,3 +1,5 @@
+const inputs = document.querySelectorAll('input');
+const selects = document.querySelectorAll('select');
 const lastName = document.querySelector('#login');
 const email = document.querySelector('#mail');
 const firstName = document.querySelector('#first-name');
@@ -6,7 +8,7 @@ const validButton = document.querySelector('#validate');
 const pseudoInput = document.querySelector('#pseudo');
 
 
-function loginAsNumber(stringToNumber){
+function nameAsNumber(stringToNumber){
     let login = stringToNumber.toUpperCase();
     let valNum = 0;
     const charValue = (log) => log.charCodeAt(0) - 64;
@@ -22,13 +24,13 @@ function astro(){
 }
 
 lastName.addEventListener("change", function(){
-    loginAsNumber(lastName.value);
+    nameAsNumber(lastName.value);
 });
+
 currentMonth.addEventListener("change", astro);
 
-
 function formok(){
-    if(lastName.value != "" && email.value != "" && firstName.value != "" && checkDayIsNumber()){
+    if(lastName.value != "" && email.value != "" && firstName.value != ""){
         validButton.removeAttribute("disabled");
         validate();
         return true;
@@ -38,21 +40,15 @@ function formok(){
     }
 }
 
-lastName.addEventListener("change", formok);
-email.addEventListener("change", formok);
-firstName.addEventListener("change", formok);
-dayNumber.addEventListener("change", checkDayIsNumber);
+for(let input of inputs){
+    input.addEventListener("change", formok);
+}
+
+for(let select of selects){
+    select.addEventListener("change", formok);
+}
 
 function validate(){
-    const pseudo = astro() + loginAsNumber(lastName.value) + loginAsNumber(firstName.value);
+    const pseudo = astro() + nameAsNumber(lastName.value) + nameAsNumber(firstName.value);
     pseudoInput.value = pseudo;
 }
-
-function checkDayIsNumber(){
-    if(!isNaN(dayNumber.value)){
-        return true;
-    }else{
-        return false;
-    }
-}
-
