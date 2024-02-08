@@ -5,8 +5,19 @@ const email = document.querySelector('#mail');
 const firstName = document.querySelector('#first-name');
 const signe = ["Capricorne","Verseau","Poisson","Belier","Taureau","Gémeaux","Cancer","Lion","Vierge","Balance","Scorpion","Sagittaire"];
 const validButton = document.querySelector('#validate');
+const resetButton = document.querySelector('#vreset');
 const pseudoInput = document.querySelector('#pseudo');
 
+for(let input of inputs){
+    input.addEventListener("change", formok);
+}
+
+for(let select of selects){
+    select.addEventListener("change", formok);
+}
+
+currentMonth.addEventListener("change", astro);
+reset.addEventListener("click", resetPage)
 
 function nameAsNumber(stringToNumber){
     let login = stringToNumber.toUpperCase();
@@ -23,10 +34,6 @@ function astro(){
     return signe[monthIndex];
 }
 
-lastName.addEventListener("change", function(){
-    nameAsNumber(lastName.value);
-});
-
 currentMonth.addEventListener("change", astro);
 
 function formok(){
@@ -40,15 +47,12 @@ function formok(){
     }
 }
 
-for(let input of inputs){
-    input.addEventListener("change", formok);
-}
-
-for(let select of selects){
-    select.addEventListener("change", formok);
-}
 
 function validate(){
     const pseudo = astro() + nameAsNumber(lastName.value) + nameAsNumber(firstName.value);
     pseudoInput.value = pseudo;
+}
+
+function resetPage(){
+    location.reload()
 }

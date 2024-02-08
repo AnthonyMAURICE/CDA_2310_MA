@@ -23,6 +23,20 @@ currentYear.addEventListener("change", function(){
     monthCheck(currentYear, currentMonth);
 })
 
+function monthCheck(year, month){
+    if(month.value == "février"){
+        if(bissextile(year.value)){
+            days(29);
+        }else{
+            days(28);
+        }
+    }else if(thirtyDaysMonths()){
+        days(30);
+    }else{
+        days(31);
+    }
+}
+
 function days(day){
     dayNumber.replaceChildren()
     for(let i = 0; i < day; i++){
@@ -59,21 +73,7 @@ function bissextile(year){
     }
 }
 
-function monthCheck(year, month){
-    if(month.value == "février"){
-        if(bissextile(year.value)){
-            days(29);
-        }else{
-            days(28);
-        }
-    }else if(thrityDaysMonths()){
-        days(30);
-    }else{
-        days(31);
-    }
-}
-
-function thrityDaysMonths(){
+function thirtyDaysMonths(){
     if(currentMonth.value == "avril" || currentMonth.value == "juin" || currentMonth.value == "septembre" || currentMonth.value == "novembre"){
         return true;
     }else{

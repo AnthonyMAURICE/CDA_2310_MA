@@ -1,19 +1,17 @@
-validButton.addEventListener("click", setCookie);
+validButton.addEventListener("click", changePage);
 
-function setCookie(){
-    let now = new Date();
-    let time = now.getTime();
-    let expireTime = time + 1000*3600;
-    now.setTime(expireTime);
-    document.cookie = 'cname=' + lastName.value +";" + 'expires='+now.toUTCString()+ '; path=./;';
-    document.cookie = 'cfirstname=' + firstName.value +";" + 'expires='+now.toUTCString()+ '; path=./;';
-    document.cookie = 'cmail=' + mail.value +";" + 'expires='+now.toUTCString()+ '; path=./;';
-    document.cookie = 'cday=' + dayNumber.value + '; path=./;';
-    document.cookie = 'cmonth=' + currentMonth.value +";" + 'expires='+now.toUTCString()+ '; path=./;';
-    document.cookie = 'cmonthvalue=' + (months.indexOf(currentMonth.value) + 1) +";" + 'expires='+now.toUTCString()+ '; path=./;';
-    document.cookie = 'cyear=' + currentYear.value +";" + 'expires='+now.toUTCString()+ '; path=./;';
-    document.cookie = 'cpseudo=' + pseudoInput.value +";" + 'expires='+now.toUTCString()+ '; path=./;';
-    window.location.href = "../accueil.html";
+function setCookie(cname, cvalue, maxAge){
+    document.cookie = cname + "=" + cvalue + "; max-age= "+ maxAge+"; path=./;"; 
 }
 
-const mailValue = ('; '+document.cookie).split(`; cmail=`).pop().split(';')[0];
+function changePage(){
+    setCookie("cname", lastName.value, 86400);
+    setCookie("cfirstname", firstName.value, 86400);
+    setCookie("cday", dayNumber.value, 86400);
+    setCookie("cmonth", currentMonth.value, 86400);
+    setCookie("cmonthvalue", (months.indexOf(currentMonth.value) + 1), 86400);
+    setCookie("cyear", currentYear.value, 86400);
+    setCookie("cpseudo", pseudoInput.value, 86400);
+    setCookie("cmail", mail.value, 86400);
+    window.location.href = "../accueil.html";
+}

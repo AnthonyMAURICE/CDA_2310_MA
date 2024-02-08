@@ -1,6 +1,6 @@
 const main = document.querySelector('main');
 const table = document.querySelector('#table');
-const monthIndex = ('; '+document.cookie).split(`; cmonthvalue=`).pop().split(';')[0];
+const monthIndex = getCookie("cmonthvalue");
 let monthValue = "";
 let yearValue = "";
 let dayValue = "";
@@ -20,24 +20,23 @@ loadTable();
 
 function getName(){
     const tElementName = document.createElement('td');
-    const nameValue = document.createTextNode(('; '+document.cookie).split(`; cname=`).pop().split(';')[0]);
+    const nameValue = document.createTextNode(getCookie("cname"));
     tElementName.appendChild(nameValue);
     return tElementName;
 }
 
 function getFirstN(){
     const tElementFirstName = document.createElement('td');
-    const firstNameValue = document.createTextNode(('; '+document.cookie).split(`; cfirstname=`).pop().split(';')[0]);
+    const firstNameValue = document.createTextNode(getCookie("cfirstname"));
     tElementFirstName.appendChild(firstNameValue);
     return tElementFirstName;
 }
 
 function getBirth(){
     const tBirth = document.createElement('td');
-    dayValue = ('; '+document.cookie).split(`; cday=`).pop().split(';')[0];
-    monthValue = ('; '+document.cookie).split(`; cmonth=`).pop().split(';')[0];
-    yearValue = ('; '+document.cookie).split(`; cyear=`).pop().split(';')[0];
-    
+    dayValue = getCookie("cday");
+    monthValue = getCookie("cmonth");
+    yearValue = getCookie("cyear");
     const dateValue = document.createTextNode( dayValue + " " + monthValue + " " + yearValue);
     tBirth.appendChild(dateValue);
     return tBirth;
@@ -45,7 +44,7 @@ function getBirth(){
 
 function getPseudo(){
     const tPseudo = document.createElement('td');
-    const pseudoValue = document.createTextNode(('; '+document.cookie).split(`; cpseudo=`).pop().split(';')[0]);
+    const pseudoValue = document.createTextNode(getCookie("cpseudo"));
     tPseudo.appendChild(pseudoValue);
     return tPseudo;
 }
@@ -72,4 +71,20 @@ function displayDays(){
     const daysUntil = document.createTextNode(isNaN(daysTillBirthday(monthIndex, dayValue))? "Bon anniversaire !" : "Nombre de jours avant votre prochain anniversaire : " + daysTillBirthday(monthIndex, dayValue));
     disDay.appendChild(daysUntil);
     return disDay;
+}
+
+function getCookie(cname){
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }
