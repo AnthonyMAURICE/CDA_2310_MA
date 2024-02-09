@@ -1,4 +1,4 @@
-validButton.addEventListener("click", controlDate);
+validButton.addEventListener("click", changePage);
 
 function setCookie(cname, cvalue, maxAge){
     document.cookie = cname + "=" + cvalue + "; max-age= "+ maxAge+"; path=./;"; 
@@ -16,12 +16,3 @@ function changePage(){
     window.location.href = "../accueil.html";
 }
 
-function controlDate(){
-    let dateComp = Date.parse(currentYear.value + "-" + months.indexOf(currentMonth.value) + "-" + dayNumber.value);
-    if(dateNow.getTime() < dateComp){
-        alert("Date invalide !")
-        location.reload()
-    }else{
-        changePage();
-    }
-}

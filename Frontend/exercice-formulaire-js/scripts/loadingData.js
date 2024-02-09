@@ -20,11 +20,11 @@ function dob(){
 for(let list of lists){
     list.addEventListener("change", function(){
     monthCheck(currentYear, currentMonth);
-})
+    })
 }
 
 function monthCheck(year, month){
-    if(month.value == "février"){
+    if(month.value == "Février"){
         if(bissextile(year.value)){
             days(29);
         }else{
@@ -38,24 +38,34 @@ function monthCheck(year, month){
 }
 
 function days(day){
-    dayNumber.replaceChildren()
-    for(let i = 0; i < day; i++){
+    dayNumber.replaceChildren();
+    for(let i = 0; i <= day; i++){
         dayNumber.appendChild(daysNumbers(i));
     }
 }
 
 function daysNumbers(i){
     const option = document.createElement('option');
-    const day = document.createTextNode(i+1);
-    option.appendChild(day);
+    if(i == 0){
+        const choiceText = document.createTextNode("Choisissez votre jour");
+        option.appendChild(choiceText);
+    }else{
+        const day = document.createTextNode(i);
+        option.appendChild(day);
+    }
     return option;
 }
 
 function month(j){
     const option = document.createElement('option');
+    months[j] = capitalizeFirstLetter(months[j])
     const monthItem = document.createTextNode(months[j]);
     option.appendChild(monthItem);
     return option;
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function years(k){
@@ -74,7 +84,7 @@ function bissextile(year){
 }
 
 function thirtyDaysMonths(){
-    if(currentMonth.value == "avril" || currentMonth.value == "juin" || currentMonth.value == "septembre" || currentMonth.value == "novembre"){
+    if(currentMonth.value == "Avril" || currentMonth.value == "Juin" || currentMonth.value == "Septembre" || currentMonth.value == "Novembre"){
         return true;
     }else{
         return false;

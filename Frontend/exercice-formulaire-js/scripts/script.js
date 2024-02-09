@@ -1,23 +1,18 @@
-const inputs = document.querySelectorAll('input');
-const selects = document.querySelectorAll('select');
+const elements = document.querySelectorAll('.form-element');
 const lastName = document.querySelector('#login');
 const email = document.querySelector('#mail');
 const firstName = document.querySelector('#first-name');
 const signe = ["Capricorne","Verseau","Poisson","Belier","Taureau","Gémeaux","Cancer","Lion","Vierge","Balance","Scorpion","Sagittaire"];
 const validButton = document.querySelector('#validate');
-const resetButton = document.querySelector('#vreset');
+const resetButton = document.querySelector('#reset');
 const pseudoInput = document.querySelector('#pseudo');
 
-for(let input of inputs){
-    input.addEventListener("change", formok);
-}
-
-for(let select of selects){
-    select.addEventListener("change", formok);
+for(let element of elements){
+    element.addEventListener("change", formok);
 }
 
 currentMonth.addEventListener("change", astro);
-reset.addEventListener("click", resetPage)
+resetButton.addEventListener("click", resetPage)
 
 function nameAsNumber(stringToNumber){
     let login = stringToNumber.toUpperCase();
@@ -34,10 +29,8 @@ function astro(){
     return signe[monthIndex];
 }
 
-currentMonth.addEventListener("change", astro);
-
 function formok(){
-    if(lastName.value != "" && email.value != "" && firstName.value != ""){
+    if(lastName.value != "" && email.value != "" && firstName.value != "" && !isNaN(dayNumber.value) && controlDate()){
         validButton.removeAttribute("disabled");
         pseudoConstructor();
         return true;
@@ -47,6 +40,14 @@ function formok(){
     }
 }
 
+function controlDate(){
+    let dateComp = Date.parse(currentYear.value + "-" + months.indexOf(currentMonth.value.toLowerCase()) + "-" + dayNumber.value);
+    if(dateNow.getTime() < dateComp){
+        return false;
+    }else{
+        return true;
+    }
+}
 
 function pseudoConstructor(){
     const pseudo = astro() + nameAsNumber(lastName.value) + nameAsNumber(firstName.value);

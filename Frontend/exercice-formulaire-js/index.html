@@ -16,23 +16,23 @@
         </div>
         <form action="./index.html" method="get">
             <label for="name">Nom utilisateur</label>
-            <input type="text" name="name" id="login">
+            <input class="form-element" type="text" name="name" id="login">
             <div class="name-mail">
                 <label for="first-name">Prénom</label>
-                <input type="text" name="first-name" id="first-name">
+                <input class="form-element" type="text" name="first-name" id="first-name">
                 <label for="mail">Email</label>
-                <input type="email" name="mail" id="mail">
+                <input class="form-element" type="email" name="mail" id="mail">
             </div>
             <div class="dob">
                 <label for="day">Jour</label>
-                <select id="list-days">
-                </select class="list">
+                <select class="form-element" id="list-days">
+                </select>
                 <label for="month">Mois</label>
-                <select class="list" id="list-month">
-                </select class="list">
+                <select class="form-element list" id="list-month">
+                </select>
                 <label for="year">Année</label>
-                <select class="list" id="list-year">
-                </select class="list">
+                <select class="form-element list" id="list-year">
+                </select>
             </div>
             <div class="pseudo">
                 <label for="pseudo">Affichage de votre pseudo</label>
@@ -40,7 +40,7 @@
             </div>
             <div class="buttons">
                 <button id="validate" type="button" disabled>Validation</button>
-                <button id="reset" type="reset">Annuler</button>
+                <button id="reset">Annuler</button>
             </div>
         </form>
     </main>
