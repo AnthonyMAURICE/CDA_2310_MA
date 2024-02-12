@@ -7,6 +7,12 @@ const months = [...Array(12).keys()].map(key => new Date(0, key).toLocaleString(
 
 dob();
 
+for(let list of lists){
+    list.addEventListener("change", function(){
+    monthCheck(currentYear, currentMonth);
+    })
+}
+
 function dob(){
     for(let k = 1915; k <= dateNow.getFullYear(); k++){
         currentYear.appendChild(years(k));
@@ -15,12 +21,6 @@ function dob(){
         currentMonth.appendChild(month(j));
     }
     monthCheck(currentYear, currentMonth);
-}
-
-for(let list of lists){
-    list.addEventListener("change", function(){
-    monthCheck(currentYear, currentMonth);
-    })
 }
 
 function monthCheck(year, month){

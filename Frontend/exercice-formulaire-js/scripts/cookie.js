@@ -12,7 +12,6 @@ function changePage(){
     setCookie("cmonthvalue", (months.indexOf(currentMonth.value) + 1), 86400);
     setCookie("cyear", currentYear.value, 86400);
     setCookie("cpseudo", pseudoInput.value, 86400);
-    setCookie("cmail", mail.value, 86400);
+    setCookie("cmail", email.value, 86400);
     window.location.href = "../accueil.html";
 }
-

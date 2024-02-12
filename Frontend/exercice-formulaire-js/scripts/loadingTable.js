@@ -1,10 +1,9 @@
 const main = document.querySelector('main');
 const table = document.querySelector('#table');
 const monthIndex = getCookie("cmonthvalue");
-let monthValue = "";
-let yearValue = "";
-let dayValue = "";
 const date = new Date();
+
+loadTable();
 
 function loadTable(){
     const tRow = document.createElement('tr');
@@ -15,8 +14,6 @@ function loadTable(){
     table.appendChild(tRow);
     main.appendChild(displayDays());
 }
-
-loadTable();
 
 function getName(){
     const tElementName = document.createElement('td');
@@ -34,9 +31,9 @@ function getFirstN(){
 
 function getBirth(){
     const tBirth = document.createElement('td');
-    dayValue = getCookie("cday");
-    monthValue = getCookie("cmonth");
-    yearValue = getCookie("cyear");
+    const dayValue = getCookie("cday");
+    const monthValue = getCookie("cmonth");
+    const yearValue = getCookie("cyear");
     const dateValue = document.createTextNode( dayValue + " " + monthValue + " " + yearValue);
     tBirth.appendChild(dateValue);
     return tBirth;
@@ -53,7 +50,7 @@ function daysTillBirthday(months, days){
     const dateToCompare = Date.parse(date.getFullYear() + "-" + months + "-" + days);
     let diff = Math.floor((dateToCompare - Date.parse(date)) / 86400000);
     if(diff < 0){
-        bissextile(date.getFullYear()? diff += 366: diff += 365);
+        bissextile(date.getFullYear())? diff += 366: diff += 365;
     }
     return diff;
 }
@@ -76,7 +73,7 @@ function displayDays(){
 function getCookie(cname){
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie).split(';');
-    for(let i = 0; i <decodedCookie.length; i++) {
+    for(let i = 0; i < decodedCookie.length; i++) {
         let cookie = decodedCookie[i];
         while (cookie.charAt(0) == ' ') {
             cookie = cookie.substring(1);

@@ -6,13 +6,28 @@ const signe = ["Capricorne","Verseau","Poisson","Belier","Taureau","Gémeaux","C
 const validButton = document.querySelector('#validate');
 const resetButton = document.querySelector('#reset');
 const pseudoInput = document.querySelector('#pseudo');
+const inputs = document.querySelectorAll('.input')
+
+currentMonth.addEventListener("change", astro);
+resetButton.addEventListener("click", resetPage)
+
+for(let input of inputs){
+    input.setAttribute('required', 'true')
+}
 
 for(let element of elements){
     element.addEventListener("change", formok);
 }
 
-currentMonth.addEventListener("change", astro);
-resetButton.addEventListener("click", resetPage)
+function isValid(formArray){
+    for(let elem of formArray){
+        if(elem.checkValidity() == false){
+            return false;
+        }else{
+            return true
+        }
+    }
+}
 
 function nameAsNumber(stringToNumber){
     let login = stringToNumber.toUpperCase();
@@ -30,7 +45,7 @@ function astro(){
 }
 
 function formok(){
-    if(lastName.value != "" && email.value != "" && firstName.value != "" && !isNaN(dayNumber.value) && controlDate()){
+    if(isValid(inputs) && !isNaN(dayNumber.value) && controlDate()){
         validButton.removeAttribute("disabled");
         pseudoConstructor();
         return true;

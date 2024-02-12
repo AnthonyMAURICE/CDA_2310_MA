@@ -1,0 +1,83 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    width: 70%;
+    margin: auto;
+    background-image: url(../assets/fondvert.gif);
+}
+
+header{
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+}
+
+.images{
+    display: flex;
+    flex-flow: row;
+}
+
+.img-truite{
+    width: 33%;
+}
+
+.banner{
+    width: 67%;
+}
+
+ul{
+    list-style: none;
+}
+
+.nav-elements{
+    display: flex;
+    flex-flow: row;
+    color: white;
+    background-color: green;
+    padding-left: 5%;
+}
+
+.menu-title{
+    padding: 0 5px;
+    font-size: 20px;
+    min-width: 175px;
+    background-color: darkgreen;
+}
+
+.title{
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+}
+
+.hidden-menu{
+    display: none;
+}
+
+li{
+    background-color: darkgreen;
+    border: 1px solid green;
+    padding-right: 5px;
+}
+
+.menu-title:hover, .hidden-menu-elements{
+    background-color: green;
+}
+
+.menu-title:hover > .hidden-menu{
+    display: flex;
+    flex-flow: column;
+    position: absolute;
+}
+
+.second-title{
+    display: flex;
+}
+
+.second-title:hover > .second{
+    position: absolute;
+    left: 100%;
+}
