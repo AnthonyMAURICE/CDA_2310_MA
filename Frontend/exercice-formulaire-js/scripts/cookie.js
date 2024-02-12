@@ -1,7 +1,7 @@
 validButton.addEventListener("click", changePage);
 
 function setCookie(cname, cvalue, maxAge){
-    document.cookie = cname + "=" + cvalue + "; max-age= "+ maxAge+"; path=./;"; 
+    document.cookie = cname + "=" + cvalue + "; max-age= "+ maxAge+"; path=./; Secure; SameSite=Strict;"; 
 }
 
 function changePage(){

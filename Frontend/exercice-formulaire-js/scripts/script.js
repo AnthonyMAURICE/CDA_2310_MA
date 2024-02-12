@@ -46,11 +46,11 @@ function astro(){
 
 function formok(){
     if(isValid(inputs) && !isNaN(dayNumber.value) && controlDate()){
-        validButton.removeAttribute("disabled");
+        validButton.disabled = false;
         pseudoConstructor();
         return true;
     }else{
-        validButton.setAttribute("disabled", "true");
+        validButton.disabled = true;
         return false;
     }
 }

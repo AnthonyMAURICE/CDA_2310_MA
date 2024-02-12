@@ -1,14 +1,26 @@
+/* Généralités et reset CSS */
 *{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
 body{
     width: 70%;
     margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
     background-image: url(../assets/fondvert.gif);
 }
+
+/* Header */
 
 header{
     display: flex;
@@ -38,14 +50,16 @@ ul{
     flex-flow: row;
     color: white;
     background-color: green;
-    padding-left: 5%;
+    padding-left: 4.75%;
 }
 
 .menu-title{
     padding: 0 5px;
-    font-size: 20px;
+    font-size: 18px;
     min-width: 175px;
     background-color: darkgreen;
+    border: 1px solid green;
+    padding-right: 5px;
 }
 
 .title{
@@ -57,14 +71,12 @@ ul{
     display: none;
 }
 
-li{
-    background-color: darkgreen;
-    border: 1px solid green;
-    padding-right: 5px;
+.menu-title:hover, .hidden-menu-element{
+    background-color: rgb(0, 128, 0, 0.75);
 }
 
-.menu-title:hover, .hidden-menu-elements{
-    background-color: green;
+.hidden-menu-element > a, .menu-title > a{
+    color: white;
 }
 
 .menu-title:hover > .hidden-menu{
@@ -80,4 +92,84 @@ li{
 .second-title:hover > .second{
     position: absolute;
     left: 100%;
+}
+
+/* Main */
+
+main{
+    display: flex;
+    background-color: rgb(220, 240, 145);
+}
+
+aside{
+    width: 18%;
+    background-color: rgb(50, 50, 50);
+}
+
+.menu-ul{
+    display: flex;
+    flex-flow: column;
+    background-color: black;
+    padding: 15px;
+    font-size: 20px;
+}
+
+.menu-ul > li{
+    padding: 10px;
+}
+
+.menu-a{
+    color: rgb(160, 70, 0);
+}
+
+.main-section{
+    width: 64%;
+}
+
+.main-title{
+    font-size: 40px;
+    padding: 15px 5px;
+}
+
+.section-body{
+    padding: 15px;
+}
+
+figure img{
+    float: left;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.aside-log{
+    background-color: rgb(220, 240, 145);
+}
+
+.aside-div{
+    background-color: black;
+    padding: 20px;
+}
+
+.log{
+
+    padding: 10px;
+    border-bottom: 1px solid white;
+}
+
+.log-a{
+    color: white;
+}
+
+/* Footer */
+
+footer{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding: 15px;
+    background-color: green;
+}
+
+.footer-elements{
+    display: flex;
 }

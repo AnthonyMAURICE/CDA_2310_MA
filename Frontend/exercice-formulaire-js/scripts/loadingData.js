@@ -50,7 +50,8 @@ function daysNumbers(i){
         const choiceText = document.createTextNode("Choisissez votre jour");
         option.appendChild(choiceText);
     }else{
-        const day = document.createTextNode(i);
+        const day = (i < 10) ? document.createTextNode("0" + i): document.createTextNode(i);
+        option.value = i
         option.appendChild(day);
     }
     return option;
@@ -60,6 +61,7 @@ function month(j){
     const option = document.createElement('option');
     months[j] = capitalizeFirstLetter(months[j])
     const monthItem = document.createTextNode(months[j]);
+    option.value = months[j];
     option.appendChild(monthItem);
     return option;
 }
@@ -70,6 +72,7 @@ function capitalizeFirstLetter(string) {
 
 function years(k){
     const option = document.createElement('option');
+    option.value = k;
     const yearsList = document.createTextNode(k);
     option.appendChild(yearsList);
     return option;

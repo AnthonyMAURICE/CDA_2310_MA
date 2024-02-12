@@ -1,9 +1,10 @@
 const main = document.querySelector('main');
 const table = document.querySelector('#table');
 const monthIndex = getCookie("cmonthvalue");
+const dayValue = getCookie("cday");
+const monthValue = getCookie("cmonth");
+const yearValue = getCookie("cyear");
 const date = new Date();
-
-loadTable();
 
 function loadTable(){
     const tRow = document.createElement('tr');
@@ -14,6 +15,8 @@ function loadTable(){
     table.appendChild(tRow);
     main.appendChild(displayDays());
 }
+
+loadTable();
 
 function getName(){
     const tElementName = document.createElement('td');
@@ -31,9 +34,6 @@ function getFirstN(){
 
 function getBirth(){
     const tBirth = document.createElement('td');
-    const dayValue = getCookie("cday");
-    const monthValue = getCookie("cmonth");
-    const yearValue = getCookie("cyear");
     const dateValue = document.createTextNode( dayValue + " " + monthValue + " " + yearValue);
     tBirth.appendChild(dateValue);
     return tBirth;
@@ -84,3 +84,4 @@ function getCookie(cname){
     }
     return "";
 }
+
