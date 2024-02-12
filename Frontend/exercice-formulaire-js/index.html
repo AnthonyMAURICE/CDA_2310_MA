@@ -16,10 +16,10 @@
         </div>
         <form action="./index.html" method="get">
             <label for="name">Nom utilisateur</label>
-            <input class="form-element input" type="text" pattern="^[a-zA-ZÀ-ÖØ-öø-ÿ]+$" name="name" id="login">
+            <input class="form-element input" type="text" pattern="^[a-zA-ZÀ-ÖØ-öø-ÿ]+$" minlength="3" name="name" id="login">
             <div class="name-mail">
                 <label for="first-name">Prénom</label>
-                <input class="form-element input" type="text" pattern="^[a-zA-ZÀ-ÖØ-öø-ÿ]+$" name="first-name" id="first-name">
+                <input class="form-element input" type="text" pattern="^[a-zA-ZÀ-ÖØ-öø-ÿ]+$" minlength="3" name="first-name" id="first-name">
                 <label for="mail">Email</label>
                 <input class="form-element input" type="email" name="mail" id="mail">
             </div>

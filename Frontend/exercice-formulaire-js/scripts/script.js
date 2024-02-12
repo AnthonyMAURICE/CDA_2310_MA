@@ -19,14 +19,14 @@ for(let element of elements){
     element.addEventListener("change", formok);
 }
 
-function isValid(formArray){
-    for(let elem of formArray){
-        if(elem.checkValidity() == false){
-            return false;
+function isValid(formObject){
+    const arrayFromObject = Object.values(formObject);
+        if(arrayFromObject.every((formElem) => formElem.checkValidity())){
+            return true;
         }else{
-            return true
+            return false;
         }
-    }
+    
 }
 
 function nameAsNumber(stringToNumber){
