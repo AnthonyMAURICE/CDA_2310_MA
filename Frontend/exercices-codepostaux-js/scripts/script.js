@@ -1,20 +1,10 @@
+const datalist = document.querySelector('#searchBar');
+const searchinput = document.querySelector('#input')
+searchinput.addEventListener('change', createList)
 const mainContainer = document.querySelector('main')
-const searchBar = document.createElement('input')
-searchBar.setAttribute("type", "search")
-searchBar.setAttribute("list", "searchBar")
-searchBar.setAttribute("autocomplete", "true")
-const button = document.createElement('button')
-const buttonText = document.createTextNode("Valider")
-button.setAttribute("type", "button")
-button.appendChild(buttonText)
-mainContainer.appendChild(searchBar)
-mainContainer.appendChild(button)
-const datalist = document.createElement('datalist');
-datalist.setAttribute("id", "searchBar")
-datalist.setAttribute("name", "search")
+const btn = document.querySelector('button')
 
-searchBar.addEventListener('change', createList)
-
+btn.addEventListener("click", displayInfo)
 
 async function getJson(){
     const response = await fetch('https://arfp.github.io/tp/web/javascript/02-zipcodes/zipcodes.json')
@@ -25,23 +15,35 @@ async function getJson(){
 function createList(){
     getJson().then(values => {   
         datalist.replaceChildren()
-        if(searchBar.value != ""){
+        if(searchinput.value != ""){
             for( let i = 0; i < values.length; i++){
-                if(values[i].codePostal.includes(searchBar.value)){
+                if(values[i].codePostal.includes(searchinput.value)){
                     datalist.appendChild(getCities(values, i))
                 }
             }
+            if(!isNaN(searchinput.value)){
+                searchinput.setAttribute('placeholder', searchinput.value)
+                searchinput.setAttribute('zipCode', searchinput.value)
+                searchinput.value = ""
+            }
+            
         }
-        searchBar.setAttribute('placeholder', searchBar.value)
-        searchBar.value = "";
-        mainContainer.appendChild(datalist);
     });
 }
+
 
 function getCities(_values, i){
     console.log("test")
     const option = document.createElement('option');
+    
     option.value = _values[i].nomCommune;
-    option.label = _values[i].nomCommune;
     return option
+}
+
+function displayInfo(){
+    const divInfo = document.createElement('div')
+    console.log(searchinput)
+    const cityInfo = document.createTextNode(searchinput.value + " : " + searchinput.getAttribute('zipCode'))
+    divInfo.appendChild(cityInfo)
+    mainContainer.appendChild(divInfo)
 }
