@@ -1,0 +1,59 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: black;
+    color: white;
+}
+
+header{
+    display: flex;
+    align-items: center;
+}
+
+.title{
+    width: 30%;
+    text-align: center;
+}
+
+.filters{
+    display: flex;
+    width: 70%;
+}
+
+.search{
+    width: 40%;
+}
+
+.search-input{
+    padding: 5px;
+    margin: 5px;
+}
+
+.filters-wrapper{
+    width: 60%;
+    display: flex;
+}
+
+.nutriscore{
+    width: 50%;
+}
+
+.categories{
+    width: 30%;
+}
+
+fieldset{
+    max-height: 80px;
+}
+
+table{
+    width: 100%;
+}
+
+h1, th{
+    color: yellowgreen;
+}
