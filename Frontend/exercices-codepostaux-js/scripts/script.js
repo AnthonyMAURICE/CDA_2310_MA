@@ -17,39 +17,34 @@ async function getJson(){
 function createList(){
     getJson().then(values => {   
         datalist.replaceChildren()
-        if(searchinput.value != "" && searchinput.value.length >=2){
+        if(!isNaN(searchinput.value) && searchinput.value != "" && searchinput.value.length >=2 && searchinput.value.length <=5){
             console.log("test 2");
             for( let i = 0; i < values.length; i++){
                 if(values[i].codePostal.includes(searchinput.value)){
+                    searchinput.removeEventListener('input', createList)
                     datalist.appendChild(getCities(values, i))
                 }
             }
-            clearTimeout(searchtimer)
-            searchtimer = setTimeout(function(){
-                searchData()
-            },1500)
         }
     });
-}
-
-function searchData(){
-    if(!isNaN(searchinput.value)){
-        searchinput.setAttribute('placeholder', searchinput.value)
-        searchinput.setAttribute('zipCode', searchinput.value)
-        searchinput.value = ""
-    }
 }
 
 function getCities(_values, i){
     console.log("test")
     const option = document.createElement('option');
+    option.setAttribute('id', _values[i].nomCommune)
     option.value = _values[i].nomCommune;
+    searchinput.setAttribute('value', option.value)
+    option.label = _values[i].codePostal;
     return option
 }
 
 function displayInfo(){
     const divInfo = document.createElement('div')
-    const cityInfo = document.createTextNode(searchinput.value + " : " + searchinput.getAttribute('zipCode'))
+    const valueInput = searchinput.value;
+    console.log(valueInput)
+    console.log(datalist.options.namedItem(valueInput))
+    const cityInfo = document.createTextNode(datalist.options.namedItem(valueInput).getAttribute('id') + " : " + datalist.options.namedItem(valueInput).getAttribute('label'))
     divInfo.appendChild(cityInfo)
     mainContainer.appendChild(divInfo)
 }
