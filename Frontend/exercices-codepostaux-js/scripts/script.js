@@ -16,7 +16,7 @@ async function getJson(){
 function createList(){
     getJson().then(values => {   
         datalist.replaceChildren()
-        if(!isNaN(searchinput.value) && searchinput.value != "" && searchinput.value.length >=2){
+        if(!isNaN(searchinput.value) && searchinput.value.length >=2){
             for( let i = 0; i < values.length; i++){
                 if(values[i].codePostal.includes(searchinput.value)){
                     searchinput.removeEventListener('input', createList)

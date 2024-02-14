@@ -8,6 +8,7 @@ table{
     border-spacing: 0;
     margin: 25px;
     border: 2px solid black;
+    border-radius: 5px;
 }
 
 
@@ -28,6 +29,10 @@ td{
 
 div{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     margin: 25px;
+}
+
+p{
+    padding: 10px;
 }

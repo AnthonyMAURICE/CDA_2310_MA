@@ -1,5 +1,6 @@
 const table = document.querySelector('.tbody')
 const main = document.querySelector('main')
+document.addEventListener("DOMContentLoaded",readData)
 
 async function getData(){
     const response = await fetch('https://arfp.github.io/tp/web/javascript/03-cardgame/cardgame.json')
@@ -11,38 +12,33 @@ function readData(){
     getData().then(values =>{
         for(let value of values){
             const row = document.createElement('tr')
-            row.appendChild(setColumn(value.id))
-            row.appendChild(setColumn(value.name))
-            row.appendChild(setColumn(value.level))
-            row.appendChild(setColumn(""))
-            row.appendChild(setColumn(value.power))
-            row.appendChild(setColumn(value.attack))
-            row.appendChild(setColumn(value.armor))
-            row.appendChild(setColumn(value.damage))
-            row.appendChild(setColumn(value.mitigation))
-            row.appendChild(setColumn(value.played))
-            row.appendChild(setColumn(value.victory))
-            row.appendChild(setColumn(value.defeat))
-            row.appendChild(setColumn(value.draw))
+            for(elem in value){
+                if(elem == "level"){
+                    row.appendChild(setColumn(value[elem]))
+                    row.appendChild(setColumn(""))
+                }else if(elem != "description"){
+                    row.appendChild(setColumn(value[elem]))
+                }
+            }
             table.appendChild(row)
-            
         }
         styling()
-        const div = document.createElement('div')
-        const paragraphFirst = document.createElement('p')
-        const playedMost = document.createTextNode(mostPlayed(values))
-        paragraphFirst.appendChild(playedMost)
-        main.appendChild(div)
-        const paragraph2 = document.createElement('p')
-        const mostVictorious = document.createTextNode(calculRatio(values))
-        paragraph2.appendChild(mostVictorious)
-        div.appendChild(paragraphFirst)
-        div.appendChild(paragraph2)
-        main.appendChild(div)
+        calculate(values)
     })
 }
 
-readData()
+function calculate(_values){
+    const div = document.createElement('div')
+    const paragraphFirst = document.createElement('p')
+    const playedMost = document.createTextNode(mostPlayed(_values))
+    paragraphFirst.appendChild(playedMost)
+    const paragraph2 = document.createElement('p')
+    const mostVictorious = document.createTextNode(calculRatio(_values))
+    paragraph2.appendChild(mostVictorious)
+    div.appendChild(paragraphFirst)
+    div.appendChild(paragraph2)
+    main.appendChild(div)
+}
 
 function setColumn(_value){
     const elem = document.createElement('td')
@@ -53,7 +49,6 @@ function setColumn(_value){
 
 function styling(){
     const pairImpair = document.querySelectorAll('tr')
-    console.log(pairImpair)
     for(let i = 0; i < pairImpair.length; i++){
         if(i == 0 || i %2 == 0){
             pairImpair[i].classList.add('greyBack')
@@ -63,7 +58,6 @@ function styling(){
 
 function mostPlayed(_values){
     _values.sort(compare)
-    console.log(_values)
     return "Ayant le plus joué : " + _values[0].name + " avec " + _values[0].victory + " victoires."
 }
 
@@ -89,6 +83,5 @@ function compareVictoryDefeat( a, b ) {
 
 function calculRatio(_values){
     _values.sort(compareVictoryDefeat)
-    console.log(_values)
     return "Le joueur avec le meilleur ratio victoire/défaite est : " + _values[0].name + " avec " + _values[0].victory + " victoires pour " + _values[0].played + " parties."
 }
