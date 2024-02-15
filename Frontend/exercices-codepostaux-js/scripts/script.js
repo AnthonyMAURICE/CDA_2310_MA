@@ -17,7 +17,7 @@ function createList(){
     getJson().then(values => {   
         datalist.replaceChildren()
         if(!isNaN(searchinput.value) && searchinput.value.length >=2){
-            for( let i = 0; i < values.length; i++){
+            for(let i = 0; i < values.length; i++){
                 if(values[i].codePostal.includes(searchinput.value)){
                     searchinput.removeEventListener('input', createList)
                     datalist.appendChild(getCities(values, i))
@@ -40,7 +40,6 @@ function getCities(_values, i){
 function displayInfo(){
     const divInfo = document.createElement('div')
     const valueInput = searchinput.value;
-    const cityInfo = document.createTextNode("Ville : " +datalist.options.namedItem(valueInput).getAttribute('id') + ", Code Postal : " + datalist.options.namedItem(valueInput).getAttribute('label'))
-    divInfo.appendChild(cityInfo)
+    divInfo.textContent = ("Ville : " +datalist.options.namedItem(valueInput).getAttribute('id') + ", Code Postal : " + datalist.options.namedItem(valueInput).getAttribute('label'))
     mainContainer.appendChild(divInfo)
 }

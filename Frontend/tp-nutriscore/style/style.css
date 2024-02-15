@@ -2,11 +2,13 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    border-spacing: 0;
 }
 
 body{
     background-color: black;
-    color: white;
+    color: #ffffffcc;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 header{
@@ -29,13 +31,15 @@ header{
 }
 
 .search-input{
-    padding: 5px;
+    padding: 15px;
     margin: 5px;
+    background-color: #444;
 }
 
 .filters-wrapper{
     width: 60%;
     display: flex;
+    padding: 10px;
 }
 
 .nutriscore{
@@ -52,8 +56,65 @@ fieldset{
 
 table{
     width: 100%;
+    padding: 10px;
 }
 
 h1, th{
     color: yellowgreen;
+}
+
+th{
+    padding: 5px;
+}
+
+td:not(.name){
+    text-align: center;
+}
+
+#first-row{
+    background-color: #444;
+}
+
+.id{
+    background-color: #333;
+    color: yellow;
+}
+
+tr:not(#first-row):hover > td:not(.nutri-score){
+    background-color: #664;
+    color: white;
+}
+
+.red{
+    background-color: #cc0000cc;
+}
+
+.orange{
+    background-color: #cc6600cc;
+}
+
+.dark-yellow{
+    background-color: #cccc00cc;
+}
+
+.green{
+    background-color: #009900cc;
+}
+
+.dark-green{
+    background-color: darkgreen;
+}
+
+.delete{
+    padding: 0;
+}
+
+button{
+    color: red;
+    background-color: #333;
+    padding: 5px;
+    height: 100%;
+    width: 100%;
+    font-weight: bold;
+    border: none;
 }

@@ -12,11 +12,11 @@ table{
 }
 
 
-.greyBack{
+.grey-back{
     background-color: lightgray;
 }
 
-.table-head > th{
+.table-head > tr > th{
     border-right: 1px solid black;
     border-left: 1px solid black;
     padding: 10px;
