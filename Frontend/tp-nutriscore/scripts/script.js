@@ -1,12 +1,14 @@
 const head = document.querySelector('#t-head')
 const tBody = document.querySelector('#t-body')
+const header = document.querySelectorAll('th')
+
 async function getData(){
     const response = await fetch('https://arfp.github.io/tp/web/javascript2/10-cereals/cereals.json')
     const data = await response.json()
     return data
 }
 
-setData()
+document.addEventListener('DOMContentLoaded', setData)
 function setData(){
     getData().then(values =>{
         setRows(values.data)
