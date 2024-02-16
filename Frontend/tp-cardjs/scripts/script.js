@@ -1,6 +1,11 @@
-const table = document.querySelector('.tbody')
-const head = document.querySelector('.table-head')
+const table = document.querySelector('.table')
 const main = document.querySelector('main')
+const tHead = table.createTHead()
+tHead.setAttribute('class', 'table-head')
+const tBody = table.createTBody()
+tBody.setAttribute('class', 'tbody')
+const head = document.querySelector('.table-head')
+const tableBody = document.querySelector('.tbody')
 document.addEventListener("DOMContentLoaded",readData)
 
 async function getData(){
@@ -11,30 +16,29 @@ async function getData(){
 
 function readData(){
     getData().then(values =>{
-        const firstRow = document.createElement('tr')
+        const firstRow = head.insertRow()
         for(let element in values[0]){
-            firstRow.appendChild(setFirstLine(element))
+            setFirstLine(element, firstRow)
         }
-        head.appendChild(firstRow)
-        for(let value of values){
-            const row = document.createElement('tr')
-            for(elem in value){
+        for(let object of values){
+            const rows = tableBody.insertRow()
+            for(elem in object){
                 if(elem == "level"){
-                    row.appendChild(setColumn(value[elem]))
-                    row.appendChild(setColumn((value["description"]) ? value["description"] + " ?": ""))
-                }else if(elem != "description"){
-                    row.appendChild(setColumn(value[elem]))
+                    setColumn(object[elem], rows)
+                    setColumn(object["description"], rows) ? object["description"]: ""
+                }
+                if(elem != "description" && elem!="level"){
+                    setColumn(object[elem], rows)
                 }
             }
-            table.appendChild(row)
         }
         styling()
         calculate(values)
     })
 }
 
-function setFirstLine(_value){
-    const elem = document.createElement('th')
+function setFirstLine(_value, _firstRow){
+    const elem = _firstRow.insertCell()
     if(_value == "description"){
         elem.textContent = "level"
     }else if(_value == "level"){
@@ -45,8 +49,8 @@ function setFirstLine(_value){
     return elem;
 }
 
-function setColumn(_value){
-    const elem = document.createElement('td')
+function setColumn(_value, _row){
+    const elem = _row.insertCell()
     elem.textContent = _value
     return elem;
 }
@@ -62,18 +66,20 @@ function styling(){
 
 function calculate(_values){
     const div = document.createElement('div')
+    const title = document.createElement('h2')
+    title.textContent = sortingValues(_values, 'played').name
     const paragraph = document.createElement('p')
-    paragraph.textContent = mostPlayed(_values) + " / " + calculRatio(_values);
+    paragraph.textContent = sortingValues(_values, 'armor').name
+    const img = document.createElement('img')
+    img.setAttribute('src', '../assets/armure.png')
+    img.setAttribute('alt', 'Image d\'armure, illustration de carte')
+    div.appendChild(title)
+    div.appendChild(img)
     div.appendChild(paragraph)
     main.appendChild(div)
 }
 
-function mostPlayed(_values){
-    _values.sort((a, b) => a.played < b.played ? 1 : -1)
-    return "Ayant le plus joué : " + _values[0].name + " avec " + _values[0].victory + " victoires."
-}
-
-function calculRatio(_values){
-    _values.sort((a, b) => a.victory/a.defeat < b.victory/b.defeat ? 1 : -1)
-    return "Le joueur avec le meilleur ratio victoire/défaite est : " + _values[0].name + " avec " + _values[0].victory + " victoires pour " + _values[0].played + " parties."
+function sortingValues(_values, param){
+    _values.sort((a, b) => a[param] < b[param] ? 1 : -1)
+    return _values[0]
 }

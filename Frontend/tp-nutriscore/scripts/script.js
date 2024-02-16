@@ -38,29 +38,29 @@ function setRows(_values){
     }
 }
 
-function calcNS(value, ns){
+function calcNS(_value, _ns){
     let letter =""
-    let rating = Number(value.rating)
+    let rating = Number(_value.rating)
     switch(true){
         case (rating < 35):
             letter = "E";
-            ns.setAttribute('class', 'nutri-score red')
+            _ns.setAttribute('class', 'nutri-score red')
             break;
         case (rating < 55):
             letter = "D";
-            ns.setAttribute('class', 'nutri-score orange')
+            _ns.setAttribute('class', 'nutri-score orange')
             break;
         case (rating < 70):
             letter = "C";
-            ns.setAttribute('class', 'nutri-score dark-yellow')
+            _ns.setAttribute('class', 'nutri-score dark-yellow')
             break;
         case (rating < 80):
             letter = "B";
-            ns.setAttribute('class', 'nutri-score green')
+            _ns.setAttribute('class', 'nutri-score green')
             break;
         case (rating >= 80):
             letter = "A";
-            ns.setAttribute('class', 'nutri-score dark-green')
+            _ns.setAttribute('class', 'nutri-score dark-green')
             break;
         default:
             console.log("Something went wrong !")
