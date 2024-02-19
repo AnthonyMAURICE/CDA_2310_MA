@@ -7,6 +7,8 @@ tBody.setAttribute('class', 'tbody')
 const head = document.querySelector('.table-head')
 const tableBody = document.querySelector('.tbody')
 document.addEventListener("DOMContentLoaded",readData)
+const cards = document.querySelector('#cards')
+let podium = 1
 
 async function getData(){
     const response = await fetch('https://arfp.github.io/tp/web/javascript/03-cardgame/cardgame.json')
@@ -33,7 +35,10 @@ function readData(){
             }
         }
         styling()
-        calculate(values)
+        displayCard(values, 'attack')
+        displayCard(values, 'armor')
+        displayCard(values, 'played')
+        displayCard(values, 'victory')
     })
 }
 
@@ -64,22 +69,68 @@ function styling(){
     }
 }
 
-function calculate(_values){
-    const div = document.createElement('div')
-    const title = document.createElement('h2')
-    title.textContent = sortingValues(_values, 'played').name
-    const paragraph = document.createElement('p')
-    paragraph.textContent = sortingValues(_values, 'armor').name
+function displayCard(_values, _parameter){
+    let stat = ""
+    const article = document.createElement('article')
+    const titleDiv = document.createElement('div')
+    titleDiv.setAttribute('class', 'name')
+    const numTitle = document.createElement('h3')
+    numTitle.textContent = podium
+    const nameDiv = document.createElement('div')
+    const name = document.createElement('p')
+    name.setAttribute('class', 'chara-name')
+    const palmares = document.createElement('p')
+    name.textContent = sortingValues(_values, _parameter).name
+    let span = document.createElement('span')
+    span.innerHTML = "Played :";
+    const palmValues = document.createTextNode = " " +sortingValues(_values, _parameter).played + " | " + " Victories : " + sortingValues(_values, _parameter).victory
+    palmares.append(span, palmValues);
+    const mainDiv = document.createElement('div')
+    mainDiv.setAttribute('class', "main-div")
     const img = document.createElement('img')
-    img.setAttribute('src', '../assets/armure.png')
-    img.setAttribute('alt', 'Image d\'armure, illustration de carte')
-    div.appendChild(title)
-    div.appendChild(img)
-    div.appendChild(paragraph)
-    main.appendChild(div)
+    Object.assign(img, {src: "../assets/armure.png", className: `image-${podium}`})
+    const stats = document.createElement('div')
+    stats.setAttribute('class', 'stats-div')
+    for(let i = 0; i < 3; i++){
+        if(i == 0){
+            stat = "power"
+        }else if(i == 1){
+            stat = "attack"
+        }else{
+            stat = "armor"
+        }
+        const eachStat = document.createElement('p')
+        eachStat.textContent = capitalizeFirstLetter(stat)
+        const statValue = document.createElement('p')
+        statValue.setAttribute('class', stat)
+        statValue.textContent = sortingValues(_values, _parameter)[stat]
+        stats.append(eachStat, statValue)
+    }
+    mainDiv.append(img, stats)
+    nameDiv.append(name, palmares)
+    titleDiv.append(numTitle, nameDiv)
+    article.append(titleDiv, mainDiv)
+    cards.appendChild(article)
+    podium++
 }
 
-function sortingValues(_values, param){
-    _values.sort((a, b) => a[param] < b[param] ? 1 : -1)
+function cardDescTitle(_stat){
+    const textTitle = document.createElement('p')
+    textTitle.textContent = (_stat == "armor")? _stat = "Defense" : capitalizeFirstLetter(_stat);
+    return textTitle
+}
+
+function cardDescValue(_values, _parameter, _stat){
+    const paragraph = document.createElement('p')
+    paragraph.textContent = sortingValues(_values, _parameter)[_stat]
+    return paragraph
+}
+
+function sortingValues(_values, _param){
+    _values.sort((a, b) => a[_param] < b[_param] ? 1 : -1)
     return _values[0]
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }

@@ -128,3 +128,11 @@ button{
     font-weight: bold;
     border: none;
 }
+
+.displayed{
+    display: table-row;
+}
+
+.hidden{
+    display: none;
+}
