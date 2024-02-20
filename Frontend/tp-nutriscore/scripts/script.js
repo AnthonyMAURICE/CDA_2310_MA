@@ -111,7 +111,6 @@ class Cereals{
         }
         this.isVisible()
     }
-
 }
 
 async function getData(){
@@ -204,7 +203,7 @@ function calcNS(_value, _ns){
     }
     return letter;
 }
-
+// fonction qui fonctionne, mais à comprendre...
 document.querySelectorAll('th').forEach(th_elem => {
     let asc=true
     const index = Array.from(th_elem.parentNode.children).indexOf(th_elem)          
