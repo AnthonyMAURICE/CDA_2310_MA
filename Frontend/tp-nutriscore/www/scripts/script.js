@@ -102,9 +102,6 @@ class Cereals{
 
     displayResults(){
         if(this.visibilityByName() && this.thirdFilter() && this.setVisibility()){
-            console.log(this.setVisibility())
-            console.log(this.thirdFilter())
-            console.log(this.visibilityByName())
             this.visible = true
         }else{
             this.visible = false
@@ -136,8 +133,8 @@ function setCereals(_values){
             rowElem.tagName.appendChild(element)
         }
         const ns = document.createElement('td')
-        ns.textContent = calcNS(value, ns)
         rowElem.nScore = calcNS(value, ns)
+        ns.textContent = rowElem.nScore
         rowElem.tagName.appendChild(ns)
         const del = document.createElement('td')
         del.setAttribute('class', 'delete')
@@ -151,25 +148,28 @@ function setCereals(_values){
             delBtn[i].addEventListener('click', function(){
             deletion(delBtn[i])})
         }
-        
-        for(let j = 0; j < checkboxes.length; j++){
-            checkboxes[j].addEventListener('click', function(){
-                rowElem.displayResults()
-            })
-        }
-        
-        searchInput.addEventListener('input', function(){
-            rowElem.displayResults()
-        })
-        
-        select.addEventListener('change', function(){
-            rowElem.displayResults()
-        })
+        processing(rowElem)
     }
 }
 
+function processing(_rowElem){
+    for(let j = 0; j < checkboxes.length; j++){
+        checkboxes[j].addEventListener('click', function(){
+            _rowElem.displayResults()
+        })
+    }
+    
+    searchInput.addEventListener('input', function(){
+        _rowElem.displayResults()
+    })
+    
+    select.addEventListener('change', function(){
+        _rowElem.displayResults()
+    })
+}
+
 function deletion(_btn){
-    const lineToDelete = (_btn.parentNode).parentNode
+    const lineToDelete = _btn.closest("tr")
     lineToDelete.style.display = "none"
 }
 
@@ -203,16 +203,20 @@ function calcNS(_value, _ns){
     }
     return letter;
 }
-// fonction qui fonctionne, mais à comprendre...
+
 document.querySelectorAll('th').forEach(th_elem => {
     let asc=true
-    const index = Array.from(th_elem.parentNode.children).indexOf(th_elem)          
+    let index = Array.from(th_elem.parentNode.children).indexOf(th_elem)
     th_elem.addEventListener('click', (e) => {              
         const arr = [... th_elem.closest("table").querySelectorAll('tbody tr')]
         arr.sort( (a, b) => {
-            const a_val = a.children[index].innerText
-            const b_val = b.children[index].innerText                   
-            return (asc) ? a_val.localeCompare(b_val) : b_val.localeCompare(a_val)
+            let a_value = a.children[index].innerText
+            let b_value = b.children[index].innerText
+            if(index === 0 || (index > 1 && index < 10)){
+                return (asc) ? a_value - b_value : b_value - a_value
+            }else{
+                return (asc) ? a_value.localeCompare(b_value) : b_value.localeCompare(a_value)
+            }
         })
         arr.forEach(elem => {                   
             th_elem.closest("table").querySelector("tbody").appendChild(elem)
