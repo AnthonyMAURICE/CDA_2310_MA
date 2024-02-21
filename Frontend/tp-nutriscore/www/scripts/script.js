@@ -1,9 +1,14 @@
+let save = localStorage
+
 const head = document.querySelector('#t-head')
 const tBody = document.querySelector('#t-body')
 const header = document.querySelectorAll('th')
 const checkboxes = document.querySelectorAll('.checkbox-button')
 const searchInput = document.querySelector('.search-input')
 const select = document.querySelector('#cat-select')
+let results = []
+let obj = {}
+
 
 class Cereals{
     constructor(name, sugar, salt, vits, fiber, tagName){
@@ -203,6 +208,32 @@ function calcNS(_value, _ns){
     }
     return letter;
 }
+
+function buildTableData() {
+    const elements = [...document.querySelectorAll('tbody tr')];
+    console.log(elements.length)
+    const keyValues = [...document.querySelectorAll('td')];
+        for(let i = 0; i < keyValues.length; i++){
+            for(let j = 0; j <= elements.length; j++){
+                let keys = keyValues[j].className
+                let value = keyValues[j].textContent
+                obj[keys] = value
+                console.log(obj)
+            }
+            results.push(obj)
+        }
+            
+        console.log(obj)
+        console.log(results)
+    return results;
+}
+
+results = document.querySelector('.btn-save').addEventListener('click', function(){
+    results = buildTableData()
+    console.log(results)
+    let jsonFile = JSON.stringify(results)
+    save.setItem("file", jsonFile)
+} )
 
 document.querySelectorAll('th').forEach(th_elem => {
     let asc=true

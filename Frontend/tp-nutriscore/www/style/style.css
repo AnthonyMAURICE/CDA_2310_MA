@@ -129,3 +129,8 @@ button{
     font-weight: bold;
     border: none;
 }
+
+.btn-save{
+    width: 25%;
+    color: yellowgreen;
+}
