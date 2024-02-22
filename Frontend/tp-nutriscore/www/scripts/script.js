@@ -1,14 +1,10 @@
 let save = localStorage
-
 const head = document.querySelector('#t-head')
 const tBody = document.querySelector('#t-body')
 const header = document.querySelectorAll('th')
 const checkboxes = document.querySelectorAll('.checkbox-button')
 const searchInput = document.querySelector('.search-input')
 const select = document.querySelector('#cat-select')
-let results = []
-let obj = {}
-
 
 class Cereals{
     constructor(name, sugar, salt, vits, fiber, tagName){
@@ -124,7 +120,13 @@ async function getData(){
 document.addEventListener('DOMContentLoaded', setData)
 function setData(){
     getData().then(values =>{
-        setCereals(values.data)
+        if(localStorage.getItem("file") === null){
+            setCereals(values.data)
+        }else{
+            let file = JSON.parse(save.getItem("file"))
+            save.clear()
+            setCereals(file)
+        }
     })
 }
 
@@ -148,7 +150,6 @@ function setCereals(_values){
         del.appendChild(buttonDel)
         rowElem.tagName.appendChild(del)
         const delBtn = document.querySelectorAll('.btn-del')
-
         for(let i = 0; i < delBtn.length; i++){
             delBtn[i].addEventListener('click', function(){
             deletion(delBtn[i])})
@@ -211,26 +212,22 @@ function calcNS(_value, _ns){
 
 function buildTableData() {
     const elements = [...document.querySelectorAll('tbody tr')];
-    console.log(elements.length)
-    const keyValues = [...document.querySelectorAll('td')];
-        for(let i = 0; i < keyValues.length; i++){
-            for(let j = 0; j <= elements.length; j++){
+    let results = []
+        for(let i = 0; i < elements.length; i++){
+            let obj = {}
+            let keyValues = elements[i].querySelectorAll('td')
+            for(let j = 0; j < keyValues.length -2; j++){
                 let keys = keyValues[j].className
                 let value = keyValues[j].textContent
                 obj[keys] = value
-                console.log(obj)
             }
-            results.push(obj)
+            results[i] = obj
         }
-            
-        console.log(obj)
-        console.log(results)
     return results;
 }
 
 results = document.querySelector('.btn-save').addEventListener('click', function(){
     results = buildTableData()
-    console.log(results)
     let jsonFile = JSON.stringify(results)
     save.setItem("file", jsonFile)
 } )
@@ -254,4 +251,9 @@ document.querySelectorAll('th').forEach(th_elem => {
         })
         asc = !asc
     })
+})
+
+document.querySelector('.btn-purge').addEventListener('click', function(){
+    save.clear()
+    location.reload()
 })
