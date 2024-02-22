@@ -124,7 +124,6 @@ function setData(){
             setCereals(values.data)
         }else{
             let file = JSON.parse(save.getItem("file"))
-            save.clear()
             setCereals(file)
         }
     })
@@ -235,15 +234,15 @@ results = document.querySelector('.btn-save').addEventListener('click', function
 document.querySelectorAll('th').forEach(th_elem => {
     let asc=true
     let index = Array.from(th_elem.parentNode.children).indexOf(th_elem)
-    th_elem.addEventListener('click', (e) => {              
+    th_elem.addEventListener('click', () => {              
         const arr = [... th_elem.closest("table").querySelectorAll('tbody tr')]
         arr.sort( (a, b) => {
             let a_value = a.children[index].innerText
             let b_value = b.children[index].innerText
             if(index === 0 || (index > 1 && index < 10)){
-                return (asc) ? a_value - b_value : b_value - a_value
+                return (asc) ? b_value - a_value : a_value - b_value
             }else{
-                return (asc) ? a_value.localeCompare(b_value) : b_value.localeCompare(a_value)
+                return (asc) ? b_value.localeCompare(a_value) : a_value.localeCompare(b_value)
             }
         })
         arr.forEach(elem => {                   
