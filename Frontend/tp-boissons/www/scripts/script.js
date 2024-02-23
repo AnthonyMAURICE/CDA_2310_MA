@@ -26,7 +26,6 @@ class Article{
 async function fetchData(){
     const response = await fetch("../scripts/data.json")
     let data = await response.json()
-    console.log(data)
     return data
 }
 
