@@ -1,7 +1,5 @@
 let save = localStorage
-const head = document.querySelector('#t-head')
 const tBody = document.querySelector('#t-body')
-const header = document.querySelectorAll('th')
 const checkboxes = document.querySelectorAll('.checkbox-button')
 const searchInput = document.querySelector('.search-input')
 const select = document.querySelector('#cat-select')
@@ -229,10 +227,10 @@ results = document.querySelector('.btn-save').addEventListener('click', function
     results = buildTableData()
     let jsonFile = JSON.stringify(results)
     save.setItem("file", jsonFile)
-} )
+})
 
 document.querySelectorAll('th').forEach(th_elem => {
-    let asc=true
+    let asc = true
     let index = Array.from(th_elem.parentNode.children).indexOf(th_elem)
     th_elem.addEventListener('click', () => {              
         const arr = [... th_elem.closest("table").querySelectorAll('tbody tr')]
