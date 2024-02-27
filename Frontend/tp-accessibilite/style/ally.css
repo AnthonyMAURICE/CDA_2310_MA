@@ -1,0 +1,40 @@
+.very-hidden{
+    display: none;
+}
+
+.aria-list, .code-snipnet{
+    background-color: black;
+    color: white;
+    width: 100%;
+    padding: 0;
+}
+
+section{
+    width: 60%;
+    margin: auto;
+}
+
+figure, section{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    text-align: center;
+}
+
+img{
+    max-width: 250px;
+}
+
+.aria-list > li{
+    list-style-type: none;
+    text-align: left;
+}
+
+pre{
+    text-align: left;
+    width: fit-content;
+}
+
+code{
+    
+}

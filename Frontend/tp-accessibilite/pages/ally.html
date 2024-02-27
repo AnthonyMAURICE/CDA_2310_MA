@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/general-style.css">
+    <link rel="stylesheet" href="../style/ally.css">
+    <title>Accessiblilté - Best practices</title>
+</head>
+<body>
+    <header class="home-header">
+        <div class="logo-and-skip">
+            <a class="white-links" href="#content">Aller au contenu</a>
+            <img src="../assets/a11yNow.png" alt="Logo du site HandiA11y spécialisé dans l'accessibilité web">
+        </div>
+        <nav>
+            <ul class="navbar">
+                <li><a class="white-links" href="../index.html">Accueil</a></li>
+                <li><a class="white-links" href="./ally.html">A11y</a></li>
+                <li><a class="white-links" href="#">Handicaps</a></li>
+                <li><a class="white-links" href="#">Faites un don</a></li>
+                <li><a class="white-links" href="#">Equipe</a></li>
+                <li><a class="white-links" href="#">Plan du site</a></li>
+                <li><button class="btn btn-access" type="button">Paramètres Accessiblilté</button></li>
+            </ul>
+        </nav>
+        <div>
+            <label class="hidden" for="search-bar">zone de recherche</label>
+            <input type="text" placeholder="zone de recherche" id="search-bar" name="search-bar">
+            <button class="btn btn-yellow" type="button">Rechercher</button>
+        </div>
+    </header>
+    <main id="content">
+        <h1>Quelques bonnes pratiques d'accessibilité...</h1>
+        <button class="btn btn-yellow" type="button">Afficher les textes alternatifs des images (WIP)</button>
+        <section>
+            <figure>
+                <img src="../assets/decorative-image.jpg" alt="">
+                <h2>Que faire avec des images décoratives ?</h2>
+                <figcaption>Utiliser des attributs "alt" vides ou nuls afin d'éviter qu'elles soient lues par les technologies d'assistance.</figcaption>
+            </figure>
+            <figure>
+                <img src="../assets/informative-image.jpg" alt="Couverture d'un livre traitant de l'accessibilité et du handicap - Joël Zaffran">
+                <h2>Quoi mettre dans les alternatives textuelles des images informatives ?</h2>
+                <figcaption>Des descriptions appropriées pour fournir des informations équivalentes pour les utilisateurs qui ne peuvent pas voir les images. Les attributs title et aria-describedby ne sont pas indispensables !</figcaption>
+            </figure>
+            <figure>
+                <img src="../assets/semantique-html.jpg" alt="">
+                <h2>Balises HTML sémantiques</h2>
+                <figcaption>Utiliser des balises HTML sémantiques appropriées (telles que &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;section&gt;, &lt;article&gt;, &lt;aside&gt;, &lt;footer&gt;) pour améliorer la structure et la compréhension du contenu par les technologies d'assistance.</figcaption>
+                <button class="btn btn-yellow" type="button">Afficher la description de l'image (WIP)</button>
+                <div class="very-hidden">
+                    <p>Purement démonstratif, cette image affiche une page HTML avec les balises habituelles qui permettent de structurer le code de la page.</p>
+                    <div class="code-snipnet">
+                        <pre>
+                            <code>
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html lang=&quot;fr&quot;&gt;
+                                &lt;head&gt;
+                                    &lt;meta charset=&quot;UTF-8&quot;&gt;
+                                    &lt;title&gt;Exemple de Sémantique minimaliste HTML pour l'Accessibilité&lt;/title&gt;
+                                &lt;/head&gt;
+                                &lt;body&gt;
+                                &lt;header&gt;
+                                    &lt;h1&gt;Titre de la page&lt;/h1&gt;
+                                &lt;/header&gt;
+                                &lt;nav&gt;
+                                    &lt;ul&gt;
+                                        &lt;li&gt; &lt;a href=&quot;#&quot;&gt;Accueil&lt;/a&gt; &lt;/li&gt;
+                                        &lt;li&gt; &lt;a href=&quot;#&quot;&gt;À propos&lt;/a&gt; &lt;/li&gt;
+                                        &lt;li&gt; &lt;a href=&quot;#&quot;&gt;Services&lt;/a&gt; &lt;/li&gt;
+                                        &lt;li&gt; &lt;a href=&quot;#&quot;&gt;Contact&lt;/a&gt; &lt;/li&gt;
+                                    &lt;/ul&gt;
+                                &lt;/nav&gt;
+                                &lt;main&gt;
+                                    &lt;h2&gt;Contenu principal &lt;/h2&gt;
+                                    &lt;p&gt;un paragraphe &lt;/p&gt;
+                                    &lt;p&gt;un autre paragraphe &lt;/p&gt;
+                                &lt;/main&gt;
+                                &lt;footer&gt;
+                                    &lt;p&gt;Copyright &copy; 2023. Tous droits réservés. &lt;/p&gt;
+                                &lt;/footer&gt;
+                                &lt;/body&gt;
+                                &lt;/html&gt;
+                            </code>
+                        </pre>
+                            
+                    </div>
+                </div>
+            </figure>
+            <figure>
+                <img src="../assets/image-clavier.png" alt="image soulignant l'importance de l'accès par utilisation du clavier quand l'accès par la souris n'est pas possible">
+                <h2>Donner l'accès au clavier</h2>
+                <figcaption>S'assurer que toutes les fonctionnalités du site sont accessibles via le clavier par les personnes qui ne peuvent pas utiliser la souris.</figcaption>
+            </figure>
+            <figure>
+                <img src="../assets/contraste-image.png" alt="image illustrant les contrastes de couleurs">
+                <h2>Régler les problèmes de contraste des couleurs</h2>
+                <figcaption>Utiliser des combinaisons de couleurs offrant un contraste suffisant pour rendre le contenu lisible pour les personnes atteintes de déficience visuelle.</figcaption>
+            </figure>
+            <figure>
+                <img src="../assets/image-formulaire.png" alt="image illustrant un formulaire HTML">
+                <h2>Comment rendre les formulaires accessibles ?</h2>
+                <figcaption>Il faut utiliser des balises HTML sémantiques et utiliser des patterns ARIA :</figcaption>
+                <ul class="aria-list">
+                    <li>aria-label</li>
+                    <li>aria-live</li>
+                    <li>aria-autocomplete</li>
+                    <li>aria-checked</li>
+                    <li>aria-modal</li>
+                    <li>aria-selected</li>
+                </ul>
+                <p>... pour améliorer la compréhension du contenu par les technologies d'assistance.</p>
+            </figure>
+        </section>
+        <section>
+            <img src="../assets/ara.png" alt="">
+            <p><span class="bolded">ARA</span> vous propose une méthodologie pour réaliser 3 types d'audit</p>
+            <p><span class="bolded">Rapide</span> (25 critères du <span class="underline">RGAA</span>)</p>
+            <p><span class="bolded">Complémentaire</span> (50 critères du <span class="underline">RGAA</span>)</p>
+            <p class="grey-back"><span class="bolded">Complet</span> dit de conformité (106 critères du <span class="underline">RGAA</span>)</p>
+            <a href="https://ara.numerique.gouv.fr/audits/nouveau">Lien pour effectuer un audit d'un site web</a>
+            <a href="https://ara.numerique.gouv.fr/ressources/outils">Lien vers une liste d'outils pour tester l'accessibilité</a>
+        </section>
+    </main>
+    <footer>
+        <p>© 2023 HandiA11y. Tous droits réservés.</p>
+        <p>Envoyez un courriel à philippe.bouget(@)laposte.net si vous souhaitez suivre une formation sur l'accessibilité.</p>
+    </footer>
+</body>
+</html>

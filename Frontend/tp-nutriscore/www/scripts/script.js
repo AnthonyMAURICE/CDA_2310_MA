@@ -32,7 +32,7 @@ class Cereals{
         this._nScore = value
     }
 
-    static createdRow(value){
+    static createRow(value){
         const cereal = new Cereals(value.name, value.sugars, value.sodium, value.vitamins, value.fiber, "tr")
         return cereal
     }
@@ -68,6 +68,7 @@ class Cereals{
 
     isVisible(){
         this.visible ? this.tagName.style.display = "table-row": this.tagName.style.display = "none"
+        lastRow()
     }
 
     appendElement(_tBody){
@@ -129,7 +130,7 @@ function setData(){
 
 function setCereals(_values){
     for(let value of _values){
-        const rowElem = Cereals.createdRow(value)
+        const rowElem = Cereals.createRow(value)
         rowElem.appendElement(tBody)
         for(let elem in value){
             const element = document.createElement('td')
@@ -151,11 +152,42 @@ function setCereals(_values){
             delBtn[i].addEventListener('click', function(){
             deletion(delBtn[i])})
         }
-        processing(rowElem)
+        filters(rowElem)
     }
+    const statsRow = tBody.insertRow()
+    let blankTD = statsRow.insertCell()
+    blankTD.setAttribute('class', "id")
+    let numberStat = statsRow.insertCell()
+    numberStat.setAttribute("id", "nbe-stat")
+    let calStat = statsRow.insertCell()
+    calStat.setAttribute("id", "calo-stat")
+    lastRow()
 }
 
-function processing(_rowElem){
+function lastRow(){
+    let numberStat = document.getElementById('nbe-stat')
+    let calStat = document.getElementById('calo-stat')
+    let visibleRows = 0
+    let rows = document.querySelectorAll('tbody tr')
+    for(let row of rows){
+        if(row.style.display != 'none' && row.firstChild.textContent != ""){
+            visibleRows++
+        }
+    }
+    numberStat.textContent = (visibleRows) + " éléments"
+    calStat.textContent = "Moyenne calories " + Math.round((calcCal()/visibleRows)*100)/100
+}
+
+function calcCal(){
+    let totalCal = 0
+    let calories = document.querySelectorAll('tbody tr .calories')
+    for(let cal of calories){
+        cal.parentNode.style.display == 'none' ? totalCal += 0 : totalCal += (+cal.textContent)
+    }
+    return totalCal
+}
+
+function filters(_rowElem){
     for(let j = 0; j < checkboxes.length; j++){
         checkboxes[j].addEventListener('click', function(){
             _rowElem.displayResults()
@@ -174,6 +206,7 @@ function processing(_rowElem){
 function deletion(_btn){
     const lineToDelete = _btn.closest("tr")
     lineToDelete.style.display = "none"
+    lastRow()
 }
 
 function calcNS(_value, _ns){
