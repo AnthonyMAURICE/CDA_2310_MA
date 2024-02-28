@@ -1,0 +1,30 @@
+.handi-img{
+    max-width: 150px;
+}
+
+h2, p{
+    margin: 0;
+}
+
+figcaption{
+    margin: 5px;
+}
+
+.column{
+    display: flex;
+    flex-flow: column wrap;
+    width: 150px;
+}
+
+.spaced{
+    justify-content: space-between;
+}
+
+.handi-desc{
+    width: 66%;
+}
+
+.devices-figure{
+    width: 150px;
+    text-align: center;
+}

@@ -17,10 +17,10 @@
             <ul class="navbar">
                 <li><a class="white-links" href="../index.html">Accueil</a></li>
                 <li><a class="white-links" href="./ally.html">A11y</a></li>
-                <li><a class="white-links" href="#">Handicaps</a></li>
-                <li><a class="white-links" href="#">Faites un don</a></li>
-                <li><a class="white-links" href="#">Equipe</a></li>
-                <li><a class="white-links" href="#">Plan du site</a></li>
+                <li><a class="white-links" href="./handicaps.html">Handicaps</a></li>
+                <li><a class="white-links" href="./form.html">Faites un don</a></li>
+                <li><a class="white-links" href="./team.html">Equipe</a></li>
+                <li><a class="white-links" href="./map.html">Plan du site</a></li>
                 <li><button class="btn btn-access" type="button">Paramètres Accessiblilté</button></li>
             </ul>
         </nav>
@@ -33,7 +33,7 @@
     <main id="content">
         <h1>Quelques bonnes pratiques d'accessibilité...</h1>
         <button class="btn btn-yellow" type="button">Afficher les textes alternatifs des images (WIP)</button>
-        <section>
+        <section id="practices">
             <figure>
                 <img src="../assets/decorative-image.jpg" alt="">
                 <h2>Que faire avec des images décoratives ?</h2>
@@ -51,37 +51,37 @@
                 <button class="btn btn-yellow" type="button">Afficher la description de l'image (WIP)</button>
                 <div class="very-hidden">
                     <p>Purement démonstratif, cette image affiche une page HTML avec les balises habituelles qui permettent de structurer le code de la page.</p>
-                    <div class="code-snipnet">
+                    <div class="code-snipnet" tabindex="0">
                         <pre>
                             <code>
-                                &lt;!DOCTYPE html&gt;
-                                &lt;html lang=&quot;fr&quot;&gt;
-                                &lt;head&gt;
-                                    &lt;meta charset=&quot;UTF-8&quot;&gt;
-                                    &lt;title&gt;Exemple de Sémantique minimaliste HTML pour l'Accessibilité&lt;/title&gt;
-                                &lt;/head&gt;
-                                &lt;body&gt;
-                                &lt;header&gt;
-                                    &lt;h1&gt;Titre de la page&lt;/h1&gt;
-                                &lt;/header&gt;
-                                &lt;nav&gt;
-                                    &lt;ul&gt;
-                                        &lt;li&gt; &lt;a href=&quot;#&quot;&gt;Accueil&lt;/a&gt; &lt;/li&gt;
-                                        &lt;li&gt; &lt;a href=&quot;#&quot;&gt;À propos&lt;/a&gt; &lt;/li&gt;
-                                        &lt;li&gt; &lt;a href=&quot;#&quot;&gt;Services&lt;/a&gt; &lt;/li&gt;
-                                        &lt;li&gt; &lt;a href=&quot;#&quot;&gt;Contact&lt;/a&gt; &lt;/li&gt;
-                                    &lt;/ul&gt;
-                                &lt;/nav&gt;
-                                &lt;main&gt;
-                                    &lt;h2&gt;Contenu principal &lt;/h2&gt;
-                                    &lt;p&gt;un paragraphe &lt;/p&gt;
-                                    &lt;p&gt;un autre paragraphe &lt;/p&gt;
-                                &lt;/main&gt;
-                                &lt;footer&gt;
-                                    &lt;p&gt;Copyright &copy; 2023. Tous droits réservés. &lt;/p&gt;
-                                &lt;/footer&gt;
-                                &lt;/body&gt;
-                                &lt;/html&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;fr&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Exemple de Sémantique minimaliste HTML pour l'Accessibilité&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Titre de la page&lt;/h1&gt;
+    &lt;/header&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt; &lt;a href=&quot;#&quot;&gt;Accueil&lt;/a&gt; &lt;/li&gt;
+            &lt;li&gt; &lt;a href=&quot;#&quot;&gt;À propos&lt;/a&gt; &lt;/li&gt;
+            &lt;li&gt; &lt;a href=&quot;#&quot;&gt;Services&lt;/a&gt; &lt;/li&gt;
+            &lt;li&gt; &lt;a href=&quot;#&quot;&gt;Contact&lt;/a&gt; &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+    &lt;main&gt;
+        &lt;h2&gt;Contenu principal &lt;/h2&gt;
+        &lt;p&gt;un paragraphe &lt;/p&gt;
+        &lt;p&gt;un autre paragraphe &lt;/p&gt;
+    &lt;/main&gt;
+    &lt;footer&gt;
+        &lt;p&gt;Copyright &copy; 2023. Tous droits réservés. &lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
                             </code>
                         </pre>
                             
@@ -113,19 +113,19 @@
                 <p>... pour améliorer la compréhension du contenu par les technologies d'assistance.</p>
             </figure>
         </section>
-        <section>
+        <section id="audit" class="last-section">
             <img src="../assets/ara.png" alt="">
             <p><span class="bolded">ARA</span> vous propose une méthodologie pour réaliser 3 types d'audit</p>
             <p><span class="bolded">Rapide</span> (25 critères du <span class="underline">RGAA</span>)</p>
             <p><span class="bolded">Complémentaire</span> (50 critères du <span class="underline">RGAA</span>)</p>
             <p class="grey-back"><span class="bolded">Complet</span> dit de conformité (106 critères du <span class="underline">RGAA</span>)</p>
-            <a href="https://ara.numerique.gouv.fr/audits/nouveau">Lien pour effectuer un audit d'un site web</a>
-            <a href="https://ara.numerique.gouv.fr/ressources/outils">Lien vers une liste d'outils pour tester l'accessibilité</a>
+            <p><a href="https://ara.numerique.gouv.fr/audits/nouveau">Lien pour effectuer un audit d'un site web</a></p>
+            <p><a href="https://ara.numerique.gouv.fr/ressources/outils">Lien vers une liste d'outils pour tester l'accessibilité</a></p>
         </section>
     </main>
     <footer>
         <p>© 2023 HandiA11y. Tous droits réservés.</p>
-        <p>Envoyez un courriel à philippe.bouget(@)laposte.net si vous souhaitez suivre une formation sur l'accessibilité.</p>
+        <p>Envoyez un courriel à <a class="white-links" href="mailto:philippe.bouget(@)laposte.net">philippe.bouget(@)laposte.net</a>  si vous souhaitez suivre une formation sur l'accessibilité.</p>
     </footer>
 </body>
 </html>
