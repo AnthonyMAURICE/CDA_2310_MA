@@ -29,6 +29,71 @@
             <input type="text" placeholder="zone de recherche" id="search-bar" name="search-bar">
             <button class="btn btn-yellow" type="button">Rechercher</button>
         </div>
+        <dialog>
+            <div class="dialog-title">
+                <h1>Paramètres d'accessibilité</h1>
+                <button class="close-dialog">X</button>
+            </div>
+            <div class="dialog-wrapper">
+                <div class="dialog-options">
+                    <h2>
+                        Contrastes
+                    </h2>
+                    <div class="dialog-inputs">
+                        <input type="radio" id="default-contrast" checked name="contrast">
+                        <label for="default-contrast" name="contrast">Défaut</label>
+                        <input type="radio" id="enhanced-contrast" name="contrast">
+                        <label for="enhanced-contrast" name="contrast">Renforcer</label>
+                        <input type="radio" id="inverted-contrast" name="contrast">
+                        <label for="inverted-contrast" name="contrast">Inverser</label>
+                    </div>
+                </div>
+                <div class="dialog-options">
+                    <h2>
+                        Police
+                    </h2>
+                    <div class="dialog-inputs">
+                        <input type="radio" id="default-font" checked name="font">
+                        <label for="default-font" name="font">Défaut</label>
+                        <input type="radio" id="adapted-font" name="font">
+                        <label for="adapted-font" name="font">Renforcer</label>
+                    </div>
+                </div>
+                <div class="dialog-options">
+                    <h2>
+                        Interlignage
+                    </h2>
+                    <div class="dialog-inputs">
+                        <input type="radio" id="default-interline" checked name="interline">
+                        <label for="interline">Défaut</label>
+                        <input type="radio" id="enhanced-interline" name="interline">
+                        <label for="interline">Augmenter</label>
+                    </div>
+                </div>
+                <div class="dialog-options">
+                    <h2>
+                        Justification
+                    </h2>
+                    <div class="dialog-inputs">
+                        <input type="radio" id="default-justify" checked name="justify">
+                        <label for="justify">Défaut</label>
+                        <input type="radio" id="remove-justify" name="justify">
+                        <label for="justify">Supprimer</label>
+                    </div>
+                </div>
+                <div class="dialog-options">
+                    <h2>
+                        Images
+                    </h2>
+                    <div class="dialog-inputs">
+                        <input type="radio" id="default-images" checked name="images">
+                        <label for="images">Défaut</label>
+                        <input type="radio" id="text-images" name="images">
+                        <label for="images">Remplacer par du texte</label>
+                    </div>
+                </div>
+            </div>    
+        </dialog>
     </header>
     <main id="content">
         <h1>Symboles et types de handicaps</h1>
@@ -71,18 +136,18 @@
             </article>
         </section>
         <section id="devices" class="devices">
-            <h2>Quelques matériels d'accessibilité</h2>
+            <h2 class="title">Quelques matériels d'accessibilité</h2>
             <article class="row">
                 <figure class="column devices-figure">
-                    <img src="../assets/plage-braille.png" alt="">
+                    <img class="handi-img" src="../assets/plage-braille.png" alt="">
                     <figcaption>Plage braille</figcaption>
                 </figure>
                 <figure class="column devices-figure">
-                    <img src="../assets/synthese-vocale.png" alt="">
+                    <img class="handi-img" src="../assets/synthese-vocale.png" alt="">
                     <figcaption>Synthèse vocale</figcaption>
                 </figure>
                 <figure class="column devices-figure">
-                    <img src="../assets/image-trackball.jpg" alt="">
+                    <img class="handi-img" src="../assets/image-trackball.jpg" alt="">
                     <figcaption>Trackball (remplace la souris)</figcaption>
                 </figure>
             </article>
@@ -94,4 +159,5 @@
         <p>Envoyez un courriel à <a class="white-links" href="mailto:philippe.bouget(@)laposte.net">philippe.bouget(@)laposte.net</a>  si vous souhaitez suivre une formation sur l'accessibilité.</p>
     </footer>
 </body>
+<script src="../scripts/script.js"></script>
 </html>

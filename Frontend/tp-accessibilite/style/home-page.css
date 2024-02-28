@@ -22,13 +22,14 @@ section{
 
 .articles{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .principles-boxes{
     background-color: lightblue;
     border-radius: 10px;
-    width: 20%;
+    margin: 0 15px;
+    width: 22%;
     padding: 5px 10px;
     box-shadow: 0 2px 5px black;
 }
