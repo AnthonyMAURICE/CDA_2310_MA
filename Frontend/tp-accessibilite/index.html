@@ -13,7 +13,7 @@
             <a class="white-links" href="#content">Aller au contenu</a>
             <img src="./assets/a11yNow.png" alt="Logo du site HandiA11y spécialisé dans l'accessibilité web">
         </div>
-        <nav>
+        <nav role="navigation">
             <ul class="navbar">
                 <li><a class="white-links" href="./index.html">Accueil</a></li>
                 <li><a class="white-links" href="./pages/ally.html">A11y</a></li>
@@ -24,11 +24,74 @@
                 <li><button class="btn btn-access" type="button">Paramètres Accessiblilté</button></li>
             </ul>
         </nav>
-        <div>
+        <form role="search">
             <label class="hidden" for="search-bar">zone de recherche</label>
             <input type="text" placeholder="zone de recherche" id="search-bar" name="search-bar">
             <button class="btn btn-yellow" type="button">Rechercher</button>
-        </div>
+        </form>
+        <dialog>
+            <div class="dialog-title">
+                <h1>Paramètres d'accessibilité</h1>
+                <button class="close-dialog">X</button>
+            </div>
+            <div class="dialog-wrapper">
+                <fieldset class="dialog-options">
+                    <legend>Contrastes</legend>
+                    <div class="dialog-inputs">
+                        <input class="contrast" type="radio" id="default-contrast" checked name="contrast">
+                        <label for="default-contrast" name="contrast">Défaut</label>
+                        <input class="contrast" type="radio" id="enhanced-contrast" name="contrast">
+                        <label for="enhanced-contrast" name="contrast">Renforcer</label>
+                        <input class="contrast" type="radio" id="inverted-contrast" name="contrast">
+                        <label for="inverted-contrast" name="contrast">Inverser</label>
+                    </div>
+                </fieldset>
+                <fieldset class="dialog-options">
+                    <legend>
+                        Police (dyslexie)
+                    </legend>
+                    <div class="dialog-inputs">
+                        <input class="font" type="radio" id="default-font" checked name="font">
+                        <label for="default-font" name="font">Défaut</label>
+                        <input class="font" type="radio" id="adapted-font" name="font">
+                        <label for="adapted-font" name="font">Adapter</label>
+                    </div>
+                </fieldset>
+                <fieldset class="dialog-options">
+                    <legend>
+                        Interlignage
+                    </legend>
+                    <div class="dialog-inputs">
+                        <input class="interligne" type="radio" id="default-interline" checked name="interline">
+                        <label for="default-interline">Défaut</label>
+                        <input class="interligne" type="radio" id="enhanced-interline" name="interline">
+                        <label for="enhanced-interline">Augmenter</label>
+                    </div>
+                </fieldset>
+                <fieldset class="dialog-options">
+                    <legend>
+                        Justification
+                    </legend>
+                    <div class="dialog-inputs">
+                        <input type="radio" id="default-justify" checked name="justify">
+                        <label for="default-justify">Défaut</label>
+                        <input type="radio" id="remove-justify" name="justify">
+                        <label for="remove-justify">Supprimer</label>
+                    </div>
+                </fieldset>
+                <fieldset class="dialog-options">
+                    <legend>
+                        Images
+                    </legend>
+                    <div class="dialog-inputs">
+                        <input type="radio" id="default-images" checked name="images">
+                        <label for="default-images">Défaut</label>
+                        <input type="radio" id="text-images" name="images">
+                        <label for="text-images">Remplacer par du texte</label>
+                    </div>
+                </fieldset>
+            </div>    
+        </dialog>
     </header>
     <main id="content">
         <h1>Bienvenue sur HandiA11y</h1>
@@ -66,15 +129,15 @@
                 <caption>Les critères WCAG 2.1 sous forme de tableau</caption>
                 <thead>
                     <tr class="table-head">
-                        <th>Principes</th>
-                        <th>Critères</th>
-                        <th>Correspondances</th>
-                        <th>Objectifs</th>
+                        <th scope="col">Principes</th>
+                        <th scope="col">Critères</th>
+                        <th scope="col">Correspondances</th>
+                        <th scope="col">Objectifs</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td rowspan="4" class="table-categories">Perceptible</td>
+                        <th scope="row" rowspan="4" class="table-categories">Perceptible</th>
                         <td>1.1</td>
                         <td>Alternatives textuelles</td>
                         <td>Fournir des alternatives textuelles pour tout contenu non textuel afin qu'il puisse être modifié dans d'autres formes comme les gros caractères, le braille, la parole, les symboles ou un langage plus simple.</td>
@@ -95,7 +158,7 @@
                         <td>Facilitez la visualisation et l'écoute du contenu par les utilisateurs, notamment en séparant le premier plan de l'arrière-plan.</td>
                     </tr>
                     <tr>
-                        <td rowspan="5" class="table-categories">Utilisable</td>
+                        <th scope="row" rowspan="5" class="table-categories">Utilisable</th>
                         <td>2.1</td>
                         <td>Accessible au clavier</td>
                         <td>Rendre toutes les fonctionnalités disponibles à partir d'un clavier.</td>
@@ -121,7 +184,7 @@
                         <td>Faciliter l'utilisation des fonctionnalités par les utilisateurs grâce à diverses entrées au-delà du clavier.</td>
                     </tr>
                     <tr>
-                        <td rowspan="3" class="table-categories">Compréhensible</td>
+                        <th scope="row" rowspan="3" class="table-categories">Compréhensible</th>
                         <td>3.1</td>
                         <td>Lisibilité du texte et de l'interface</td>
                         <td>Rendre le contenu du texte lisible et compréhensible.</td>
@@ -137,7 +200,7 @@
                         <td>Aider les utilisateurs à éviter et à corriger les erreurs.</td>
                     </tr>
                     <tr>
-                        <td class="table-categories">Robuste</td>
+                        <th scope="row" class="table-categories">Robuste</th>
                         <td>4.1</td>
                         <td>Compatible</td>
                         <td>Optimiser la compatibilité avec les agents utilisateurs actuels et futurs, y compris les technologies d'assistance.</td>
@@ -151,21 +214,21 @@
                 <caption class="up-caption">Tableau des 3 niveaux de conformité WCAG 2.1</caption>
                 <thead>
                     <tr class="table-head">
-                        <th>Niveaux</th>
-                        <th>Description</th>
+                        <th scope="col">Niveaux</th>
+                        <th scope="col">Description</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="table-categories">A</td>
+                        <th scope="row" class="table-categories">A</th>
                         <td>Accessibilité de base, répondant aux besoins essentiels des utilisateurs handicapés ou en situation de handicap</td>
                     </tr>
                     <tr>
-                        <td class="table-categories">AA</td>
+                        <th scope="row" class="table-categories">AA</th>
                         <td>Accessibilité avancée, garantissant une meilleure expérience pour la majorité des utilisateurs handicapés ou en situation de handicap</td>
                     </tr>
                     <tr>
-                        <td class="table-categories">AAA</td>
+                        <th scope="row" class="table-categories">AAA</th>
                         <td>Accessibilité maximale, offrant une expérience optimale pour tous les utilisateurs, y compris les utilisateurs handicapés</td>
                     </tr>
                 </tbody>
@@ -174,7 +237,7 @@
             <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1">WCAG 2.1 en VO</a>
         </section>
         <section id="graphic" class="graphic">
-            <h2>Most common WCAG failures by WebAIM</h2>
+            <h2 lang="en">Most common WCAG failures by WebAIM</h2>
             <figure>
                 <figcaption>Graphique des échecs les plus courants par WebAIM</figcaption>
                 <img src="./assets/WebAIM_million.png" alt="">
@@ -186,40 +249,40 @@
             <table>
                 <caption>Tableau des échecs les plus courants concernant l'accessibilité numérique</caption>
                 <thead>
-                    <tr class="table-head">
-                        <th>WCAG Failure Type</th>
-                        <th># of home pages</th>
-                        <th>% of home pages</th>
+                    <tr lang="en" class="table-head">
+                        <th scope="col">WCAG Failure Type</th>
+                        <th scope="col"># of home pages</th>
+                        <th scope="col">% of home pages</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="table-categories">Low contrast text</td>
+                        <th lang="en" scope="row" class="table-categories">Low contrast text</th>
                         <td>852.868</td>
                         <td>85.3%</td>
                     </tr>
                     <tr>
-                        <td class="table-categories">Missing alternatives text for images</td>
+                        <th lang="en" scope="row" class="table-categories">Missing alternatives text for images</th>
                         <td>679,964</td>
                         <td>68%</td>
                     </tr>
                     <tr>
-                        <td class="table-categories">Empty links</td>
+                        <th lang="en" scope="row" class="table-categories">Empty links</th>
                         <td>581,408</td>
                         <td>58.1%</td>
                     </tr>
                     <tr>
-                        <td class="table-categories">Missing from input labels</td>
+                        <th lang="en" scope="row" class="table-categories">Missing from input labels</th>
                         <td>528,482	</td>
                         <td>52.8%</td>
                     </tr>
                     <tr>
-                        <td class="table-categories">Missing document language</td>
+                        <th lang="en" scope="row" class="table-categories">Missing document language</th>
                         <td>329,612</td>
                         <td>33.1%</td>
                     </tr>
                     <tr>
-                        <td class="table-categories">Empty buttons</td>
+                        <th lang="en" scope="row" class="table-categories">Empty buttons</th>
                         <td>250,367</td>
                         <td>25%</td>
                     </tr>

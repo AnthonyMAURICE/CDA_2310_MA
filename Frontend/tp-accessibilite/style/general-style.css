@@ -4,12 +4,18 @@
     box-sizing: border-box;
 }
 
+@font-face{
+    font-family: dysFont;
+    src: url(../fonts/opendyslexic-regular.woff2);
+}
+
 html{
 	font-size: 62.5%;
 }
 
 body{
 	font-size: 1.6rem;
+    line-height: 1.5;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -32,10 +38,6 @@ main{
 
 .very-hidden{
     display: none;
-}
-
-table, p{
-    line-height: 1.6em;
 }
 
 .underline{
@@ -81,7 +83,6 @@ input{
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .dialog-wrapper{
@@ -90,11 +91,21 @@ input{
 }
 
 .dialog-options{
+    display: flex;
+    flex-flow: row wrap;
     width: 48%;
     background-color: rgb(210, 230, 245);
     margin: 5px;
     padding: 10px;
     border-left: 8px solid rgb(128, 128, 128, 0.3);
+}
+
+.dialog-options > legend{
+    font-weight: bold;
+    font-size: 2rem;
+    float: left;
+    margin: 0;
+    width: 100%;
 }
 
 .dialog-inputs{

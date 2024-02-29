@@ -13,7 +13,7 @@
             <a class="white-links" href="#content">Aller au contenu</a>
             <img src="../assets/a11yNow.png" alt="Logo du site HandiA11y spécialisé dans l'accessibilité web">
         </div>
-        <nav>
+        <nav role="navigation">
             <ul class="navbar">
                 <li><a class="white-links" href="../index.html">Accueil</a></li>
                 <li><a class="white-links" href="./ally.html">A11y</a></li>
@@ -24,11 +24,74 @@
                 <li><button class="btn btn-access" type="button">Paramètres Accessiblilté</button></li>
             </ul>
         </nav>
-        <div>
+        <form role="search">
             <label class="hidden" for="search-bar">zone de recherche</label>
             <input type="text" placeholder="zone de recherche" id="search-bar" name="search-bar">
             <button class="btn btn-yellow" type="button">Rechercher</button>
-        </div>
+        </form>
+        <dialog>
+            <div class="dialog-title">
+                <h1>Paramètres d'accessibilité</h1>
+                <button class="close-dialog">X</button>
+            </div>
+            <div class="dialog-wrapper">
+                <fieldset class="dialog-options">
+                    <legend>Contrastes</legend>
+                    <div class="dialog-inputs">
+                        <input class="contrast" type="radio" id="default-contrast" checked name="contrast">
+                        <label for="default-contrast" name="contrast">Défaut</label>
+                        <input class="contrast" type="radio" id="enhanced-contrast" name="contrast">
+                        <label for="enhanced-contrast" name="contrast">Renforcer</label>
+                        <input class="contrast" type="radio" id="inverted-contrast" name="contrast">
+                        <label for="inverted-contrast" name="contrast">Inverser</label>
+                    </div>
+                </fieldset>
+                <fieldset class="dialog-options">
+                    <legend>
+                        Police (dyslexie)
+                    </legend>
+                    <div class="dialog-inputs">
+                        <input class="font" type="radio" id="default-font" checked name="font">
+                        <label for="default-font" name="font">Défaut</label>
+                        <input class="font" type="radio" id="adapted-font" name="font">
+                        <label for="adapted-font" name="font">Adapter</label>
+                    </div>
+                </fieldset>
+                <fieldset class="dialog-options">
+                    <legend>
+                        Interlignage
+                    </legend>
+                    <div class="dialog-inputs">
+                        <input class="interligne" type="radio" id="default-interline" checked name="interline">
+                        <label for="default-interline">Défaut</label>
+                        <input class="interligne" type="radio" id="enhanced-interline" name="interline">
+                        <label for="enhanced-interline">Augmenter</label>
+                    </div>
+                </fieldset>
+                <fieldset class="dialog-options">
+                    <legend>
+                        Justification
+                    </legend>
+                    <div class="dialog-inputs">
+                        <input type="radio" id="default-justify" checked name="justify">
+                        <label for="default-justify">Défaut</label>
+                        <input type="radio" id="remove-justify" name="justify">
+                        <label for="remove-justify">Supprimer</label>
+                    </div>
+                </fieldset>
+                <fieldset class="dialog-options">
+                    <legend>
+                        Images
+                    </legend>
+                    <div class="dialog-inputs">
+                        <input type="radio" id="default-images" checked name="images">
+                        <label for="default-images">Défaut</label>
+                        <input type="radio" id="text-images" name="images">
+                        <label for="text-images">Remplacer par du texte</label>
+                    </div>
+                </fieldset>
+            </div>    
+        </dialog>
     </header>
     <main id="content">
         <h1>Plan du site</h1>
