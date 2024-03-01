@@ -8,15 +8,13 @@ h1, h2{
     text-align: center;
 }
 
-.presentation > p{
-    text-align: justify;
+.presentation-text, .presentation > p{
     font-size: 1.8rem;
 }
 
 /* Section 2 */
 
 section{
-    text-align: center;
     width: 100%;
 }
 
@@ -26,7 +24,7 @@ section{
 }
 
 .principles-boxes{
-    background-color: lightblue;
+    background-color: var(--box-bg);
     border-radius: 10px;
     margin: 0 15px;
     width: 22%;
@@ -44,8 +42,8 @@ table{
 }
 
 .table-head, .table-categories{
-    background-color: rgb(70, 70, 70);
-    color: white;
+    background-color: var(--t-bg);
+    color: var(--wl-color);
 }
 
 table, td, th{
@@ -54,4 +52,8 @@ table, td, th{
 
 th, td{
     padding: 10px;
+}
+
+.conformity, .graphic{
+    text-align: center;
 }

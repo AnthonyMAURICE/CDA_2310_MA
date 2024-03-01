@@ -1,5 +1,15 @@
 /* Généralités */
 
+:root{
+    --header-bg: rgb(0, 100, 200);
+    --wl-color: white;
+    --diag-bg: rgb(210, 230, 245);
+    --btn-y-bg: gold;
+    --btn-g-bg: #4CAF50;
+    --t-bg: rgb(70, 70, 70);
+    --box-bg: lightblue;
+}
+
 *{
     box-sizing: border-box;
 }
@@ -17,12 +27,13 @@ body{
 	font-size: 1.6rem;
     line-height: 1.5;
     margin: 0;
+    text-align: justify;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .white-links{
     text-decoration: none;
-    color: white;
+    color: var(--wl-color);
 }
 
 main{
@@ -94,7 +105,7 @@ input{
     display: flex;
     flex-flow: row wrap;
     width: 48%;
-    background-color: rgb(210, 230, 245);
+    background-color: var(--diag-bg);
     margin: 5px;
     padding: 10px;
     border-left: 8px solid rgb(128, 128, 128, 0.3);
@@ -137,7 +148,7 @@ header{
     align-items: center;
     height: 110px;
     padding: 15px;
-    background-color: rgb(0, 100, 200);
+    background-color: var(--header-bg);
 }
 
 .logo-and-skip{
@@ -150,14 +161,16 @@ header{
 }
 
 nav{
-    width: 50%;
+    width: 60%;
 }
 
 .navbar{
     list-style-type: none;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
+    padding: 0;
 }
 
 #search-bar, .btn{
@@ -170,7 +183,7 @@ nav{
 }
 
 .btn-yellow{
-    background-color: gold;
+    background-color: var(--btn-y-bg);
     color: black;
     border: none;
 }
@@ -189,7 +202,7 @@ nav{
 /* Footer */
 
 footer{
-    background-color: rgb(0, 100, 200);
+    background-color: var(--header-bg);
     text-align: center;
     color: white;
     padding: 20px;
