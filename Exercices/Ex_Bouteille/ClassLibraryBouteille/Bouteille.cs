@@ -9,20 +9,20 @@ namespace ClassLibraryBouteille
     public class Bouteille
     {
         private double quantityInML;
-        private double capacityInMl;
+        private double capacityMaxInML;
         private bool isOpen;
 
         public Bouteille()
         {
             this.quantityInML = 1500;
-            this.capacityInMl = 1500;
+            this.capacityMaxInML = 1500;
             this.isOpen = false;
         }
 
-        public Bouteille(double _quantityInML, double _capaciteMaxEnML, bool _isOpen)
+        public Bouteille(double _quantityInML, double _capacityMaxInML, bool _isOpen)
         {
             this.quantityInML = _quantityInML;
-            this.capacityInMl = _capaciteMaxEnML;
+            this.capacityMaxInML = _capacityMaxInML;
             this.isOpen = _isOpen;
         }
 
@@ -31,7 +31,7 @@ namespace ClassLibraryBouteille
             return this.isOpen;
         }
 
-        public double GetQuantityInML()
+        public double GetqQuantityInML()
         {
             return this.quantityInML;
         }
@@ -66,9 +66,9 @@ namespace ClassLibraryBouteille
         {
             if (this.isOpen && _volume > 0)
             {
-                if(this.quantityInML + _volume > this.capacityInMl)
+                if(this.quantityInML + _volume > this.capacityMaxInML)
                 {
-                    this.quantityInML = this.capacityInMl; 
+                    this.quantityInML = this.capacityMaxInML; 
                 }
                 else
                 {
@@ -104,9 +104,9 @@ namespace ClassLibraryBouteille
 
         public bool FillBottle()
         {
-            if(this.isOpen && this.quantityInML < this.capacityInMl)
+            if(this.isOpen && this.quantityInML < this.capacityMaxInML)
             {
-                this.quantityInML = this.capacityInMl;
+                this.quantityInML = this.capacityMaxInML;
                 return true;
             }
             else
