@@ -16,6 +16,7 @@ namespace TestUnitairesBouteille
         [TestMethod]
         public void TestMethod2()
         {
+            bouteille2.Ouvrir();
             bool negativeVolumeTest = bouteille2.Remplir(-2);
             Assert.IsFalse(negativeVolumeTest);
         }
@@ -24,6 +25,7 @@ namespace TestUnitairesBouteille
         [TestMethod]
         public void TestMethod3()
         {
+            bouteille2.Ouvrir();
             bool addPositiveQuantity = bouteille2.Remplir(2);
             Assert.IsTrue(addPositiveQuantity);
         }

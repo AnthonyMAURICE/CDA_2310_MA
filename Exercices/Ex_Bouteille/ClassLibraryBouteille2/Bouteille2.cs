@@ -24,7 +24,7 @@ namespace ClassLibraryBouteille
             this.estOuverte = false;
         }
 
-        public Bouteille2(double _quantiteLiquideEnMl, double _capaciteMaxEnMl, bool _estOuverte)
+        public Bouteille2(double _capaciteMaxEnMl, double _quantiteLiquideEnMl, bool _estOuverte)
         {
             this.quantiteLiquideEnMl = _quantiteLiquideEnMl;
             this.capaciteMaxEnMl = _capaciteMaxEnMl;

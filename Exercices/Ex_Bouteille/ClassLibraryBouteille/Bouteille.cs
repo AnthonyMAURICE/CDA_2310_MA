@@ -20,7 +20,7 @@ namespace ClassLibraryBouteille
             this.estOuverte = false;
         }
 
-        public Bouteille(double _quantiteLiquideEnMl, double _capaciteMaxEnMl, bool _estOuverte)
+        public Bouteille(double _capaciteMaxEnMl, double _quantiteLiquideEnMl, bool _estOuverte)
         {
             this.quantiteLiquideEnMl = _quantiteLiquideEnMl;
             this.capaciteMaxEnMl = _capaciteMaxEnMl;
@@ -87,7 +87,7 @@ namespace ClassLibraryBouteille
         public bool Vider(double _volume)
         {
 
-            if (this.estOuverte && _volume > 0 && this.GetquantiteLiquideEnMl() > 0)
+            if (this.estOuverte && _volume > 0 && this.GetQuantiteLiquideEnMl() > 0)
             {
                 if (this.quantiteLiquideEnMl - _volume < 0) // même principe à l'inverse pour la soustraction, si elle est inférieure à 0
                 {
