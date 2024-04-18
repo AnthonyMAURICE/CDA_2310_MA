@@ -51,5 +51,12 @@ namespace TestUnitairesBouteille
             bool removeNegativeAmount = bouteille2.RemoveQuantity(-2);
             Assert.IsFalse(removeNegativeAmount);
         }
+
+        [TestMethod]
+        public void TestMethod7()
+        {
+            bool removeNegativeAmount = bouteille2.RemoveQuantity(2);
+            Assert.IsFalse(removeNegativeAmount);
+        }
     }
 }
