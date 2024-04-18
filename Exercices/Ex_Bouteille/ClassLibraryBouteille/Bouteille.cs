@@ -10,6 +10,7 @@ namespace ClassLibraryBouteille
     {
         public NegativeNumberException(string message) : base(message) { }
     }
+
     public class Bouteille
     {
         private double quantityInML;
@@ -67,31 +68,31 @@ namespace ClassLibraryBouteille
             }
         }
 
-        static double PositiveNUmber(double _volumeToVerify)
+        // méthode qui vérifie que le volume soit supérieur à 0, sinon envoit une exception
+        static void PositiveNUmber(double _volumeToVerify)
         {
             if(_volumeToVerify <= 0)
             {
                 throw new NegativeNumberException("Volume inférieur ou égal à 0 !");
             }
-            return _volumeToVerify;
         }
 
         // Pour les ajouts avec paramètres, vérification si la bouteille est ouverte et que ce paramètre (_volume) est supérieur à 0
 
         public bool AddQuantity(double _volume)
         {
-            verifiedVolume = PositiveNUmber(_volume);
             try
             {
+                PositiveNUmber(_volume);
                 if (this.isOpen)
                 {
-                    if (this.quantityInML + verifiedVolume > this.capacityMaxInML) // Si le total quantité + volume est supérieur à la capacité
+                    if (this.quantityInML + _volume > this.capacityMaxInML) // Si le total quantité + volume est supérieur à la capacité
                     {
                         this.quantityInML = this.capacityMaxInML; // on amène la quantité à la valeur de la capacité
                     }
                     else
                     {
-                        this.quantityInML += verifiedVolume; // sinon on fait l'addition comme prévu
+                        this.quantityInML += _volume; // sinon on fait l'addition comme prévu
                     }
                     return true;
                 }
@@ -110,18 +111,19 @@ namespace ClassLibraryBouteille
 
         public bool RemoveQuantity(double _volume)
         {
-            verifiedVolume = PositiveNUmber(_volume);
+            
             try
             {
+                PositiveNUmber(_volume);
                 if (this.isOpen)
                 {
-                    if (this.quantityInML - verifiedVolume < 0) // même principe à l'inverse pour la soustraction, si elle est inférieure à 0
+                    if (this.quantityInML - _volume < 0) // même principe à l'inverse pour la soustraction, si elle est inférieure à 0
                     {
                         this.quantityInML = 0; // on considère la bouteille comme vide
                     }
                     else
                     {
-                        this.quantityInML -= verifiedVolume; // sinon on soustrait comme prévu
+                        this.quantityInML -= _volume; // sinon on soustrait comme prévu
                     }
                     return true;
                 }
