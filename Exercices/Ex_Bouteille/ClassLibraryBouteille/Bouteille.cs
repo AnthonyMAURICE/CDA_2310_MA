@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace ClassLibraryBouteille
 {
+    class NegativeNumberException : Exception
+    {
+        public NegativeNumberException(string message) : base(message) { }
+    }
     public class Bouteille
     {
         private double quantityInML;
         private double capacityMaxInML;
         private bool isOpen;
+        static double verifiedVolume;
 
         public Bouteille()
         {
@@ -62,72 +67,86 @@ namespace ClassLibraryBouteille
             }
         }
 
+        static double PositiveNUmber(double _volumeToVerify)
+        {
+            if(_volumeToVerify <= 0)
+            {
+                throw new NegativeNumberException("Volume inférieur ou égal à 0 !");
+            }
+            return _volumeToVerify;
+        }
+
         // Pour les ajouts avec paramètres, vérification si la bouteille est ouverte et que ce paramètre (_volume) est supérieur à 0
 
         public bool AddQuantity(double _volume)
         {
-            if (this.isOpen && _volume > 0)
+            verifiedVolume = PositiveNUmber(_volume);
+            try
             {
-                if(this.quantityInML + _volume > this.capacityMaxInML) // Si le total quantité + volume est supérieur à la capacité
+                if (this.isOpen)
                 {
-                    this.quantityInML = this.capacityMaxInML; // on amène la quantité à la valeur de la capacité
+                    if (this.quantityInML + verifiedVolume > this.capacityMaxInML) // Si le total quantité + volume est supérieur à la capacité
+                    {
+                        this.quantityInML = this.capacityMaxInML; // on amène la quantité à la valeur de la capacité
+                    }
+                    else
+                    {
+                        this.quantityInML += verifiedVolume; // sinon on fait l'addition comme prévu
+                    }
+                    return true;
                 }
                 else
                 {
-                    this.quantityInML += _volume; // sinon on fait l'addition comme prévu
+                    return false; // return false si la bouteille ne peut être remplie
                 }
-                return true;
             }
-            else
+            catch (NegativeNumberException ex)
             {
-                return false; // return false si la bouteille ne peut être remplie
+                Console.WriteLine("Erreur : " + ex.Message);
+                return false;
             }
+                
         }
 
         public bool RemoveQuantity(double _volume)
         {
-            if (this.isOpen && _volume > 0)
+            verifiedVolume = PositiveNUmber(_volume);
+            try
             {
-                if (this.quantityInML - _volume < 0) // même principe à l'inverse pour la soustraction, si elle est inférieure à 0
+                if (this.isOpen)
                 {
-                    this.quantityInML = 0; // on considère la bouteille comme vide
+                    if (this.quantityInML - verifiedVolume < 0) // même principe à l'inverse pour la soustraction, si elle est inférieure à 0
+                    {
+                        this.quantityInML = 0; // on considère la bouteille comme vide
+                    }
+                    else
+                    {
+                        this.quantityInML -= verifiedVolume; // sinon on soustrait comme prévu
+                    }
+                    return true;
                 }
                 else
                 {
-                    this.quantityInML -= _volume; // sinon on soustrait comme prévu
+                    return false; // return false si la bouteille ne peut être vidée
                 }
-                return true;
             }
-            else
+            catch (NegativeNumberException ex)
             {
-                return false; // return false si la bouteille ne peut être vidée
+                Console.WriteLine("Erreur : " + ex.Message);
+                return false;
             }
         }
 
         public bool FillBottle()
         {
-            if(this.isOpen && this.quantityInML < this.capacityMaxInML) // Si le contenu est inférieur à la capacité totale
-            {
-                this.quantityInML = this.capacityMaxInML; // On amène la quantité à la valeur de la capacité
-                return true;
-            }
-            else
-            {
-                return false; // return false si la bouteille ne peut être remplie
-            }
+            this.AddQuantity(this.capacityMaxInML);
+            return true;
         }
         
         public bool EmptyBottle()
         {
-            if(this.isOpen && this.quantityInML > 0) // Si le contenu est supérieur à 0
-            {
-                this.quantityInML = 0; // le contenu est amené à 0
-                return true;
-            }
-            else
-            {
-                return false; // return false si la bouteille ne peut être vidée
-            }
+            this.RemoveQuantity(this.capacityMaxInML);
+            return true;
         }
     }
 }
