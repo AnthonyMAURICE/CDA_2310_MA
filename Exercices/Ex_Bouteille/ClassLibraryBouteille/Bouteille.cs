@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+// version sans gestion des exceptions
 namespace ClassLibraryBouteille
 {
 
@@ -83,7 +85,6 @@ namespace ClassLibraryBouteille
             }
         }
                 
-
         public bool Vider(double _volume)
         {
 
@@ -104,6 +105,7 @@ namespace ClassLibraryBouteille
                 return false; // return false si la bouteille ne peut être vidée
             }
         }
+
         public bool RemplirTout()
         {
             this.Remplir(this.capaciteMaxEnMl);

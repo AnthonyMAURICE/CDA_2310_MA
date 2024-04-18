@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+// versions avec gestion des exceptions
 namespace ClassLibraryBouteille
 {
     class NegativeNumberException : Exception
