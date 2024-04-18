@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibraryBouteille", "Cl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUnitairesBouteille", "TestUnitairesBouteille\TestUnitairesBouteille.csproj", "{81E14627-58C9-4AE7-AFFD-0BDBE0FDBEAC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryBouteille2", "ClassLibraryBouteille2\ClassLibraryBouteille2.csproj", "{8A548FC3-869B-47FB-AF44-2DE6E3F47E34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{81E14627-58C9-4AE7-AFFD-0BDBE0FDBEAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81E14627-58C9-4AE7-AFFD-0BDBE0FDBEAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81E14627-58C9-4AE7-AFFD-0BDBE0FDBEAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A548FC3-869B-47FB-AF44-2DE6E3F47E34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A548FC3-869B-47FB-AF44-2DE6E3F47E34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A548FC3-869B-47FB-AF44-2DE6E3F47E34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A548FC3-869B-47FB-AF44-2DE6E3F47E34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

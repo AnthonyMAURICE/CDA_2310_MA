@@ -11,6 +11,16 @@
         "runtime": {
           "bin/placeholder/ClassLibraryBouteille.dll": {}
         }
+      },
+      "ClassLibraryBouteille2/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/ClassLibraryBouteille2.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ClassLibraryBouteille2.dll": {}
+        }
       }
     }
   },
@@ -19,11 +29,17 @@
       "type": "project",
       "path": "../ClassLibraryBouteille/ClassLibraryBouteille.csproj",
       "msbuildProject": "../ClassLibraryBouteille/ClassLibraryBouteille.csproj"
+    },
+    "ClassLibraryBouteille2/1.0.0": {
+      "type": "project",
+      "path": "../ClassLibraryBouteille2/ClassLibraryBouteille2.csproj",
+      "msbuildProject": "../ClassLibraryBouteille2/ClassLibraryBouteille2.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "ClassLibraryBouteille >= 1.0.0"
+      "ClassLibraryBouteille >= 1.0.0",
+      "ClassLibraryBouteille2 >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -60,6 +76,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\Ex_Bouteille\\ClassLibraryBouteille2\\ClassLibraryBouteille2.csproj": {
+              "projectPath": "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\Ex_Bouteille\\ClassLibraryBouteille2\\ClassLibraryBouteille2.csproj"
+            },
             "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\Ex_Bouteille\\ClassLibraryBouteille\\ClassLibraryBouteille.csproj": {
               "projectPath": "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\Ex_Bouteille\\ClassLibraryBouteille\\ClassLibraryBouteille.csproj"
             }

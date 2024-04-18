@@ -9,14 +9,14 @@ namespace TestUnitairesBouteille
         [TestMethod]
         public void TestMethod1()
         { 
-            bool canBeOpened = bouteille2.Open();
+            bool canBeOpened = bouteille2.Ouvrir();
             Assert.IsTrue(canBeOpened);
         }
 
         [TestMethod]
         public void TestMethod2()
         {
-            bool negativeVolumeTest = bouteille2.AddQuantity(-2);
+            bool negativeVolumeTest = bouteille2.Remplir(-2);
             Assert.IsFalse(negativeVolumeTest);
         }
 
@@ -24,7 +24,7 @@ namespace TestUnitairesBouteille
         [TestMethod]
         public void TestMethod3()
         {
-            bool addPositiveQuantity = bouteille2.AddQuantity(2);
+            bool addPositiveQuantity = bouteille2.Remplir(2);
             Assert.IsTrue(addPositiveQuantity);
         }
 
@@ -32,7 +32,7 @@ namespace TestUnitairesBouteille
         [TestMethod]
         public void TestMethod4()
         {
-            bool fillCompletely = bouteille2.FillBottle();
+            bool fillCompletely = bouteille2.RemplirTout();
             Assert.IsTrue(fillCompletely);
         }
 
@@ -40,7 +40,7 @@ namespace TestUnitairesBouteille
         [TestMethod]
         public void TestMethod5()
         {
-            bool emptyAll = bouteille2.EmptyBottle();
+            bool emptyAll = bouteille2.ViderTout();
             Assert.IsTrue(emptyAll);
         }
 
@@ -48,14 +48,14 @@ namespace TestUnitairesBouteille
         [TestMethod]
         public void TestMethod6()
         {
-            bool removeNegativeAmount = bouteille2.RemoveQuantity(-2);
+            bool removeNegativeAmount = bouteille2.Vider(-2);
             Assert.IsFalse(removeNegativeAmount);
         }
 
         [TestMethod]
         public void TestMethod7()
         {
-            bool removeNegativeAmount = bouteille2.RemoveQuantity(2);
+            bool removeNegativeAmount = bouteille2.Vider(2);
             Assert.IsFalse(removeNegativeAmount);
         }
     }

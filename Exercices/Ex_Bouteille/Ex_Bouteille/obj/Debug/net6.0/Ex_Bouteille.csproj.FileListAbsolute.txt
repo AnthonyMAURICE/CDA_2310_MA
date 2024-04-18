@@ -16,3 +16,5 @@ C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Ex_Bouteille\Ex_Bouteille\
 C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Ex_Bouteille\Ex_Bouteille\bin\Debug\net6.0\ClassLibraryBouteille.dll
 C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Ex_Bouteille\Ex_Bouteille\bin\Debug\net6.0\ClassLibraryBouteille.pdb
 C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Ex_Bouteille\Ex_Bouteille\obj\Debug\net6.0\Ex_Bouteille.csproj.CopyComplete
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Ex_Bouteille\Ex_Bouteille\bin\Debug\net6.0\ClassLibraryBouteille2.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Ex_Bouteille\Ex_Bouteille\bin\Debug\net6.0\ClassLibraryBouteille2.pdb

@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ClassLibraryBouteille2\ClassLibraryBouteille2.csproj" />
     <ProjectReference Include="..\ClassLibraryBouteille\ClassLibraryBouteille.csproj" />
   </ItemGroup>
 
