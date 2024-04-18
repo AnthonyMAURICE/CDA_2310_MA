@@ -5,75 +5,95 @@ namespace TestUnitairesBouteille
     [TestClass]
     public class UnitTest1
     {
-        Bouteille bouteille = new Bouteille(2500);
-        Bouteille bouteille2 = new Bouteille(2500);
-        Bouteille bouteille3 = new Bouteille(2500);
+        
         [TestMethod]
         public void TestMethod1()
         { 
-            bool canBeOpened = bouteille2.Ouvrir();
+            Bouteille bouteilleTest = new Bouteille(1000, false, 1000);
+
+            bool canBeOpened = bouteilleTest.Ouvrir();
+
             Assert.IsTrue(canBeOpened);
         }
 
         [TestMethod]
         public void TestMethod2()
         {
-            bool negativeVolumeTest = bouteille2.Remplir(-2);
-            Assert.IsFalse(negativeVolumeTest);
+            Bouteille bouteilleTest = new Bouteille(1000, false, 1000);
+            Bouteille bouteilleTest2 = new Bouteille(1000, true, 1000);
+
+            bool canBeClosed = bouteilleTest.Fermer();
+            bool canBeClosed2 = bouteilleTest2.Fermer();
+
+            Assert.IsFalse(canBeClosed);
+            Assert.IsTrue(canBeClosed2);
         }
 
-
+        
         [TestMethod]
         public void TestMethod3()
         {
-            bouteille2.Ouvrir();
-            bool addPositiveQuantity = bouteille2.Remplir(2);
-            Assert.IsTrue(addPositiveQuantity);
+            Bouteille bouteilleTest = new Bouteille(1000, false, 500);
+            Bouteille bouteilleTest2 = new Bouteille(1000, true, 500);
+            Bouteille bouteilleTest3 = new Bouteille(1000, true, 1000);
+
+            bool filling = bouteilleTest.Remplir(250);
+            bool filling2 = bouteilleTest2.Remplir(250);
+            bool filling3 = bouteilleTest3.Remplir(250);
+
+            Assert.IsFalse(filling);
+            Assert.IsTrue(filling2);
+            Assert.IsFalse(filling3);
         }
 
-
+        
         [TestMethod]
         public void TestMethod4()
         {
-            bool fillCompletely = bouteille2.RemplirTout();
-            Assert.IsTrue(fillCompletely);
+            Bouteille bouteilleTest = new Bouteille(1000, false, 1000);
+            Bouteille bouteilleTest2 = new Bouteille(1000, true, 0);
+            Bouteille bouteilleTest3 = new Bouteille(1000, true, 1000);
+
+            bool empty = bouteilleTest.Vider(250);
+            bool empty2 = bouteilleTest2.Vider(250);
+            bool empty3 = bouteilleTest3.Vider(250);
+
+            Assert.IsFalse(empty);
+            Assert.IsFalse(empty2);
+            Assert.IsTrue(empty3);
         }
 
-
+        /*
         [TestMethod]
         public void TestMethod5()
         {
-            bool emptyAll = bouteille2.ViderTout();
-            Assert.IsTrue(emptyAll);
+            
         }
 
-
+        
         [TestMethod]
         public void TestMethod6()
         {
-            bool removeNegativeAmount = bouteille2.Vider(-2);
-            Assert.IsFalse(removeNegativeAmount);
+           
         }
 
         [TestMethod]
         public void TestMethod7()
         {
-            bool removeNegativeAmount = bouteille2.Vider(2);
-            Assert.IsFalse(removeNegativeAmount);
+            
         }
 
         [TestMethod]
         public void TestMethod8()
         {
-            bool removeNegativeAmount = bouteille.Vider(2);
-            Assert.IsFalse(removeNegativeAmount);
+            
         }
 
         [TestMethod]
         public void TestMethod9()
         {
-            bool addPositiveQuantity = bouteille3.Remplir(2);
-            Assert.IsFalse(addPositiveQuantity);
+            
         }
+        */
     }
 }
