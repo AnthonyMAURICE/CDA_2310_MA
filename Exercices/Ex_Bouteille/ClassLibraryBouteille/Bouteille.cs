@@ -3,18 +3,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 
 // version sans gestion des exceptions
 namespace ClassLibraryBouteille
 {
-
     public class Bouteille
     {
         private double quantiteLiquideEnMl;
         private double capaciteMaxEnMl;
         private bool estOuverte;
-       
+
+
+        public bool EstOuverte
+        {
+            get { return estOuverte;}
+            set { estOuverte = value; }
+        }
+
+        public double QuantiteLiquideEnMl
+        {
+            get { return quantiteLiquideEnMl; }
+            set { quantiteLiquideEnMl = value; }
+        }
+
+        public double CapaciteMaxEnMl
+        {
+            get { return capaciteMaxEnMl; }
+            set { capaciteMaxEnMl = value; }
+        }
+
         public Bouteille()
         {
             this.quantiteLiquideEnMl = 1500;
@@ -22,13 +41,15 @@ namespace ClassLibraryBouteille
             this.estOuverte = false;
         }
 
-        public Bouteille(double _capaciteMaxEnMl, double _quantiteLiquideEnMl, bool _estOuverte)
+        public Bouteille(double _capaciteMaxEnMl, double _QuantiteLiquideEnMl, bool _estOuverte)
         {
-            this.quantiteLiquideEnMl = _quantiteLiquideEnMl;
+            this.quantiteLiquideEnMl = _QuantiteLiquideEnMl;
             this.capaciteMaxEnMl = _capaciteMaxEnMl;
             this.estOuverte = _estOuverte;
         }
 
+
+        /*
         public bool GetOpen()
         {
             return this.estOuverte;
@@ -36,9 +57,9 @@ namespace ClassLibraryBouteille
 
         public double GetQuantiteLiquideEnMl()
         {
-            return this.quantiteLiquideEnMl;
+            return this.QuantiteLiquideEnMl;
         }
-
+        */
         public bool Fermer()
         {
             if (this.estOuverte)
@@ -54,9 +75,9 @@ namespace ClassLibraryBouteille
 
         public bool Ouvrir()
         {
-            if (!this.estOuverte)
+            if (!this.EstOuverte)
             {
-                this.estOuverte = true;
+                this.EstOuverte = true;
                 return true;
             }
             else
@@ -67,15 +88,15 @@ namespace ClassLibraryBouteille
 
         public bool Remplir(double _volume)
         {
-            if (this.estOuverte && _volume > 0 && this.GetQuantiteLiquideEnMl() < this.capaciteMaxEnMl)
+            if (this.EstOuverte && _volume > 0 && this.QuantiteLiquideEnMl < this.CapaciteMaxEnMl)
             {
-                if (this.quantiteLiquideEnMl + _volume > this.capaciteMaxEnMl) // Si le total quantité + volume est supérieur à la capacité
+                if (this.QuantiteLiquideEnMl + _volume > this.CapaciteMaxEnMl) // Si le total quantité + volume est supérieur à la capacité
                 {
-                    this.quantiteLiquideEnMl = this.capaciteMaxEnMl; // on amène la quantité à la valeur de la capacité
+                    this.QuantiteLiquideEnMl = this.CapaciteMaxEnMl; // on amène la quantité à la valeur de la capacité
                 }
                 else
                 {
-                    this.quantiteLiquideEnMl += _volume; // sinon on fait l'addition comme prévu
+                    this.QuantiteLiquideEnMl += _volume; // sinon on fait l'addition comme prévu
                 }
                 return true;
             }
@@ -88,15 +109,15 @@ namespace ClassLibraryBouteille
         public bool Vider(double _volume)
         {
 
-            if (this.estOuverte && _volume > 0 && this.GetQuantiteLiquideEnMl() > 0)
+            if (this.EstOuverte && _volume > 0 && this.QuantiteLiquideEnMl > 0)
             {
-                if (this.quantiteLiquideEnMl - _volume < 0) // même principe à l'inverse pour la soustraction, si elle est inférieure à 0
+                if (this.QuantiteLiquideEnMl - _volume < 0) // même principe à l'inverse pour la soustraction, si elle est inférieure à 0
                 {
-                    this.quantiteLiquideEnMl = 0; // on considère la bouteille comme vide
+                    this.QuantiteLiquideEnMl = 0; // on considère la bouteille comme vide
                 }
                 else
                 {
-                    this.quantiteLiquideEnMl -= _volume; // sinon on soustrait comme prévu
+                    this.QuantiteLiquideEnMl -= _volume; // sinon on soustrait comme prévu
                 }
                 return true;
             }
@@ -108,13 +129,13 @@ namespace ClassLibraryBouteille
 
         public bool RemplirTout()
         {
-            this.Remplir(this.capaciteMaxEnMl);
+            this.Remplir(this.CapaciteMaxEnMl);
             return true;
         }
         
         public bool ViderTout()
         {
-            this.Vider(this.capaciteMaxEnMl);
+            this.Vider(this.CapaciteMaxEnMl);
             return true;
         }
     }
