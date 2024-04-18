@@ -5,9 +5,9 @@ namespace TestUnitairesBouteille
     [TestClass]
     public class UnitTest1
     {
-        Bouteille bouteille = new Bouteille( 2500, 0, true);
-        Bouteille bouteille2 = new Bouteille(2500, 2000, false);
-        Bouteille bouteille3 = new Bouteille(2500, 2500, true);
+        Bouteille bouteille = new Bouteille(2500);
+        Bouteille bouteille2 = new Bouteille(2500);
+        Bouteille bouteille3 = new Bouteille(2500);
         [TestMethod]
         public void TestMethod1()
         { 
@@ -18,7 +18,6 @@ namespace TestUnitairesBouteille
         [TestMethod]
         public void TestMethod2()
         {
-            bouteille2.Ouvrir();
             bool negativeVolumeTest = bouteille2.Remplir(-2);
             Assert.IsFalse(negativeVolumeTest);
         }

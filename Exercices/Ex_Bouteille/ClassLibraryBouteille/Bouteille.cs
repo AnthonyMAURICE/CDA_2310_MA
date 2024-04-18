@@ -15,51 +15,41 @@ namespace ClassLibraryBouteille
         private double capaciteMaxEnMl;
         private bool estOuverte;
 
-
         public bool EstOuverte
         {
-            get { return estOuverte;}
+            get { return this.estOuverte;}
             set { estOuverte = value; }
         }
 
         public double QuantiteLiquideEnMl
         {
-            get { return quantiteLiquideEnMl; }
+            get { return this.quantiteLiquideEnMl; }
             set { quantiteLiquideEnMl = value; }
         }
 
         public double CapaciteMaxEnMl
         {
-            get { return capaciteMaxEnMl; }
+            get { return this.capaciteMaxEnMl; }
             set { capaciteMaxEnMl = value; }
         }
 
-        public Bouteille()
-        {
-            this.quantiteLiquideEnMl = 1500;
-            this.capaciteMaxEnMl = 1500;
-            this.estOuverte = false;
+        // les deux premiers constructeurs appellent au final le classique, evite les redondances et les oublis
+        public Bouteille(): this(1000, false, 1000)
+        {               
         }
 
-        public Bouteille(double _capaciteMaxEnMl, double _QuantiteLiquideEnMl, bool _estOuverte)
+        public Bouteille(double _capaciteMaxEnMl): this(_capaciteMaxEnMl, false, _capaciteMaxEnMl)
+        {            
+        }
+
+        // Constructeur classique
+        public Bouteille(double _capaciteMaxEnMl, bool _estOuverte,  double _quantiteLiquideEnMl)
         {
-            this.quantiteLiquideEnMl = _QuantiteLiquideEnMl;
             this.capaciteMaxEnMl = _capaciteMaxEnMl;
             this.estOuverte = _estOuverte;
+            this.quantiteLiquideEnMl = _quantiteLiquideEnMl;
         }
 
-
-        /*
-        public bool GetOpen()
-        {
-            return this.estOuverte;
-        }
-
-        public double GetQuantiteLiquideEnMl()
-        {
-            return this.QuantiteLiquideEnMl;
-        }
-        */
         public bool Fermer()
         {
             if (this.estOuverte)
