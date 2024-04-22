@@ -5,13 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-// versions avec gestion des exceptions
+// versions avec gestion de l'exception concernant le volume pour les méthodes d'ajout et de retrait
 namespace ClassLibraryBouteille
 {
     class NegativeNumberException : Exception
     {
         public NegativeNumberException(string message) : base(message) { }
     }
+
+    class OpenenedBottleException : Exception
+    {
+        public OpenenedBottleException(string message) : base(message) { }
+    } 
 
     public class Bouteille2
     {
@@ -80,7 +85,7 @@ namespace ClassLibraryBouteille
         }
 
         // méthode qui vérifie que le volume soit supérieur à 0, sinon envoit une exception
-        static void PositiveNUmber(double _volumeToVerify)
+        static void PositiveNumber(double _volumeToVerify)
         {
             if (_volumeToVerify <= 0)
             {
@@ -88,60 +93,64 @@ namespace ClassLibraryBouteille
             }
         }
 
+        static void OpenedBottle(bool _open)
+        {
+            if (!_open)
+            {
+                throw new OpenenedBottleException("Bouteille Fermée.");
+            }
+        }
+
         public bool Remplir(double _volume)
         {
             try
             {
-                PositiveNUmber(_volume);
-                if (this.EstOuverte)
+                OpenedBottle(this.EstOuverte);
+                PositiveNumber(_volume);
+                if (this.QuantiteLiquideEnMl + _volume > this.CapaciteMaxEnMl) // Si le total quantité + volume est supérieur à la capacité
                 {
-                    if (this.QuantiteLiquideEnMl + _volume > this.CapaciteMaxEnMl) // Si le total quantité + volume est supérieur à la capacité
-                    {
-                        this.QuantiteLiquideEnMl = this.CapaciteMaxEnMl; // on amène la quantité à la valeur de la capacité
-                    }
-                    else
-                    {
-                        this.QuantiteLiquideEnMl += _volume; // sinon on fait l'addition comme prévu
-                    }
-                    return true;
+                    this.QuantiteLiquideEnMl = this.CapaciteMaxEnMl; // on amène la quantité à la valeur de la capacité
                 }
                 else
                 {
-                    return false; // return false si la bouteille ne peut être remplie
+                    this.QuantiteLiquideEnMl += _volume; // sinon on fait l'addition comme prévu
                 }
+                return true;
             }
             catch (NegativeNumberException ex)
             {
                 Console.WriteLine("Erreur : " + ex.Message);
                 return false;
             }
-
+            catch (OpenenedBottleException ex)
+            {
+                Console.WriteLine("Erreur : " + ex.Message);
+                return false;
+            }
         }
 
         public bool Vider(double _volume)
         {
-
             try
             {
-                PositiveNUmber(_volume);
-                if (this.EstOuverte)
+                OpenedBottle(this.EstOuverte);
+                PositiveNumber(_volume);
+                if (this.QuantiteLiquideEnMl - _volume < 0) // même principe à l'inverse pour la soustraction, si elle est inférieure à 0
                 {
-                    if (this.QuantiteLiquideEnMl - _volume < 0) // même principe à l'inverse pour la soustraction, si elle est inférieure à 0
-                    {
-                        this.QuantiteLiquideEnMl = 0; // on considère la bouteille comme vide
-                    }
-                    else
-                    {
-                        this.QuantiteLiquideEnMl -= _volume; // sinon on soustrait comme prévu
-                    }
-                    return true;
+                    this.QuantiteLiquideEnMl = 0; // on considère la bouteille comme vide
                 }
                 else
                 {
-                    return false; // return false si la bouteille ne peut être vidée
+                    this.QuantiteLiquideEnMl -= _volume; // sinon on soustrait comme prévu
                 }
+                return true;
             }
             catch (NegativeNumberException ex)
+            {
+                Console.WriteLine("Erreur : " + ex.Message);
+                return false;
+            }
+            catch (OpenenedBottleException ex)
             {
                 Console.WriteLine("Erreur : " + ex.Message);
                 return false;
@@ -150,14 +159,12 @@ namespace ClassLibraryBouteille
 
         public bool RemplirTout()
         {
-            this.Remplir(this.CapaciteMaxEnMl);
-            return true;
+            return this.Remplir(this.CapaciteMaxEnMl - this.QuantiteLiquideEnMl);
         }
 
         public bool ViderTout()
         {
-            this.Vider(this.CapaciteMaxEnMl);
-            return true;
+            return this.Vider(this.QuantiteLiquideEnMl);
         }
     }
 }

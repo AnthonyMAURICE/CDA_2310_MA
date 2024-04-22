@@ -119,14 +119,12 @@ namespace ClassLibraryBouteille
 
         public bool RemplirTout()
         {
-            this.Remplir(this.CapaciteMaxEnMl);
-            return true;
+            return this.Remplir(this.CapaciteMaxEnMl - this.QuantiteLiquideEnMl);
         }
         
         public bool ViderTout()
         {
-            this.Vider(this.CapaciteMaxEnMl);
-            return true;
+            return this.Vider(this.QuantiteLiquideEnMl);
         }
     }
 }
