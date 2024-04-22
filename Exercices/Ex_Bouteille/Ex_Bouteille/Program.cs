@@ -1,4 +1,5 @@
 ﻿using ClassLibraryBouteille;
+using ClassLibraryBouteille2;
 
 namespace Ex_Bouteille
 {

@@ -10,5 +10,13 @@ namespace ExceptionBouteille
     {
         public OpenenedBottleException(string message) : base(message) { }
 
+        public static void OpenedBottle(bool _open)
+        {
+            if (!_open)
+            {
+                throw new OpenenedBottleException("Bouteille Fermée.");
+            }
+        }
+
     }
 }

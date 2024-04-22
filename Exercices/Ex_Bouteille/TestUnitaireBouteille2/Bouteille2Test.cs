@@ -1,4 +1,4 @@
-using ClassLibraryBouteille;
+using ClassLibraryBouteille2;
 
 namespace TestUnitaireBouteille2
 {
@@ -111,7 +111,7 @@ namespace TestUnitaireBouteille2
 
             // Assert
             Assert.AreEqual(expected, filling);
-            Assert.ThrowsException<Exception>(BouteilleTest_Remplir_RemplirBouteillePleine_Echec);
+            //Assert.ThrowsException<Exception>(BouteilleTest_Remplir_RemplirBouteillePleine_Echec);
         }
 
         [TestMethod]

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 // versions avec gestion des exceptions concernant le volume pour les méthodes d'ajout et de retrait ainsi que l'ouverture de la bouteille
-namespace ClassLibraryBouteille
+namespace ClassLibraryBouteille2
 {
 
     public class Bouteille2
@@ -75,30 +75,13 @@ namespace ClassLibraryBouteille
             }
         }
 
-        // méthode qui vérifie que le volume soit supérieur à 0, sinon envoit une exception
-        public static void PositiveNumber(double _volumeToVerify)
-        {
-            if (_volumeToVerify <= 0)
-            {
-                throw new NegativeNumberException("Volume inférieur ou égal à 0 !");
-            }
-        }
-
-
-        public static void OpenedBottle(bool _open)
-        {
-            if (!_open)
-            {
-                throw new OpenenedBottleException("Bouteille Fermée.");
-            }
-        }
-
         public bool Remplir(double _volume)
         {
             try
             {
-                OpenedBottle(this.EstOuverte);
-                PositiveNumber(_volume);
+                ExceptionBouteille.OpenenedBottleException.OpenedBottle(this.EstOuverte);
+                ExceptionBouteille.NegativeNumberException.PositiveNumber(_volume);
+                ExceptionBouteille.FullBottleException.FullBottle(this.QuantiteLiquideEnMl, this.CapaciteMaxEnMl);
                 if (this.QuantiteLiquideEnMl + _volume > this.CapaciteMaxEnMl) // Si le total quantité + volume est supérieur à la capacité
                 {
                     this.QuantiteLiquideEnMl = this.CapaciteMaxEnMl; // on amène la quantité à la valeur de la capacité
@@ -119,14 +102,20 @@ namespace ClassLibraryBouteille
                 Console.WriteLine("Erreur : " + ex.Message);
                 return false;
             }
+            catch(FullBottleException ex)
+            {
+                Console.WriteLine("Erreur : " + ex.Message);
+                return false;
+            }
         }
 
         public bool Vider(double _volume)
         {
             try
             {
-                OpenedBottle(this.EstOuverte);
-                PositiveNumber(_volume);
+                ExceptionBouteille.OpenenedBottleException.OpenedBottle(this.EstOuverte);
+                ExceptionBouteille.NegativeNumberException.PositiveNumber(_volume);
+                ExceptionBouteille.EmptyBottleException.EmptyBottle(this.QuantiteLiquideEnMl);
                 if (this.QuantiteLiquideEnMl - _volume < 0) // même principe à l'inverse pour la soustraction, si elle est inférieure à 0
                 {
                     this.QuantiteLiquideEnMl = 0; // on considère la bouteille comme vide
@@ -143,6 +132,11 @@ namespace ClassLibraryBouteille
                 return false;
             }
             catch (OpenenedBottleException ex)
+            {
+                Console.WriteLine("Erreur : " + ex.Message);
+                return false;
+            }
+            catch(EmptyBottleException ex)
             {
                 Console.WriteLine("Erreur : " + ex.Message);
                 return false;
