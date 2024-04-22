@@ -1,22 +1,13 @@
-﻿using System;
+﻿using ExceptionBouteille;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-// versions avec gestion de l'exception concernant le volume pour les méthodes d'ajout et de retrait
+// versions avec gestion des exceptions concernant le volume pour les méthodes d'ajout et de retrait ainsi que l'ouverture de la bouteille
 namespace ClassLibraryBouteille
 {
-    class NegativeNumberException : Exception
-    {
-        public NegativeNumberException(string message) : base(message) { }
-    }
-
-    class OpenenedBottleException : Exception
-    {
-        public OpenenedBottleException(string message) : base(message) { }
-    } 
 
     public class Bouteille2
     {
@@ -85,7 +76,7 @@ namespace ClassLibraryBouteille
         }
 
         // méthode qui vérifie que le volume soit supérieur à 0, sinon envoit une exception
-        static void PositiveNumber(double _volumeToVerify)
+        public static void PositiveNumber(double _volumeToVerify)
         {
             if (_volumeToVerify <= 0)
             {
@@ -93,7 +84,8 @@ namespace ClassLibraryBouteille
             }
         }
 
-        static void OpenedBottle(bool _open)
+
+        public static void OpenedBottle(bool _open)
         {
             if (!_open)
             {
