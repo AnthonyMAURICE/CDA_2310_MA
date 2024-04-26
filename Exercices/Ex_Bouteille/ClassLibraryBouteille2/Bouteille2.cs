@@ -79,9 +79,9 @@ namespace ClassLibraryBouteille2
         {
             try
             {
-                ExceptionBouteille.OpenenedBottleException.OpenedBottle(this.EstOuverte);
-                ExceptionBouteille.NegativeNumberException.PositiveNumber(_volume);
-                ExceptionBouteille.FullBottleException.FullBottle(this.QuantiteLiquideEnMl, this.CapaciteMaxEnMl);
+                OpenenedBottleException.OpenedBottle(this.EstOuverte);
+                FullBottleException.FullBottle(this.QuantiteLiquideEnMl, this.CapaciteMaxEnMl);
+                NegativeNumberException.PositiveNumber(_volume);
                 if (this.QuantiteLiquideEnMl + _volume > this.CapaciteMaxEnMl) // Si le total quantité + volume est supérieur à la capacité
                 {
                     this.QuantiteLiquideEnMl = this.CapaciteMaxEnMl; // on amène la quantité à la valeur de la capacité
@@ -113,9 +113,9 @@ namespace ClassLibraryBouteille2
         {
             try
             {
-                ExceptionBouteille.OpenenedBottleException.OpenedBottle(this.EstOuverte);
-                ExceptionBouteille.NegativeNumberException.PositiveNumber(_volume);
-                ExceptionBouteille.EmptyBottleException.EmptyBottle(this.QuantiteLiquideEnMl);
+                OpenenedBottleException.OpenedBottle(this.EstOuverte);
+                EmptyBottleException.EmptyBottle(this.QuantiteLiquideEnMl);
+                NegativeNumberException.PositiveNumber(_volume);
                 if (this.QuantiteLiquideEnMl - _volume < 0) // même principe à l'inverse pour la soustraction, si elle est inférieure à 0
                 {
                     this.QuantiteLiquideEnMl = 0; // on considère la bouteille comme vide

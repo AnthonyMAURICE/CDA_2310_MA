@@ -3,7 +3,7 @@ services:
   apache:
     image: httpd
     container_name: amaurice-tp-ns
-    restart: "no" # démarre ou non automatiquement le container au démarrage de docker
+    restart: unless-stopped
     volumes:
       - './www/:/usr/local/apache2/htdocs' # lien entre le chemin relatif et le chemin du serveur apache
     ports: 

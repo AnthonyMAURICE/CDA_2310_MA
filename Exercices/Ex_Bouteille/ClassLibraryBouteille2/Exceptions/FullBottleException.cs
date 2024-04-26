@@ -12,9 +12,9 @@ namespace ExceptionBouteille
 
         public static void FullBottle(double _quantiteLiquideEnMl, double _capaciteEnMl)
         {
-            if (_quantiteLiquideEnMl == _capaciteEnMl)
+            if (_quantiteLiquideEnMl >= _capaciteEnMl)
             {
-                throw new EmptyBottleException("La bouteille est déjà pleine");
+                throw new FullBottleException("La bouteille est déjà pleine");
             }
         }
     }

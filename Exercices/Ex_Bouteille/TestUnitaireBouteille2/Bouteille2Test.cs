@@ -1,4 +1,5 @@
 using ClassLibraryBouteille2;
+using ExceptionBouteille;
 
 namespace TestUnitaireBouteille2
 {
@@ -6,7 +7,7 @@ namespace TestUnitaireBouteille2
     public class Bouteille2Test
     {
         [TestMethod]
-        public void BouteilleTest_Ouvrir_OuvrirSiFermee_Succes()
+        public void BouteilleTest_Ouvrir_OuvrirSiFermee_Success()
         {
             // Arrange
             Bouteille2 bouteilleTest = new Bouteille2(1000);
@@ -21,7 +22,7 @@ namespace TestUnitaireBouteille2
         }
 
         [TestMethod]
-        public void BouteilleTest_Ouvrir_OuvrirSiOuverte_Echec()
+        public void BouteilleTest_Ouvrir_OuvrirSiOuverte_Fail()
         {
             // Arrange
             Bouteille2 bouteilleTest = new Bouteille2(1000);
@@ -37,7 +38,7 @@ namespace TestUnitaireBouteille2
 
 
         [TestMethod]
-        public void BouteilleTest_Fermer_FermerSiOuverte_Succes()
+        public void BouteilleTest_Fermer_FermerSiOuverte_Success()
         {
             // Arrange
             Bouteille2 bouteilleTest = new Bouteille2(1000);
@@ -53,7 +54,7 @@ namespace TestUnitaireBouteille2
         }
 
         [TestMethod]
-        public void BouteilleTest_Fermer_FermerSiFermee_Echec()
+        public void BouteilleTest_Fermer_FermerSiFermee_Fail()
         {
             // Arrange
             Bouteille2 bouteilleTest = new Bouteille2(1000);
@@ -68,7 +69,7 @@ namespace TestUnitaireBouteille2
 
 
         [TestMethod]
-        public void BouteilleTest_Remplir_RemplirBouteilleMiPleineOuverte_Succes()
+        public void BouteilleTest_Remplir_RemplirBouteilleMiPleineOuverte_Success()
         {
             // Arrange
             Bouteille2 bouteilleTest = new Bouteille2(1000);
@@ -84,7 +85,7 @@ namespace TestUnitaireBouteille2
         }
 
         [TestMethod]
-        public void BouteilleTest_Remplir_RemplirBouteilleFermee_Echec()
+        public void BouteilleTest_Remplir_RemplirBouteilleFermee_Fail()
         {
             // Arrange
             Bouteille2 bouteilleTest = new Bouteille2(1000);
@@ -100,10 +101,11 @@ namespace TestUnitaireBouteille2
         }
 
         [TestMethod]
-        public void BouteilleTest_Remplir_RemplirBouteillePleine_Echec()
+        public void BouteilleTest_Remplir_RemplirBouteillePleine_Fail()
         {
             // Arrange
             Bouteille2 bouteilleTest = new Bouteille2(1000);
+            bouteilleTest.EstOuverte = true;
             bool expected = false;
 
             // Act
@@ -111,11 +113,11 @@ namespace TestUnitaireBouteille2
 
             // Assert
             Assert.AreEqual(expected, filling);
-            //Assert.ThrowsException<Exception>(BouteilleTest_Remplir_RemplirBouteillePleine_Echec);
+            Assert.ThrowsException<FullBottleException>(() => bouteilleTest.Remplir(250));
         }
 
         [TestMethod]
-        public void BouteilleTest_Vider_ViderBouteillePleineOuverte_Succes()
+        public void BouteilleTest_Vider_ViderBouteillePleineOuverte_Success()
         {
             // Arrange
             Bouteille2 bouteilleTest = new Bouteille2(1000);
@@ -130,7 +132,7 @@ namespace TestUnitaireBouteille2
         }
 
         [TestMethod]
-        public void BouteilleTest_Vider_ViderBouteilleFermee_Echec()
+        public void BouteilleTest_Vider_ViderBouteilleFermee_Fail()
         {
             // Arrange
             Bouteille2 bouteilleTest = new Bouteille2(1000);
@@ -144,7 +146,7 @@ namespace TestUnitaireBouteille2
         }
 
         [TestMethod]
-        public void BouteilleTest_Vider_ViderBouteilleVideOuverte_Echec()
+        public void BouteilleTest_Vider_ViderBouteilleVideOuverte_Fail()
         {
             // Arrange
             Bouteille2 bouteilleTest2 = new Bouteille2(1000);
@@ -160,7 +162,19 @@ namespace TestUnitaireBouteille2
         }
 
         [TestMethod]
-        public void BouteilleTest_ViderTout_ViderBouteilleMiPleineTestResultatZero_Succes()
+        public void BouteilleTest_Vider_ViderBouteilleVideOuverte_Exception()
+        {
+            // Arrange
+            Bouteille2 bouteilleTest2 = new Bouteille2(1000);
+            bouteilleTest2.EstOuverte = true;
+            bouteilleTest2.QuantiteLiquideEnMl = 0;
+
+            // Assert
+            Assert.ThrowsException<EmptyBottleException>(() => bouteilleTest2.Vider(250));
+        }
+
+            [TestMethod]
+        public void BouteilleTest_ViderTout_ViderBouteilleMiPleineTestResultatZero_Success()
         {
             // Arrange
             Bouteille2 bouteille = new Bouteille2(1000);
@@ -178,7 +192,7 @@ namespace TestUnitaireBouteille2
         }
 
         [TestMethod]
-        public void BouteilleTest_RemplirTout_RemplirBouteilleMiPleineTestResultatCapaciteMax_Succes()
+        public void BouteilleTest_RemplirTout_RemplirBouteilleMiPleineTestResultatCapaciteMax_Success()
         {
             // Arrange
             Bouteille2 bouteille = new Bouteille2(500);

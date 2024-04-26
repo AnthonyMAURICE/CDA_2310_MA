@@ -1,0 +1,12 @@
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\CompteBancaire\ClassCompteBancaire\bin\Debug\net6.0\ClassCompteBancaire.deps.json
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\CompteBancaire\ClassCompteBancaire\bin\Debug\net6.0\ClassCompteBancaire.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\CompteBancaire\ClassCompteBancaire\bin\Debug\net6.0\ClassCompteBancaire.pdb
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\CompteBancaire\ClassCompteBancaire\obj\Debug\net6.0\ClassCompteBancaire.csproj.AssemblyReference.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\CompteBancaire\ClassCompteBancaire\obj\Debug\net6.0\ClassCompteBancaire.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\CompteBancaire\ClassCompteBancaire\obj\Debug\net6.0\ClassCompteBancaire.AssemblyInfoInputs.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\CompteBancaire\ClassCompteBancaire\obj\Debug\net6.0\ClassCompteBancaire.AssemblyInfo.cs
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\CompteBancaire\ClassCompteBancaire\obj\Debug\net6.0\ClassCompteBancaire.csproj.CoreCompileInputs.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\CompteBancaire\ClassCompteBancaire\obj\Debug\net6.0\ClassCompteBancaire.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\CompteBancaire\ClassCompteBancaire\obj\Debug\net6.0\refint\ClassCompteBancaire.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\CompteBancaire\ClassCompteBancaire\obj\Debug\net6.0\ClassCompteBancaire.pdb
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\CompteBancaire\ClassCompteBancaire\obj\Debug\net6.0\ref\ClassCompteBancaire.dll

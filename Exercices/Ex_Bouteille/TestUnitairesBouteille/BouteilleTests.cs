@@ -118,7 +118,6 @@ namespace TestUnitairesBouteille
         {
             // Arrange
             Bouteille bouteilleTest = new Bouteille(1000);
-            bouteilleTest.EstOuverte = false;
             bool expected = false;
 
             // Act
