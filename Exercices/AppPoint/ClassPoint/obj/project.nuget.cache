@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "cIt/Yi7KlFwhIjSVyK765NnQLBC00HqgztivHDNia29r12zHc2JULRWHBQhDnYW1ztkDLWzv3bU+jstP9/XdIA==",
+  "dgSpecHash": "bRfdQ2mpjVmHxY0hvkPzFb4xLkwarQr6diA3+pGvnZXRJzVWzlf9YFEvVEdgpgFCFoNd6jYTKt+mNOyldrS4jQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\AppPoint\\ClassPoint\\ClassPoint.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\antho\\Documents\\GitHub\\CDA_2310_MA\\Exercices\\AppPoint\\ClassPoint\\ClassPoint.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\antho\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.29\\microsoft.windowsdesktop.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\antho\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.29\\microsoft.netcore.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\antho\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.29\\microsoft.aspnetcore.app.ref.6.0.29.nupkg.sha512"
+  ],
   "logs": []
 }

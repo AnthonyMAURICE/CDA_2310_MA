@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ClassPoint")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+801c103b78f89d5bc20799ad76513a847f354f6c")]
 [assembly: System.Reflection.AssemblyProductAttribute("ClassPoint")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ClassPoint")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

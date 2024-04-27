@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "OwgVXk1koyNVe2dVfzLbMFKV1804vlK6uyjjcZBKb5hUVF0YmjmMqCiN0TQztQvaqWXI5W4/HmUohUXRCn/MGQ==",
+  "dgSpecHash": "N0mo2bVMALBg3fbkZRtmRPt3mXTxTMNPqzwqtaNr9YREyYH3DJ2VOlpiyvmVzLpTXNVpk0XSeJI6mYvCndwaRw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\AppPoint\\AppPoint\\AppPoint.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\antho\\Documents\\GitHub\\CDA_2310_MA\\Exercices\\AppPoint\\AppPoint\\AppPoint.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\antho\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.29\\microsoft.windowsdesktop.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\antho\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.29\\microsoft.netcore.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\antho\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.29\\microsoft.aspnetcore.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\antho\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.29\\microsoft.netcore.app.host.win-x64.6.0.29.nupkg.sha512"
+  ],
   "logs": []
 }
