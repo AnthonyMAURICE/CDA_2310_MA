@@ -7,8 +7,8 @@
 
         public Point()
         {
-            this.x = 10;
-            this.y = 10;
+            this.x = 0;
+            this.y = 0;
         }
 
         public Point(double _x, double _y)
@@ -30,39 +30,33 @@
 
         public override string ToString()
         {
-            return "Abscisse : " + X + ", Ordonnées : " + Y;
+            return "Abscisse : " + this.X + ", Ordonnées : " + this.Y;
         }
 
         public void Deplacer(double _x, double _y)
         {
-            X = _x;
-            Y = _y;
+            this.X = _x;
+            this.Y = _y;
         }
 
-        protected double Symetrique(double _coordonees)
+        public Point SymetrieAxeOrdonees()
         {
-            return _coordonees *= -1;
+            return new Point(this.X, this.Y * -1);
         }
 
-        public void SymetriqueOrdonees()
+        public Point SymetrieAxeAbscisse()
         {
-            this.Y = Symetrique(Y);
+            return new Point(this.X * -1, this.Y);
         }
 
-        public void SymetriqueAbscisse()
+        public Point SymetrieOrigine()
         {
-            this.X = Symetrique(X);
-        }
-
-        public void SymetriqueOrigine()
-        {
-            this.X = Symetrique(X);
-            this.Y = Symetrique(Y);
+            return new Point(this.X * -1, this.Y * -1);
         }
 
         public void Permuter()
         {
-            (X, Y) = (Y, X);
+            (this.X, this.Y) = (this.Y, this.X);
         }
     }
 }

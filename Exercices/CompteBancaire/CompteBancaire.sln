@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppCompte", "CompteBancaire\AppCompte.csproj", "{D2347B61-57A2-4EE4-B27A-A7012CF429D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppCompte", "CompteBancaire\AppCompte.csproj", "{D2347B61-57A2-4EE4-B27A-A7012CF429D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassCompteBancaire", "ClassCompteBancaire\ClassCompteBancaire.csproj", "{CE261E2F-09BA-4B7B-B04D-086410CD04ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassCompteBancaire", "ClassCompteBancaire\ClassCompteBancaire.csproj", "{CE261E2F-09BA-4B7B-B04D-086410CD04ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

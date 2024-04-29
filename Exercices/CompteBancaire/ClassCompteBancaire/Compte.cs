@@ -4,15 +4,14 @@ namespace ClassCompteBancaire
 {
     public class Compte
     {
-        private int numero;
-        private string nom;
+        private readonly int numero;
+        private readonly string nom;
         private double solde;
         private int decouvertAutorise;
 
         public int Numero
         {
-            get { return numero; }
-            set { numero = value; }  
+            get { return numero; } 
         }
 
         public double Solde
@@ -24,7 +23,6 @@ namespace ClassCompteBancaire
         public string Nom
         {
             get { return nom; }
-            set { nom = value; }
         }
 
         public int DecouvertAutorise
@@ -56,7 +54,7 @@ namespace ClassCompteBancaire
 
         private void Operation(double _montant)
         {
-            this.solde += _montant;
+            this.Solde += _montant;
         }
 
         public bool Crediter(double _montant)

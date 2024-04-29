@@ -6,18 +6,20 @@ namespace AppPoint
     {
         static void Main(string[] args)
         {
-            Point point1 = new Point();
+            Point point1 = new Point(10, 10);
+            Point point2 = new Point(5, 10);
 
-            point1.SymetriqueAbscisse();
             Console.WriteLine(point1.ToString());
-            point1.SymetriqueOrdonees();
-            Console.WriteLine(point1.ToString());
-            point1.SymetriqueOrigine();
-            Console.WriteLine(point1.ToString());
+            Point newPoint = point1.SymetrieAxeAbscisse();
+            Console.WriteLine(newPoint.ToString());
+            Point newPoint2 = point1.SymetrieAxeOrdonees();
+            Console.WriteLine(newPoint2.ToString());
+            Point newPoint3 = point1.SymetrieOrigine();
+            Console.WriteLine(newPoint3.ToString());
             point1.Deplacer(15, 5);
             Console.WriteLine(point1.ToString());
-            point1.Permuter();
-            Console.WriteLine(point1.ToString());
+            point2.Permuter();
+            Console.WriteLine(point2.ToString());
         }
     }
 }
