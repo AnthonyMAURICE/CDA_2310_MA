@@ -79,12 +79,6 @@ namespace ClassFraction
                 }
                 pgcd = a;
             }
-            /*
-            if (this.Numerateur < 0 ^ this.Denominateur < 0)
-            {
-                pgcd *= -1;
-            }
-            */
             return pgcd;
         }
 
