@@ -29,7 +29,7 @@ namespace ClassFraction
         {
             double val = (double)this.Numerateur / (double)this.Denominateur;
             bool isInteger = (double)((int)val) == (double)val;
-            return isInteger ? val.ToString() : this.Numerateur + "/" + this.Denominateur;
+            return isInteger ? val.ToString() : this.Reduire();
         }
 
         public void Oppose()
@@ -79,30 +79,32 @@ namespace ClassFraction
                 }
                 pgcd = a;
             }
+            /*
             if (this.Numerateur < 0 ^ this.Denominateur < 0)
             {
                 pgcd *= -1;
             }
+            */
             return pgcd;
         }
 
-        public string Reduire()
+        private string Reduire()
         {
             int value = (this.Numerateur / this.GetPgcd());
             int value2 = (this.Denominateur / this.GetPgcd());
-            if(value < 0 && value2 < 0)
+            if(value2 < 0)
             {
                 value *= -1;
                 value2 *= -1;
             }
             return value.ToString() + "/" + value2.ToString();    
         }
-
-        protected int GetFraction()
+        /*
+        protected int GetFraction() // à revoir
         {
             return (this.Denominateur / this.GetPgcd());
         }
-
+        */
         public Fraction Plus(Fraction _autreFraction)
         {
             int newNumerateur = this.Numerateur * _autreFraction.Denominateur + _autreFraction.Numerateur * this.Denominateur;

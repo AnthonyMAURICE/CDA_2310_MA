@@ -8,7 +8,7 @@ namespace AppFraction
         {
             Fraction fraction1 = new Fraction(12, 7);
             Fraction fraction2 = new Fraction(9, 1);
-            Fraction fraction3 = new Fraction(0, 1);
+            Fraction fraction3 = new Fraction(-22, 6);
             Fraction fraction4 = new Fraction(1, 9);
             Fraction fraction5 = new Fraction(120, -150);
 
