@@ -99,12 +99,7 @@ namespace ClassFraction
             }
             return value.ToString() + "/" + value2.ToString();    
         }
-        /*
-        protected int GetFraction() // à revoir
-        {
-            return (this.Denominateur / this.GetPgcd());
-        }
-        */
+
         public Fraction Plus(Fraction _autreFraction)
         {
             int newNumerateur = this.Numerateur * _autreFraction.Denominateur + _autreFraction.Numerateur * this.Denominateur;
@@ -128,8 +123,7 @@ namespace ClassFraction
 
         public void Divise(Fraction _autreFraction)
         {
-            int newNumerateur = this.Numerateur * _autreFraction.Denominateur - _autreFraction.Numerateur * this.Denominateur;
-            int newDenominateur = this.Denominateur * _autreFraction.Denominateur;
+            
             
         }
     }
