@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "AppFraction/1.0.0": {
+        "dependencies": {
+          "ClassFraction": "1.0.0"
+        },
+        "runtime": {
+          "AppFraction.dll": {}
+        }
+      },
+      "ClassFraction/1.0.0": {
+        "runtime": {
+          "ClassFraction.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AppFraction/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ClassFraction/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
