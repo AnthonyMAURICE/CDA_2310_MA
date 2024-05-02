@@ -8,6 +8,7 @@ namespace ClassCard
         private int power;
         private int defense;
         private string skill;
+        private List<CardContainer> cardFamily;
 
         public string Name
         {
@@ -62,7 +63,8 @@ namespace ClassCard
                 return new Card();
             }
         }
-
+  
+        
         
     }
 }

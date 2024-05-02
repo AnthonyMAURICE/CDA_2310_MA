@@ -10,15 +10,10 @@ namespace AppCardGame
     {
         static void Main(string[] args)
         {
-            List<Card> cards = new List<Card>();
+            CardContainer firstDeck = new CardContainer();
+            firstDeck.PrimaryDeck();
 
-            using (StreamReader file = File.OpenText("../../../../ClassCard/data/cards.json"))
-            using (JsonTextReader reader = new JsonTextReader(file))
-            {
-                JObject o2 = (JObject)JToken.ReadFrom(reader);
-                cards.Add(o2.ToObject<Card>());
-            }
-
+            Console.WriteLine(firstDeck.cards[1].Name);
 
         }
     }
