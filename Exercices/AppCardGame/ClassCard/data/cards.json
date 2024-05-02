@@ -1,0 +1,64 @@
+{
+  "cards": [
+    {
+      "name": "Ricko",
+      "power": 6,
+      "defense": 6,
+      "skill": "Manger une pomme"
+    },
+    {
+      "name": "Mike",
+      "power": 5,
+      "defense": 7,
+      "skill": "Cuire un oeuf"
+    },
+    {
+      "name": "Mario",
+      "power": 7,
+      "defense": 5,
+      "skill": "Réparer sa voiture"
+    },
+    {
+      "name": "Zeldu",
+      "power": 4,
+      "defense": 8,
+      "skill": "Chercher son Arc"
+    },
+    {
+      "name": "Chief",
+      "power": 8,
+      "defense": 4,
+      "skill": "Éplucher une patate"
+    },
+    {
+      "name": "Snake",
+      "power": 3,
+      "defense": 9,
+      "skill": "Parler aux serpents"
+    },
+    {
+      "name": "Freeman",
+      "power": 9,
+      "defense": 3,
+      "skill": "Écrire une nouvelle loi"
+    },
+    {
+      "name": "Bellic",
+      "power": 6,
+      "defense": 6,
+      "skill": "Chercher un ami"
+    },
+    {
+      "name": "Drake",
+      "power": 7,
+      "defense": 5,
+      "skill": "Boire un verre d'eau"
+    },
+    {
+      "name": "Peach",
+      "power": 8,
+      "defense": 4,
+      "skill": "Lire la doc SQL"
+    }
+  ]
+}

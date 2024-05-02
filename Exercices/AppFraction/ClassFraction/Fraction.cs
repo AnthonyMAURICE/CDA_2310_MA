@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using ClassFraction.Exceptions;
 
 namespace ClassFraction
 {
@@ -94,31 +95,32 @@ namespace ClassFraction
             return value.ToString() + "/" + value2.ToString();    
         }
 
+
+        protected static Fraction FractionCalcul(int _newNumerateur, int _newDenominateur)
+        {
+            return new Fraction(_newNumerateur, _newDenominateur);
+        }
+
+
         public Fraction Plus(Fraction _autreFraction)
         {
-            int newNumerateur = this.Numerateur * _autreFraction.Denominateur + _autreFraction.Numerateur * this.Denominateur;
-            int newDenominateur = this.Denominateur * _autreFraction.Denominateur;
-            return new Fraction(newNumerateur, newDenominateur);
+            return FractionCalcul(this.Numerateur * _autreFraction.Denominateur + _autreFraction.Numerateur * this.Denominateur, this.Denominateur * _autreFraction.Denominateur);
         }
 
         public Fraction Moins(Fraction _autreFraction)
         {
-            int newNumerateur = this.Numerateur * _autreFraction.Denominateur - _autreFraction.Numerateur * this.Denominateur;
-            int newDenominateur = this.Denominateur * _autreFraction.Denominateur;
-            return new Fraction(newNumerateur, newDenominateur);
+            return FractionCalcul(this.Numerateur * _autreFraction.Denominateur - _autreFraction.Numerateur * this.Denominateur, this.Denominateur * _autreFraction.Denominateur);
         }
 
         public Fraction Multiplie(Fraction _autreFraction)
         {
-            int newNumerateur = this.Numerateur * _autreFraction.Numerateur;
-            int newDenominateur = this.Denominateur * _autreFraction.Denominateur;
-            return new Fraction(newNumerateur, newDenominateur);
+            return FractionCalcul(this.Numerateur * _autreFraction.Numerateur, this.Denominateur * _autreFraction.Denominateur);
         }
 
-        public void Divise(Fraction _autreFraction)
+        public Fraction Divise(Fraction _autreFraction)
         {
-            
-            
+            return FractionCalcul(this.Numerateur * _autreFraction.Denominateur, this.Denominateur * _autreFraction.Numerateur);
         }
     }
+    
 }

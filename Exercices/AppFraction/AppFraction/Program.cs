@@ -1,4 +1,5 @@
 ﻿using ClassFraction;
+using ClassFraction.Exceptions;
 
 namespace AppFraction
 {

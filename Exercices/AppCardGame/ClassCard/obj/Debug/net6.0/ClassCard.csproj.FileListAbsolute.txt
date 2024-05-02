@@ -1,0 +1,12 @@
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\AppCardGame\ClassCard\bin\Debug\net6.0\ClassCard.deps.json
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\AppCardGame\ClassCard\bin\Debug\net6.0\ClassCard.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\AppCardGame\ClassCard\bin\Debug\net6.0\ClassCard.pdb
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\AppCardGame\ClassCard\obj\Debug\net6.0\ClassCard.csproj.AssemblyReference.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\AppCardGame\ClassCard\obj\Debug\net6.0\ClassCard.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\AppCardGame\ClassCard\obj\Debug\net6.0\ClassCard.AssemblyInfoInputs.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\AppCardGame\ClassCard\obj\Debug\net6.0\ClassCard.AssemblyInfo.cs
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\AppCardGame\ClassCard\obj\Debug\net6.0\ClassCard.csproj.CoreCompileInputs.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\AppCardGame\ClassCard\obj\Debug\net6.0\ClassCard.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\AppCardGame\ClassCard\obj\Debug\net6.0\refint\ClassCard.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\AppCardGame\ClassCard\obj\Debug\net6.0\ClassCard.pdb
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\AppCardGame\ClassCard\obj\Debug\net6.0\ref\ClassCard.dll
