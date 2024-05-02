@@ -8,7 +8,7 @@ namespace ClassCard
         private int power;
         private int defense;
         private string skill;
-        private List<CardContainer> cardFamily;
+        //private List<CardContainer> cardFamily;
 
         public string Name
         {
@@ -60,11 +60,34 @@ namespace ClassCard
             catch(CardExceptions ex)
             {
                 Console.WriteLine(ex.Message);
-                return new Card();
+                return null;
             }
         }
-  
-        
-        
+         /*
+        public void SetFamily()
+        {
+            
+            if(this.Power < 5)
+            {
+                this.cardFamily = CardContainer.family[0];
+            }
+            else if(this.Power == 5)
+            {
+
+            }
+            else if(this.Power == 6)
+            {
+
+            }
+            else if(this.Power == 7)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+        */
     }
 }

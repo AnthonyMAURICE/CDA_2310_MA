@@ -12,7 +12,7 @@ namespace AppCardGame
         {
             CardContainer firstDeck = new CardContainer();
             firstDeck.PrimaryDeck();
-
+            
             Console.WriteLine(firstDeck.cards[1].Name);
 
         }

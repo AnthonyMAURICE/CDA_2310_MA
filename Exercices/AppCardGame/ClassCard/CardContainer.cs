@@ -15,6 +15,7 @@ namespace ClassCard
         public CardContainer()
         {
             this.cards = new List<Card>();
+            this.family = new List<CardFamily>();
         }
 
         public List<Card> PrimaryDeck()
