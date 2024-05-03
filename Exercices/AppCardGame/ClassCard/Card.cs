@@ -8,7 +8,7 @@ namespace ClassCard
         private int power;
         private int defense;
         private string skill;
-        //private List<CardContainer> cardFamily;
+        private CardFamily cardFamily;
 
         public string Name
         {
@@ -34,6 +34,12 @@ namespace ClassCard
             set { skill = value; }
         }
 
+        public CardFamily CardFamily
+        {
+            get { return cardFamily; }
+            set { cardFamily = value; }
+        }
+
         public Card()
         {
             this.name = "Placeholder";
@@ -48,9 +54,10 @@ namespace ClassCard
             this.power = power;
             this.defense = defense;
             this.skill = skill;
+            
         }
 
-        public static Card CreateCard(string name, int power, int defense, string skill)
+        public static Card? CreateCard(string name, int power, int defense, string skill)
         {
             try
             {
@@ -63,31 +70,7 @@ namespace ClassCard
                 return null;
             }
         }
-         /*
-        public void SetFamily()
-        {
-            
-            if(this.Power < 5)
-            {
-                this.cardFamily = CardContainer.family[0];
-            }
-            else if(this.Power == 5)
-            {
-
-            }
-            else if(this.Power == 6)
-            {
-
-            }
-            else if(this.Power == 7)
-            {
-
-            }
-            else
-            {
-
-            }
-        }
-        */
+        
+        
     }
 }

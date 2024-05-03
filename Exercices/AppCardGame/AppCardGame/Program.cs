@@ -11,10 +11,11 @@ namespace AppCardGame
         static void Main(string[] args)
         {
             CardContainer firstDeck = new CardContainer();
-            firstDeck.PrimaryDeck();
-            
-            Console.WriteLine(firstDeck.cards[1].Name);
 
+            for(int i = 0; i < firstDeck.Cards.Count; i++)
+            {
+                Console.WriteLine(firstDeck.Cards[i].CardFamily.Name + ", " + firstDeck.Cards[i].CardFamily.Elem + ", " + firstDeck.Cards[i].Name + ", " + firstDeck.Cards[i].Skill);
+            }           
         }
     }
 }

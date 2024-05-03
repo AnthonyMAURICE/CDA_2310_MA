@@ -1,29 +1,29 @@
 {
   "family": [
     {
-      "name": "Ricko",
-      "desc": 6,
-      "elem": 6
+      "name": "Corsaire",
+      "desc": "Les mercenaires",
+      "elem": "Eau"
     },
     {
-      "name": "Ricko",
-      "desc": 6,
-      "elem": 6
+      "name": "Gardien",
+      "desc": "Les gardes royaux",
+      "elem": "Terre"
     },
     {
-      "name": "Ricko",
-      "desc": 6,
-      "elem": 6
+      "name": "Mage",
+      "desc": "Les magiciens",
+      "elem": "Feu"
     },
     {
-      "name": "Ricko",
-      "desc": 6,
-      "elem": 6
+      "name": "Paladin",
+      "desc": "Les protecteurs des cités",
+      "elem": "Terre"
     },
     {
-      "name": "Ricko",
-      "desc": 6,
-      "elem": 6
+      "name": "Sage",
+      "desc": "Les érudits",
+      "elem": "Air"
     }
   ]
 }
