@@ -54,7 +54,7 @@ namespace ClassFraction
 
         private static double Calcul(int _first, int _second)
         {
-            return (double)_first / (double)_second;
+            return ((double)_first) / _second;
         }
 
         public bool SuperieureA(Fraction _other)
@@ -94,15 +94,12 @@ namespace ClassFraction
 
         private Fraction Reduire()
         {
-            int value = (this.Numerateur / this.GetPgcd());
-            int value2 = (this.Denominateur / this.GetPgcd());
-            if(value2 < 0)
+            (this.Numerateur, this.Denominateur) = (this.Numerateur / this.GetPgcd(), this.Denominateur / this.GetPgcd());
+            if(this.Denominateur < 0)
             {
-                value *= -1;
-                value2 *= -1;
+                this.Numerateur *= -1;
+                this.Denominateur *= -1;
             }
-            this.Numerateur = value;
-            this.Denominateur = value2;
             return this;    
         }
 
@@ -128,7 +125,9 @@ namespace ClassFraction
 
         public Fraction Divise(Fraction _autreFraction)
         {
-            return FractionCalcul(this.Numerateur * _autreFraction.Denominateur, this.Denominateur * _autreFraction.Numerateur);
+            Fraction fraction = new Fraction(_autreFraction);
+            fraction.Inverse();
+            return this.Multiplie(fraction);
         }
     }  
 }

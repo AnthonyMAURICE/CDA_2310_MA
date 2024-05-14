@@ -10,9 +10,9 @@ namespace ClassFraction.Exceptions
     {
         public ZeroDivisionException(string message) : base(message) { }
 
-        public static void ZeroException(int _denominateur)
+        public static void ZeroException(Fraction _fraction)
         {
-            if (_denominateur == 0)
+            if (_fraction.Denominateur == 0)
             {
                 throw new ZeroDivisionException("Le dénominateur d'une fraction ne peut être zéro !");
             }
