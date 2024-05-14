@@ -14,7 +14,7 @@ namespace ClassFraction.Exceptions
         {
             if (_denominateur == 0)
             {
-                throw new ZeroDivisionException("Cannot divide by zero !");
+                throw new ZeroDivisionException("Le dénominateur d'une fraction ne peut être zéro !");
             }
         }
     }

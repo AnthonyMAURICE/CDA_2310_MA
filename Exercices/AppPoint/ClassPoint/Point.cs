@@ -11,10 +11,16 @@
             this.y = 0;
         }
 
-        public Point(double _x, double _y)
+        public Point(double x, double y)
         {
-            this.x = _x;
-            this.y = _y;
+            X = x;
+            Y = y;
+        }
+
+        public Point(Point _point)
+        {
+            this.x = _point.X;
+            this.y = _point.Y;
         }
 
         public double X
@@ -51,7 +57,7 @@
 
         public Point SymetrieOrigine()
         {
-            return new Point(this.X * -1, this.Y * -1);
+            return this.SymetrieAxeAbscisse().SymetrieAxeOrdonees();
         }
 
         public void Permuter()

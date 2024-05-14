@@ -8,29 +8,38 @@ namespace ClassFraction
         private int numerateur;
         private int denominateur;
 
-        public Fraction() : this(0, 1)
+        public int Numerateur { get => numerateur; set => numerateur = value; }
+        public int Denominateur { get => denominateur; set => denominateur = value; }
+
+        public Fraction()
         {
+            this.Numerateur = 0;
+            this.Denominateur = 1;
+        }
+
+        public Fraction (Fraction _fraction)
+        {
+            this.Numerateur = _fraction.Numerateur;
+            this.Denominateur = _fraction.Denominateur;
         }
 
         public Fraction(int _numerateur) : this(_numerateur, 1)
         {
-            this.numerateur = _numerateur;
+            this.Numerateur = _numerateur;
         }
 
         public Fraction(int _numerateur, int _denominateur)
         {
-            this.numerateur = _numerateur;
-            this.denominateur = _denominateur;
+            this.Numerateur = _numerateur;
+            this.Denominateur = _denominateur;
         }
-
-        public int Numerateur { get => numerateur; set => numerateur = value; }
-        public int Denominateur { get => denominateur; set => denominateur = value; }
 
         public override string ToString()
         {
+            this.Reduire();
             double val = (double)this.Numerateur / (double)this.Denominateur;
             bool isInteger = (double)((int)val) == (double)val;
-            return isInteger ? val.ToString() : this.Reduire();
+            return isInteger ? val.ToString() : this.Numerateur + "/" + this.Denominateur;
         }
 
         public void Oppose()
@@ -39,11 +48,11 @@ namespace ClassFraction
         }
 
         public void Inverse()
-        {
-            (this.Numerateur, this.Denominateur) = (this.Denominateur, this.Numerateur);
+        {   
+            (this.Numerateur, this.Denominateur) = (this.Denominateur, this.Numerateur);  
         }
 
-        protected static double Calcul(int _first, int _second)
+        private static double Calcul(int _first, int _second)
         {
             return (double)_first / (double)_second;
         }
@@ -83,7 +92,7 @@ namespace ClassFraction
             return pgcd;
         }
 
-        private string Reduire()
+        private Fraction Reduire()
         {
             int value = (this.Numerateur / this.GetPgcd());
             int value2 = (this.Denominateur / this.GetPgcd());
@@ -92,15 +101,15 @@ namespace ClassFraction
                 value *= -1;
                 value2 *= -1;
             }
-            return value.ToString() + "/" + value2.ToString();    
+            this.Numerateur = value;
+            this.Denominateur = value2;
+            return this;    
         }
 
-
-        protected static Fraction FractionCalcul(int _newNumerateur, int _newDenominateur)
+        private static Fraction FractionCalcul(int _newnumerateur, int _newdenominateur)
         {
-            return new Fraction(_newNumerateur, _newDenominateur);
+            return new Fraction(_newnumerateur, _newdenominateur).Reduire();
         }
-
 
         public Fraction Plus(Fraction _autreFraction)
         {
@@ -121,6 +130,5 @@ namespace ClassFraction
         {
             return FractionCalcul(this.Numerateur * _autreFraction.Denominateur, this.Denominateur * _autreFraction.Numerateur);
         }
-    }
-    
+    }  
 }
