@@ -25,7 +25,6 @@ namespace ClassFraction
 
         public Fraction(int _numerateur) : this(_numerateur, 1)
         {
-            this.numerateur = _numerateur;
         }
 
         public Fraction(int _numerateur, int _denominateur)
