@@ -8,55 +8,72 @@ namespace ClassFraction
         private int numerateur;
         private int denominateur;
 
-        public int Numerateur { get => numerateur; set => numerateur = value; }
-        public int Denominateur { get => denominateur; set => denominateur = value; }
+        public int GetNumerateur()
+        {
+            return numerateur;
+        }
+
+        private void SetNumerateur(int value)
+        {
+            numerateur = value;
+        }
+
+        public int GetDenominateur()
+        {
+            return denominateur;
+        }
+
+        private void SetDenominateur(int value)
+        {
+            denominateur = value;
+        }
 
         public Fraction()
         {
-            this.Numerateur = 0;
-            this.Denominateur = 1;
+            this.SetNumerateur(0);
+            this.SetDenominateur(1);
         }
 
         public Fraction (Fraction _fraction)
         {
-            this.Numerateur = _fraction.Numerateur;
-            this.Denominateur = _fraction.Denominateur;
+            this.SetNumerateur(_fraction.GetNumerateur());
+            this.SetDenominateur(_fraction.GetDenominateur());
         }
 
         public Fraction(int _numerateur) : this(_numerateur, 1)
         {
-            this.Numerateur = _numerateur;
+            this.SetNumerateur(_numerateur);
         }
 
         public Fraction(int _numerateur, int _denominateur)
         {
-            this.Numerateur = _numerateur;
-            this.Denominateur = _denominateur;
+            this.SetNumerateur(_numerateur);
+            this.SetDenominateur(_denominateur);
         }
 
         public override string ToString()
         {
             this.Reduire();
-            double val = (double)this.Numerateur / (double)this.Denominateur;
+            double val = (double)this.GetNumerateur() / (double)this.GetDenominateur();
             bool isInteger = (double)((int)val) == (double)val;
-            return isInteger ? val.ToString() : this.Numerateur + "/" + this.Denominateur;
+            return isInteger ? val.ToString() : this.GetNumerateur() + "/" + this.GetDenominateur();
         }
 
         public void Oppose()
         {
-            this.Numerateur *= -1;
+            this.SetNumerateur(this.GetNumerateur() * -1);
         }
 
         public void Inverse()
         {   
-            (this.Numerateur, this.Denominateur) = (this.Denominateur, this.Numerateur);  
+            (this.GetNumerateur(), this.GetDenominateur()) = (this.GetDenominateur(), this.GetNumerateur());  
         }
 
         public int CompareTo(Fraction? other)
         {
             Fraction monThis = this;
-            double calculatedMonThis = Calcul(monThis.Numerateur, monThis.Denominateur);
-            double calculatedOther = Calcul(other.Numerateur, other.Denominateur);
+            double calculatedMonThis = Calcul(monThis.GetNumerateur(), monThis.GetDenominateur());
+            double calculatedOther = Calcul(other.GetNumerateur(), other.GetDenominateur());
             return calculatedMonThis.CompareTo(calculatedOther);
         }
 
@@ -97,8 +114,8 @@ namespace ClassFraction
 
         private int GetPgcd()
         {
-            int a = this.Numerateur;
-            int b = this.Denominateur;
+            int a = this.GetNumerateur();
+            int b = this.GetDenominateur();
             int pgcd = 1;
             if (a != 0 && b != 0)
             {
@@ -122,11 +139,11 @@ namespace ClassFraction
 
         private Fraction Reduire()
         {
-            (this.Numerateur, this.Denominateur) = (this.Numerateur / this.GetPgcd(), this.Denominateur / this.GetPgcd());
-            if(this.Denominateur < 0)
+            (this.GetNumerateur(), this.GetDenominateur()) = (this.GetNumerateur() / this.GetPgcd(), this.GetDenominateur() / this.GetPgcd());
+            if(this.GetDenominateur() < 0)
             {
-                this.Numerateur *= -1;
-                this.Denominateur *= -1;
+                this.SetNumerateur(this.GetNumerateur() * -1);
+                this.SetDenominateur(this.GetDenominateur() * -1);
             }
             return this;    
         }
@@ -138,17 +155,17 @@ namespace ClassFraction
 
         public Fraction Plus(Fraction _autreFraction)
         {
-            return FractionCalcul(this.Numerateur * _autreFraction.Denominateur + _autreFraction.Numerateur * this.Denominateur, this.Denominateur * _autreFraction.Denominateur);
+            return FractionCalcul(this.GetNumerateur() * _autreFraction.GetDenominateur() + _autreFraction.GetNumerateur() * this.GetDenominateur(), this.GetDenominateur() * _autreFraction.GetDenominateur());
         }
 
         public Fraction Moins(Fraction _autreFraction)
         {
-            return FractionCalcul(this.Numerateur * _autreFraction.Denominateur - _autreFraction.Numerateur * this.Denominateur, this.Denominateur * _autreFraction.Denominateur);
+            return FractionCalcul(this.GetNumerateur() * _autreFraction.GetDenominateur() - _autreFraction.GetNumerateur() * this.GetDenominateur(), this.GetDenominateur() * _autreFraction.GetDenominateur());
         }
 
         public Fraction Multiplie(Fraction _autreFraction)
         {
-            return FractionCalcul(this.Numerateur * _autreFraction.Numerateur, this.Denominateur * _autreFraction.Denominateur);
+            return FractionCalcul(this.GetNumerateur() * _autreFraction.GetNumerateur(), this.GetDenominateur() * _autreFraction.GetDenominateur());
         }
 
         public Fraction Divise(Fraction _autreFraction)
