@@ -46,7 +46,7 @@ namespace ClassFraction
 
         public void Oppose()
         {
-            this.numerateur = this.numerateur * -1;
+            this.numerateur *= -1;
         }
 
         public void Inverse()
@@ -56,10 +56,10 @@ namespace ClassFraction
 
         public int CompareTo(Fraction? other)
         {
-            Fraction monThis = this;
-            double calculatedMonThis = monThis.Calcul();
+            Fraction first = this;
+            double calculatedFirst = first.Calcul();
             double calculatedOther = other.Calcul();
-            return calculatedMonThis.CompareTo(calculatedOther);
+            return calculatedFirst.CompareTo(calculatedOther);
         }
 
         private double Calcul()
@@ -125,10 +125,10 @@ namespace ClassFraction
         private Fraction Reduire()
         {
             (this.numerateur, this.denominateur) = (this.numerateur / this.GetPgcd(), this.denominateur / this.GetPgcd());
-            if(this.denominateur < 0)
+            if(this.denominateur < 0) // condition pour la gestion du signe de la fraction
             {
-                this.numerateur = this.numerateur * -1;
-                this.denominateur = this.denominateur * -1;
+                this.numerateur *= -1;
+                this.denominateur *= -1;
             }
             return this;    
         }
