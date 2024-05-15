@@ -3,7 +3,7 @@ using ClassFraction.Exceptions;
 
 namespace ClassFraction
 {
-    public class Fraction
+    public class Fraction : IComparable<Fraction>
     {
         private int numerateur;
         private int denominateur;
@@ -52,19 +52,47 @@ namespace ClassFraction
             (this.Numerateur, this.Denominateur) = (this.Denominateur, this.Numerateur);  
         }
 
+        public int CompareTo(Fraction? other)
+        {
+            Fraction monThis = this;
+            double calculatedMonThis = Calcul(monThis.Numerateur, monThis.Denominateur);
+            double calculatedOther = Calcul(other.Numerateur, other.Denominateur);
+            return calculatedMonThis.CompareTo(calculatedOther);
+        }
+
         private static double Calcul(int _first, int _second)
         {
             return ((double)_first) / _second;
         }
 
+        public static bool operator <(Fraction f1, Fraction f2)
+        {
+            return f1.CompareTo(f2) == -1;
+        }
+
+        public static bool operator >(Fraction f1, Fraction f2)
+        {
+            return (f1.CompareTo(f2) == 1);
+        }
+
+        public static bool operator ==(Fraction f1, Fraction f2)
+        {
+            return (f1.CompareTo(f2) == 0);
+        }
+
+        public static bool operator !=(Fraction f1, Fraction f2)
+        {
+            return (f1.CompareTo(f2) != 0);
+        }
+
         public bool SuperieureA(Fraction _other)
         {
-            return Calcul(this.Numerateur, this.Denominateur) > Calcul(_other.Numerateur, _other.Denominateur);
+            return this > _other;
         }
 
         public bool EgaleA(Fraction _other)
         {
-            return Calcul(this.Numerateur, this.Denominateur) == Calcul(_other.Numerateur, _other.Denominateur);
+            return this == _other;
         }
 
         private int GetPgcd()
