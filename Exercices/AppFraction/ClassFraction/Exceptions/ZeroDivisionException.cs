@@ -12,7 +12,7 @@ namespace ClassFraction.Exceptions
 
         public static void ZeroException(Fraction _fraction)
         {
-            if (_fraction.GetDenominateur() == 0)
+            if (_fraction.Denominateur == 0)
             {
                 throw new ZeroDivisionException("Le dénominateur d'une fraction ne peut être zéro !");
             }
