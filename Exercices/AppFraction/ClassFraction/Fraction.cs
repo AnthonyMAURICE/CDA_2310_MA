@@ -9,9 +9,7 @@ namespace ClassFraction
         private int denominateur;
 
         public int Numerateur { get => this.numerateur; private set => this.numerateur = value; }
-
         public int Denominateur { get => this.denominateur; private set => this.denominateur = value; }
-
 
         public Fraction()
         {
@@ -38,10 +36,7 @@ namespace ClassFraction
 
         public override string ToString()
         {
-            this.Reduire();
-            double val = (double)this.numerateur / (double)this.denominateur;
-            bool isInteger = (double)((int)val) == (double)val;
-            return isInteger ? val.ToString() : this.numerateur + "/" + this.denominateur;
+            return this.numerateur + "/" + this.denominateur;
         }
 
         public void Oppose()
@@ -122,20 +117,20 @@ namespace ClassFraction
             return pgcd;
         }
 
-        private Fraction Reduire()
+        private void Reduire()
         {
-            (this.numerateur, this.denominateur) = (this.numerateur / this.GetPgcd(), this.denominateur / this.GetPgcd());
+            int pgcd = this.GetPgcd();
+            (this.numerateur, this.denominateur) = (this.numerateur / pgcd, this.denominateur / pgcd);
             if(this.denominateur < 0) // condition pour la gestion du signe de la fraction
             {
                 this.numerateur *= -1;
                 this.denominateur *= -1;
             }
-            return this;    
         }
 
         private static Fraction FractionCalcul(int _newnumerateur, int _newdenominateur)
         {
-            return new Fraction(_newnumerateur, _newdenominateur).Reduire();
+            return new Fraction(_newnumerateur, _newdenominateur);
         }
 
         public Fraction Plus(Fraction _autreFraction)
