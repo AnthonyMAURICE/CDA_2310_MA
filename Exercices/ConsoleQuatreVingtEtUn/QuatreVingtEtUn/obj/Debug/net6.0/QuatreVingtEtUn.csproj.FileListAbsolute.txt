@@ -1,0 +1,12 @@
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleQuatreVingtEtUn\QuatreVingtEtUn\bin\Debug\net6.0\QuatreVingtEtUn.deps.json
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleQuatreVingtEtUn\QuatreVingtEtUn\bin\Debug\net6.0\QuatreVingtEtUn.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleQuatreVingtEtUn\QuatreVingtEtUn\bin\Debug\net6.0\QuatreVingtEtUn.pdb
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleQuatreVingtEtUn\QuatreVingtEtUn\obj\Debug\net6.0\QuatreVingtEtUn.csproj.AssemblyReference.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleQuatreVingtEtUn\QuatreVingtEtUn\obj\Debug\net6.0\QuatreVingtEtUn.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleQuatreVingtEtUn\QuatreVingtEtUn\obj\Debug\net6.0\QuatreVingtEtUn.AssemblyInfoInputs.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleQuatreVingtEtUn\QuatreVingtEtUn\obj\Debug\net6.0\QuatreVingtEtUn.AssemblyInfo.cs
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleQuatreVingtEtUn\QuatreVingtEtUn\obj\Debug\net6.0\QuatreVingtEtUn.csproj.CoreCompileInputs.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleQuatreVingtEtUn\QuatreVingtEtUn\obj\Debug\net6.0\QuatreVingtEtUn.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleQuatreVingtEtUn\QuatreVingtEtUn\obj\Debug\net6.0\refint\QuatreVingtEtUn.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleQuatreVingtEtUn\QuatreVingtEtUn\obj\Debug\net6.0\QuatreVingtEtUn.pdb
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleQuatreVingtEtUn\QuatreVingtEtUn\obj\Debug\net6.0\ref\QuatreVingtEtUn.dll

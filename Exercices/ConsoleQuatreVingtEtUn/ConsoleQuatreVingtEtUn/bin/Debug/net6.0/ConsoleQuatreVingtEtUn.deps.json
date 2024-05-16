@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "ConsoleQuatreVingtEtUn/1.0.0": {
+        "dependencies": {
+          "QuatreVingtEtUn": "1.0.0"
+        },
+        "runtime": {
+          "ConsoleQuatreVingtEtUn.dll": {}
+        }
+      },
+      "QuatreVingtEtUn/1.0.0": {
+        "runtime": {
+          "QuatreVingtEtUn.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ConsoleQuatreVingtEtUn/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "QuatreVingtEtUn/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

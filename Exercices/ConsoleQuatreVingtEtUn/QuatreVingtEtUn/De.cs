@@ -20,12 +20,12 @@ namespace QuatreVingtEtUn
 
         public int CompareTo(De? other)
         {
-            throw new NotImplementedException();
+            return this.Valeur.CompareTo(other.Valeur);
         }
 
         public void Jeter()
         {
-            
+            this.valeur = Alea.Instance().Nouveau(1, this.nbeFaces);
         }
     }
 }
