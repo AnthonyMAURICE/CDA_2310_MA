@@ -16,7 +16,7 @@ namespace QuatreVingtEtUn
             this.nbeFaces = nbeFaces;
         }
 
-        public int Valeur { get { return valeur;}}
+        public int Valeur { get { return this.valeur;}}
 
         public int CompareTo(De? other)
         {

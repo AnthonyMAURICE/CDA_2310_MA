@@ -5,10 +5,13 @@ namespace ConsoleQuatreVingtEtUn
     {
         static void Main(string[] args)
         {
-            Manche mancheTest = new Manche();
-            mancheTest.Lancer();
-            mancheTest.Lancer(1, 3);
+            Partie partie1 = new Partie(3);
+            partie1.NouvelleManche();
+            partie1.LancerManche();
+            Console.WriteLine(partie1.GetDiceValues());
             
+
+
         }
     }
 }

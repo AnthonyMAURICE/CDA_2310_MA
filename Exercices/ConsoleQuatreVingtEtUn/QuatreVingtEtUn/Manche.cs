@@ -1,32 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace QuatreVingtEtUn
 {
-    public class Manche
+    internal class Manche
     {
         private int nbeLancersRestant;
-        private readonly int nbeLancersMax;
-        private List<De>des = new List<De>();
-        private static List<int>toFind = new List<int>() {1, 2, 4};
+        private readonly int nbeLancersMax = 3;
+        private List<De> des = new List<De>();
+        private static readonly List<int>toFind = new List<int>() {1, 2, 4};
 
         public Manche()
         {
-            nbeLancersRestant = 3;
-            nbeLancersMax = 3;
+            nbeLancersRestant = nbeLancersMax;
         }
 
+        public List<De> Des { get { return this.des; } }
 
-        public void Lancer(params int[] desALancer)
+        public void Lancer(params bool[] desALancer)
         {
             if(des.Count != 0)
             {
-                foreach(int relance in desALancer)
+                for(int i = 0; i < desALancer.Length; i++)
                 {
-                    des[relance-1].Jeter();
+                    if (desALancer[i])
+                    {
+                        des[i].Jeter();
+                    }
                 }
             }
             else
@@ -38,13 +42,14 @@ namespace QuatreVingtEtUn
                     des.Add(de);
                 }
             }
-            des.Sort();
+            nbeLancersRestant--;
+            this.Trier();
         }
 
         public bool MancheGagnee()
         {
             bool win = true;
-            if (nbeLancersRestant == 0)
+            if (!this.EncoreUnLancer())
             {
                 win = false;
             }
@@ -58,7 +63,29 @@ namespace QuatreVingtEtUn
                     }
                 }
             }
+            this.Trier();
             return win;
+        }
+
+        public bool EncoreUnLancer()
+        {
+            return this.nbeLancersRestant > 0;
+        }
+
+        private void Trier()
+        {
+            this.des.Sort();
+        }
+
+        public override string ToString()
+        {
+
+            string diceResults = "Resultats : ";
+            for(int i = 0; i < des.Count; i++)
+            {
+                diceResults += des[i].Valeur.ToString() + ", ";
+            }
+            return diceResults;
         }
     }
 }
