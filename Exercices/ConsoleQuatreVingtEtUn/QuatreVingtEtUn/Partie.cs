@@ -12,23 +12,25 @@ namespace QuatreVingtEtUn
         private static readonly int nbePointsManchePerdue = 10;
         private int nbeManches;
         private int score;
-        internal Manche mancheCourante;
+        private Manche mancheCourante;
 
+        public int Score { get => score; private set => score = value; }
+        public int NbeManches { get => nbeManches; private set => nbeManches = value; }
 
         public Partie(int _nbeManche)
         {
-            this.nbeManches = _nbeManche;
-            this.score = nbeManches * 10;
+            this.NbeManches = _nbeManche;
+            this.Score = NbeManches * 10;
         }
         
         public bool AEncoreUneMancheAJouer()
         {
-            return nbeManches > 0;
+            return NbeManches > 0;
         }
 
         public bool AEncoreDesPointsAJouer()
         {
-            return this.score > 0;
+            return this.Score > 0;
         }
         public bool AGagneLaPartie()
         {
@@ -37,22 +39,22 @@ namespace QuatreVingtEtUn
 
         public void NouvelleManche()
         {
-            mancheCourante = new Manche();
+            this.mancheCourante = new Manche();
         }
 
         public override string ToString()
         {
-            return "Score : " + this.score;
+            return "Score : " + this.Score;
         }
 
         public void LancerManche()
         {
-            mancheCourante.Lancer();
+            this.mancheCourante.Lancer();
         }
 
         public void LancerManche(bool _first, bool _second, bool _third)
         {
-            mancheCourante.Lancer(_first, _second, _third);
+            this.mancheCourante.Lancer(_first, _second, _third);
         }
 
         public string GetDiceValues()
@@ -60,12 +62,27 @@ namespace QuatreVingtEtUn
             string values = "Résultats : ";
             for(int i = 0; i < this.mancheCourante.Des.Count; i++)
             {
-                values += this.mancheCourante.Des[i].Valeur + ", ";
+                values += this.mancheCourante.Des[i].Valeur + " ";
             }
             return values;
         }
 
+        public void Scoring(bool won)
+        {
+            if (won)
+            {
+                this.Score += 30;
+            }
+            else
+            {
+                this.Score -= 10;
+            }
+            this.nbeManches--;
+        }
+
+        public bool MancheGagnee()
+        {
+            return this.mancheCourante.MancheGagnee();
+        }
     }
-
-
 }

@@ -16,10 +16,14 @@ namespace QuatreVingtEtUn
 
         public Manche()
         {
-            nbeLancersRestant = nbeLancersMax;
+            NbeLancersRestant = nbeLancersMax;
         }
 
         public List<De> Des { get { return this.des; } }
+
+        public int NbeLancersMax => nbeLancersMax;
+
+        public int NbeLancersRestant { get => nbeLancersRestant; private set => nbeLancersRestant = value; }
 
         public void Lancer(params bool[] desALancer)
         {
@@ -42,7 +46,7 @@ namespace QuatreVingtEtUn
                     des.Add(de);
                 }
             }
-            nbeLancersRestant--;
+            NbeLancersRestant--;
             this.Trier();
         }
 
@@ -69,7 +73,7 @@ namespace QuatreVingtEtUn
 
         public bool EncoreUnLancer()
         {
-            return this.nbeLancersRestant > 0;
+            return this.NbeLancersRestant > 0;
         }
 
         private void Trier()
