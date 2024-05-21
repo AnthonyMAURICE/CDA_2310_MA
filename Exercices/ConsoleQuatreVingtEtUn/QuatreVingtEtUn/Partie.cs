@@ -67,17 +67,9 @@ namespace QuatreVingtEtUn
             return values;
         }
 
-        public void Scoring(bool won)
+        private void Scoring(bool won)
         {
-            if (won)
-            {
-                this.Score += 30;
-            }
-            else
-            {
-                this.Score -= 10;
-            }
-            this.nbeManches--;
+            this.Score += won ? 30 : -10;
         }
 
         public bool MancheGagnee()
