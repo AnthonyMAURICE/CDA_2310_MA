@@ -12,14 +12,15 @@ namespace QuatreVingtEtUn
         private static readonly int nbePointsManchePerdue = 10;
         private int nbeManches;
         private int score;
-        private Manche mancheCourante;
+        internal Manche mancheCourante;
 
         public int Score { get => score; private set => score = value; }
         public int NbeManches { get => nbeManches; private set => nbeManches = value; }
+        
 
         public Partie(int _nbeManche)
         {
-            this.NbeManches = _nbeManche;
+            this.nbeManches = _nbeManche;
             this.Score = NbeManches * 10;
         }
         
@@ -59,12 +60,7 @@ namespace QuatreVingtEtUn
 
         public string GetDiceValues()
         {
-            string values = "Résultats : ";
-            for(int i = 0; i < this.mancheCourante.Des.Count; i++)
-            {
-                values += this.mancheCourante.Des[i].Valeur + " ";
-            }
-            return values;
+            return this.mancheCourante.ToString();
         }
 
         private void Scoring(bool won)
@@ -74,7 +70,12 @@ namespace QuatreVingtEtUn
 
         public bool MancheGagnee()
         {
+            this.Scoring(this.mancheCourante.MancheGagnee());
             return this.mancheCourante.MancheGagnee();
         }
+
+        /*
+         * Implémenter ici le code pour gérer les manches et appeler les fonctions des tours de chaque manche
+         */
     }
 }
