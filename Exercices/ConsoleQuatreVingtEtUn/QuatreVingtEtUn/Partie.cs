@@ -16,7 +16,6 @@ namespace QuatreVingtEtUn
 
         public int Score { get => score; private set => score = value; }
         public int NbeManches { get => nbeManches; private set => nbeManches = value; }
-        
 
         public Partie(int _nbeManche)
         {
