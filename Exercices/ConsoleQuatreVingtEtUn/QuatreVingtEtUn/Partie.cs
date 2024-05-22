@@ -9,7 +9,7 @@ namespace QuatreVingtEtUn
     public class Partie
     {
         private static readonly int nbePointsMancheGagnee = 30;
-        private static readonly int nbePointsManchePerdue = 10;
+        private static readonly int nbePointsManchePerdue = -10;
         private int nbeManches;
         private int score;
         internal Manche mancheCourante;
@@ -63,24 +63,28 @@ namespace QuatreVingtEtUn
             bool first = true;
             bool second = true;
             bool third = true;
-            //si les booléens sont à true, le dé sera relancé, sinon il sera conservé
+            //si les booléens sont à true (et le sont de base), le dé sera relancé, sinon il sera conservé
             if(this.mancheCourante.Des.Any(x => x.Valeur == 1))
             {
-                this.mancheCourante.Des[0].Valeur = 1;
+                (this.mancheCourante.Des[0].Valeur) = (this.mancheCourante.Des[Index(1)].Valeur);
                 first = false;
             }
             if (this.mancheCourante.Des.Any(x => x.Valeur == 2))
             {
-                this.mancheCourante.Des[1].Valeur = 2;
+                (this.mancheCourante.Des[1].Valeur) = (this.mancheCourante.Des[Index(2)].Valeur);
                 second = false;
             }
             if (this.mancheCourante.Des.Any(x => x.Valeur == 4))
             {
-                this.mancheCourante.Des[2].Valeur = 4;
+                (this.mancheCourante.Des[2].Valeur) = (this.mancheCourante.Des[Index(4)].Valeur);
                 third = false;
             }
-
             this.LancerManche(first, second, third);
+        }
+
+        private int Index(int _value) // fonction qui retourne l'index de la valeur recherchée
+        {
+            return this.mancheCourante.Des.FindIndex(c => c.Valeur == _value);
         }
 
         public string GetDiceValues() // retourne la méthode ToString() de la classe Manche
@@ -90,17 +94,18 @@ namespace QuatreVingtEtUn
 
         public void Scoring(bool won) // mets à jour le score
         {
-            this.score += won ? 30 : -10;
+            this.score += won ? nbePointsMancheGagnee : nbePointsManchePerdue;
         }
 
-        public bool MancheTerminee()
+        public bool MancheTerminee() // contrôle si la manche est terminée et actualise le nombre de manches restantes
         {
             bool finie = false;
             if(!this.mancheCourante.EncoreUnLancer() || this.mancheCourante.MancheGagnee())
             {
                 finie = true;
+                this.Scoring(this.MancheGagnee());
                 this.nbeManches--;
-            }
+            } 
             return finie;
         }
 

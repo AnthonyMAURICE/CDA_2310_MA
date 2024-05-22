@@ -47,7 +47,6 @@ namespace QuatreVingtEtUn
                 }
             }
             this.nbeLancersRestant--;
-            //this.Trier();
         }
 
         public bool MancheGagnee()
@@ -67,12 +66,7 @@ namespace QuatreVingtEtUn
         {
             return this.nbeLancersRestant > 0;
         }
-        /*
-        public void Trier()
-        {
-            this.des.Sort();
-        }
-        */
+
         public override string ToString()
         {
 
