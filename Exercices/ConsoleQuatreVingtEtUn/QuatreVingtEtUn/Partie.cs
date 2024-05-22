@@ -58,24 +58,61 @@ namespace QuatreVingtEtUn
             this.mancheCourante.Lancer(_first, _second, _third);
         }
 
+        public void PreparerRelance()
+        {
+            bool first = true;
+            bool second = true;
+            bool third = true;
+
+            if(this.mancheCourante.Des.Any(x => x.Valeur == 1))
+            {
+                first = false;
+            }
+            if (this.mancheCourante.Des.Any(x => x.Valeur == 2))
+            {
+                this.mancheCourante.Des[1].Valeur = 2;
+                second = false;
+            }
+            if (this.mancheCourante.Des.Any(x => x.Valeur == 4))
+            {
+                this.mancheCourante.Des[2].Valeur = 4;
+                third = false;
+            }
+
+            this.LancerManche(first, second, third);
+        }
+
         public string GetDiceValues()
         {
             return this.mancheCourante.ToString();
         }
 
-        private void Scoring(bool won)
+        public void Scoring(bool won)
         {
-            this.Score += won ? 30 : -10;
+            if (won)
+            {
+                this.Score += 30;
+            }
+            else
+            {
+                this.Score -= 10;
+            }
+        }
+
+        public bool MancheTerminee()
+        {
+            bool finie = false;
+            if(!this.mancheCourante.EncoreUnLancer() || this.mancheCourante.MancheGagnee())
+            {
+                finie = true;
+                this.nbeManches--;
+            }
+            return finie;
         }
 
         public bool MancheGagnee()
         {
-            this.Scoring(this.mancheCourante.MancheGagnee());
             return this.mancheCourante.MancheGagnee();
         }
-
-        /*
-         * Implémenter ici le code pour gérer les manches et appeler les fonctions des tours de chaque manche
-         */
     }
 }

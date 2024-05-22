@@ -16,7 +16,7 @@ namespace QuatreVingtEtUn
             this.nbeFaces = nbeFaces;
         }
 
-        public int Valeur { get { return this.valeur;}}
+        public int Valeur { get => valeur; set => valeur = value; }
 
         public int CompareTo(De? other)
         {
@@ -25,7 +25,7 @@ namespace QuatreVingtEtUn
 
         public void Jeter()
         {
-            this.valeur = Alea.Instance().Nouveau(1, this.nbeFaces);
+            this.Valeur = Alea.Instance().Nouveau(1, this.nbeFaces);
         }
     }
 }

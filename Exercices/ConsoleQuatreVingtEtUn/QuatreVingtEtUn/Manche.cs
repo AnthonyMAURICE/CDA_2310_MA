@@ -19,8 +19,6 @@ namespace QuatreVingtEtUn
             this.nbeLancersRestant = nbeLancersMax;
         }
 
-
-
         public List<De> Des { get { return this.des; } }
 
         public int NbeLancersMax { get => nbeLancersMax;}
@@ -55,21 +53,14 @@ namespace QuatreVingtEtUn
         public bool MancheGagnee()
         {
             bool win = true;
-            if (!this.EncoreUnLancer())
+            this.Trier();
+            for (int i = 0; i < des.Count; i++)
             {
-                win = false;
-            }
-            else
-            {
-                for(int i = 0; i < des.Count; i++)
+                if (des[i].Valeur != toFind[i])
                 {
-                    if (des[i].Valeur != toFind[i])
-                    {
-                        win = false;
-                    }
+                    win = false;
                 }
             }
-            this.Trier();
             return win;
         }
 

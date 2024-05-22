@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ye2WPYZ1KIOre/h3iHePjZ3oaAGJR8LHcGpsdNNdZhVizXorhIAoJGms2gWe3G0aQUbMAQJU4rruhn6yVwXh8g==",
+  "dgSpecHash": "/vuWWHmU/2IjDjTnQMECNJbGL35ejWbjgFlOybqj4OQHBTDyoSq6jvYhgq1o9wY6MGhnA8auSEYYKy+QwMvd/w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\antho\\Documents\\GitHub\\CDA_2310_MA\\Exercices\\ConsoleQuatreVingtEtUn\\ConsoleQuatreVingtEtUn\\ConsoleQuatreVingtEtUn.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\antho\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.30\\microsoft.windowsdesktop.app.ref.6.0.30.nupkg.sha512",
-    "C:\\Users\\antho\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.30\\microsoft.netcore.app.ref.6.0.30.nupkg.sha512",
-    "C:\\Users\\antho\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.30\\microsoft.aspnetcore.app.ref.6.0.30.nupkg.sha512",
-    "C:\\Users\\antho\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.30\\microsoft.netcore.app.host.win-x64.6.0.30.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleQuatreVingtEtUn\\ConsoleQuatreVingtEtUn\\ConsoleQuatreVingtEtUn.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
