@@ -64,7 +64,7 @@ namespace QuatreVingtEtUn
             bool second = true;
             bool third = true;
             //si les booléens sont à true (et le sont de base), le dé sera relancé, sinon il sera conservé
-            if(this.mancheCourante.Des.Any(x => x.Valeur == 1))
+            if(this.mancheCourante.Des.Any(x => x.Valeur == 1)) // conditions qui recherchent la valeur dans la liste de dés et la réorganise si la valeur est trouvée
             {
                 (this.mancheCourante.Des[0].Valeur) = (this.mancheCourante.Des[Index(1)].Valeur);
                 first = false;

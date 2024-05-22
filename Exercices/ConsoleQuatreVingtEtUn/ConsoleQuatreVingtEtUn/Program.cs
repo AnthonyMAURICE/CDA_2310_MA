@@ -6,7 +6,7 @@ namespace ConsoleQuatreVingtEtUn
         static void Main(string[] args)
         {
             Partie partie1 = new Partie(3);
-            while(partie1.Score > 0 && partie1.NbeManches > 0) // potentiellement, le check sur le score n'est pas essentiel, 10 par manche, -10 par perte
+            while(partie1.AEncoreDesPointsAJouer() && partie1.AEncoreUneMancheAJouer()) // potentiellement, le check sur le score n'est pas essentiel, 10 par manche, -10 par perte
             {
                 Console.WriteLine("Manches restantes : " + partie1.NbeManches);
                 partie1.NouvelleManche();

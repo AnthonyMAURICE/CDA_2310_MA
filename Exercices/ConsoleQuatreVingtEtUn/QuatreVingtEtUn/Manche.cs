@@ -12,7 +12,7 @@ namespace QuatreVingtEtUn
         private int nbeLancersRestant;
         private readonly int nbeLancersMax = 3;
         private List<De> des = new List<De>();
-        private static readonly List<int>toFind = new List<int>() {1, 2, 4};
+        private static readonly List<int>toFind = new List<int>() {4, 2, 1};
 
         public Manche()
         {
@@ -45,6 +45,7 @@ namespace QuatreVingtEtUn
                     de.Jeter();
                     des.Add(de);
                 }
+                this.Trier();
             }
             this.nbeLancersRestant--;
         }
@@ -66,11 +67,18 @@ namespace QuatreVingtEtUn
         {
             return this.nbeLancersRestant > 0;
         }
+        
+        public void Trier()
+        {
+            this.des.Sort();
+        }
 
         public override string ToString()
         {
 
             string diceResults = "Resultats : ";
+            this.Trier();
+            this.des.Reverse();
             for(int i = 0; i < des.Count; i++)
             {
                 diceResults += des[i].Valeur.ToString() + " ";

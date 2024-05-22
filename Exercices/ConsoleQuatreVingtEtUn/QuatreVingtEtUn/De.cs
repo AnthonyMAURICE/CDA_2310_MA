@@ -1,6 +1,4 @@
 ﻿
-using System;
-
 namespace QuatreVingtEtUn
 {
     internal class De : IComparable<De>
