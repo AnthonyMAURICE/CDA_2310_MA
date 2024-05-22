@@ -47,13 +47,12 @@ namespace QuatreVingtEtUn
                 }
             }
             this.nbeLancersRestant--;
-            //this.Trier(); // plus forcément utile
+            //this.Trier();
         }
 
         public bool MancheGagnee()
         {
             bool win = true;
-            this.Trier();
             for (int i = 0; i < des.Count; i++)
             {
                 if (des[i].Valeur != toFind[i])
@@ -68,12 +67,12 @@ namespace QuatreVingtEtUn
         {
             return this.nbeLancersRestant > 0;
         }
-
-        private void Trier()
+        /*
+        public void Trier()
         {
             this.des.Sort();
         }
-
+        */
         public override string ToString()
         {
 

@@ -5,7 +5,7 @@ namespace ConsoleQuatreVingtEtUn
     {
         static void Main(string[] args)
         {
-            Partie partie1 = new Partie(3);
+            Partie partie1 = new Partie(6);
 
             while(partie1.Score > 0 && partie1.NbeManches > 0) // potentiellement, le check sur le score n'est pas essentiel, 10 par manche, -10 par perte
             {
@@ -29,6 +29,15 @@ namespace ConsoleQuatreVingtEtUn
                     Console.WriteLine("Manche perdue");
                 }
                 Console.WriteLine(partie1.ToString());
+            }
+
+            if (partie1.AGagneLaPartie())
+            {
+                Console.WriteLine("Partie gagnée !");
+            }
+            else
+            {
+                Console.WriteLine("Partie perdue !");
             }
         }
     }
