@@ -47,7 +47,7 @@ namespace QuatreVingtEtUn
                 }
             }
             this.nbeLancersRestant--;
-            this.Trier();
+            //this.Trier(); // plus forcément utile
         }
 
         public bool MancheGagnee()

@@ -43,22 +43,22 @@ namespace QuatreVingtEtUn
             this.mancheCourante = new Manche();
         }
 
-        public override string ToString()
+        public override string ToString() // Retourne le score actuel
         {
             return "Score : " + this.Score;
         }
 
-        public void LancerManche()
+        public void LancerManche() // correspond au premier lancer, de tous les dés
         {
             this.mancheCourante.Lancer();
         }
 
-        public void LancerManche(bool _first, bool _second, bool _third)
+        private void LancerManche(bool _first, bool _second, bool _third) // seconde méthode de lancer, pour les suivants de la manche
         {
             this.mancheCourante.Lancer(_first, _second, _third);
         }
 
-        public void PreparerRelance()
+        public void PreparerRelance() // méthode de séléction des dés à relancer, avec détection des 1, 2 et 4
         {
             bool first = true;
             bool second = true;
@@ -66,6 +66,7 @@ namespace QuatreVingtEtUn
 
             if(this.mancheCourante.Des.Any(x => x.Valeur == 1))
             {
+                this.mancheCourante.Des[0].Valeur = 1;
                 first = false;
             }
             if (this.mancheCourante.Des.Any(x => x.Valeur == 2))
@@ -82,12 +83,12 @@ namespace QuatreVingtEtUn
             this.LancerManche(first, second, third);
         }
 
-        public string GetDiceValues()
+        public string GetDiceValues() // retourne la méthode ToString() de la classe Manche
         {
             return this.mancheCourante.ToString();
         }
 
-        public void Scoring(bool won)
+        public void Scoring(bool won) // mets à jour le score
         {
             if (won)
             {
