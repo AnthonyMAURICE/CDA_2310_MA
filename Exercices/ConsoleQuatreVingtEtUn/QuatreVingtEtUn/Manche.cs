@@ -75,7 +75,6 @@ namespace QuatreVingtEtUn
 
         public override string ToString()
         {
-
             string diceResults = "Resultats : ";
             this.Trier();
             this.des.Reverse();

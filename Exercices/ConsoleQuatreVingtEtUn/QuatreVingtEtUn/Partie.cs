@@ -66,7 +66,7 @@ namespace QuatreVingtEtUn
             //si les booléens sont à true (et le sont de base), le dé sera relancé, sinon il sera conservé
             if(this.mancheCourante.Des.Any(x => x.Valeur == 1)) // conditions qui recherchent la valeur dans la liste de dés et la réorganise si la valeur est trouvée
             {
-                (this.mancheCourante.Des[0].Valeur) = (this.mancheCourante.Des[Index(1)].Valeur);
+                (this.mancheCourante.Des[2].Valeur) = (this.mancheCourante.Des[Index(1)].Valeur);
                 first = false;
             }
             if (this.mancheCourante.Des.Any(x => x.Valeur == 2))
@@ -76,11 +76,11 @@ namespace QuatreVingtEtUn
             }
             if (this.mancheCourante.Des.Any(x => x.Valeur == 4))
             {
-                (this.mancheCourante.Des[2].Valeur) = (this.mancheCourante.Des[Index(4)].Valeur);
+                (this.mancheCourante.Des[0].Valeur) = (this.mancheCourante.Des[Index(4)].Valeur);
                 third = false;
             }
             this.LancerManche(first, second, third);
-        }
+        } // Méthode à revoir... Eventualiser l'emloi de tableaux plutôt que des listes...
 
         private int Index(int _value) // fonction qui retourne l'index de la valeur recherchée
         {
