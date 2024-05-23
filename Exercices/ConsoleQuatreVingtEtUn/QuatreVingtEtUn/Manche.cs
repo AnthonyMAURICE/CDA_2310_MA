@@ -11,8 +11,8 @@ namespace QuatreVingtEtUn
     {
         private int nbeLancersRestant;
         private readonly int nbeLancersMax = 3;
-        internal De[] des = new De[3];
-        internal De[] tempDe = new De[3];
+        internal List<De> des = new List<De>();
+        
         internal readonly int[] toFind = { 4, 2, 1 };
 
         public Manche()
@@ -26,7 +26,7 @@ namespace QuatreVingtEtUn
 
         public void Lancer(params bool[] desALancer)
         {
-            if (des[0] != null && des[1] != null && des[2] != null)
+            if (des.Count > 0)
             {
                 for(int i = 0; i < desALancer.Length; i++)
                 {
@@ -42,7 +42,7 @@ namespace QuatreVingtEtUn
                 {
                     De de = new De();
                     de.Jeter();
-                    des[i] = de;
+                    des.Add(de);
                 }
                 
             }
@@ -62,14 +62,14 @@ namespace QuatreVingtEtUn
         
         public void Trier()
         {
-            Array.Sort(this.des);
-            Array.Reverse(this.des);
+            this.des.Sort();
+            this.des.Reverse();
         }
 
         public override string ToString()
         {
             string diceResults = "Resultats : ";
-            for(int i = 0; i < des.Length; i++)
+            for(int i = 0; i < des.Count; i++)
             {
                 diceResults += des[i].Valeur.ToString() + " ";
             }
