@@ -69,8 +69,6 @@ namespace QuatreVingtEtUn
         public override string ToString()
         {
             string diceResults = "Resultats : ";
-            this.Trier();
-            this.des.Reverse();
             for(int i = 0; i < des.Length; i++)
             {
                 diceResults += des[i].Valeur.ToString() + " ";
