@@ -14,13 +14,12 @@ namespace QuatreVingtEtUn
         private int score;
         internal Manche mancheCourante;
 
-        public int Score { get => score; private set => score = value; }
         public int NbeManches { get => nbeManches; private set => nbeManches = value; }
 
         public Partie(int _nbeManche)
         {
             this.nbeManches = _nbeManche;
-            this.Score = this.nbeManches * 10;
+            this.score = this.nbeManches * 10;
         }
         
         public bool AEncoreUneMancheAJouer()
@@ -30,7 +29,7 @@ namespace QuatreVingtEtUn
 
         public bool AEncoreDesPointsAJouer()
         {
-            return this.Score > 0;
+            return this.score > 0;
         }
         public bool AGagneLaPartie() // détermine si la partie est gagnée, s'il n'y a plus de manches à jouer et que le score est positif
         {
@@ -44,7 +43,7 @@ namespace QuatreVingtEtUn
 
         public override string ToString() // Retourne le score actuel
         {
-            return "Score : " + this.Score;
+            return "Score : " + this.score;
         }
 
         public void LancerManche() // correspond au premier lancer, de tous les dés
@@ -70,7 +69,7 @@ namespace QuatreVingtEtUn
         public bool MancheTerminee() // contrôle si la manche est terminée et actualise le nombre de manches restantes ainsi que le score
         {
             bool finie = false; // initialisé à false...
-            if(!this.mancheCourante.EncoreUnLancer() || this.mancheCourante.MancheGagnee())
+            if(!this.mancheCourante.EncoreUnLancer() || this.MancheGagnee())
             {
                 finie = true; // ...et ne passe à true que lorsque la manche est terminée, soit au dernier lancer, soit si la manche est gagnée
                 this.Scoring(this.MancheGagnee());

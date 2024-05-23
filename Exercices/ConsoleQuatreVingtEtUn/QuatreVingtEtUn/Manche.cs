@@ -20,9 +20,6 @@ namespace QuatreVingtEtUn
             this.nbeLancersRestant = nbeLancersMax;
         }
 
-        public int NbeLancersMax { get => nbeLancersMax;}
-        public int NbeLancersRestant { get => nbeLancersRestant;}
-
         public void Lancer(params bool[] desALancer) // méthode de lancer de dés
         {
             if (des.Count > 0) // pour le cas de ceux d'une même manche, si la liste n'est pas vide, relance que ceux séléctonné par le joueur
@@ -72,11 +69,6 @@ namespace QuatreVingtEtUn
                 diceResults += des[i].Valeur.ToString() + " ";
             }
             return diceResults;
-        }
-
-        public Manche MancheEnCours() // retourne la manche en cours pour la classe Partie
-        {
-            return this;
         }
     }
 }
