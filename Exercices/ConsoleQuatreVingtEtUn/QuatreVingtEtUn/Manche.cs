@@ -12,8 +12,6 @@ namespace QuatreVingtEtUn
         private int nbeLancersRestant;
         private readonly int nbeLancersMax = 3;
         internal List<De> des = new List<De>();
-        
-        internal readonly int[] toFind = { 4, 2, 1 };
 
         public Manche()
         {
@@ -24,9 +22,9 @@ namespace QuatreVingtEtUn
 
         public int NbeLancersRestant { get => nbeLancersRestant;}
 
-        public void Lancer(params bool[] desALancer)
+        public void Lancer(params bool[] desALancer) // méthode de lancer de dés
         {
-            if (des.Count > 0)
+            if (des.Count > 0) // pour le cas de ceux d'une même manche, si la liste n'est pas vide, relance que ceux séléctonné par le joueur
             {
                 for(int i = 0; i < desALancer.Length; i++)
                 {
@@ -36,7 +34,7 @@ namespace QuatreVingtEtUn
                     }
                 }
             }
-            else
+            else // sinon lance tout les dés, dans le cas d'un début de manche et les ajoute à la liste
             {
                 for(int i = 0; i < 3; i++)
                 {
@@ -50,7 +48,7 @@ namespace QuatreVingtEtUn
             this.nbeLancersRestant--;
         }
 
-        public bool MancheGagnee()
+        public bool MancheGagnee() // déclare la manche gagnée si 4, 2 et 1 se trouvent dans la liste
         {
             return (this.des.Any(x => x.Valeur == 4)) && (this.des.Any(x => x.Valeur == 2)) && (this.des.Any(x => x.Valeur == 1));
         }
@@ -60,7 +58,7 @@ namespace QuatreVingtEtUn
             return this.nbeLancersRestant > 0;
         }
         
-        public void Trier()
+        public void Trier() // trie et inverse la liste de dés
         {
             this.des.Sort();
             this.des.Reverse();
@@ -76,7 +74,7 @@ namespace QuatreVingtEtUn
             return diceResults;
         }
 
-        public Manche MancheEnCours()
+        public Manche MancheEnCours() // retourne la manche en cours pour la classe Partie
         {
             return this;
         }

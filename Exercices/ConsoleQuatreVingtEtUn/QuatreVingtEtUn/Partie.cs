@@ -32,12 +32,12 @@ namespace QuatreVingtEtUn
         {
             return this.Score > 0;
         }
-        public bool AGagneLaPartie()
+        public bool AGagneLaPartie() // détermine si la partie est gagnée, s'il n'y a plus de manches à jouer et que le score est positif
         {
             return (!this.AEncoreUneMancheAJouer() && this.AEncoreDesPointsAJouer());
         }
 
-        public void NouvelleManche()
+        public void NouvelleManche() // créé un nouvel objet Manche à chaque début de manche
         {
             this.mancheCourante = new Manche();
         }
@@ -67,7 +67,7 @@ namespace QuatreVingtEtUn
             this.score += won ? nbePointsMancheGagnee : nbePointsManchePerdue;
         }
 
-        public bool MancheTerminee() // contrôle si la manche est terminée et actualise le nombre de manches restantes
+        public bool MancheTerminee() // contrôle si la manche est terminée et actualise le nombre de manches restantes ainsi que le score
         {
             bool finie = false;
             if(!this.mancheCourante.EncoreUnLancer() || this.mancheCourante.MancheGagnee())
@@ -79,7 +79,7 @@ namespace QuatreVingtEtUn
             return finie;
         }
 
-        public bool MancheGagnee()
+        public bool MancheGagnee() // Appele la méthode de la classe Manche, pour déterminée si celle-ci est gagnée ou non
         {
             return this.mancheCourante.MancheGagnee();
         }
