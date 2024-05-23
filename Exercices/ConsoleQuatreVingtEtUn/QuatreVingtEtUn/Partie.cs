@@ -20,12 +20,12 @@ namespace QuatreVingtEtUn
         public Partie(int _nbeManche)
         {
             this.nbeManches = _nbeManche;
-            this.Score = NbeManches * 10;
+            this.Score = this.nbeManches * 10;
         }
         
         public bool AEncoreUneMancheAJouer()
         {
-            return NbeManches > 0;
+            return this.nbeManches > 0;
         }
 
         public bool AEncoreDesPointsAJouer()
@@ -62,17 +62,17 @@ namespace QuatreVingtEtUn
             return this.mancheCourante.ToString();
         }
 
-        public void Scoring(bool won) // mets à jour le score
+        private void Scoring(bool won) // mets à jour le score
         {
             this.score += won ? nbePointsMancheGagnee : nbePointsManchePerdue;
         }
 
         public bool MancheTerminee() // contrôle si la manche est terminée et actualise le nombre de manches restantes ainsi que le score
         {
-            bool finie = false;
+            bool finie = false; // initialisé à false...
             if(!this.mancheCourante.EncoreUnLancer() || this.mancheCourante.MancheGagnee())
             {
-                finie = true;
+                finie = true; // ...et ne passe à true que lorsque la manche est terminée, soit au dernier lancer, soit si la manche est gagnée
                 this.Scoring(this.MancheGagnee());
                 this.nbeManches--;
             } 
