@@ -52,38 +52,9 @@ namespace QuatreVingtEtUn
             this.mancheCourante.Lancer();
         }
 
-        private void LancerManche(bool _first, bool _second, bool _third) // seconde méthode de lancer, pour les suivants de la manche
+        public void LancerManche(bool _first, bool _second, bool _third) // seconde méthode de lancer, pour les suivants de la manche
         {
             this.mancheCourante.Lancer(_first, _second, _third);
-        }
-
-        public void PreparerRelance() // méthode de séléction des dés à relancer, avec détection des 1, 2 et 4
-        {
-            bool first = true;
-            bool second = true;
-            bool third = true;
-            //si les booléens sont à true (et le sont de base), le dé sera relancé, sinon il sera conservé
-            if(this.mancheCourante.Des.Any(x => x.Valeur == 1)) // conditions qui recherchent la valeur dans la liste de dés et la réorganise si la valeur est trouvée
-            {
-                (this.mancheCourante.Des[2].Valeur) = (this.mancheCourante.Des[Index(1)].Valeur);
-                first = false;
-            }
-            if (this.mancheCourante.Des.Any(x => x.Valeur == 2))
-            {
-                (this.mancheCourante.Des[1].Valeur) = (this.mancheCourante.Des[Index(2)].Valeur);
-                second = false;
-            }
-            if (this.mancheCourante.Des.Any(x => x.Valeur == 4))
-            {
-                (this.mancheCourante.Des[0].Valeur) = (this.mancheCourante.Des[Index(4)].Valeur);
-                third = false;
-            }
-            this.LancerManche(first, second, third);
-        } // Méthode à revoir... Eventualiser l'emloi de tableaux plutôt que des listes...
-
-        private int Index(int _value) // fonction qui retourne l'index de la valeur recherchée
-        {
-            return this.mancheCourante.Des.FindIndex(c => c.Valeur == _value);
         }
 
         public string GetDiceValues() // retourne la méthode ToString() de la classe Manche

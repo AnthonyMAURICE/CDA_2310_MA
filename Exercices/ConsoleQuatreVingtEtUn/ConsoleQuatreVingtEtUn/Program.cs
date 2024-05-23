@@ -14,7 +14,16 @@ namespace ConsoleQuatreVingtEtUn
                 Console.WriteLine("Premier Lancer : " + partie1.GetDiceValues());
                 while(!partie1.MancheTerminee() && !partie1.MancheGagnee())
                 {
-                    partie1.PreparerRelance();
+                    Console.WriteLine("Relancer le dé 1 ? ((O)ui), le reste sera considéré comme un refus");
+                    string input = Console.ReadLine().ToLower();
+                    bool first = input == "o";
+                    Console.WriteLine("Relancer le dé 2 ? ((O)ui), le reste sera considéré comme un refus");
+                    input = Console.ReadLine().ToLower();
+                    bool second = input == "o";
+                    Console.WriteLine("Relancer le dé 3 ? ((O)ui), le reste sera considéré comme un refus");
+                    input = Console.ReadLine().ToLower();
+                    bool third = input == "o";
+                    partie1.LancerManche(first, second, third);
                     Console.WriteLine("Lancer suivant : " + partie1.GetDiceValues());   
                 }
                 if (partie1.MancheGagnee())

@@ -11,15 +11,14 @@ namespace QuatreVingtEtUn
     {
         private int nbeLancersRestant;
         private readonly int nbeLancersMax = 3;
-        private List<De> des = new List<De>();
-        private static readonly List<int>toFind = new List<int>() {4, 2, 1};
+        internal De[] des = new De[3];
+        internal De[] tempDe = new De[3];
+        internal readonly int[] toFind = { 4, 2, 1 };
 
         public Manche()
         {
             this.nbeLancersRestant = nbeLancersMax;
         }
-
-        public List<De> Des { get { return this.des; } }
 
         public int NbeLancersMax { get => nbeLancersMax;}
 
@@ -27,7 +26,7 @@ namespace QuatreVingtEtUn
 
         public void Lancer(params bool[] desALancer)
         {
-            if(des.Count != 0)
+            if (des[0] != null && des[1] != null && des[2] != null)
             {
                 for(int i = 0; i < desALancer.Length; i++)
                 {
@@ -43,24 +42,17 @@ namespace QuatreVingtEtUn
                 {
                     De de = new De();
                     de.Jeter();
-                    des.Add(de);
+                    des[i] = de;
                 }
-                this.Trier();
+                
             }
+            this.Trier();
             this.nbeLancersRestant--;
         }
 
         public bool MancheGagnee()
         {
-            bool win = true;
-            for (int i = 0; i < des.Count; i++)
-            {
-                if (des[i].Valeur != toFind[i])
-                {
-                    win = false;
-                }
-            }
-            return win;
+            return (this.des.Any(x => x.Valeur == 4)) && (this.des.Any(x => x.Valeur == 2)) && (this.des.Any(x => x.Valeur == 1));
         }
 
         public bool EncoreUnLancer()
@@ -70,7 +62,8 @@ namespace QuatreVingtEtUn
         
         public void Trier()
         {
-            this.des.Sort();
+            Array.Sort(this.des);
+            Array.Reverse(this.des);
         }
 
         public override string ToString()
@@ -78,7 +71,7 @@ namespace QuatreVingtEtUn
             string diceResults = "Resultats : ";
             this.Trier();
             this.des.Reverse();
-            for(int i = 0; i < des.Count; i++)
+            for(int i = 0; i < des.Length; i++)
             {
                 diceResults += des[i].Valeur.ToString() + " ";
             }
