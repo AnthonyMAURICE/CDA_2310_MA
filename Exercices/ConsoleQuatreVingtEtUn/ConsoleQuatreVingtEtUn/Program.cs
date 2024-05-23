@@ -5,6 +5,7 @@ namespace ConsoleQuatreVingtEtUn
     {
         static void Main(string[] args)
         {
+            string input;
             Partie partie1 = new Partie(3);
             while(partie1.AEncoreDesPointsAJouer() && partie1.AEncoreUneMancheAJouer()) // potentiellement, le check sur le score n'est pas essentiel, 10 par manche, -10 par perte
             {
@@ -15,7 +16,7 @@ namespace ConsoleQuatreVingtEtUn
                 while(!partie1.MancheTerminee() && !partie1.MancheGagnee())
                 {
                     Console.WriteLine("Relancer le dé 1 ? ((O)ui), le reste sera considéré comme un refus");
-                    string input = Console.ReadLine().ToLower();
+                    input = Console.ReadLine().ToLower();
                     bool first = input == "o";
                     Console.WriteLine("Relancer le dé 2 ? ((O)ui), le reste sera considéré comme un refus");
                     input = Console.ReadLine().ToLower();
