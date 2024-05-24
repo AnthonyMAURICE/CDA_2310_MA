@@ -16,12 +16,23 @@ namespace QuatreVingtEtUn
 
         public int NbeManches { get => nbeManches;}
 
+        public Partie()
+        {
+            this.nbeManches = 3;
+            this.score = this.InitialScore();
+        }
+
         public Partie(int _nbeManche)
         {
             this.nbeManches = _nbeManche;
-            this.score = this.nbeManches * 10;
+            this.score = this.InitialScore();
         }
         
+        private int InitialScore()
+        {
+            return this.nbeManches * 10;
+        }
+
         public bool AEncoreUneMancheAJouer()
         {
             return this.nbeManches > 0;

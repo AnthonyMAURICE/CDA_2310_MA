@@ -8,7 +8,7 @@ namespace QuatreVingtEtUn
 
         public De()
         {
-            nbeFaces = 6;
+            this.nbeFaces = 6;
         }
 
         public De(int nbeFaces)
