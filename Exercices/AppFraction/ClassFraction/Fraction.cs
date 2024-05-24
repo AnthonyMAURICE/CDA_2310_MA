@@ -35,7 +35,9 @@ namespace ClassFraction
 
         public override string ToString()
         {
-            return this.numerateur + "/" + this.denominateur;
+            double value = (double)this.numerateur/(double)this.denominateur;
+            bool isInteger = (double)((int)value) == (double)value;
+            return isInteger? value.ToString() : this.numerateur + "/" + this.denominateur;
         }
 
         public void Oppose()

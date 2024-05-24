@@ -32,7 +32,8 @@ namespace AppFraction
             Console.WriteLine(fraction2.EgaleA(fraction1));
             Console.WriteLine(fraction2.EgaleA(fraction4));
             Console.WriteLine(fraction2.ToString());*/
-            Console.WriteLine(fraction5.ToString());
+            Console.WriteLine(fraction1.ToString());
+            Console.WriteLine(fraction2.ToString());
 
             Fraction fraction6 = fraction1.Divise(fraction2);
             Console.WriteLine(fraction6.ToString());
