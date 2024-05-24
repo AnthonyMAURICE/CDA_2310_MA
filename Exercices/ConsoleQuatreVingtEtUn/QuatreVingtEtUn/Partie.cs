@@ -14,7 +14,7 @@ namespace QuatreVingtEtUn
         private int score;
         internal Manche mancheCourante;
 
-        public int NbeManches { get => nbeManches; private set => nbeManches = value; }
+        public int NbeManches { get => nbeManches;}
 
         public Partie(int _nbeManche)
         {
@@ -53,7 +53,7 @@ namespace QuatreVingtEtUn
 
         public void LancerManche(bool _first, bool _second, bool _third) // seconde méthode de lancer, pour les suivants de la manche
         {
-            this.mancheCourante.Lancer(_first, _second, _third);
+            this.mancheCourante.Lancer(_first, _second, _third); // 'true' et le dé est relancé, 'false' et il est conservé
         }
 
         public string GetDiceValues() // retourne la méthode ToString() de la classe Manche
@@ -78,7 +78,7 @@ namespace QuatreVingtEtUn
             return finie;
         }
 
-        public bool MancheGagnee() // Appele la méthode de la classe Manche, pour déterminée si celle-ci est gagnée ou non
+        public bool MancheGagnee() // Appele la méthode de la classe Manche, pour déterminer si celle-ci est gagnée ou non
         {
             return this.mancheCourante.MancheGagnee();
         }
