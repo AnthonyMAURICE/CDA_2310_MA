@@ -1,4 +1,6 @@
-﻿namespace ConsoleLepidoptere
+﻿using Lepidoptere;
+
+namespace ConsoleLepidoptere
 {
     internal class Program
     {

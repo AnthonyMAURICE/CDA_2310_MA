@@ -10,7 +10,7 @@ namespace Lepidoptere
     {
         public bool SeDeplacer()
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public IStadeEvolution SeMetamorphoser()
