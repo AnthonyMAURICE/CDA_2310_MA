@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleLepidoptere", "ConsoleLepidoptere\ConsoleLepidoptere.csproj", "{901D6DD7-F59D-4AFC-BBD0-F73EC397EE69}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lepidoptere", "Lepidoptere\Lepidoptere.csproj", "{8D68CA70-5775-4F38-BE04-BA19E62909B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{901D6DD7-F59D-4AFC-BBD0-F73EC397EE69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{901D6DD7-F59D-4AFC-BBD0-F73EC397EE69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{901D6DD7-F59D-4AFC-BBD0-F73EC397EE69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D68CA70-5775-4F38-BE04-BA19E62909B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D68CA70-5775-4F38-BE04-BA19E62909B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D68CA70-5775-4F38-BE04-BA19E62909B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D68CA70-5775-4F38-BE04-BA19E62909B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

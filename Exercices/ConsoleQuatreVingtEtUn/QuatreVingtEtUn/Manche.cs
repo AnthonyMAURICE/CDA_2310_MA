@@ -57,7 +57,7 @@ namespace QuatreVingtEtUn
         
         private void Trier() // trie et inverse la liste de dés
         {
-            this.des.Sort();
+            this.des.Sort((x, y) => x.CompareTo(y));
             this.des.Reverse();
         }
 

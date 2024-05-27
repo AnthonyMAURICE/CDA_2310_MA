@@ -19,7 +19,7 @@ namespace QuatreVingtEtUn
         public Partie()
         {
             this.nbeManches = 3;
-            this.score = this.InitialScore();
+            this.score = 30;
         }
 
         public Partie(int _nbeManche)
