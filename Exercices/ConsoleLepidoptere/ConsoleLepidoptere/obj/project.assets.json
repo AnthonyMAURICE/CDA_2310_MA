@@ -2,28 +2,28 @@
   "version": 3,
   "targets": {
     "net6.0": {
-      "Lepidoptere/1.0.0": {
+      "ClassLepidoptere/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "compile": {
-          "bin/placeholder/Lepidoptere.dll": {}
+          "bin/placeholder/ClassLepidoptere.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Lepidoptere.dll": {}
+          "bin/placeholder/ClassLepidoptere.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "Lepidoptere/1.0.0": {
+    "ClassLepidoptere/1.0.0": {
       "type": "project",
-      "path": "../Lepidoptere/Lepidoptere.csproj",
-      "msbuildProject": "../Lepidoptere/Lepidoptere.csproj"
+      "path": "../Lepidoptere/ClassLepidoptere.csproj",
+      "msbuildProject": "../Lepidoptere/ClassLepidoptere.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Lepidoptere >= 1.0.0"
+      "ClassLepidoptere >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -60,8 +60,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleLepidoptere\\Lepidoptere\\Lepidoptere.csproj": {
-              "projectPath": "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleLepidoptere\\Lepidoptere\\Lepidoptere.csproj"
+            "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleLepidoptere\\Lepidoptere\\ClassLepidoptere.csproj": {
+              "projectPath": "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleLepidoptere\\Lepidoptere\\ClassLepidoptere.csproj"
             }
           }
         }

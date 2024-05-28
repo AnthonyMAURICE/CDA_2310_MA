@@ -4,10 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lepidoptere
+namespace ClassLepidoptere
 {
     internal class Chrysalide : IStadeEvolution
     {
+        private static Chrysalide? chrysalide;
+        public Chrysalide()
+        {
+
+        }
+
+        public static Chrysalide Maker()
+        {
+            chrysalide ??= new Chrysalide();
+            return chrysalide;
+        }
         public bool SeDeplacer()
         {
             return false;
@@ -15,7 +26,7 @@ namespace Lepidoptere
 
         public IStadeEvolution SeMetamorphoser()
         {
-            throw new NotImplementedException();
+            return Papillon.Maker();
         }
     }
 }

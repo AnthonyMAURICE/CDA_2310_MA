@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleLepidoptere", "ConsoleLepidoptere\ConsoleLepidoptere.csproj", "{901D6DD7-F59D-4AFC-BBD0-F73EC397EE69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleLepidoptere", "ConsoleLepidoptere\ConsoleLepidoptere.csproj", "{901D6DD7-F59D-4AFC-BBD0-F73EC397EE69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lepidoptere", "Lepidoptere\Lepidoptere.csproj", "{8D68CA70-5775-4F38-BE04-BA19E62909B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLepidoptere", "Lepidoptere\ClassLepidoptere.csproj", "{8D68CA70-5775-4F38-BE04-BA19E62909B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

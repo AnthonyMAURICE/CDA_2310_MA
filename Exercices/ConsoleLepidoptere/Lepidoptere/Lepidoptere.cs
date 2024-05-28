@@ -1,12 +1,16 @@
-﻿namespace Lepidoptere
+﻿namespace ClassLepidoptere
 {
     public class Lepidoptere
     {
         private IStadeEvolution stadeCourant;
 
-        public Lepidoptere()
+        private Lepidoptere(IStadeEvolution _stadeCourant)
         {
-            
+            this.stadeCourant = _stadeCourant;
+        }
+
+        public Lepidoptere(): this(Oeuf.Maker()){
+
         }
 
         public void SeMetamorphoser()

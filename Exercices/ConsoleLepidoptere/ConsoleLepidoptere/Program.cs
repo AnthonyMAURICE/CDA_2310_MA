@@ -1,4 +1,5 @@
-﻿using Lepidoptere;
+﻿using ClassLepidoptere;
+
 
 namespace ConsoleLepidoptere
 {
@@ -6,7 +7,16 @@ namespace ConsoleLepidoptere
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Lepidoptere lepi = new Lepidoptere();
+            Console.WriteLine(lepi.ToString());
+            lepi.SeMetamorphoser();
+            Console.WriteLine(lepi.ToString());
+            lepi.SeMetamorphoser();
+            Console.WriteLine(lepi.ToString());
+            lepi.SeMetamorphoser();
+            Console.WriteLine(lepi.ToString());
+            lepi.SeMetamorphoser();
+            Console.WriteLine(lepi.ToString());
         }
     }
 }

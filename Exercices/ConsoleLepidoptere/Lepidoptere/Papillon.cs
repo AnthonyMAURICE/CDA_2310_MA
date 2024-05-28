@@ -4,18 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lepidoptere
+namespace ClassLepidoptere
 {
     internal class Papillon : IStadeEvolution
     {
+        public Papillon()
+        {
+
+        }
+
+        private static Papillon? papillon;
         public bool SeDeplacer()
         {
             return true;
         }
 
+        public static Papillon Maker()
+        {
+            papillon ??= new Papillon();
+            return papillon;
+        }
+
         public IStadeEvolution SeMetamorphoser()
         {
-            throw new NotImplementedException();
+            return Maker();
         }
     }
 }

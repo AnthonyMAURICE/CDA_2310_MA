@@ -4,10 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lepidoptere
+namespace ClassLepidoptere
 {
     internal class Oeuf : IStadeEvolution
     {
+        private static Oeuf? oeuf;
+        public Oeuf()
+        {
+
+        }
+
+        public static Oeuf Maker()
+        {
+            oeuf ??= new Oeuf();
+            return oeuf;
+        }
         public bool SeDeplacer()
         {
             return false;
@@ -15,7 +26,7 @@ namespace Lepidoptere
 
         public IStadeEvolution SeMetamorphoser()
         {
-            throw new NotImplementedException();
+            return Larve.Maker();
         }
     }
 }

@@ -33,8 +33,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleLepidoptere\\Lepidoptere\\Lepidoptere.csproj": {
-                "projectPath": "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleLepidoptere\\Lepidoptere\\Lepidoptere.csproj"
+              "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleLepidoptere\\Lepidoptere\\ClassLepidoptere.csproj": {
+                "projectPath": "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleLepidoptere\\Lepidoptere\\ClassLepidoptere.csproj"
               }
             }
           }
@@ -68,12 +68,12 @@
         }
       }
     },
-    "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleLepidoptere\\Lepidoptere\\Lepidoptere.csproj": {
+    "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleLepidoptere\\Lepidoptere\\ClassLepidoptere.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleLepidoptere\\Lepidoptere\\Lepidoptere.csproj",
-        "projectName": "Lepidoptere",
-        "projectPath": "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleLepidoptere\\Lepidoptere\\Lepidoptere.csproj",
+        "projectUniqueName": "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleLepidoptere\\Lepidoptere\\ClassLepidoptere.csproj",
+        "projectName": "ClassLepidoptere",
+        "projectPath": "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleLepidoptere\\Lepidoptere\\ClassLepidoptere.csproj",
         "packagesPath": "C:\\Users\\amaurice\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleLepidoptere\\Lepidoptere\\obj\\",
         "projectStyle": "PackageReference",

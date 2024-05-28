@@ -4,10 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lepidoptere
+namespace ClassLepidoptere
 {
     internal class Larve : IStadeEvolution
     {
+
+        private static Larve? larve;
+        public Larve()
+        {
+
+        }
+
+        public static Larve Maker()
+        {
+            larve ??= new Larve();
+            return larve;
+        }
+
         public bool SeDeplacer()
         {
             return true;
@@ -15,7 +28,7 @@ namespace Lepidoptere
 
         public IStadeEvolution SeMetamorphoser()
         {
-            throw new NotImplementedException();
+            return Chrysalide.Maker();
         }
     }
 }

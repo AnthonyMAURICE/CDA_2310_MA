@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "ConsoleLepidoptere/1.0.0": {
+        "dependencies": {
+          "ClassLepidoptere": "1.0.0"
+        },
+        "runtime": {
+          "ConsoleLepidoptere.dll": {}
+        }
+      },
+      "ClassLepidoptere/1.0.0": {
+        "runtime": {
+          "ClassLepidoptere.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ConsoleLepidoptere/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ClassLepidoptere/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
