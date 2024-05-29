@@ -10,9 +10,11 @@ namespace ClassLepidoptere
     {
 
         private static Larve? larve;
+        private string name;
+
         public Larve()
         {
-
+            this.name = "Larve";
         }
 
         public static Larve Maker()
@@ -32,7 +34,7 @@ namespace ClassLepidoptere
         }
         public override string ToString()
         {
-            return "Larve";
+            return this.name;
         }
     }
 }

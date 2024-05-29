@@ -9,10 +9,11 @@ namespace ClassLepidoptere
     internal class Chrysalide : IStadeEvolution
     {
         private static Chrysalide? chrysalide;
+        private string name;
 
         public Chrysalide()
         {
-
+            this.name = "Chrysalide";
         }
 
         public static Chrysalide Maker()
@@ -20,6 +21,7 @@ namespace ClassLepidoptere
             chrysalide ??= new Chrysalide();
             return chrysalide;
         }
+
         public bool SeDeplacer()
         {
             return false;
@@ -32,7 +34,7 @@ namespace ClassLepidoptere
 
         public override string ToString()
         {
-            return "Chrysalide";
+            return this.name;
         }
     }
 }

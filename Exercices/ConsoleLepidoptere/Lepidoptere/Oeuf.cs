@@ -9,9 +9,11 @@ namespace ClassLepidoptere
     internal class Oeuf : IStadeEvolution
     {
         private static Oeuf? oeuf;
+        private string name;
+
         public Oeuf()
         {
-
+            this.name = "Oeuf";
         }
 
         public static Oeuf Maker()
@@ -32,7 +34,7 @@ namespace ClassLepidoptere
 
         public override string ToString()
         {
-            return "Oeuf";
+            return this.name;
         }
     }
 }

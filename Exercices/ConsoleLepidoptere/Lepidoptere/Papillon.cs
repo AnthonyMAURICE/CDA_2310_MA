@@ -8,12 +8,14 @@ namespace ClassLepidoptere
 {
     internal class Papillon : IStadeEvolution
     {
+        private string name;
+        private static Papillon? papillon;
+
         public Papillon()
         {
-
+            this.name = "Papillon";
         }
 
-        private static Papillon? papillon;
         public bool SeDeplacer()
         {
             return true;
@@ -32,7 +34,7 @@ namespace ClassLepidoptere
 
         public override string ToString()
         {
-            return "Papillon";
+            return this.name;
         }
     }
 }
