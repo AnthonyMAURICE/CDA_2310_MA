@@ -21,7 +21,7 @@ namespace ClassLepidoptere
             return true;
         }
 
-        public static Papillon Maker()
+        public static Papillon Instancieur()
         {
             papillon ??= new Papillon();
             return papillon;
@@ -29,7 +29,7 @@ namespace ClassLepidoptere
 
         public IStadeEvolution SeMetamorphoser()
         {
-            return Maker();
+            return Instancieur();
         }
 
         public override string ToString()

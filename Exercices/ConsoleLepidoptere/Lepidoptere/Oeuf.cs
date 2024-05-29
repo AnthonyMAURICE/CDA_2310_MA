@@ -16,7 +16,7 @@ namespace ClassLepidoptere
             this.name = "Oeuf";
         }
 
-        public static Oeuf Maker()
+        public static Oeuf Instancieur()
         {
             oeuf ??= new Oeuf();
             return oeuf;
@@ -29,7 +29,7 @@ namespace ClassLepidoptere
 
         public IStadeEvolution SeMetamorphoser()
         {
-            return Larve.Maker();
+            return Larve.Instancieur();
         }
 
         public override string ToString()

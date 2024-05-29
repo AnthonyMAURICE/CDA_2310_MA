@@ -16,7 +16,7 @@ namespace ClassLepidoptere
             this.name = "Chrysalide";
         }
 
-        public static Chrysalide Maker()
+        public static Chrysalide Instancieur()
         {
             chrysalide ??= new Chrysalide();
             return chrysalide;
@@ -29,7 +29,7 @@ namespace ClassLepidoptere
 
         public IStadeEvolution SeMetamorphoser()
         {
-            return Papillon.Maker();
+            return Papillon.Instancieur();
         }
 
         public override string ToString()

@@ -1,6 +1,5 @@
 ﻿using ClassLepidoptere;
 
-
 namespace ConsoleLepidoptere
 {
     internal class Program
@@ -23,7 +22,6 @@ namespace ConsoleLepidoptere
                     Console.WriteLine("Peut encore évoluer");
                 }
             } while (iterator < 2);
-
         }
     }
 }

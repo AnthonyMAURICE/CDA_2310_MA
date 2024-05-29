@@ -9,7 +9,7 @@
             this.actualState = _actualState;
         }
 
-        public Lepidoptere(): this(Oeuf.Maker()){
+        public Lepidoptere(): this(Oeuf.Instancieur()){
 
         }
 
@@ -35,7 +35,7 @@
 
         public override string ToString()
         {
-            return "Lepidoptere au stade : " + this.actualState.ToString();
+            return "Lépidoptère au stade : " + this.actualState.ToString();
         }
     }
 }

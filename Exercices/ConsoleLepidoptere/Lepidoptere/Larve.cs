@@ -8,7 +8,6 @@ namespace ClassLepidoptere
 {
     internal class Larve : IStadeEvolution
     {
-
         private static Larve? larve;
         private string name;
 
@@ -17,7 +16,7 @@ namespace ClassLepidoptere
             this.name = "Larve";
         }
 
-        public static Larve Maker()
+        public static Larve Instancieur()
         {
             larve ??= new Larve();
             return larve;
@@ -30,8 +29,9 @@ namespace ClassLepidoptere
 
         public IStadeEvolution SeMetamorphoser()
         {
-            return Chrysalide.Maker();
+            return Chrysalide.Instancieur();
         }
+
         public override string ToString()
         {
             return this.name;
