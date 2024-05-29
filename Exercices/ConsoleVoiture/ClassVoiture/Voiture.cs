@@ -64,13 +64,21 @@
         }
 
 
-        public bool Accelerate(double _increasing)
+        public bool IncreaseSpeed(double _increasing)
         {
             if (this.engine.Started)
             {
-                this.currentSpeed = this.currentSpeed + _increasing > this.maxSpeed ? this.maxSpeed : this.currentSpeed + _increasing;
-                this.CalcWheelTurn();
-                return true;
+                if(_increasing < 0)
+                {
+                    this.currentSpeed = this.currentSpeed + _increasing < 0 ? 0 : this.currentSpeed + _increasing;
+                }
+                else
+                {
+                    this.currentSpeed = this.currentSpeed + _increasing > this.maxSpeed ? this.maxSpeed : this.currentSpeed + _increasing;
+                }
+                    
+                    this.CalcWheelTurn();
+                    return true;
             }
             else
             {
@@ -79,12 +87,12 @@
             
         }
 
-        public bool Decelerate(double _decreasing)
+        public bool DecreaseSpeed(double _decreasing)
         {
-            return this.Accelerate(_decreasing < 0 ? _decreasing : -_decreasing);
+            return this.IncreaseSpeed(_decreasing < 0 ? _decreasing : -_decreasing);
         }
 
-        public bool AccelerateAtMaxSpeed()
+        public bool IncreaseAtMaxSpeed()
         {
             if (this.currentSpeed == this.maxSpeed)
             {
@@ -92,12 +100,12 @@
             }
             else
             {
-                this.Accelerate(this.maxSpeed - this.currentSpeed);
+                this.IncreaseSpeed(this.maxSpeed - this.currentSpeed);
                 return true;
             }
         }
 
-        public bool DecelerateCompletely()
+        public bool DecreaseCompletely()
         {
             if(this.currentSpeed == 0)
             {
@@ -105,7 +113,7 @@
             }
             else
             {
-                this.Decelerate(this.currentSpeed);
+                this.DecreaseSpeed(this.currentSpeed);
                 return true;
             }
         }
