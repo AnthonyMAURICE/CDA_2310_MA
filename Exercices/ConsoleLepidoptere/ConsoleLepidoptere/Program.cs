@@ -21,7 +21,7 @@ namespace ConsoleLepidoptere
                 {
                     Console.WriteLine("Peut encore évoluer");
                 }
-            } while (iterator < 2);
+            } while (iterator < 2); // défini à 2 pour vérifier qu'un papillon n'évolue plus
         }
     }
 }
