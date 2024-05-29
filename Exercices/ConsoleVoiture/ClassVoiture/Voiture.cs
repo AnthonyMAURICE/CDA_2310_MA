@@ -7,7 +7,8 @@
         private int maxSpeed;
         private double currentSpeed;
         private Moteur engine;
-        private Dictionary<string, Roue> wheels = new Dictionary<string, Roue>();
+        private Roue wheel = new Roue();
+        private Dictionary<string, Roue> wheels;
 
         public string Brand { get => brand; }
         public string Model { get => model; }
@@ -20,17 +21,23 @@
             this.model = "Jigouli";
             this.maxSpeed = 142;
             this.engine = new Moteur(4, 65);
-
+            this.wheels = new Dictionary<string, Roue>(){
+                {"Avant Gauche", wheel},
+                {"Avant Droite", wheel},
+                {"Arrière Gauche", wheel},
+                {"Arrière Droite", wheel }
+            };
         }
 
-        public Voiture(string brand, string model, int maxSpeed, int cylinders, int power)
+        public Voiture(string brand, string model, int maxSpeed, int cylinders, int power) : this()
         {
             this.brand = brand;
             this.model = model;
             this.maxSpeed = maxSpeed;
             this.engine = new Moteur(cylinders, power);
-
         }
+
+        
 
         public bool StartCar()
         {
@@ -62,17 +69,63 @@
             return hasStoped;
         }
 
-        /*
-        public double Accelerate(Roues à rajouter)
+
+        public double Accelerate(double _increasing)
         {
- 
+            this.currentSpeed = this.currentSpeed + _increasing > this.maxSpeed ? this.maxSpeed : this.currentSpeed + _increasing;
+            this.CalcWheelTurn();
+            return this.currentSpeed;
         }
 
-        public double Decelerate(Roues à rajouter)
+        public double Decelerate(double _decreasing)
         {
-            
+            return this.Accelerate(-_decreasing);
         }
-        */
+
+        public bool AccelerateAtMaxSpeed()
+        {
+            if (this.currentSpeed == this.maxSpeed)
+            {
+                return false;
+            }
+            else
+            {
+                this.currentSpeed = this.Accelerate(this.maxSpeed - this.currentSpeed);
+                return true;
+            }
+        }
+
+        public bool DecelerateCompletely()
+        {
+            if(this.currentSpeed == 0)
+            {
+                return false;
+            }
+            else
+            {
+                this.currentSpeed = this.Decelerate(this.currentSpeed);
+                return true;
+            }
+        }
+
+        private void CalcWheelTurn()
+        {
+            foreach (KeyValuePair<string, Roue> entry in this.wheels)
+            {
+                if(this.currentSpeed > 0)
+                {
+                    entry.Value.wheelState = Roue.WheelState.Avant;
+                }
+                else if(this.currentSpeed < 0)
+                {
+                    entry.Value.wheelState = Roue.WheelState.Arrière;
+                }
+                else
+                {
+                    entry.Value.wheelState = Roue.WheelState.Arrêt;
+                }
+            }
+        }
 
         public string Honk()
         {

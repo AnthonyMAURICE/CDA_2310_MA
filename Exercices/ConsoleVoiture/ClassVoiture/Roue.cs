@@ -9,18 +9,22 @@ namespace ClassVoiture
     internal class Roue
     {
         private double pressure;
-        private WheelState wheelState;
+        internal WheelState wheelState;
+        public double Pressure { get => pressure; }
+        public WheelState WheelTurn {get => wheelState; }
+
         public Roue()
         {
             this.pressure = 2;
+            this.wheelState = WheelState.Arrêt;
         }
 
-        public Roue(double pressure)
+        public Roue(double pressure): this()
         {
             this.pressure = pressure;
         }
 
-        enum WheelState
+        internal enum WheelState
         {
             Arrière,
             Arrêt,

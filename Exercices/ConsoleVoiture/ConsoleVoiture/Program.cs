@@ -6,13 +6,11 @@ namespace ConsoleVoiture
         static void Main(string[] args)
         {
             Voiture car = new Voiture();
-            Console.WriteLine(car.ToString());
-            car.StartCar();
-            Console.WriteLine(car.ToString());
-            car.Accelerate(150);
-            Console.WriteLine(car.ToString());
-            car.Decelerate(30);
-            Console.WriteLine(car.ToString());
+            Voiture car2 = new Voiture("Nissan", "GT-R", 315, 6, 550);
+            car2.StartCar();
+            car2.Accelerate(115);
+            car2.DecelerateCompletely();
+            car2.Decelerate(15);
             Console.WriteLine(car.Honk());
         }
     }
