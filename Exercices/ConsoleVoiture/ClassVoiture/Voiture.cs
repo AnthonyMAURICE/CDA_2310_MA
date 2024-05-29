@@ -39,32 +39,28 @@
 
         public bool StartCar()
         {
-            bool hasStarted;
             if (!this.engine.Started)
             {
                 this.engine.Start();
-                hasStarted = true;
+                return true;
             }
             else
             {
-                hasStarted = false;
+                return false;
             }
-            return hasStarted;
         }
 
         public bool StopCar()
         {
-            bool hasStoped;
             if (this.engine.Started && this.currentSpeed == 0)
             {
                 this.engine.Stop();
-                hasStoped = true;
+                return true;
             }
             else
             {
-                hasStoped = false;
+                return false;
             }
-            return hasStoped;
         }
 
 
