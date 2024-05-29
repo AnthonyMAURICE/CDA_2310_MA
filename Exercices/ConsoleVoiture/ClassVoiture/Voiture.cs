@@ -64,14 +64,22 @@
         }
 
 
-        public double Accelerate(double _increasing)
+        public bool Accelerate(double _increasing)
         {
-            this.currentSpeed = this.currentSpeed + _increasing > this.maxSpeed ? this.maxSpeed : this.currentSpeed + _increasing;
-            this.CalcWheelTurn();
-            return this.currentSpeed;
+            if (this.engine.Started)
+            {
+                this.currentSpeed = this.currentSpeed + _increasing > this.maxSpeed ? this.maxSpeed : this.currentSpeed + _increasing;
+                this.CalcWheelTurn();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
 
-        public double Decelerate(double _decreasing)
+        public bool Decelerate(double _decreasing)
         {
             return this.Accelerate(_decreasing < 0 ? _decreasing : -_decreasing);
         }
@@ -84,7 +92,7 @@
             }
             else
             {
-                this.currentSpeed = this.Accelerate(this.maxSpeed - this.currentSpeed);
+                this.Accelerate(this.maxSpeed - this.currentSpeed);
                 return true;
             }
         }
@@ -97,7 +105,7 @@
             }
             else
             {
-                this.currentSpeed = this.Decelerate(this.currentSpeed);
+                this.Decelerate(this.currentSpeed);
                 return true;
             }
         }

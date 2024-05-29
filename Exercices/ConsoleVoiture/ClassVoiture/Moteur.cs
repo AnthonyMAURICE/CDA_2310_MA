@@ -43,7 +43,7 @@ namespace ClassVoiture
 
         public bool Stop()
         {
-            bool canStop = !this.started;
+            bool canStop = this.started;
             if (canStop)
             {
                 this.started = false;

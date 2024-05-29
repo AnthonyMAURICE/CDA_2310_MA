@@ -12,6 +12,7 @@ namespace ConsoleVoiture
             car2.DecelerateCompletely();
             car2.Decelerate(15);
             car2.AccelerateAtMaxSpeed();
+            Console.WriteLine(car2.ToString());
             car2.DecelerateCompletely();
             car2.StopCar();
             Console.WriteLine(car2.Honk());
