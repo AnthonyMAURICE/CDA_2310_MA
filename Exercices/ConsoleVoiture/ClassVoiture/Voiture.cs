@@ -37,8 +37,6 @@
             this.engine = new Moteur(cylinders, power);
         }
 
-        
-
         public bool StartCar()
         {
             bool hasStarted;
