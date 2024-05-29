@@ -19,6 +19,7 @@ namespace ClassLepidoptere
             oeuf ??= new Oeuf();
             return oeuf;
         }
+
         public bool SeDeplacer()
         {
             return false;
@@ -27,6 +28,11 @@ namespace ClassLepidoptere
         public IStadeEvolution SeMetamorphoser()
         {
             return Larve.Maker();
+        }
+
+        public override string ToString()
+        {
+            return "Oeuf";
         }
     }
 }

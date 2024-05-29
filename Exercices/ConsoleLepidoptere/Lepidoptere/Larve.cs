@@ -30,5 +30,9 @@ namespace ClassLepidoptere
         {
             return Chrysalide.Maker();
         }
+        public override string ToString()
+        {
+            return "Larve";
+        }
     }
 }

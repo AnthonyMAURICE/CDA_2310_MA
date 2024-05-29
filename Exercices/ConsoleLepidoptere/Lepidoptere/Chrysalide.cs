@@ -9,6 +9,7 @@ namespace ClassLepidoptere
     internal class Chrysalide : IStadeEvolution
     {
         private static Chrysalide? chrysalide;
+
         public Chrysalide()
         {
 
@@ -27,6 +28,11 @@ namespace ClassLepidoptere
         public IStadeEvolution SeMetamorphoser()
         {
             return Papillon.Maker();
+        }
+
+        public override string ToString()
+        {
+            return "Chrysalide";
         }
     }
 }

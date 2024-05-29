@@ -8,7 +8,10 @@ namespace ClassLepidoptere
 {
     internal interface IStadeEvolution
     {
-        IStadeEvolution SeMetamorphoser();
-        bool SeDeplacer();
+        public IStadeEvolution SeMetamorphoser();
+
+        public bool SeDeplacer();
+
+        public string ToString();
     }
 }

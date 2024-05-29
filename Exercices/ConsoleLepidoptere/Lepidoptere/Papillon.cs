@@ -29,5 +29,10 @@ namespace ClassLepidoptere
         {
             return Maker();
         }
+
+        public override string ToString()
+        {
+            return "Papillon";
+        }
     }
 }

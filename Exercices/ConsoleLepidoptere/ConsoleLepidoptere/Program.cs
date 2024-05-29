@@ -9,14 +9,21 @@ namespace ConsoleLepidoptere
         {
             Lepidoptere lepi = new Lepidoptere();
             Console.WriteLine(lepi.ToString());
-            lepi.SeMetamorphoser();
+            Console.WriteLine("Peut se déplacer : " + lepi.SeDeplacer());
+            Console.WriteLine("Peut évoluer : " + lepi.SeMetamorphoser());
             Console.WriteLine(lepi.ToString());
-            lepi.SeMetamorphoser();
+            Console.WriteLine("Peut se déplacer : " + lepi.SeDeplacer());
+            Console.WriteLine("Peut évoluer : " + lepi.SeMetamorphoser());
             Console.WriteLine(lepi.ToString());
-            lepi.SeMetamorphoser();
+            Console.WriteLine("Peut se déplacer : " + lepi.SeDeplacer());
+            Console.WriteLine("Peut évoluer : " + lepi.SeMetamorphoser());
             Console.WriteLine(lepi.ToString());
-            lepi.SeMetamorphoser();
+            Console.WriteLine("Peut se déplacer : " + lepi.SeDeplacer());
+            Console.WriteLine("Peut évoluer : " + lepi.SeMetamorphoser());
             Console.WriteLine(lepi.ToString());
+            Console.WriteLine("Peut se déplacer : " + lepi.SeDeplacer());
+            Console.WriteLine("Peut évoluer : " + lepi.SeMetamorphoser());
+
         }
     }
 }
