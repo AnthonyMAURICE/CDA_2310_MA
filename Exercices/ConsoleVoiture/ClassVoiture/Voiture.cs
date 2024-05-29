@@ -22,10 +22,10 @@
             this.maxSpeed = 142;
             this.engine = new Moteur(4, 65);
             this.wheels = new Dictionary<string, Roue>(){
-                {"Avant Gauche", wheel},
-                {"Avant Droite", wheel},
-                {"Arrière Gauche", wheel},
-                {"Arrière Droite", wheel }
+                {"Avt_Gauche", wheel},
+                {"Avt_Droite", wheel},
+                {"Arr_Gauche", wheel},
+                {"Arr_Droite", wheel }
             };
         }
 
@@ -79,7 +79,7 @@
 
         public double Decelerate(double _decreasing)
         {
-            return this.Accelerate(-_decreasing);
+            return this.Accelerate(_decreasing < 0 ? _decreasing : -_decreasing);
         }
 
         public bool AccelerateAtMaxSpeed()
