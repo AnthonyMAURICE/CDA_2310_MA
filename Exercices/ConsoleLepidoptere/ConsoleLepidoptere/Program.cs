@@ -7,22 +7,22 @@ namespace ConsoleLepidoptere
     {
         static void Main(string[] args)
         {
+            int iterator = 0;
             Lepidoptere lepi = new Lepidoptere();
-            Console.WriteLine(lepi.ToString());
-            Console.WriteLine("Peut se déplacer : " + lepi.SeDeplacer());
-            Console.WriteLine("Peut évoluer : " + lepi.SeMetamorphoser());
-            Console.WriteLine(lepi.ToString());
-            Console.WriteLine("Peut se déplacer : " + lepi.SeDeplacer());
-            Console.WriteLine("Peut évoluer : " + lepi.SeMetamorphoser());
-            Console.WriteLine(lepi.ToString());
-            Console.WriteLine("Peut se déplacer : " + lepi.SeDeplacer());
-            Console.WriteLine("Peut évoluer : " + lepi.SeMetamorphoser());
-            Console.WriteLine(lepi.ToString());
-            Console.WriteLine("Peut se déplacer : " + lepi.SeDeplacer());
-            Console.WriteLine("Peut évoluer : " + lepi.SeMetamorphoser());
-            Console.WriteLine(lepi.ToString());
-            Console.WriteLine("Peut se déplacer : " + lepi.SeDeplacer());
-            Console.WriteLine("Peut évoluer : " + lepi.SeMetamorphoser());
+            do
+            {
+                Console.WriteLine(lepi.ToString());
+                Console.WriteLine((lepi.SeDeplacer()) ? ("Peut se déplacer") : ("Ne peut pas se déplacer"));
+                if (!lepi.SeMetamorphoser())
+                {
+                    Console.WriteLine("Ne peut évoluer davantage");
+                    iterator++;
+                }
+                else
+                {
+                    Console.WriteLine("Peut encore évoluer");
+                }
+            } while (iterator < 2);
 
         }
     }
