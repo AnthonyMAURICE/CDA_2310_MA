@@ -15,17 +15,15 @@
 
         public bool SeMetamorphoser()
         {
-            bool canEvolve;
-            if(this.actualState.ToString() == "Papillon")
+            if (this.actualState.GetType().Name == "Papillon")
             {
-                canEvolve = false;
+                return false;
             }
             else
             {
                 this.actualState = this.actualState.SeMetamorphoser();
-                canEvolve = true;
+                return true;
             }
-            return canEvolve;
         }
 
         public bool SeDeplacer()
