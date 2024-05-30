@@ -12,38 +12,41 @@ namespace QuatreVingtEtUn
         private int nbeLancersRestant;
         private int nbeDesJoues;
         private readonly int nbeLancersMax = 3;
-        internal List<De> des = new List<De>();
+        internal List<De> des;
 
         public Manche()
         {
             this.nbeDesJoues = 3;
             this.nbeLancersRestant = nbeLancersMax;
+            des = new List<De>();
+        }
+
+        public void Lancer()
+        {
+            for (int i = 0; i < this.nbeDesJoues; i++)
+            {
+                De de = new De();
+                de.Jeter();
+                des.Add(de);
+            }
+            this.Trier();
+            this.nbeLancersRestant--;
         }
 
         public void Lancer(params bool[] desALancer) // méthode de lancer de dés
         {
-            if (des.Count > 0) // pour le cas de ceux d'une même manche, si la liste n'est pas vide, ne relance que ceux sélectionnés par le joueur
+            for(int i = 0; i < desALancer.Length; i++)
             {
-                for(int i = 0; i < desALancer.Length; i++)
+                if (desALancer[i])
                 {
-                    if (desALancer[i])
-                    {
-                        des[i].Jeter();
-                    }
-                }
-            }
-            else // sinon lance tous les dés, dans le cas d'un début de manche, et les ajoute à la liste
-            {
-                for(int i = 0; i < this.nbeDesJoues; i++)
-                {
-                    De de = new De();
-                    de.Jeter();
-                    des.Add(de);
+                    des[i].Jeter();
                 }
             }
             this.Trier();
             this.nbeLancersRestant--;
         }
+            
+
 
         public bool MancheGagnee() // déclare la manche gagnée si 4, 2 et 1 se trouvent dans la liste
         {
@@ -57,7 +60,7 @@ namespace QuatreVingtEtUn
         
         private void Trier() // trie et inverse la liste de dés
         {
-            this.des.Sort((x, y) => x.CompareTo(y));
+            this.des.Sort();
             this.des.Reverse();
         }
 

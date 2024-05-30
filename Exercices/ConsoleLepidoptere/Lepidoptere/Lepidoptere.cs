@@ -16,7 +16,7 @@
         public bool SeMetamorphoser()
         {
             bool canEvolve;
-            if(this.actualState == this.actualState.SeMetamorphoser())
+            if(this.actualState.ToString() == "Papillon")
             {
                 canEvolve = false;
             }
