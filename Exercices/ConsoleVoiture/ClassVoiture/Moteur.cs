@@ -50,5 +50,7 @@ namespace ClassVoiture
             }
             return canStop;
         }
+
+
     }
 }

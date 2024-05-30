@@ -22,7 +22,7 @@ namespace QuatreVingtEtUn
 
         public void Lancer(params bool[] desALancer) // méthode de lancer de dés
         {
-            if (des.Count > 0) // pour le cas de ceux d'une même manche, si la liste n'est pas vide, ne relance que ceux séléctonnés par le joueur
+            if (des.Count > 0) // pour le cas de ceux d'une même manche, si la liste n'est pas vide, ne relance que ceux sélectionnés par le joueur
             {
                 for(int i = 0; i < desALancer.Length; i++)
                 {
