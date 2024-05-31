@@ -63,59 +63,9 @@
             }
         }
 
-
-        public bool IncreaseSpeed(double _increasing)
+        public bool MoveForward()
         {
-            if (this.engine.Started)
-            {
-                if(_increasing < 0)
-                {
-                    this.currentSpeed = this.currentSpeed + _increasing < 0 ? 0 : this.currentSpeed + _increasing;
-                }
-                else
-                {
-                    this.currentSpeed = this.currentSpeed + _increasing > this.maxSpeed ? this.maxSpeed : this.currentSpeed + _increasing;
-                }
-                    
-                    this.CalcWheelTurn();
-                    return true;
-            }
-            else
-            {
-                return false;
-            }
-            
-        }
-
-        public bool DecreaseSpeed(double _decreasing)
-        {
-            return this.IncreaseSpeed(_decreasing < 0 ? _decreasing : -_decreasing);
-        }
-
-        public bool IncreaseAtMaxSpeed()
-        {
-            if (this.currentSpeed == this.maxSpeed)
-            {
-                return false;
-            }
-            else
-            {
-                this.IncreaseSpeed(this.maxSpeed - this.currentSpeed);
-                return true;
-            }
-        }
-
-        public bool DecreaseCompletely()
-        {
-            if(this.currentSpeed == 0)
-            {
-                return false;
-            }
-            else
-            {
-                this.DecreaseSpeed(this.currentSpeed);
-                return true;
-            }
+            return this.currentSpeed > 0;
         }
 
         private void CalcWheelTurn()
@@ -137,7 +87,7 @@
             }
         }
 
-        public string Honk()
+        public static string Honk()
         {
             return "Honk ! Honk !";
         }
@@ -146,7 +96,7 @@
         {
             return this.brand + " " + this.model + ", " + 
                 (!this.engine.Started ? "éteinte " : "allumée ") + 
-                (this.currentSpeed > 0 ? "roulant à " + this.currentSpeed + " km/h" : "à l'arrêt");
+                (this.currentSpeed > 0 ? " à " + this.currentSpeed + " km/h" : "à l'arrêt");
         }
     }
 }

@@ -15,7 +15,7 @@ namespace ConsoleVoiture
             Console.WriteLine(car2.ToString());
             car2.DecelerateCompletely();
             car2.StopCar();
-            Console.WriteLine(car2.Honk());
+            Console.WriteLine(Voiture.Honk());
         }
     }
 }
