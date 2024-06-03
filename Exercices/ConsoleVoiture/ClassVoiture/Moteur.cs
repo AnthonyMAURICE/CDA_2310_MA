@@ -51,6 +51,14 @@ namespace ClassVoiture
             return canStop;
         }
 
+        public bool IncreaseSpeed(double _currentSpeed, int _maxSpeed)
+        {
+            return this.started && _currentSpeed < _maxSpeed;
+        }
 
+        public bool DecreaseSpeed(double _currentSpeed)
+        {
+            return this.started && _currentSpeed > 0;
+        }
     }
 }

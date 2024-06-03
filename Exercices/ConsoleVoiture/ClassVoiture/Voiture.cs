@@ -25,7 +25,7 @@
                 {"Avt_Gauche", wheel},
                 {"Avt_Droite", wheel},
                 {"Arr_Gauche", wheel},
-                {"Arr_Droite", wheel }
+                {"Arr_Droite", wheel}
             };
         }
 
@@ -63,31 +63,57 @@
             }
         }
 
-        public bool MoveForward()
+        public bool Accelerate(double _amount)
         {
-            return this.currentSpeed > 0;
-        }
-
-        private void CalcWheelTurn()
-        {
-            foreach (KeyValuePair<string, Roue> entry in this.wheels)
+            if (this.engine.IncreaseSpeed(this.currentSpeed, this.maxSpeed))
             {
-                if(this.currentSpeed > 0)
+                if(this.currentSpeed + _amount > this.maxSpeed)
                 {
-                    entry.Value.wheelState = Roue.WheelState.Avant;
-                }
-                else if(this.currentSpeed < 0)
-                {
-                    entry.Value.wheelState = Roue.WheelState.Arrière;
+                    this.currentSpeed = this.maxSpeed;
                 }
                 else
                 {
-                    entry.Value.wheelState = Roue.WheelState.Arrêt;
+                    this.currentSpeed += _amount;
                 }
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
-        public static string Honk()
+        public bool Decelerate(double _amount)
+        {
+            if (this.engine.DecreaseSpeed(this.currentSpeed))
+            {
+                if (this.currentSpeed - _amount < 0)
+                {
+                    this.currentSpeed = 0;
+                }
+                else
+                {
+                    this.currentSpeed -= _amount;
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool AccelerateAtMaxSpeed()
+        {
+            return this.Accelerate(this.maxSpeed);
+        }
+
+        public bool DecelerateCompletely()
+        {
+            return this.Decelerate(this.currentSpeed);
+        }
+
+        public string Honk()
         {
             return "Honk ! Honk !";
         }
@@ -96,7 +122,7 @@
         {
             return this.brand + " " + this.model + ", " + 
                 (!this.engine.Started ? "éteinte " : "allumée ") + 
-                (this.currentSpeed > 0 ? " à " + this.currentSpeed + " km/h" : "à l'arrêt");
+                (this.currentSpeed > 0 ? " roulant à " + this.currentSpeed + " km/h" : "à l'arrêt");
         }
     }
 }

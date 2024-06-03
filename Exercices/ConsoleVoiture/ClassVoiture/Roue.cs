@@ -16,7 +16,7 @@ namespace ClassVoiture
         public Roue()
         {
             this.pressure = 2;
-            this.wheelState = WheelState.Arrêt;
+            this.wheelState = WheelState.Arret;
         }
 
         public Roue(double pressure): this()
@@ -24,10 +24,22 @@ namespace ClassVoiture
             this.pressure = pressure;
         }
 
+        public void WheelSide(bool _onward, bool _moving)
+        {
+            if (_moving)
+            {
+                this.wheelState = _onward ? WheelState.Avant : WheelState.Arriere;
+            }
+            else
+            {
+                this.wheelState = WheelState.Arret;
+            }
+        }
+
         internal enum WheelState
         {
-            Arrière,
-            Arrêt,
+            Arriere,
+            Arret,
             Avant
         }
     }
