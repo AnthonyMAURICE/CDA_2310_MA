@@ -122,7 +122,7 @@
         {
             return this.brand + " " + this.model + ", " + 
                 (!this.engine.Started ? "éteinte " : "allumée ") + 
-                (this.currentSpeed > 0 ? " roulant à " + this.currentSpeed + " km/h" : "à l'arrêt");
+                (this.currentSpeed > 0 ? "roulant à " + this.currentSpeed + " km/h" : "à l'arrêt");
         }
     }
 }
