@@ -1,26 +1,24 @@
-const dateInput = document.getElementById('date');
-const timeInput = document.getElementById('time');
-const dateBtn = document.getElementById('btn-date');
-const timeBtn = document.getElementById('btn-time');
-const startButton = document.getElementById('start-btn');
-const stopButton = document.getElementById('stop-btn');
-
-const timer = document.addEventListener("DOMContentLoaded", function(){
-    setInterval("displayTime()", 1000)
-});
-
+const dateInput = document.querySelector('#date');
+const timeInput = document.querySelector('#time');
+const dateBtn = document.querySelector('#btn-date');
+const timeBtn = document.querySelector('#btn-time');
 dateBtn.addEventListener("click", displayDate);
 timeBtn.addEventListener("click", displayTime);
 
 function displayDate(){
-    let date = new Date()
+    const date = dateConstruct();
     dateInput.value = date.toLocaleDateString();
 }
 
+function dateConstruct(){
+    return new Date();
+}
+
 function displayTime(){
-    let time = new Date()
+    const time = dateConstruct();
     let seconds = time.getSeconds() < 10? "0" + time.getSeconds(): time.getSeconds();
     let minutes = time.getMinutes()< 10? "0" + time.getMinutes(): time.getMinutes();
     let hours = time.getHours()< 10? "0" + time.getHours(): time.getHours();
     timeInput.value = hours + ":" + minutes + ":" + seconds;
+    setInterval("displayTime()", 1000);
 }
