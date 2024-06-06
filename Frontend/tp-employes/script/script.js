@@ -116,13 +116,13 @@ function duplicateRow(_btn){
 //     btnEnablers()
 }
 
-function sorting(){
+function sorting(){ // à revoir d'urgence !!
     const array = document.querySelectorAll('.rows')
     const arr = Array.from(array)
     if(!asc){
-        arr.sort((a, b) => a.id - b.id)
+        arr.sort((a, b) => a.value - b.value)
     }else{
-        arr.sort((a, b) => b.id - a.id)
+        arr.sort((a, b) => b.value - a.value)
     }
     arr.forEach(elem => {                   
         table.appendChild(elem)
