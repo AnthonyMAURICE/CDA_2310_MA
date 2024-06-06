@@ -22,6 +22,7 @@ function createInitialTable(values){
         row.appendChild(getName(values[i]))
         row.appendChild(calcEmail(values[i]))
         row.appendChild(getSalary(values[i]))
+        row.appendChild(getYearofBirth(values[i]))
         table.appendChild(row)
     }
 }
@@ -49,4 +50,11 @@ function getSalary(value){
     const salary = document.createElement('td')
     salary.textContent = Math.round((value.employee_salary/12)*100)/100 + " €"
     return salary
+}
+
+function getYearofBirth(value){
+    const year = document.createElement('td')
+    let date = new Date()
+    year.textContent = date.getFullYear() - value.employee_age
+    return year
 }
