@@ -48,7 +48,6 @@ function btn(){
     }
 }
 
-
 function identifier(value){
     const id = document.createElement('td')
     id.setAttribute('class', value)
@@ -108,7 +107,12 @@ function duplicateRow(_btn){
     const lineToDuplicate = Number(_btn.closest("tr").id)
     const clone = numberOfRows[lineToDuplicate]
     clone.firstElementChild.setAttribute('id', numberOfRows.length)
-    table.appendChild(clone)
+    const newRow = table.insertRow()
+    for(let i = 0; i < clone.childNodes.length; i++){
+        newRow.appendChild(clone.childNodes[i])
+    }
+    
+    console.log(newRow)
 }
 
 function sorting(){
