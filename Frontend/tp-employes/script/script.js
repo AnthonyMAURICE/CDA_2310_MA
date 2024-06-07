@@ -1,6 +1,7 @@
 const table = document.querySelector('#emp-table')
 document.addEventListener('DOMContentLoaded', setData)
 let asc = true
+let firstGeneration = true
 const salaryCol = document.querySelector('#salary').addEventListener('click', sorting)
 
 
@@ -12,44 +13,41 @@ async function fetchData(){
 
 function setData(){
     fetchData().then(values =>{
-        for(let i = 0; i < values.data.length; i++){
-            createInitialTable(values.data[i])
-        }
-        btnEnablers()
+        createTable(values.data)
     })
 }
 
-function createInitialTable(values){
-    console.log(values)
-    const row = document.createElement('tr')
-    row.setAttribute('id', values.id)
-    row.setAttribute('class', 'rows')
-    row.appendChild(identifier(values.id))
-    row.appendChild(getName(values))
-    row.appendChild(calcEmail(values))
-    row.appendChild(getSalary(values))
-    row.appendChild(getYearofBirth(values))
-    row.appendChild(calcBtn())
-    table.appendChild(row)
-    //const deleteBtn = document.querySelectorAll('.delete')
-    
+function createTable(values){
+    for(let i = 0; i< values.length; i++){
+        const row = document.createElement('tr')
+        row.setAttribute('id', values[i].id)
+        row.setAttribute('class', 'rows')
+        row.appendChild(identifier(values[i].id))
+        row.appendChild(getName(values[i]))
+        row.appendChild(calcEmail(values[i]))
+        row.appendChild(getSalary(values[i]))
+        row.appendChild(getYearofBirth(values[i]))
+        row.appendChild(calcBtn())
+        table.appendChild(row)
+    }
+    btn()
 }
 
-
-// for(let i = 0; i< deleteBtn.length; i++){
-//     deleteBtn[i].addEventListener('click', function(){
-//         delRow(deleteBtn[i])
-//     })
-// }
-
-function btnEnablers(){
+function btn(){
     const duplicateBtn = document.querySelectorAll('.duplicate')
-    for(let i = 0; i< duplicateBtn.length; i++){
+    for(let i = 0; i < duplicateBtn.length; i++){
         duplicateBtn[i].addEventListener('click', function(){
         duplicateRow(duplicateBtn[i])
         })
     }
+    const deleteBtn = document.querySelectorAll('.delete')
+    for(let i = 0; i< deleteBtn.length; i++){
+        deleteBtn[i].addEventListener('click', function(){
+        delRow(deleteBtn[i])
+        })
+    }
 }
+
 
 function identifier(value){
     const id = document.createElement('td')
@@ -95,6 +93,7 @@ function calcBtn(){
 function createBtn(i){
     const btn = document.createElement('button')
     btn.textContent = i==0? "Duplicate" : "Delete"
+    btn.setAttribute('id', `btn${i}`)
     btn.setAttribute("class", btn.textContent.toLowerCase())
     return btn
 }
@@ -106,24 +105,21 @@ function delRow(_btn){
 
 function duplicateRow(_btn){
     const numberOfRows = document.querySelectorAll('tr')
-    const lineToDuplicate = _btn.closest("tr")
-    console.log(lineToDuplicate)
-//     const clone = lineToDuplicate.cloneNode(true)
-//     const eid = clone.children[0]
-//     eid.setAttribute('class', numberOfRows.length++)
-//     eid.textContent = numberOfRows.length++
-//     table.appendChild(clone)
-//     btnEnablers()
+    const lineToDuplicate = Number(_btn.closest("tr").id)
+    const clone = numberOfRows[lineToDuplicate]
+    clone.firstElementChild.setAttribute('id', numberOfRows.length)
+    table.appendChild(clone)
 }
 
-function sorting(){ // à revoir d'urgence !!
+function sorting(){
     const array = document.querySelectorAll('.rows')
     const arr = Array.from(array)
-    if(!asc){
-        arr.sort((a, b) => a.value - b.value)
-    }else{
-        arr.sort((a, b) => b.value - a.value)
-    }
+    arr.sort((a, b) => {
+        let a_value = a.children[3].innerText.split(" ")[0]
+        let b_value = b.children[3].innerText.split(" ")[0]
+        console.log(a_value)
+        return (asc) ? b_value - a_value : a_value - b_value
+    })
     arr.forEach(elem => {                   
         table.appendChild(elem)
     })
