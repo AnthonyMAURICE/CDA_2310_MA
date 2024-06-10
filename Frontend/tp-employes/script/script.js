@@ -1,9 +1,8 @@
 const table = document.querySelector('#emp-table')
 document.addEventListener('DOMContentLoaded', setData)
 let asc = true
-let firstGeneration = true
 const salaryCol = document.querySelector('#salary').addEventListener('click', sorting)
-
+let tableLength = 1
 
 async function fetchData(){
     const response = await fetch('https://arfp.github.io/tp/web/javascript2/03-employees/employees.json')
@@ -29,22 +28,7 @@ function createTable(values){
         row.appendChild(getYearofBirth(values[i]))
         row.appendChild(calcBtn())
         table.appendChild(row)
-    }
-    btn()
-}
-
-function btn(){
-    const duplicateBtn = document.querySelectorAll('.duplicate')
-    for(let i = 0; i < duplicateBtn.length; i++){
-        duplicateBtn[i].addEventListener('click', function(){
-        duplicateRow(duplicateBtn[i])
-        })
-    }
-    const deleteBtn = document.querySelectorAll('.delete')
-    for(let i = 0; i< deleteBtn.length; i++){
-        deleteBtn[i].addEventListener('click', function(){
-        delRow(deleteBtn[i])
-        })
+        tableLength++
     }
 }
 
@@ -92,27 +76,39 @@ function calcBtn(){
 function createBtn(i){
     const btn = document.createElement('button')
     btn.textContent = i==0? "Duplicate" : "Delete"
-    btn.setAttribute('id', `btn${i}`)
     btn.setAttribute("class", btn.textContent.toLowerCase())
+    if(i==0){
+        btn.addEventListener('click', function(){
+            duplicateRow(btn)})
+    }else{
+        btn.addEventListener('click', function(){
+            delRow(btn)})
+    }
     return btn
 }
 
 function delRow(_btn){
     const lineToDelete = _btn.closest("tr")
-    lineToDelete.style.display = "none"
+    lineToDelete.remove()
+    const numberOfRows = document.querySelectorAll('tr')
+    if(numberOfRows.length == 1){
+        noEmp()
+    }
 }
 
 function duplicateRow(_btn){
-    const numberOfRows = document.querySelectorAll('tr')
-    const lineToDuplicate = Number(_btn.closest("tr").id)
-    const clone = numberOfRows[lineToDuplicate]
-    clone.firstElementChild.setAttribute('id', numberOfRows.length)
-    const newRow = table.insertRow()
-    for(let i = 0; i < clone.childNodes.length; i++){
-        newRow.appendChild(clone.childNodes[i])
-    }
-    
-    console.log(newRow)
+    const lineToDuplicate = _btn.closest('tr')
+    const clone = lineToDuplicate.cloneNode(true)
+    clone.removeAttribute('id')
+    clone.setAttribute('id', tableLength)
+    clone.children[0].textContent = tableLength
+    tableLength++
+    const button = clone.children[5].querySelectorAll('button')
+    button[0].addEventListener('click', function(){
+        duplicateRow(button[0])})
+    button[1].addEventListener('click', function(){
+        delRow(button[1])})
+    table.appendChild(clone)
 }
 
 function sorting(){
@@ -128,4 +124,8 @@ function sorting(){
         table.appendChild(elem)
     })
     asc = !asc
+}
+
+function noEmp(){
+    document.querySelector('#paragraph').textContent = 'This is the current list of NO EMPLOYEES'
 }
