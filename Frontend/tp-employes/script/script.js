@@ -1,8 +1,6 @@
 const table = document.querySelector('#emp-table')
 document.addEventListener('DOMContentLoaded', setData)
 let asc = true
-const salaryCol = document.querySelector('#salary').addEventListener('click', sorting)
-let tableLength = 1
 
 async function fetchData(){
     const response = await fetch('https://arfp.github.io/tp/web/javascript2/03-employees/employees.json')
@@ -16,52 +14,116 @@ function setData(){
     })
 }
 
-function createTable(values){
-    for(let i = 0; i< values.length; i++){
+function createTable(_values){
+    createFirstRow()
+    for(let i = 0; i< _values.length; i++){
         const row = document.createElement('tr')
-        row.setAttribute('id', values[i].id)
+        row.setAttribute('id', _values[i].id)
         row.setAttribute('class', 'rows')
-        row.appendChild(identifier(values[i].id))
-        row.appendChild(getName(values[i]))
-        row.appendChild(calcEmail(values[i]))
-        row.appendChild(getSalary(values[i]))
-        row.appendChild(getYearofBirth(values[i]))
-        row.appendChild(calcBtn())
+        row.append(identifier(_values[i].id), getName(_values[i]), calcEmail(_values[i]), getSalary(_values[i]), getYearofBirth(_values[i]), calcBtn())
         table.appendChild(row)
-        tableLength++
     }
+    table.appendChild(createLastRow())
 }
 
-function identifier(value){
+function createFirstRow(){
+    const tableHead = document.createElement('thead')
+    for(let i = 0; i < 6; i++){
+        const headCell = document.createElement('th')
+        switch(i){
+            case 0:
+                headCell.textContent = 'EID'
+                break
+            case 1:
+                headCell.textContent = 'Full Name'
+                break
+            case 2:
+                headCell.textContent = 'Email'
+                break
+            case 3:
+                headCell.textContent = 'Monthly salary'
+                const sortButton = document.createElement('button')
+                sortButton.setAttribute('id', 'salary')
+                sortButton.addEventListener('click', sorting)
+                sortButton.textContent = 'Sort'
+                headCell.appendChild(sortButton)
+                break
+            case 4:
+                headCell.textContent = 'Year of birth'
+                break
+            case 5:
+                headCell.textContent = 'Actions'
+                break
+            default:
+                headCell.textContent = 'Something went wrong'
+        }
+        tableHead.appendChild(headCell)
+    }
+    table.appendChild(tableHead)
+}
+
+function createLastRow(){
+    const tableFooter = document.createElement('tfoot')
+    for(let i = 0; i < 6; i++){
+        const footerCell = document.createElement('td')
+        if(i == 0){
+            footerCell.textContent = calcTableLength()
+        }else if (i == 3){
+            
+            footerCell.textContent = calcSum()
+        }else{
+            footerCell.setAttribute('class', 'last-row-cell')
+        }
+        tableFooter.appendChild(footerCell)
+    }
+    return tableFooter
+}
+
+function calcSum(){
+    let sum = 0
+    const rows = document.querySelectorAll('tr')
+    for(let i = 0; i < rows.length; i++){
+        sum += Number(rows[i].children[3].innerHTML.split(" ")[0])
+    }
+    sum = Math.round((sum)*100)/100
+    return sum + " €"
+}
+
+function calcTableLength(){
+    const rows = document.querySelectorAll('tr')
+    return rows.length
+}
+
+function identifier(_value){
     const id = document.createElement('td')
-    id.setAttribute('class', value)
-    id.textContent = value
+    id.setAttribute('class', _value)
+    id.textContent = _value
     return id
 }
 
-function getName(value){
+function getName(_value){
     const name = document.createElement('td')
-    name.textContent = value.employee_name
+    name.textContent = _value.employee_name
     return name
 }
 
-function calcEmail(value){
+function calcEmail(_value){
     const mail = document.createElement('td')
-    let email = value.employee_name.toLowerCase()[0] + "." + value.employee_name.toLowerCase().split(" ")[1] + "@email.com"
+    let email = _value.employee_name.toLowerCase()[0] + "." + _value.employee_name.toLowerCase().split(" ")[1] + "@email.com"
     mail.textContent = email
     return mail
 }
 
-function getSalary(value){
+function getSalary(_value){
     const salary = document.createElement('td')
-    salary.textContent = Math.round((value.employee_salary/12)*100)/100 + " €"
+    salary.textContent = Math.round((_value.employee_salary/12)*100)/100 + " €"
     return salary
 }
 
-function getYearofBirth(value){
+function getYearofBirth(_value){
     const year = document.createElement('td')
     let date = new Date()
-    year.textContent = date.getFullYear() - value.employee_age
+    year.textContent = date.getFullYear() - _value.employee_age
     return year
 }
 
@@ -73,51 +135,52 @@ function calcBtn(){
     return buttons
 }
 
-function createBtn(i){
+function createBtn(_i){
     const btn = document.createElement('button')
-    btn.textContent = i==0? "Duplicate" : "Delete"
+    btn.textContent = _i==0? "Duplicate" : "Delete"
     btn.setAttribute("class", btn.textContent.toLowerCase())
-    if(i==0){
-        btn.addEventListener('click', function(){
-            duplicateRow(btn)})
+    if(_i==0){
+        eventListenerDuplicate(btn)
     }else{
-        btn.addEventListener('click', function(){
-            delRow(btn)})
+        eventListenerDelete(btn)
     }
     return btn
 }
 
 function delRow(_btn){
+    const footer = document.querySelector('tfoot')
     const lineToDelete = _btn.closest("tr")
     lineToDelete.remove()
-    const numberOfRows = document.querySelectorAll('tr')
-    if(numberOfRows.length == 1){
+    if(calcTableLength() == 0){
         noEmp()
     }
+    footer.children[0].textContent = calcTableLength()
+    footer.children[3].textContent = calcSum()
+    table.appendChild(footer)
 }
 
 function duplicateRow(_btn){
+    const footer = document.querySelector('tfoot')
     const lineToDuplicate = _btn.closest('tr')
     const clone = lineToDuplicate.cloneNode(true)
     clone.removeAttribute('id')
-    clone.setAttribute('id', tableLength)
-    clone.children[0].textContent = tableLength
-    tableLength++
+    clone.setAttribute('id', getAvaiableId())
+    clone.children[0].textContent = (getAvaiableId())
     const button = clone.children[5].querySelectorAll('button')
-    button[0].addEventListener('click', function(){
-        duplicateRow(button[0])})
-    button[1].addEventListener('click', function(){
-        delRow(button[1])})
+    eventListenerDuplicate(button[0])
+    eventListenerDelete(button[1])
     table.appendChild(clone)
+    footer.children[0].textContent = calcTableLength()
+    footer.children[3].textContent = calcSum()
+    table.appendChild(footer)
 }
 
 function sorting(){
-    const array = document.querySelectorAll('.rows')
+    const array = document.querySelectorAll('tr')
     const arr = Array.from(array)
     arr.sort((a, b) => {
         let a_value = a.children[3].innerText.split(" ")[0]
         let b_value = b.children[3].innerText.split(" ")[0]
-        console.log(a_value)
         return (asc) ? b_value - a_value : a_value - b_value
     })
     arr.forEach(elem => {                   
@@ -126,6 +189,31 @@ function sorting(){
     asc = !asc
 }
 
+function eventListenerDuplicate(_btn){
+    _btn.addEventListener('click', function(){
+        duplicateRow(_btn)})
+}
+
+function eventListenerDelete(_btn){
+    _btn.addEventListener('click', function(){
+        delRow(_btn)})
+}
+
 function noEmp(){
     document.querySelector('#paragraph').textContent = 'This is the current list of NO EMPLOYEES'
+}
+
+function getAvaiableId(){
+    const rows = Array.from(document.querySelectorAll('tr'))
+    let availableId = []
+    let ids = []
+    for(let row of rows){
+        ids.push(Number(row.id))
+    }
+    for(let i = 1; i < rows.length; i++){
+        if(!ids.includes(i)){
+            availableId.push(i)
+        }
+    }
+    return availableId.length == 0 ? rows.length + 1 : availableId[0]
 }

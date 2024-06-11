@@ -8,6 +8,7 @@ body{
 
 table{
     border-spacing: 0;
+    border: 1px solid black;
 }
 
 th, td{
@@ -23,6 +24,10 @@ button{
     border: none;
 }
 
+#salary{
+    background-color: grey;
+}
+
 .delete{
     background-color: red;
 }
@@ -31,6 +36,10 @@ button{
     background-color: blue;
 }
 
-#salary{
-    background-color: grey;
+.last-row-cell{
+    border: none;
+}
+
+tfoot{
+    font-weight: bold;
 }
