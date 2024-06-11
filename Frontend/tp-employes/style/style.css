@@ -24,6 +24,10 @@ button{
     border: none;
 }
 
+button:active{
+    scale: 1.15;
+}
+
 #salary{
     background-color: grey;
 }

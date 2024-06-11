@@ -16,13 +16,15 @@ function setData(){
 
 function createTable(_values){
     createFirstRow()
+    const body = document.createElement('tbody')
     for(let i = 0; i< _values.length; i++){
         const row = document.createElement('tr')
         row.setAttribute('id', _values[i].id)
         row.setAttribute('class', 'rows')
         row.append(identifier(_values[i].id), getName(_values[i]), calcEmail(_values[i]), getSalary(_values[i]), getYearofBirth(_values[i]), calcBtn())
-        table.appendChild(row)
+        body.appendChild(row)
     }
+    table.appendChild(body)
     table.appendChild(createLastRow())
 }
 
@@ -83,10 +85,10 @@ function calcSum(){
     let sum = 0
     const rows = document.querySelectorAll('tr')
     for(let i = 0; i < rows.length; i++){
-        sum += Number(rows[i].children[3].innerHTML.split(" ")[0])
+        sum += Number(rows[i].children[3].innerText.split(" ")[0])
     }
-    sum = Math.round((sum)*100)/100
-    return sum + " €"
+    sum = Math.round((sum)*100)/100 + "€"
+    return sum
 }
 
 function calcTableLength(){
@@ -96,7 +98,6 @@ function calcTableLength(){
 
 function identifier(_value){
     const id = document.createElement('td')
-    id.setAttribute('class', _value)
     id.textContent = _value
     return id
 }
@@ -109,8 +110,7 @@ function getName(_value){
 
 function calcEmail(_value){
     const mail = document.createElement('td')
-    let email = _value.employee_name.toLowerCase()[0] + "." + _value.employee_name.toLowerCase().split(" ")[1] + "@email.com"
-    mail.textContent = email
+    mail.textContent = _value.employee_name.toLowerCase()[0] + "." + _value.employee_name.toLowerCase().split(" ")[1] + "@email.com"
     return mail
 }
 
@@ -147,37 +147,8 @@ function createBtn(_i){
     return btn
 }
 
-function delRow(_btn){
-    const footer = document.querySelector('tfoot')
-    const lineToDelete = _btn.closest("tr")
-    lineToDelete.remove()
-    if(calcTableLength() == 0){
-        noEmp()
-    }
-    footer.children[0].textContent = calcTableLength()
-    footer.children[3].textContent = calcSum()
-    table.appendChild(footer)
-}
-
-function duplicateRow(_btn){
-    const footer = document.querySelector('tfoot')
-    const lineToDuplicate = _btn.closest('tr')
-    const clone = lineToDuplicate.cloneNode(true)
-    clone.removeAttribute('id')
-    clone.setAttribute('id', getAvaiableId())
-    clone.children[0].textContent = (getAvaiableId())
-    const button = clone.children[5].querySelectorAll('button')
-    eventListenerDuplicate(button[0])
-    eventListenerDelete(button[1])
-    table.appendChild(clone)
-    footer.children[0].textContent = calcTableLength()
-    footer.children[3].textContent = calcSum()
-    table.appendChild(footer)
-}
-
 function sorting(){
-    const array = document.querySelectorAll('tr')
-    const arr = Array.from(array)
+    const arr = Array.from(document.querySelectorAll('tr'))
     arr.sort((a, b) => {
         let a_value = a.children[3].innerText.split(" ")[0]
         let b_value = b.children[3].innerText.split(" ")[0]
@@ -187,6 +158,36 @@ function sorting(){
         table.appendChild(elem)
     })
     asc = !asc
+}
+
+function delRow(_btn){
+    _btn.closest("tr").remove()
+    if(calcTableLength() == 0){
+        noEmp()
+    }
+    editFooter()
+}
+
+function duplicateRow(_btn){
+    const clone = _btn.closest('tr').cloneNode(true)
+    clone.id = getAvaiableId()
+    clone.children[0].textContent = clone.id
+    const button = clone.children[5].querySelectorAll('button')
+    eventListenerDuplicate(button[0])
+    eventListenerDelete(button[1])
+    document.querySelector('tbody').appendChild(clone)
+    sortingAfterDuplicate()
+    editFooter()
+}
+
+function sortingAfterDuplicate(){
+    const arr = Array.from(document.querySelectorAll('tr'))
+    arr.sort((a, b) => {
+        return a.id - b.id
+    })
+    arr.forEach(elem => {                   
+        document.querySelector('tbody').appendChild(elem)
+    })
 }
 
 function eventListenerDuplicate(_btn){
@@ -199,17 +200,20 @@ function eventListenerDelete(_btn){
         delRow(_btn)})
 }
 
+function editFooter(){
+    const footer = document.querySelector('tfoot')
+    footer.children[0].textContent = calcTableLength()
+    footer.children[3].textContent = calcSum()
+}
+
 function noEmp(){
     document.querySelector('#paragraph').textContent = 'This is the current list of NO EMPLOYEES'
 }
 
 function getAvaiableId(){
     const rows = Array.from(document.querySelectorAll('tr'))
+    const ids = rows.map((x) => Number(x.id))
     let availableId = []
-    let ids = []
-    for(let row of rows){
-        ids.push(Number(row.id))
-    }
     for(let i = 1; i < rows.length; i++){
         if(!ids.includes(i)){
             availableId.push(i)
