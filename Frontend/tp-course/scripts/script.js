@@ -34,7 +34,7 @@ function createTable(_values){
         const row = document.createElement('tr')
         row.setAttribute('class', 'rows')
         row.append(getPays(_values[i]), getName(_values[i]), getFirstName(_values[i]), getTime(_values[i]))
-        filters.appendChild(createFilters(sortByCountries(_values), i))
+        filters.appendChild(createFilters(_values, sortByCountries(_values), i))
         filters.appendChild(createLabels(sortByCountries(_values), i))
         tbody.appendChild(row)
     }
@@ -69,11 +69,15 @@ function createTableHead(){
     return tableHead
 }
 
-function createFilters(_country, i){
+function createFilters(_values, _country, i){
     const check = document.createElement('input')
     check.setAttribute('type', 'checkbox')
     check.setAttribute('id', _country[i].toLowerCase())
+    check.setAttribute('name', _country[i].toLowerCase())
     check.setAttribute('class', 'country-check')
+    check.addEventListener('change', function(){
+        isVisible(_values, _values)
+    })
     return check
 }
 
@@ -121,9 +125,9 @@ function sortTemps(_values){
 }
 
 function sortByCountries(_values){
-    const checkbox = _values.map((x) => x.pays)
-    checkbox.sort()
-    return checkbox
+    const countries = _values.map((x) => x.pays)
+    countries.sort()
+    return countries
 }
 
 function updateInputs(_values){
@@ -133,3 +137,7 @@ function updateInputs(_values){
     }
 }
 
+function isVisible(_valuesOrigin, _values){
+    let checkedBox = document.querySelectorAll('input:checked');
+    console.log(_values)
+}
