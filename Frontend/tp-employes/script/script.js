@@ -1,5 +1,6 @@
 const table = document.querySelector('#emp-table')
 document.addEventListener('DOMContentLoaded', setData)
+let valuesArray = []
 let asc = true
 
 async function fetchData(){
@@ -10,18 +11,19 @@ async function fetchData(){
 
 function setData(){
     fetchData().then(values =>{
-        createTable(values.data)
+        valuesArray = Array.from(values.data)
+        createTable(valuesArray)
     })
 }
 
 function createTable(_values){
     createFirstRow()
     const body = document.createElement('tbody')
-    for(let i = 0; i< _values.length; i++){
+    for(let value of _values){
         const row = document.createElement('tr')
-        row.setAttribute('id', _values[i].id)
+        row.setAttribute('id', value.id)
         row.setAttribute('class', 'rows')
-        row.append(identifier(_values[i].id), getName(_values[i]), calcEmail(_values[i]), getSalary(_values[i]), getYearofBirth(_values[i]), calcBtn())
+        row.append(identifier(value.id), getName(value), calcEmail(value), getSalary(value), getYearofBirth(value), calcBtn())
         body.appendChild(row)
     }
     table.appendChild(body)
@@ -110,13 +112,13 @@ function getName(_value){
 
 function calcEmail(_value){
     const mail = document.createElement('td')
-    mail.textContent = _value.employee_name.toLowerCase()[0] + "." + _value.employee_name.toLowerCase().split(" ")[1] + "@email.com"
+    mail.textContent = `${_value.employee_name.toLowerCase()[0]}.${_value.employee_name.toLowerCase().split(" ")[1]}@email.com`
     return mail
 }
 
 function getSalary(_value){
     const salary = document.createElement('td')
-    salary.textContent = Math.round((_value.employee_salary/12)*100)/100 + " €"
+    salary.textContent = `${Math.round((_value.employee_salary/12)*100)/100} €`
     return salary
 }
 
@@ -155,13 +157,15 @@ function sorting(){
         return (asc) ? b_value - a_value : a_value - b_value
     })
     arr.forEach(elem => {                   
-        table.appendChild(elem)
+        document.querySelector('tbody').appendChild(elem)
     })
     asc = !asc
 }
 
 function delRow(_btn){
-    _btn.closest("tr").remove()
+    const lineToDelete = _btn.closest("tr")
+    lineToDelete.remove()
+    valuesArray.splice(lineToDelete.id - 1, 1)
     if(calcTableLength() == 0){
         noEmp()
     }
@@ -175,6 +179,7 @@ function duplicateRow(_btn){
     const button = clone.children[5].querySelectorAll('button')
     eventListenerDuplicate(button[0])
     eventListenerDelete(button[1])
+    valuesArray.push(valuesArray[_btn.closest('tr').id - 1])
     document.querySelector('tbody').appendChild(clone)
     sortingAfterDuplicate()
     editFooter()
