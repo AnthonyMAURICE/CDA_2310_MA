@@ -11,42 +11,51 @@ function setData(){
     fetchData().then(values =>{
         valuesArray = Array.from(values)
         createInputs(valuesArray)
-        createTable(valuesArray)
+        createTable(valuesArray, getBaseTime(valuesArray))
+        updateInputs(valuesArray)
     })
 }
 
 function createInputs(_values){
-    for(let i = 0; i < 2; i++){
+    const titleH2 = document.createElement('h2')
+    titleH2.textContent = 'Filtrer'
+    for(let i = 0; i < 3; i++){
         const input = document.createElement('input')
         input.setAttribute('type', 'text')
         input.setAttribute('class', 'first-inputs')
         body.appendChild(input)
+    }    
+    const filterWrapper = document.createElement('div')
+    filterWrapper.setAttribute('id', 'filter-wrap')
+    for(let i = 0; i < _values.length; i++){
+        const filters = document.createElement('div')
+        filters.setAttribute('class', 'filters')
+        filters.appendChild(createFilters(_values, sortByCountries(_values), i))
+        filters.appendChild(createLabels(sortByCountries(_values), i))
+        filterWrapper.appendChild(filters)
     }
+    body.append(titleH2, filterWrapper)
 }
 
-function createTable(_values){
+function createTable(_values, _basetime){
     const table = document.createElement('table')
     table.appendChild(createTableHead())
-    const filters = document.createElement('div')
     const tbody = document.createElement('tbody')
     sortTemps(_values)
     for(let i = 0; i < _values.length; i++){
         const row = document.createElement('tr')
         row.setAttribute('class', 'rows')
-        row.append(getPays(_values[i]), getName(_values[i]), getFirstName(_values[i]), getTime(_values[i]))
-        filters.appendChild(createFilters(_values, sortByCountries(_values), i))
-        filters.appendChild(createLabels(sortByCountries(_values), i))
+        row.append(getPays(_values[i]), getName(_values[i]), getFirstName(_values[i]), getTime(_values[i]), createLastCell(_values[i], _basetime))
         tbody.appendChild(row)
     }
-    body.appendChild(filters)
     table.appendChild(tbody)
     body.appendChild(table)
-    updateInputs(_values)
+    
 }
 
 function createTableHead(){
     const tableHead = document.createElement('thead')
-    for(let i = 0; i < 4; i++){
+    for(let i = 0; i < 5; i++){
         const thCells = document.createElement('th')
         switch(i){
             case 0:
@@ -60,6 +69,9 @@ function createTableHead(){
                 break
             case 3:
                 thCells.textContent = "Temps Final"
+                break
+            case 4:
+                thCells.textContent = "Écart gagnant"
                 break
             default:
                 "something went wrong"
@@ -84,7 +96,6 @@ function createFilters(_values, _country, i){
 function createLabels(_country, i){
     const label = document.createElement('label')
     label.setAttribute('name', _country[i].toLowerCase())
-    label.setAttribute('class', `country-check`)
     label.textContent = _country[i]
     return label
 }
@@ -120,6 +131,17 @@ function timeToString(t) {
     return `${minutes}min${seconds}s`
 }
 
+function getBaseTime(_values){
+    sortTemps(_values)
+    return _values[0].temps
+}
+
+function createLastCell(_value, _basetime){
+    const cell = document.createElement('td')
+    cell.textContent = "+" + (_value.temps - _basetime) + "s"
+    return cell
+}
+
 function sortTemps(_values){
     _values.sort((a,b) => a.temps - b.temps);
 }
@@ -133,11 +155,54 @@ function sortByCountries(_values){
 function updateInputs(_values){
     const inputs = document.querySelectorAll('.first-inputs')
     for(let i = 0; i < inputs.length; i++){
-        inputs[i].value = i == 0 ? `${_values.length} participants` : `Gagnant : ${_values[0].nom}`
+        switch(i){
+            case 0:
+                inputs[i].value = `${_values.length} participants`
+                break
+            case 1:
+                inputs[i].value = `Gagnant : ${_values[0].nom}`
+                break
+            case 2:
+                inputs[i].value = 'Temps moyen = ' + getAverage(_values)
+                break
+            default:
+                console.log('something went wrong')
+        }
     }
 }
 
-function isVisible(_valuesOrigin, _values){
-    let checkedBox = document.querySelectorAll('input:checked');
-    console.log(_values)
+function getAverage(_values){
+    const average = arr => arr.reduce( ( a, b) => a + b, 0 ) / arr.length;
+    const sum = _values.map((x) => Number(x.temps))
+    return timeToString(average(sum))
+}
+
+function isVisible(_values){
+    let visible = []
+    let checkedBox = document.querySelectorAll('.country-check');
+    const mainNode = document.querySelector("table");
+    mainNode.remove()
+    for(let i = 0; i < checkedBox.length; i++){
+        for (let j = _values.length - 1; j >= 0; --j) {
+            if(checkedBox[i].checked){
+                if (_values[j].pays.toLowerCase() == checkedBox[i].id) {
+                    visible.push(_values[j])
+                }
+            }
+        }
+        if(!checkedBox[i].checked){
+            for(let k = 0; k < visible.length; k++){
+                if (visible[k].pays.toLowerCase() == checkedBox[i].id) {
+                    visible.splice(k,1);
+                }
+            }
+            
+        }
+    }
+    if(visible.length != 0){
+        createTable(visible, getBaseTime(_values))
+    }else{
+        createTable(_values, getBaseTime(_values))
+    }
+    
 }
