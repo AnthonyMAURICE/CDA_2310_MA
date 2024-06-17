@@ -1,0 +1,13 @@
+@import './base.css';
+
+nav{
+  background-color: var(--main-green);
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 0rem;
+}
+
+nav a {
+  text-decoration: none;
+  margin: 0px 25px;
+}

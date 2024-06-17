@@ -1,0 +1,84 @@
+:root{
+    --cell-width: 2.6vw;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+html{
+	font-size: 62.5%;
+}
+
+body{
+	font-size: 1.6rem;
+}
+
+.main{
+    width: calc(var(--cell-width) * 9);
+    margin: auto;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.one-height{
+    height: var(--cell-width);
+}
+
+.one-width{
+    width: var(--cell-width);
+}
+
+.two-height{
+    height: calc(var(--cell-width) * 2);
+}
+
+.two-width{
+    width: calc(var(--cell-width) * 2);
+}
+
+.three-height{
+    height: calc(var(--cell-width) * 3);
+}
+
+.three-width{
+    width: calc(var(--cell-width) * 3);
+}
+
+.five-width{
+    width: calc(var(--cell-width) * 5);
+}
+
+.four-width{
+    width: calc(var(--cell-width) * 4)
+}
+
+.seven-width{
+    width: calc(var(--cell-width) * 7);
+}
+
+.main-square{
+    background-color: black;
+    margin: 10rem auto;
+    height: 100%;
+    width: 100%;
+}
+.red{
+    background-color: red;
+}
+
+.white{
+    background-color: white;
+}
+
+.center{
+    justify-content: center;
+}
+
+.absolute{
+    position: absolute;
+    margin-left: var(--cell-width);
+}
