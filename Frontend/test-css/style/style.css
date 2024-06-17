@@ -1,5 +1,5 @@
 :root{
-    --cell-width: 3vw;
+    --cell-size: 3vw;
 }
 
 *{
@@ -15,7 +15,7 @@ body{
 }
 
 .main{
-    width: calc(var(--cell-width) * 9);
+    width: calc(var(--cell-size) * 9);
     margin: auto;
 }
 
@@ -25,39 +25,35 @@ body{
 }
 
 .one-height{
-    height: var(--cell-width);
+    height: var(--cell-size);
 }
 
 .one-width{
-    width: var(--cell-width);
-}
-
-.two-height{
-    height: calc(var(--cell-width) * 2);
+    width: var(--cell-size);
 }
 
 .two-width{
-    width: calc(var(--cell-width) * 2);
+    width: calc(var(--cell-size) * 2);
 }
 
 .three-height{
-    height: calc(var(--cell-width) * 3);
+    height: calc(var(--cell-size) * 3);
 }
 
 .three-width{
-    width: calc(var(--cell-width) * 3);
+    width: calc(var(--cell-size) * 3);
 }
 
 .five-width{
-    width: calc(var(--cell-width) * 5);
+    width: calc(var(--cell-size) * 5);
 }
 
 .four-width{
-    width: calc(var(--cell-width) * 4)
+    width: calc(var(--cell-size) * 4)
 }
 
 .seven-width{
-    width: calc(var(--cell-width) * 7);
+    width: calc(var(--cell-size) * 7);
 }
 
 .main-square{
@@ -80,5 +76,5 @@ body{
 
 .absolute{
     position: absolute;
-    margin-left: var(--cell-width);
+    margin-left: var(--cell-size);
 }
