@@ -1,5 +1,8 @@
 :root{
-    --cell-size: 3vw;
+    --cell-size: 4vw;
+    --first-color: black;
+    --second-color: white;
+    --third-color: red;
 }
 
 *{
@@ -16,7 +19,11 @@ body{
 
 .main{
     width: calc(var(--cell-size) * 9);
-    margin: auto;
+    margin: 15% auto;
+}
+
+.main-square{
+    background-color: var(--first-color);
 }
 
 .flex{
@@ -56,25 +63,18 @@ body{
     width: calc(var(--cell-size) * 7);
 }
 
-.main-square{
-    background-color: black;
-    margin: 25% auto;
-    height: 100%;
-    width: 100%;
-}
-.red{
-    background-color: red;
+.third{
+    background-color: var(--third-color);
 }
 
-.white{
-    background-color: white;
+.second{
+    background-color: var(--second-color);
 }
 
 .center{
     justify-content: center;
 }
 
-.absolute{
-    position: absolute;
+.above{
     margin-left: var(--cell-size);
 }
