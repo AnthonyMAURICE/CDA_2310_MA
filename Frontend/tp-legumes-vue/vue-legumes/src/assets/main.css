@@ -11,3 +11,9 @@ nav a {
   text-decoration: none;
   margin: 0px 25px;
 }
+
+
+button{
+  width: 10rem;
+  margin-top: 1.5rem;
+}

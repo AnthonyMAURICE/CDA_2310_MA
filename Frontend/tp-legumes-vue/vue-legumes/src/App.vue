@@ -8,14 +8,14 @@ import Banner from './components/BannerComp.vue'
     <div class="wrapper">
       <Banner />
       <nav>
-        <div class="nav-elem">
-          <RouterLink to="/">VENTES</RouterLink>
-          <RouterLink to="/">NOUVELLE VENTE</RouterLink>
-        </div>
-        <div class="nav-elem">
-          <RouterLink to="/">LÉGUMES</RouterLink>
-          <RouterLink to="/">NOUVEAU LÉGUME</RouterLink>
-        </div>
+        <ul class="nav-elem">
+          <li><RouterLink to="/ventes">VENTES</RouterLink></li>
+          <li><RouterLink to="/addSale">NOUVELLE VENTE</RouterLink></li>
+        </ul>
+        <ul class="nav-elem">
+          <li><RouterLink to="/">LÉGUMES</RouterLink></li>
+          <li><RouterLink to="/addLegume">NOUVEAU LÉGUME</RouterLink></li>
+        </ul>
       </nav>
     </div>
   </header>
@@ -24,34 +24,34 @@ import Banner from './components/BannerComp.vue'
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
 
 nav {
   width: 100%;
   font-size: 12px;
   text-align: center;
-  padding: 1rem 0;
+  height: 3.5rem;
 }
 
-nav a.router-link-exact-active {
+.nav-elem{
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-elem a{
+  display: flex;
   color: var(--color-text);
+  padding: 1rem;
+  align-items: center;
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+li{
+  color: white;
 }
 
-nav a {
-  
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
+li:hover{
+  background-color: lightgreen;
+  color: black;
 }
 
 @media (min-width: 1024px) {
@@ -74,7 +74,7 @@ nav a:first-of-type {
   nav {
     text-align: left;
     font-size: 1rem;
-    padding: 1rem 0;
+    height: 4.5rem;
   }
 }
 </style>

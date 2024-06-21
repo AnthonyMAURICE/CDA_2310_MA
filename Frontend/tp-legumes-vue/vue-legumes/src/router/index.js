@@ -9,11 +9,21 @@ const router = createRouter({
       name: 'home',
       component: LegumeView
     },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   component: () => import('../views/AboutView.vue')
-    // }
+    {
+      path: '/ventes',
+      name: 'ventes',
+      component: () => import('../views/VenteView.vue')
+    },
+    {
+      path: '/addLegume',
+      name: 'addLegume',
+      component: () => import('../views/AddLegumeView.vue')
+    },
+    {
+      path: '/addSale',
+      name: 'addSale',
+      component: () => import('../views/AddSaleView.vue')
+    }
   ]
 })
 
