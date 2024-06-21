@@ -1,12 +1,19 @@
 <script setup>
-
+import {ref} from 'vue';
 let savedData = localStorage
+const Id = ref(0);
 
 async function fetchData(){
     const response = await fetch('https://arfp.github.io/tp/web/javascript2/11-grocery/legumos.json')
     const data = await response.json()
     return data
+};
+
+function calcId(){
+    return I.value++
 }
+
+// calculer IDS et implémenter avec setAttribute
 
 let vegetables = await fetchData()
 if(localStorage.getItem("data") !== null){

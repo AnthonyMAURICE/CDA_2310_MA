@@ -1,5 +1,9 @@
 <script setup>
+    document.querySelector('button').addEventListener('click', adding)
 
+    function adding(){
+
+    }
 </script>
 
 <template>
