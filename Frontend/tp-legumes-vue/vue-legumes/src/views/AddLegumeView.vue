@@ -1,9 +1,14 @@
 <script setup>
+import { onMounted } from "vue";
+
+onMounted(() => {
     document.querySelector('button').addEventListener('click', adding)
 
     function adding(){
-
+        console.log("A Marche !")
     }
+})
+    
 </script>
 
 <template>

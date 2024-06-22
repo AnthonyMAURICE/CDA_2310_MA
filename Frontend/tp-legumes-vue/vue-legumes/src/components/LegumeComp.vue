@@ -1,7 +1,7 @@
 <script setup>
-import {ref} from 'vue';
+import {ref, onMounted} from 'vue';
 let savedData = localStorage
-const Id = ref(0);
+const Id = ref(1);
 
 async function fetchData(){
     const response = await fetch('https://arfp.github.io/tp/web/javascript2/11-grocery/legumos.json')
@@ -9,11 +9,13 @@ async function fetchData(){
     return data
 };
 
-function calcId(){
-    return I.value++
-}
-
-// calculer IDS et implémenter avec setAttribute
+onMounted(() => {
+    const rows = document.querySelectorAll('tr')
+    for(let row of rows){
+        row.setAttribute('id', Id.value)
+        Id.value++
+    }
+})
 
 let vegetables = await fetchData()
 if(localStorage.getItem("data") !== null){
@@ -24,7 +26,7 @@ if(localStorage.getItem("data") !== null){
 </script>
 
 <template>
-    <tr class="row" v-for="vegetable in vegetables">    
+    <tr class="table-row" v-for="vegetable in vegetables">    
         <td>{{ vegetable.Name.charAt(0).toUpperCase() + vegetable.Name.slice(1) }}</td>
         <td>{{ vegetable.Variety.charAt(0).toUpperCase() + vegetable.Variety.slice(1) }}</td>
         <td>{{ vegetable.PrimaryColor }}</td>
