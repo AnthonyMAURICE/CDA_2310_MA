@@ -2,8 +2,7 @@
     import { onMounted } from 'vue';
     import {store} from '../assets/store.js'
     let savedData = localStorage
-    console.log(savedData)
-
+    console.log(store.vegetables)
     onMounted(() => {
         const rows = document.querySelectorAll('tr')
         for(let i = 0; i < rows.length; i++){
@@ -12,9 +11,11 @@
     
 
         if(localStorage.getItem("Addition") !== null){
-            let file = JSON.parse(savedData.getItem('Addition'))
-            console.log(file)
-            store.vegetables = store.vegetables.concat(file)
+            let files = JSON.parse(savedData.getItem('Addition'))
+            for(let file of files){
+                store.vegetables.push(file)
+            }
+            console.log(store.vegetables)
         }
     })
 

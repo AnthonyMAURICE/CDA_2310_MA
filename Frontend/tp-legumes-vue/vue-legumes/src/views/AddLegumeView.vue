@@ -4,6 +4,13 @@ import {store} from '../assets/store.js'
 let storeItem = localStorage
 
 const identifiers = ref(store.vegetables.length + 1)
+let savedArray = []
+
+if(localStorage.getItem("Addition") !== null){
+    let file = JSON.parse(storeItem.getItem('Addition'))
+    console.log(file)
+    savedArray.push(file)
+}
 
 const saved = {
     Id: identifiers.value,
@@ -21,7 +28,8 @@ function increment(){
 
 function adding(){
     increment()
-    storeItem.setItem('Addition', JSON.stringify(saved))
+    savedArray.push(saved)
+    storeItem.setItem('Addition', JSON.stringify(savedArray))
 }
     
 </script>
