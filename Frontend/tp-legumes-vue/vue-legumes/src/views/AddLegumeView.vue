@@ -1,13 +1,28 @@
 <script setup>
-import { onMounted } from "vue";
+import { ref, onMounted } from "vue";
+import {store} from '../assets/store.js'
+let storeItem = localStorage
 
-onMounted(() => {
-    document.querySelector('button').addEventListener('click', adding)
+const identifiers = ref(store.vegetables.length + 1)
 
-    function adding(){
-        console.log("A Marche !")
-    }
-})
+const saved = {
+    Id: identifiers.value,
+    Name: '',
+    Variety: '',
+    PrimaryColor: '',
+    LifeTime: '',
+    Fresh: false,
+    Price: 0
+}
+
+function increment(){
+    identifiers.value++
+}
+
+function adding(){
+    increment()
+    storeItem.setItem('Addition', JSON.stringify(saved))
+}
     
 </script>
 
@@ -17,20 +32,22 @@ onMounted(() => {
         <fieldset>
             <legend>Nouveau Légume</legend>
             <label for="name">Nom : </label>
-            <input type="text" id="name" required>
+            <input v-model="saved.Name" type="text" id="name" required>
             <label for="variety">Variété : </label>
-            <input type="text" id="variety" required>
+            <input v-model="saved.Variety" type="text" id="variety" required>
             <label for="color">Couleur : </label>
-            <input type="text" id="color" required>
+            <input v-model="saved.PrimaryColor" type="text" id="color" required>
             <label for="lifetime">Durée de Conservation : </label>
-            <input type="number" id="lifetime" required>
+            <input v-model="saved.LifeTime" type="number" id="lifetime" required>
+            <label for="price">Prix : </label>
+            <input v-model="saved.Price" type="number" id="price" required>
             <p>Frais : 
                 <label class="radio" for="fresh">Oui</label>
                 <input type="radio" id="fresh" name="fresh">
                 <label class="radio" for="not-fresh">Non</label>
                 <input type="radio" id="not-fresh" name="fresh">
             </p>
-            <button type="submit" form="add-form">Ajouter</button>
+            <button @click="adding()" form="add-form">Ajouter</button>
         </fieldset>
     </form>
 </template>

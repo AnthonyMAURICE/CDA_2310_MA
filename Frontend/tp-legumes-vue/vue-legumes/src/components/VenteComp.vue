@@ -10,26 +10,29 @@ import { computed } from 'vue'
     const sales = await fetchData()
 
     const openSales = computed(() => {
-        return sales.filter(i => i.SaleActive)
+        return sales.filter(elem => elem.SaleActive != 0)
     })
     
     function dateFormat(_date){
         _date = _date.split("-")
-        return _date[2] + "/" + _date[1] + "/" + _date[0]
+        return `${_date[2]}/${_date[1]}/${_date[0]}`
+    }
+
+    function nameFormat(_name){
+        return _name.charAt(0).toUpperCase() + _name.slice(1)
     }
         
 </script>
 
 <template>
     <div class="sales" v-for="items in openSales">
-        <p class="bold">{{ items.Name.charAt(0).toUpperCase() + items.Name.slice(1)  }}</p>
+        <p class="bold">{{ nameFormat(items.Name) }}</p>
         <p class="bold">({{ items.SaleWeight }} kg)</p>
         <p class="date">{{ dateFormat(items.SaleDate) }}</p>
     </div>
 </template>
 
 <style scoped>
-
     div{
         display: flex;
         flex-flow: column;
@@ -41,6 +44,11 @@ import { computed } from 'vue'
         align-items: center;
         justify-content: flex-start;
         padding: 1rem;
+    }
+
+    div:hover{
+        background-color: lightgreen;
+        color: black;
     }
 
     .bold{

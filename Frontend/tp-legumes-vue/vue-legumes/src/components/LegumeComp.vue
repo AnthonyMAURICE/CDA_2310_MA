@@ -1,58 +1,63 @@
 <script setup>
-import {ref, onMounted} from 'vue';
-let savedData = localStorage
-const Id = ref(1);
+    import { onMounted } from 'vue';
+    import {store} from '../assets/store.js'
+    let savedData = localStorage
+    console.log(savedData)
 
-async function fetchData(){
-    const response = await fetch('https://arfp.github.io/tp/web/javascript2/11-grocery/legumos.json')
-    const data = await response.json()
-    return data
-};
+    onMounted(() => {
+        const rows = document.querySelectorAll('tr')
+        for(let i = 0; i < rows.length; i++){
+            rows[i].setAttribute('id', store.vegetables[i].Id)
+        }
+    
 
-onMounted(() => {
-    const rows = document.querySelectorAll('tr')
-    for(let row of rows){
-        row.setAttribute('id', Id.value)
-        Id.value++
+        if(localStorage.getItem("Addition") !== null){
+            let file = JSON.parse(savedData.getItem('Addition'))
+            console.log(file)
+            store.vegetables = store.vegetables.concat(file)
+        }
+    })
+
+    function nameFormat(_name){
+        return _name.charAt(0).toUpperCase() + _name.slice(1)
     }
-})
-
-let vegetables = await fetchData()
-if(localStorage.getItem("data") !== null){
-    let file = JSON.parse(savedData.getItem("data"))
-    vegetables = vegetables.concat(file)
-}
-
 </script>
 
 <template>
-    <tr class="table-row" v-for="vegetable in vegetables">    
-        <td>{{ vegetable.Name.charAt(0).toUpperCase() + vegetable.Name.slice(1) }}</td>
-        <td>{{ vegetable.Variety.charAt(0).toUpperCase() + vegetable.Variety.slice(1) }}</td>
+    <tr class="table-row" v-for="vegetable in store.vegetables">    
+        <td>{{ nameFormat(vegetable.Name) }}</td>
+        <td>{{ nameFormat(vegetable.Variety) }}</td>
         <td>{{ vegetable.PrimaryColor }}</td>
         <td>{{ vegetable.LifeTime }}</td>
         <td v-if="vegetable.Fresh == 0">non</td>
-        <td v-else> oui</td>
+        <td v-else>oui</td>
         <td>{{ vegetable.Price }}</td>
-        <td>
-            <p>
-                <input id="btn-edit" class="btn-td" type="button" value="Editer">
-                -
-                <input id="btn-del" class="btn-td" type="button" value="Supprimer">
-            </p>
+        <td class="edit-suppr">
+            <input class="input edit-input" type="button" value="Editer">
+            -
+            <input class="input suppr-input" type="button" value="Supprimer">
         </td>
     </tr>
 </template>
 
 <style scoped>
-    .btn-td{
-        border: none;
-        color: blue;
-        cursor: pointer;
-        background-color: transparent;
+    .edit-suppr{
+        display: flex;
+        justify-content: space-evenly;
     }
 
-    .btn-td:hover{
-        text-decoration: underline
+    a{
+        text-decoration: none
+    }
+
+    .input{
+        border: none;
+        background-color: transparent;
+        color: blue;
+    }
+
+    .input:hover{
+        text-decoration: underline;
+        cursor: pointer;
     }
 </style>
