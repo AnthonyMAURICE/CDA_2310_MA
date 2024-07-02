@@ -1,16 +1,21 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
+import {storedSale} from '../assets/store.js'
 
-    async function fetchData(){
-        const response = await fetch('https://arfp.github.io/tp/web/javascript2/11-grocery/legumos-sales.json')
-        const data = await response.json()
-        return data
-    }
+let savedData = localStorage
 
-    const sales = await fetchData()
+    onMounted(() =>{
+        if(localStorage.getItem('Sales') !== null){
+            let files = JSON.parse(savedData.getItem('Sales'))
+            for(let file of files){
+                storedSale.sales.push(file)
+            }
+        }
+    })
+
 
     const openSales = computed(() => {
-        return sales.filter(elem => elem.SaleActive != 0)
+        return storedSale.sales.filter(elem => elem.SaleActive != 0)
     })
     
     function dateFormat(_date){

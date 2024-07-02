@@ -1,24 +1,29 @@
 <script setup>
-    import { onMounted } from 'vue';
+    import { onMounted, onUpdated } from 'vue';
     import {store} from '../assets/store.js'
     let savedData = localStorage
-    console.log(store.vegetables)
     onMounted(() => {
-        const rows = document.querySelectorAll('tr')
-        for(let i = 0; i < rows.length; i++){
-            rows[i].setAttribute('id', store.vegetables[i].Id)
-        }
-    
+        assignIdRows()
 
         if(localStorage.getItem("Addition") !== null){
             let files = JSON.parse(savedData.getItem('Addition'))
             for(let file of files){
                 store.vegetables.push(file)
             }
-            console.log(store.vegetables)
         }
+        
     })
 
+    onUpdated(() =>{
+        assignIdRows()
+    })
+
+    function assignIdRows(){
+        const rows = document.querySelectorAll('tr')
+        for(let i = 0; i < rows.length; i++){
+            rows[i].setAttribute('id', store.vegetables[i].Id)
+        }
+    }
     function nameFormat(_name){
         return _name.charAt(0).toUpperCase() + _name.slice(1)
     }

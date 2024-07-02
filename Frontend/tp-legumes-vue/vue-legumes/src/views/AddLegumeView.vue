@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref } from "vue"
 import {store} from '../assets/store.js'
 let storeItem = localStorage
 
@@ -8,8 +8,7 @@ let savedArray = []
 
 if(localStorage.getItem("Addition") !== null){
     let file = JSON.parse(storeItem.getItem('Addition'))
-    console.log(file)
-    savedArray.push(file)
+    savedArray = file
 }
 
 const saved = {
@@ -55,7 +54,7 @@ function adding(){
                 <label class="radio" for="not-fresh">Non</label>
                 <input type="radio" id="not-fresh" name="fresh">
             </p>
-            <button @click="adding()" form="add-form">Ajouter</button>
+            <button @click="adding" form="add-form">Ajouter</button>
         </fieldset>
     </form>
 </template>

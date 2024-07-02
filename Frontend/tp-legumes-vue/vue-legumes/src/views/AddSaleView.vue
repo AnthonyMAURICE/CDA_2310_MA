@@ -1,4 +1,36 @@
+<script setup>
+import { ref } from 'vue'
+import {storedSale} from '../assets/store.js'
 
+let storeSale = localStorage
+const salesId = ref(storedSale.sales.length + 1)
+
+let salesArray = []
+
+if(localStorage.getItem('Sales') !== null){
+    let file = JSON.parse(storeSale.getItem('Sales'))
+    salesArray = file
+}
+
+
+const savedSale = {
+    Id: salesId.value,
+    Name: '',
+    SaleWeight: '',
+    SaleDate: ''
+}
+
+
+function increment(){
+    salesId.value++
+}
+
+function addingSale(){
+    increment()
+    salesArray.push(savedSale)
+    storeSale.setItem('Sales', JSON.stringify(salesArray))
+}
+</script>
 
 <template>
     <h1>Ajouter une vente</h1>
@@ -6,12 +38,12 @@
         <fieldset>
             <legend>Nouvelle vente</legend>
             <label for="name">Nom : </label>
-            <input type="text" id="name" required>
-            <label for="variety">Variété : </label>
-            <input type="text" id="variety" required>
+            <input v-model="savedSale.Name" type="text" id="name" required>
+            <label for="weight">Poids de la vente : </label>
+            <input v-model="savedSale.SaleWeight" type="number" id="weight" required>
             <label for="date">Date : </label>
-            <input type="date" id="date">
-            <button type="submit" form="add-form">Ajouter</button>
+            <input v-model="savedSale.SaleDate" type="date" id="date" required>
+            <button @click="addingSale">Ajouter</button>
         </fieldset>
     </form>
 </template>
