@@ -1,8 +1,6 @@
 <script>
-    const DEFAULT_SIZE = 16
-    const MIN_SIZE = 8
-    const MAX_SIZE = 48
-export default {
+    import realfontSize from '../assets/sizeChecker.js';
+    export default {
     
         emits: ["size-input"],
         props: ['size'],
@@ -13,17 +11,19 @@ export default {
             }
         },
         computed: {
-            realfontSize() {
-                if(this.fontSize < MIN_SIZE || this.fontSize > MAX_SIZE) {
-                    this.fontSize = DEFAULT_SIZE;
-                }
+            checkSize() {
+                realfontSize(this.fontSize)
                 this.sendData()
-            },
-            
+            }
         },
         methods:{
             sendData(){
                 this.$emit('size-input', this.fontSize)
+            }
+        },
+        watch: {
+            size(){
+                this.fontSize = this.$props.size
             }
         }
     }
@@ -31,7 +31,7 @@ export default {
 
 <template>
     <label for="sizeInput">Saisie manuelle</label>
-    <input type="number" id="sizeInput" @change="realfontSize" v-model="fontSize">
+    <input type="number" id="sizeInput" @input="checkSize" v-model="fontSize">
 </template>
 
 <style>

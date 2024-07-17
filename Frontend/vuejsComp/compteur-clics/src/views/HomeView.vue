@@ -1,9 +1,9 @@
 <script>
     const DEFAULT_SIZE = 16
-    const MIN_SIZE = 8
-    const MAX_SIZE = 48
     import SizeButtons from '../components/SizeButton.vue'
     import SizeInput from '../components/SizeInput.vue'
+    import realfontSize from '../assets/sizeChecker.js';
+
 
     export default {
         data(){
@@ -12,11 +12,9 @@
             }
         },
         computed: {
-            realfontSize() {
-                if(this.fontSize < MIN_SIZE || this.fontSize > MAX_SIZE) {
-                    this.fontSize = DEFAULT_SIZE;
-                }
-                return this.fontSize;
+            checkSize() {
+                this.fontSize = realfontSize(this.fontSize)
+                return this.fontSize
             }
         },
         components: {
@@ -36,10 +34,10 @@
     <div>
         <div>
             <SizeButtons @size-event="eventHandler" :size="fontSize"/>
-            <SizeInput @size-input="eventHandler" :size="realfontSize" />
+            <SizeInput @size-input="eventHandler" :size="checkSize" />
         </div>
         
-        <p :style="{ 'font-size': `${realfontSize}px` }">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic id esse ad eius perspiciatis reiciendis. Illum omnis aperiam natus alias possimus consectetur maiores vitae id mollitia ex voluptates, dignissimos architecto!</p>
+        <p :style="{ 'font-size': `${checkSize}px` }">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic id esse ad eius perspiciatis reiciendis. Illum omnis aperiam natus alias possimus consectetur maiores vitae id mollitia ex voluptates, dignissimos architecto!</p>
     </div>
 </template>
 
