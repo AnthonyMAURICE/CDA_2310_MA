@@ -1,6 +1,7 @@
 <script>
 import TableHead from './TableHead.vue'
 import CardComponent from '../components/CardComponent.vue'
+import InfoComponent from '../components/InfoComponent.vue'
 export default {
     data(){
         return{
@@ -9,7 +10,8 @@ export default {
     },
     components: {
         TableHead,
-        CardComponent
+        CardComponent,
+        InfoComponent
     }
 }
 </script>
@@ -18,8 +20,9 @@ export default {
     <table>
         <TableHead />
         <CardComponent />
+        
     </table>
-    
+    <InfoComponent />
 </template>
 
 <style scoped>

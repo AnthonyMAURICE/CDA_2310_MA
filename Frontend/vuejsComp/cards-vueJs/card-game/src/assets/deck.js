@@ -7,7 +7,6 @@ for(let elem of result){
     for(let items in elem){
         items != undefined ? card[items] = elem[items] : card[items] = ""
     }
-    
     deck.push(card)
 }
 

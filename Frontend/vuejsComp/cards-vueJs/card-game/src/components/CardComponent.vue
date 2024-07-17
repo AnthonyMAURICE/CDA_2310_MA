@@ -4,7 +4,7 @@ import deck from '../assets/deck.js'
 export default {
     data(){
         return{
-            cardDeck: deck
+            cardDeck: deck,
         }
     },
     mounted(){
@@ -29,7 +29,7 @@ export default {
 </template>
 
 <style scoped>
-td{
-    padding: 10px;
-}
+    td{
+        padding: 10px;
+    }
 </style>

@@ -7,6 +7,7 @@ export default {
             data: result
         }
     },
+    
     methods:{
         getTableHeadElem(_item){
             if(_item == 'description'){
