@@ -3,12 +3,12 @@
     export default {
         data(){
             return{
-                eval: storedEval.value
+                eval: null
             }
         },
         computed: {
             getLength(){
-                console.log(this.eval.grades.length)
+                console.log(storedEval.value)
             }
         },
         methods:{
