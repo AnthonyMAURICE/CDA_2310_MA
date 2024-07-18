@@ -4,7 +4,13 @@ class Evaluation{
         this.grades = _grades
     }
 
-
+    average(){
+        let sum = 0
+        for(let value of this.grades){
+            sum += value
+        }
+        return sum/this.grades.length
+    }
 }
 
 export default Evaluation

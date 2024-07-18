@@ -13,6 +13,9 @@
             Thead,
             List,
             Stat
+        },
+        methods: {
+
         }
     }
 </script>

@@ -1,13 +1,13 @@
 <script>
     import result from '../assets/fetchData.js'
     import Student from '../assets/Student.js'
-    import calcAvg from '../assets/calcAvg.js'
-    import Evaluation from '@/assets/Evaluation.js';
+    import { eva, storedEval } from '../assets/store.js'
     export default {
         data(){
             return{
                 data: [],
-                evaluation: new Evaluation(12, calcAvg)
+                gradeArray: [],
+                eval: null
             }
         },
         mounted(){
@@ -16,6 +16,12 @@
                 this.data.push(student)
             }
             this.data.sort((a, b) => b.grade - a.grade)
+            result.forEach(element => {
+                    this.gradeArray.push(element.grade)
+            });
+            this.eval = eva.setEval(12, this.gradeArray)
+            storedEval.value = this.eval
+            console.log(storedEval)
         },
     }
     
@@ -27,7 +33,7 @@
             <td>{{ student.lName }}</td>
             <td>{{ student.fName }}</td>
             <td>{{ student.grade }}</td>
-            <td>{{ student.grade >= evaluation.threshold ? 'oui' : 'non' }}</td>
+            <td>{{ student.grade >= eval.threshold ? 'oui' : 'non' }}</td>
         </tr>
     </tbody>
 </template>
