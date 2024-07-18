@@ -1,9 +1,9 @@
 function calcAvg(_arrayOfValues){
-    let globalNote = 0
+    let sum = 0
     for(let value of _arrayOfValues){
-        globalNote += value
+        sum += value
     }
-    return globalNote/_arrayOfValues.length
+    return sum/_arrayOfValues.length
 }
 
 export default calcAvg

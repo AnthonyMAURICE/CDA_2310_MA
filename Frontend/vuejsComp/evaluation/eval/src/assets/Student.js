@@ -3,6 +3,7 @@ class Student{
         this.lName = _lname
         this.fName = _fname
         this.grade = _grade
+        
     }
 
 
