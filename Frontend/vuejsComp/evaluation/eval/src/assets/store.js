@@ -1,14 +1,19 @@
 import { reactive } from 'vue'
-import Evaluation from '../assets/Evaluation.js';
-
+import result from '../assets/fetchData.js'
 
 export const eva = reactive({
-    setEval(_threshold, _grades){
-        return new Evaluation(_threshold, _grades)
+    value: {
+        threshold: null,
+        grades: null,
+        gradesLength: null,
+        average: null
     }
 })
 
+export const resultArray = reactive({
+    value: result
+})
 
-export const storedEval = reactive({
-    value: null
+export const data = reactive({
+    value: []
 })

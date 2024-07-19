@@ -2,14 +2,15 @@ class Evaluation{
     constructor(_threshold, _grades){
         this.threshold = _threshold
         this.grades = _grades
+        this.average = this.average(this.grades)
     }
 
-    average(){
+    average(gradesArray){
         let sum = 0
-        for(let value of this.grades){
+        for(let value of gradesArray){
             sum += value
         }
-        return sum/this.grades.length
+        return sum/gradesArray.length
     }
 }
 

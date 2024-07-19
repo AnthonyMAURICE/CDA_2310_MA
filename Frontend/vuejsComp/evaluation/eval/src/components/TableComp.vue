@@ -2,6 +2,7 @@
     import Thead from './TheadComp.vue'
     import List from './TbodyComp.vue'
     import Stat from './StatComp.vue'
+    import Form from './FormComp.vue'
 
     export default {
         data(){
@@ -12,7 +13,8 @@
         components:{
             Thead,
             List,
-            Stat
+            Stat,
+            Form
         },
         methods: {
 
@@ -21,6 +23,7 @@
 </script>
 
 <template>
+    <Form />
     <table>
         <Thead />
         <List />

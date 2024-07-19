@@ -1,14 +1,33 @@
 <script>
-    import { storedEval } from '../assets/store.js'
+    import { eva } from '../assets/store.js'
     export default {
         data(){
             return{
-                eval: null
+
             }
         },
         computed: {
             getLength(){
-                console.log(storedEval.value)
+                
+                return eva.value.gradesLength
+            },
+            getThreshold(){
+                return eva.value.threshold
+            },
+            getAverage(){
+                return eva.value.average
+            },
+            getStudentsAboveAverage(){
+                let counter = 0;
+                if(eva.value.grades != null){
+                    eva.value.grades.forEach(element => {
+                        if(element > eva.value.average){
+                            counter++
+                        }
+                    });
+                }
+                    
+                return counter
             }
         },
         methods:{
@@ -20,9 +39,10 @@
     
 <template>
     <ul>
-        <li>Nombre d'étudiants : {{ getLength() }}</li>
-        <li>Moyenne de la classe : {{ this.eval.average() }}</li>
-        <li>Nombre d'étudiants au dessus de la moyenne : </li>
+        <li>Nombre d'étudiants : {{ getLength }}</li>
+        <li>Moyenne de la classe : {{ getAverage }}</li>
+        <li>Nombre d'étudiants au dessus de la moyenne : {{ getStudentsAboveAverage }}</li>
+        <li>Note éliminatoire : {{ getThreshold }}</li>
     </ul>
 </template>
 

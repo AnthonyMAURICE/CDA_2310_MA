@@ -1,27 +1,33 @@
 <script>
-    import result from '../assets/fetchData.js'
+    //import result from '../assets/fetchData.js'
     import Student from '../assets/Student.js'
-    import { eva, storedEval } from '../assets/store.js'
+    import Evaluation from '../assets/Evaluation.js';
+    import { eva, resultArray, data } from '../assets/store.js'
     export default {
         data(){
             return{
-                data: [],
+                students: data.value,
                 gradeArray: [],
                 eval: null
             }
         },
         mounted(){
-            for(let elem of result){
-                let student = new Student(elem.fullname.split(' ')[0], elem.fullname.split(' ')[1], elem.grade)
-                this.data.push(student)
+            if(resultArray.value != null){
+                for(let elem of resultArray.value){
+                    let student = new Student(elem.fullname.split(' ')[0], elem.fullname.split(' ')[1], elem.grade)
+                    this.students.push(student)
+                }
+                this.students.sort((a, b) => b.grade - a.grade)
+                resultArray.value.forEach(element => {
+                        this.gradeArray.push(element.grade)
+                });
+                this.eval = new Evaluation(12, this.gradeArray)
+                eva.value.threshold = this.eval.threshold
+                eva.value.grades = this.eval.grades
+                eva.value.gradesLength = this.eval.grades.length
+                eva.value.average = this.eval.average
             }
-            this.data.sort((a, b) => b.grade - a.grade)
-            result.forEach(element => {
-                    this.gradeArray.push(element.grade)
-            });
-            this.eval = eva.setEval(12, this.gradeArray)
-            storedEval.value = this.eval
-            console.log(storedEval)
+                
         },
     }
     
@@ -29,7 +35,7 @@
     
 <template>
     <tbody>
-        <tr v-for="student in data">
+        <tr v-for="student in students">
             <td>{{ student.lName }}</td>
             <td>{{ student.fName }}</td>
             <td>{{ student.grade }}</td>
