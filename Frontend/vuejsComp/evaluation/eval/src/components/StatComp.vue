@@ -3,25 +3,24 @@
     export default {
         data(){
             return{
-
+                eval: eva
             }
         },
         computed: {
             getLength(){
-                
-                return eva.value.gradesLength
+                return this.eval.value != null ? this.eval.value.length : 0
             },
             getThreshold(){
-                return eva.value.threshold
+                return this.eval.value != null ? this.eval.value.threshold : 0
             },
             getAverage(){
-                return eva.value.average
+                return this.eval.value != null ? this.eval.value.average : 0
             },
             getStudentsAboveAverage(){
                 let counter = 0;
-                if(eva.value.grades != null){
-                    eva.value.grades.forEach(element => {
-                        if(element > eva.value.average){
+                if(this.eval.value != null){
+                    this.eval.value.grades.forEach(element => {
+                        if(element > this.eval.value.average){
                             counter++
                         }
                     });

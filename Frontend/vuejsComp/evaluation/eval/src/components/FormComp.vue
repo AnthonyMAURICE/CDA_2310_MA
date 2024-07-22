@@ -1,39 +1,38 @@
 <script>
-import { data } from '../assets/store.js'
+import { data, eva } from '../assets/store.js'
+import Student from '../assets/Student.js'
 export default {
     
     data(){
         return{
             name: '',
             grade: 0,
-            students: data,
-            student: {
-                fullname: '',
-                grade: 0
-            }
+            students: data.value,
+            eval: eva
         }
     },
     methods:{
         addStudent(){
-            if(this.checkGradeValidity() && this.checkNameValidity()){
-                let tempElem = ''
-                let tempName = this.name.toLowerCase().split(' ')
+            if(this.checkGradeValidity() && this.checkNameValidity() && this.name != 'Error detected'){
+                let tempName = this.name.toLowerCase().split('-')        
                 tempName = this.capitalizeFirstLetter(tempName)
-                tempName = tempElem.split('-')
-                tempName = this.capitalizeFirstLetter(tempName)
-                tempElem = tempName[0] + '-' + tempName[1]
-                this.student.fullname = tempElem
-                this.student.grade = this.grade
-                console.log(this.student)
+                let tempElem = tempName.join('-').split(' ')
+                tempElem = this.capitalizeFirstLetter(tempElem)
+                let student = new Student(tempElem[0], tempElem[1], this.grade)
+                this.students.push(student)
+                console.log(this.eval.value)
+                this.eval.value.grades.push(this.grade)
+
             }else{
                 this.name = 'Error detected'
             }
         },
         capitalizeFirstLetter(array){
+            let nameArray = []
             for(let elem of array){
-                array += elem.charAt(0).toUpperCase() + elem.slice(1) + " "
+                nameArray.push(elem.charAt(0).toUpperCase() + elem.slice(1))
             }
-            return array
+            return nameArray
         },
         checkNameValidity(){
             const regex = /^[a-zA-Z][a-zA-Z0-9-_ \.]{1,}$/

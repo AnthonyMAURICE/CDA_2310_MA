@@ -3,6 +3,7 @@ class Evaluation{
         this.threshold = _threshold
         this.grades = _grades
         this.average = this.average(this.grades)
+        this.length = this.getLength(this.grades)
     }
 
     average(gradesArray){
@@ -11,6 +12,10 @@ class Evaluation{
             sum += value
         }
         return sum/gradesArray.length
+    }
+
+    getLength(gradesArray){
+        return gradesArray.length
     }
 }
 

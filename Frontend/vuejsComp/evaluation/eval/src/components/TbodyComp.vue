@@ -22,12 +22,9 @@
                         this.gradeArray.push(element.grade)
                 });
                 this.eval = new Evaluation(12, this.gradeArray)
-                eva.value.threshold = this.eval.threshold
-                eva.value.grades = this.eval.grades
-                eva.value.gradesLength = this.eval.grades.length
-                eva.value.average = this.eval.average
+                eva.value = this.eval
+                console.log(eva.value)
             }
-                
         },
     }
     
