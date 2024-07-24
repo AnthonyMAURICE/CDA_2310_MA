@@ -35,7 +35,7 @@ export default {
             return nameArray
         },
         checkNameValidity(){
-            const regex = /^[a-zA-Z][a-zA-Z0-9-_ \.]{1,}$/
+            const regex = /^[a-zA-Z][a-zA-Z-_ \.]{1,}$/
             return regex.test(this.name)
         },
         checkGradeValidity(){
