@@ -81,7 +81,7 @@ namespace TestAPI.Controllers
             _context.Continents.Add(continent);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetContinent", new { id = continent.Id }, continent);
+            return CreatedAtAction(nameof(GetContinent), new { id = continent.Id }, continent);
         }
 
         // DELETE: api/Continents/5
