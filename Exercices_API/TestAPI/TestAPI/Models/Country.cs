@@ -1,0 +1,28 @@
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace TestAPI.Models
+{
+    [Index(nameof(CountryCode), IsUnique =true)]
+    public class Country
+    {
+
+        [Key]
+        [Column("country_id")]
+        public int Id { get; set; }
+
+        [MaxLength(200, ErrorMessage ="Nom définitivement trop long")]
+        [Column("country_name")]
+        public string CountryName { get; set; }
+
+        [Column("country_area")]
+        public int CountryArea { get; set; }
+
+        [MinLength(2)]
+        [MaxLength(2)]
+        [Column("country_code")]
+        public string CountryCode { get; set; }
+
+    }
+}
