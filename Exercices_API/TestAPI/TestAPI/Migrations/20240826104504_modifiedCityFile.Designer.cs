@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestAPI.Db;
 
@@ -10,9 +11,11 @@ using TestAPI.Db;
 namespace TestAPI.Migrations
 {
     [DbContext(typeof(CountryDbContext))]
-    partial class CountryDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240826104504_modifiedCityFile")]
+    partial class modifiedCityFile
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,11 +41,10 @@ namespace TestAPI.Migrations
                     b.Property<string>("CityZipCode")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
-                        .HasColumnName("city_zipcode");
+                        .HasColumnName("city-zipcode");
 
                     b.Property<int>("CountryId")
-                        .HasColumnType("int")
-                        .HasColumnName("country_id");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

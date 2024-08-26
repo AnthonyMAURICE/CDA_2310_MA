@@ -80,7 +80,7 @@ namespace TestAPI.Controllers
         {
             if (CountryExists(country.CountryName))
             {
-                return BadRequest();
+                return Conflict("Le pays \""+ country.CountryName +"\" existe déjà");
             }
             else
             {

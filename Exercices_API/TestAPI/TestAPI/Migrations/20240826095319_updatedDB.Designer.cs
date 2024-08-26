@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestAPI.Db;
 
@@ -10,9 +11,11 @@ using TestAPI.Db;
 namespace TestAPI.Migrations
 {
     [DbContext(typeof(CountryDbContext))]
-    partial class CountryDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240826095319_updatedDB")]
+    partial class updatedDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -20,36 +23,6 @@ namespace TestAPI.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("TestAPI.Models.City", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("id");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("CityName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("city_name");
-
-                    b.Property<string>("CityZipCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("city_zipcode");
-
-                    b.Property<int>("CountryId")
-                        .HasColumnType("int")
-                        .HasColumnName("country_id");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CountryId");
-
-                    b.ToTable("Cities");
-                });
 
             modelBuilder.Entity("TestAPI.Models.Continent", b =>
                 {
@@ -113,17 +86,6 @@ namespace TestAPI.Migrations
                     b.ToTable("Countries");
                 });
 
-            modelBuilder.Entity("TestAPI.Models.City", b =>
-                {
-                    b.HasOne("TestAPI.Models.Country", "Country")
-                        .WithMany("Cities")
-                        .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Country");
-                });
-
             modelBuilder.Entity("TestAPI.Models.Country", b =>
                 {
                     b.HasOne("TestAPI.Models.Continent", "Continent")
@@ -138,11 +100,6 @@ namespace TestAPI.Migrations
             modelBuilder.Entity("TestAPI.Models.Continent", b =>
                 {
                     b.Navigation("Countries");
-                });
-
-            modelBuilder.Entity("TestAPI.Models.Country", b =>
-                {
-                    b.Navigation("Cities");
                 });
 #pragma warning restore 612, 618
         }

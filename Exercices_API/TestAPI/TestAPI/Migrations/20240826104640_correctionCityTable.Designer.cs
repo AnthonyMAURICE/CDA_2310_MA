@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestAPI.Db;
 
@@ -10,9 +11,11 @@ using TestAPI.Db;
 namespace TestAPI.Migrations
 {
     [DbContext(typeof(CountryDbContext))]
-    partial class CountryDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240826104640_correctionCityTable")]
+    partial class correctionCityTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,8 +44,7 @@ namespace TestAPI.Migrations
                         .HasColumnName("city_zipcode");
 
                     b.Property<int>("CountryId")
-                        .HasColumnType("int")
-                        .HasColumnName("country_id");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

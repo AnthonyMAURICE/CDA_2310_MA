@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace TestAPI.Models
 {
@@ -17,5 +18,8 @@ namespace TestAPI.Models
 
         [Column("continent_area")]
         public int ContinentArea { get; set; }
+
+        [JsonIgnore]
+        public ICollection<Country>? Countries { get; set; }
     }
 }

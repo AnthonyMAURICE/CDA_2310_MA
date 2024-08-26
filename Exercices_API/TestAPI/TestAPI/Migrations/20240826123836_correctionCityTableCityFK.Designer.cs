@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestAPI.Db;
 
@@ -10,9 +11,11 @@ using TestAPI.Db;
 namespace TestAPI.Migrations
 {
     [DbContext(typeof(CountryDbContext))]
-    partial class CountryDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240826123836_correctionCityTableCityFK")]
+    partial class correctionCityTableCityFK
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -83,6 +86,10 @@ namespace TestAPI.Migrations
                         .HasColumnName("country_id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CityId")
+                        .HasColumnType("int")
+                        .HasColumnName("city_id");
 
                     b.Property<int>("ContinentId")
                         .HasColumnType("int");

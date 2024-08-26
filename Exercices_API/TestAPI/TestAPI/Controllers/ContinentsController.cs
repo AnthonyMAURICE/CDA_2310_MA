@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -80,7 +81,7 @@ namespace TestAPI.Controllers
         {
             if (ContinentExists(continent.ContinentName))
             {
-                return BadRequest();
+                return Conflict("Le continent \"" + continent.ContinentName + "\" existe déjà");
             }
             else
             {

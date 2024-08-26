@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace TestAPI.Models
 {
@@ -24,5 +25,13 @@ namespace TestAPI.Models
         [Column("country_code")]
         public string CountryCode { get; set; }
 
+        [ForeignKey("Continent")]
+        public int ContinentId { get; set; }
+
+        [JsonIgnore]
+        public Continent? Continent { get; set; }
+
+        [JsonIgnore]
+        public ICollection<City>? Cities { get; set; }
     }
 }
