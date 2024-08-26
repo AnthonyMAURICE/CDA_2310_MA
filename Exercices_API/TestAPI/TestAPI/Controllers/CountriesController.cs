@@ -10,7 +10,7 @@ using TestAPI.Models;
 
 namespace TestAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Countries")]
     [ApiController]
     public class CountriesController : ControllerBase
     {
@@ -60,7 +60,7 @@ namespace TestAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CountryExists(id))
+                if (!CountryExists(country.CountryName))
                 {
                     return NotFound();
                 }
@@ -78,10 +78,16 @@ namespace TestAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Country>> PostCountry(Country country)
         {
-            _context.Countries.Add(country);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetCountry), new { id = country.Id }, country);
+            if (CountryExists(country.CountryName))
+            {
+                return BadRequest();
+            }
+            else
+            {
+                _context.Countries.Add(country);
+                await _context.SaveChangesAsync();
+                return CreatedAtAction(nameof(GetCountry), new { id = country.Id }, country);
+            }
         }
 
         // DELETE: api/Countries/5
@@ -100,9 +106,9 @@ namespace TestAPI.Controllers
             return NoContent();
         }
 
-        private bool CountryExists(int id)
+        private bool CountryExists(string name)
         {
-            return _context.Countries.Any(e => e.Id == id);
+            return _context.Countries.Any(e => e.CountryName.ToLower() == name.ToLower());
         }
     }
 }

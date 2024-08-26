@@ -10,7 +10,7 @@ using TestAPI.Models;
 
 namespace TestAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Continents")]
     [ApiController]
     public class ContinentsController : ControllerBase
     {
@@ -60,7 +60,7 @@ namespace TestAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ContinentExists(id))
+                if (!ContinentExists(continent.ContinentName))
                 {
                     return NotFound();
                 }
@@ -78,10 +78,16 @@ namespace TestAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Continent>> PostContinent(Continent continent)
         {
-            _context.Continents.Add(continent);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetContinent), new { id = continent.Id }, continent);
+            if (ContinentExists(continent.ContinentName))
+            {
+                return BadRequest();
+            }
+            else
+            {
+                _context.Continents.Add(continent);
+                await _context.SaveChangesAsync();
+                return CreatedAtAction(nameof(GetContinent), new { id = continent.Id }, continent);
+            }
         }
 
         // DELETE: api/Continents/5
@@ -100,9 +106,9 @@ namespace TestAPI.Controllers
             return NoContent();
         }
 
-        private bool ContinentExists(int id)
+        private bool ContinentExists(string name)
         {
-            return _context.Continents.Any(e => e.Id == id);
+            return _context.Continents.Any(e => e.ContinentName.ToLower() == name.ToLower());
         }
     }
 }
