@@ -5,9 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./js/main.js" type="module"></script>
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Test API</title>
 </head>
 <body>
-    
+    <div id="app">
+        <header>
+            <h1>Pays</h1>
+        </header>
+        <main>
+            <h2>Liste des pays</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2" class="right">Code</th>
+                        <th colspan="2" class="left">Nom</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="country in countries" :class="country.id%2 == 0? 'darker' : 'dark'">
+                        <td><img :src="formatFlagUrl(country.countryCode, 32)" alt="icone de drapeau"></td>
+                        <td>{{ country.countryCode }}</td>
+                        <td>{{ country.countryName }}</td>
+                        <td><button type="button" @click="modalDialogue">Détails</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <dialog id="country-dialog">
+                <button @click="closeDialog" type="reset">Fermer</button>
+                <h1></h1>
+            </dialog>
+        </main>
+    </div>
 </body>
 </html>
