@@ -1,4 +1,5 @@
 import Country from './Country.js';
+import City from './City.js'
 import fetchData from './fetchData.js'
 
 
@@ -30,7 +31,15 @@ const app = {
             });
         }
         let citiesFetched = await fetchData('Cities')
-        
+        citiesFetched.forEach(element =>{
+            element = new City(element.id, element.cityZipCode, element.cityName, element.countryId)
+            for(let elem of this.countries){
+                if(elem.id === element.countryId){
+                    elem.cities.push(element)
+                }
+                console.log(this.countries)
+            }
+        })
     },
     methods: {
         formatFlagUrl(_countryCode, _size){
