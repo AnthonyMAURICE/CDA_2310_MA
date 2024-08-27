@@ -25,11 +25,12 @@ const app = {
         let countriesFetched = await fetchData("Countries")
         if(this.countries.length == 0){
             countriesFetched.forEach(element => {
-                element = new Country(element.countryName, element.countryCode, element.countryArea, element.continentId)
+                element = new Country(element.id, element.countryName, element.countryCode, element.countryArea, element.continentId)
             this.countries.push(element)
             });
         }
-        console.log(this.countries)
+        let citiesFetched = await fetchData('Cities')
+        
     },
     methods: {
         formatFlagUrl(_countryCode, _size){
