@@ -14,7 +14,8 @@ const app = {
                 countryCode:"",
                 continentId:0,
                 cities:
-                    [{id:0,
+                    [{
+                        id:0,
                         cityZipCode:"",
                         cityName:"",
                         countryId:0
