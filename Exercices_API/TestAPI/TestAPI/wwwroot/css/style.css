@@ -30,7 +30,7 @@ table{
 
 table, main>h2{
     background-color: darkgreen;
-    width: 40%;
+    width: 50%;
     margin: auto;
 }
 
@@ -50,3 +50,26 @@ td, .left{
     background-color: rgb(0, 50, 0);
 }
 
+dialog{
+    width: 30%;
+    background-color: darkgreen;
+    color: gold;
+}
+
+.dialog-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: green;
+}
+
+.dialog-img{
+    margin: 10px;
+}
+
+.close-btn{
+    width: 100%;
+    border: 1px solid gold;
+    background-color: brown;
+    color: gold;
+}

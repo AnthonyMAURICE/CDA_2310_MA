@@ -24,16 +24,26 @@
                 </thead>
                 <tbody>
                     <tr v-for="country in countries" :class="country.id%2 == 0? 'darker' : 'dark'">
-                        <td><img :src="formatFlagUrl(country.countryCode, 32)" alt="icone de drapeau"></td>
-                        <td>{{ country.countryCode }}</td>
-                        <td>{{ country.countryName }}</td>
-                        <td><button type="button" @click="modalDialogue">Détails</button></td>
+                        <td><img :src="formatFlagUrl(country.code, 32)" alt="icone de drapeau"></td>
+                        <td>{{ country.code }}</td>
+                        <td>{{ country.name }}</td>
+                        <td><button type="button" @click="modalDialogue(country)">Détails</button></td>
                     </tr>
                 </tbody>
             </table>
             <dialog id="country-dialog">
-                <button @click="closeDialog" type="reset">Fermer</button>
-                <h1></h1>
+                <button @click="closeDialog" class="close-btn" type="reset">Fermer</button>
+                <div class="dialog-header">
+                    <p>{{ activeCountry.name }}</p>
+                    <img class="dialog-img" :src="formatFlagUrl(activeCountry.code, 64)" alt="icone de drapeau">
+                    <p>Code ISO : {{ activeCountry.code }}</p>
+                </div>
+                <div class="dialog-cities">
+                    <p>{{ getLength(activeCountry.cities) }}ville(s) enregistrées</p>
+                    <ul>
+                        <li v-for="city in activeCountry.cities">{{ city.cityName }}</li>
+                    </ul>
+                </div>
             </dialog>
         </main>
     </div>
