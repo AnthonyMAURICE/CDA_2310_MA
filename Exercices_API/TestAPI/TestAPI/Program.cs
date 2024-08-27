@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using TestAPI.Db;
+using TestAPI.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 

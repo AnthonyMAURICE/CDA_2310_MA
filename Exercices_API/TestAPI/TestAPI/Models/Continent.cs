@@ -19,7 +19,6 @@ namespace TestAPI.Models
         [Column("continent_area")]
         public int ContinentArea { get; set; }
 
-        [JsonIgnore]
         public ICollection<Country>? Countries { get; set; }
     }
 }

@@ -26,7 +26,7 @@ namespace TestAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Continent>>> GetContinents()
         {
-            return await _context.Continents.ToListAsync();
+            return await _context.Continents.Include(c => c.Countries).ToListAsync();
         }
 
         // GET: api/Continents/5
