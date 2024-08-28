@@ -12,6 +12,16 @@ builder.Services.AddDbContext<CountryDbContext>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "MyPolicy",
+        policy =>
+        {
+            policy.AllowAnyHeader().AllowAnyMethod();
+            policy.WithOrigins("http://localhost:5173");
+        });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -22,6 +32,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("MyPolicy");
 
 app.UseStaticFiles();
 
