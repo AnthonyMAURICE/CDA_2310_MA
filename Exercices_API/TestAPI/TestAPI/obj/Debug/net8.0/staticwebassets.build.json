@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NYbfksKfWJcvNmgSRMzxMRAtRM6JIJqe8yUAHXB37ug=",
+  "Hash": "iuIR/lNFhgFmISgCdVR3yPsB6PugjcJQNhO1icTcekE=",
   "Source": "TestAPI",
   "BasePath": "_content/TestAPI",
   "Mode": "Default",
@@ -16,6 +16,25 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TestAPI\\TestAPI\\wwwroot\\assets\\banner.png",
+      "SourceId": "TestAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TestAPI\\TestAPI\\wwwroot\\",
+      "BasePath": "_content/TestAPI",
+      "RelativePath": "assets/banner.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\banner.png"
+    },
     {
       "Identity": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TestAPI\\TestAPI\\wwwroot\\css\\style.css",
       "SourceId": "TestAPI",

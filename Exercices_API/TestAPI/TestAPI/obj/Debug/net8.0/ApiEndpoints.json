@@ -325,5 +325,41 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TestAPI.Controllers.CountriesController",
+    "Method": "PostCountries",
+    "RelativePath": "api/Countries/bulk",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "countries",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[TestAPI.Models.Country, TestAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TestAPI.Models.Country",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 201
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      }
+    ],
+    "EndpointName": "PostCountries"
   }
 ]

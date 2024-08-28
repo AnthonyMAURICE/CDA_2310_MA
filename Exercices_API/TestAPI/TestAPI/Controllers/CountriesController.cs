@@ -73,6 +73,18 @@ namespace TestAPI.Controllers
             return NoContent();
         }
 
+        [HttpPost("bulk", Name = "PostCountries")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public ActionResult<Country> PostCountries(IEnumerable<Country> countries)
+        {
+            this._context.Countries.AddRange(countries);
+
+            this._context.SaveChanges();
+
+            return this.CreatedAtAction(nameof(this.PostCountries), new { count = countries.Count() }, countries);
+        }
+
         // POST: api/Countries
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]

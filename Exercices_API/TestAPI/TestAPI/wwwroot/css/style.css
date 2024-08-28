@@ -60,7 +60,7 @@ td, .left{
 }
 
 dialog{
-    width: 30%;
+    width: 50%;
     background-color: darkgreen;
     color: gold;
 }
@@ -86,13 +86,16 @@ dialog{
 
 form{
     margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 input, .btn{
     background-color: darkgreen;
     border: 1px solid green;
     color: white;
-    padding: 5px;
+    padding: 5px 20px;
 }
 
 .small-cell{

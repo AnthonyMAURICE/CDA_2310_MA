@@ -40,7 +40,9 @@
                 </div>
                 <form>
                     <label for="city-input">Ajouter une ville : </label>
-                    <input v-model="cityInput" type="text" name="city-input" id="city-input">
+                    <input v-model="cityInput" type="text" name="city-input" id="city-input" required>
+                    <label class="zip" for="zip-code">Code Postal : </label>
+                    <input v-model="zipCode" type="text" id="zip-code" required>
                     <button @click="addCity()" type="button" class="btn" id="add-button">Ajouter</button>
                 </form>
                 <div class="dialog-cities">

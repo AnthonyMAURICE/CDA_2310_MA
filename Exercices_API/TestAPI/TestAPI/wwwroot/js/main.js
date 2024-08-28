@@ -21,7 +21,8 @@ const app = {
                         countryId:0
                     }]
                 },
-                cityInput: ""
+            cityInput: "",
+            zipCode: ""
             }
         },
     async mounted() {
@@ -61,19 +62,24 @@ const app = {
             return _array.length
         },
         addCity(){
-            fetch("https://localhost:7236/api/Cities",{
-                method: "POST",
-                body: JSON.stringify({
-                    cityZipCode: "Placeholder",
-                    cityName: this.cityInput,
-                    countryId: this.activeCountry.id
-                }),
-                headers: {
-                    "Content-type": "application/json; charset=UTF-8"
-                }
-            })
-            .then((response) => response.json())
-            .then(location.reload())
+            if(this.zipCode != "" && this.cityInput != ""){
+                fetch("https://localhost:7236/api/Cities",{
+                    method: "POST",
+                    body: JSON.stringify({
+                        cityZipCode: this.zipCode,
+                        cityName: this.cityInput,
+                        countryId: this.activeCountry.id
+                    }),
+                    headers: {
+                        "Content-type": "application/json; charset=UTF-8"
+                    }
+                })
+                .then((response) => response.json())
+                .then(location.reload())
+            }else{
+                console.warn('Un des champs est vide !')
+            }
+                
         }
     }
 }
