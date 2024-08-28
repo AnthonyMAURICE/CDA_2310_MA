@@ -16,11 +16,12 @@ const app = {
                 cities:
                     [{
                         id:0,
-                        cityZipCode:"",
-                        cityName:"",
+                        zipcode:"",
+                        name:"",
                         countryId:0
                     }]
                 },
+            cityList: [],
             cityInput: "",
             zipCode: ""
             }
@@ -33,18 +34,20 @@ const app = {
         this.countries.push(element)
         });
         this.countries.sort((a,b) => a.code.localeCompare(b.code))
-
-        let citiesFetched = await fetchData("Cities")
-        citiesFetched.forEach(element =>{
-            element = new City(element.id, element.cityZipCode, element.cityName, element.countryId)
-            for(let elem of this.countries){
-                if(elem.id === element.countryId){
-                    elem.cities.push(element)
-                }
-            }
-        })
+        this.assignBaseCities()
     },
     methods: {
+        async assignBaseCities(){
+            let citiesFetched = await fetchData("Cities")
+            citiesFetched.forEach(element =>{
+                element = new City(element.id, element.cityZipCode, element.cityName, element.countryId)
+                for(let elem of this.countries){
+                    if(elem.id === element.countryId){
+                        elem.cities.push(element)
+                    }
+                }
+            })
+        },
         formatFlagUrl(_countryCode, _size){
             return `https://flagsapi.com/${_countryCode}/flat/${_size}.png`
         },
@@ -75,11 +78,14 @@ const app = {
                     }
                 })
                 .then((response) => response.json())
-                .then(location.reload())
+                .then((data) => this.updateList(data))
             }else{
                 console.warn('Un des champs est vide !')
             }
-                
+        },
+        updateList(data){
+            let element = new City(data.id, data.cityZipCode, data.cityName, data.countryId)
+            this.activeCountry.cities.push(element)
         }
     }
 }

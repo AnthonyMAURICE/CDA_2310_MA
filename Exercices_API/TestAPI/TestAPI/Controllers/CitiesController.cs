@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -60,7 +61,7 @@ namespace TestAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CityExists(id))
+                if (!CityExists(city))
                 {
                     return NotFound();
                 }
@@ -78,10 +79,17 @@ namespace TestAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<City>> PostCity(City city)
         {
-            _context.Cities.Add(city);
-            await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCity", new { id = city.Id }, city);
+            if (CityExists(city))
+            {
+                return Conflict("La ville \"" + city.CityName + "\" existe déjà");
+            }
+            else
+            {
+                _context.Cities.Add(city);
+                await _context.SaveChangesAsync();
+                return CreatedAtAction("GetCity", new { id = city.Id }, city);
+            }
         }
 
         // DELETE: api/Cities/5
@@ -100,9 +108,9 @@ namespace TestAPI.Controllers
             return NoContent();
         }
 
-        private bool CityExists(int id)
+        private bool CityExists(City _city)
         {
-            return _context.Cities.Any(e => e.Id == id);
+            return _context.Cities.Any(e => (e.CityName.ToLower() == _city.CityName.ToLower() && e.CityZipCode == _city.CityZipCode));
         }
     }
 }

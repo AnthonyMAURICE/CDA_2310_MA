@@ -24,7 +24,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="(country, index) in countries" :class="index%2 == 0? 'darker' : 'dark'">
-                        <td class="small-cell"><img :src="formatFlagUrl(country.code, 32)" alt="icone de drapeau"></td>
+                        <td class="small-cell"><img :src="formatFlagUrl(country.code, 32)" alt="drapeau"></td>
                         <td class="small-cell">{{ country.code }}</td>
                         <td>{{ country.name }}</td>
                         <td><button class="btn" type="button" @click="modalDialogue(country)">Détails</button></td>
@@ -35,7 +35,7 @@
                 <button @click="closeDialog" class="close-btn" type="reset">Fermer</button>
                 <div class="dialog-header">
                     <p>{{ activeCountry.name }}</p>
-                    <img class="dialog-img" :src="formatFlagUrl(activeCountry.code, 64)" alt="icone de drapeau">
+                    <img class="dialog-img" :src="formatFlagUrl(activeCountry.code, 64)" alt="drapeau">
                     <p>Code ISO : {{ activeCountry.code }}</p>
                 </div>
                 <form>
@@ -43,7 +43,7 @@
                     <input v-model="cityInput" type="text" name="city-input" id="city-input" required>
                     <label class="zip" for="zip-code">Code Postal : </label>
                     <input v-model="zipCode" type="text" id="zip-code" required>
-                    <button @click="addCity()" type="button" class="btn" id="add-button">Ajouter</button>
+                    <input @click="addCity()" type="reset" class="btn" id="add-button" value="Ajouter">
                 </form>
                 <div class="dialog-cities">
                     <p>{{ getLength(activeCountry.cities) }} ville(s) enregistrée(s)</p>
