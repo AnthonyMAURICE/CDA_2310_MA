@@ -20,7 +20,8 @@ const app = {
                         cityName:"",
                         countryId:0
                     }]
-                }
+                },
+                cityInput: ""
             }
         },
     async mounted() {
@@ -30,15 +31,15 @@ const app = {
                 element = new Country(element.id, element.countryName, element.countryCode, element.countryArea, element.continentId)
             this.countries.push(element)
             });
+            this.countries.sort((a,b) => a.code.localeCompare(b.code))
         }
-        let citiesFetched = await fetchData('Cities')
+        let citiesFetched = await fetchData("Cities")
         citiesFetched.forEach(element =>{
             element = new City(element.id, element.cityZipCode, element.cityName, element.countryId)
             for(let elem of this.countries){
                 if(elem.id === element.countryId){
                     elem.cities.push(element)
                 }
-                console.log(this.countries)
             }
         })
     },
@@ -48,7 +49,6 @@ const app = {
         },
         modalDialogue(country){
             this.activeCountry = country
-            console.log(this.activeCountry)
             const dialog = document.getElementById("country-dialog");
             dialog.showModal();
 
@@ -59,6 +59,22 @@ const app = {
         },
         getLength(_array){
             return _array.length
+        },
+        addCity(){
+            fetch("https://localhost:7236/api/Cities",{
+                method: "POST",
+                body: JSON.stringify({
+                    cityZipCode: "Placeholder",
+                    cityName: this.cityInput,
+                    countryId: this.activeCountry.id
+                }),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                }
+            })
+            .then((response) => response.json())
+            .then((json) => console.log(json))
+            .then(location.reload())
         }
     }
 }

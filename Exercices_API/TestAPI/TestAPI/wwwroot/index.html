@@ -18,16 +18,16 @@
             <table>
                 <thead>
                     <tr>
-                        <th colspan="2" class="right">Code</th>
-                        <th colspan="2" class="left">Nom</th>
+                        <th colspan="2" class="right">CODE</th>
+                        <th colspan="2" class="left">NOM</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="country in countries" :class="country.id%2 == 0? 'darker' : 'dark'">
-                        <td><img :src="formatFlagUrl(country.code, 32)" alt="icone de drapeau"></td>
-                        <td>{{ country.code }}</td>
+                    <tr v-for="(country, index) in countries" :class="index%2 == 0? 'darker' : 'dark'">
+                        <td class="small-cell"><img :src="formatFlagUrl(country.code, 32)" alt="icone de drapeau"></td>
+                        <td class="small-cell">{{ country.code }}</td>
                         <td>{{ country.name }}</td>
-                        <td><button type="button" @click="modalDialogue(country)">Détails</button></td>
+                        <td><button class="btn" type="button" @click="modalDialogue(country)">Détails</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -38,10 +38,15 @@
                     <img class="dialog-img" :src="formatFlagUrl(activeCountry.code, 64)" alt="icone de drapeau">
                     <p>Code ISO : {{ activeCountry.code }}</p>
                 </div>
+                <form>
+                    <label for="city-input">Ajouter une ville : </label>
+                    <input v-model="cityInput" type="text" name="city-input" id="city-input">
+                    <button @click="addCity()" type="button" class="btn" id="add-button">Ajouter</button>
+                </form>
                 <div class="dialog-cities">
-                    <p>{{ getLength(activeCountry.cities) }}ville(s) enregistrées</p>
+                    <p>{{ getLength(activeCountry.cities) }} ville(s) enregistrées</p>
                     <ul>
-                        <li v-for="city in activeCountry.cities">{{ city.cityName }}</li>
+                        <li v-for="city in activeCountry.cities">{{ city.name }}</li>
                     </ul>
                 </div>
             </dialog>
