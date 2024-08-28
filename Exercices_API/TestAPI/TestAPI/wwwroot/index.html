@@ -44,7 +44,7 @@
                     <button @click="addCity()" type="button" class="btn" id="add-button">Ajouter</button>
                 </form>
                 <div class="dialog-cities">
-                    <p>{{ getLength(activeCountry.cities) }} ville(s) enregistrées</p>
+                    <p>{{ getLength(activeCountry.cities) }} ville(s) enregistrée(s)</p>
                     <ul>
                         <li v-for="city in activeCountry.cities">{{ city.name }}</li>
                     </ul>

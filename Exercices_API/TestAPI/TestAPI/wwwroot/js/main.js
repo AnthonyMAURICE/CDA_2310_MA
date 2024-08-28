@@ -26,13 +26,13 @@ const app = {
         },
     async mounted() {
         let countriesFetched = await fetchData("Countries")
-        if(this.countries.length == 0){
-            countriesFetched.forEach(element => {
-                element = new Country(element.id, element.countryName, element.countryCode, element.countryArea, element.continentId)
-            this.countries.push(element)
-            });
-            this.countries.sort((a,b) => a.code.localeCompare(b.code))
-        }
+        this.countries = []
+        countriesFetched.forEach(element => {
+            element = new Country(element.id, element.countryName, element.countryCode, element.countryArea, element.continentId)
+        this.countries.push(element)
+        });
+        this.countries.sort((a,b) => a.code.localeCompare(b.code))
+
         let citiesFetched = await fetchData("Cities")
         citiesFetched.forEach(element =>{
             element = new City(element.id, element.cityZipCode, element.cityName, element.countryId)
@@ -73,7 +73,6 @@ const app = {
                 }
             })
             .then((response) => response.json())
-            .then((json) => console.log(json))
             .then(location.reload())
         }
     }
