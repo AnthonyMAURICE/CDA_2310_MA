@@ -20,8 +20,7 @@ namespace TestAPI.Models
         [Column("country_area")]
         public int CountryArea { get; set; }
 
-        [MinLength(2)]
-        [MaxLength(2)]
+        [StringLength(2)]
         [Column("country_code")]
         public string CountryCode { get; set; }
 

@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TestAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TestAPI\\TestAPI\\Migrations\\20240829101025_updateTripController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:TestAPI\\Migrations\\20240829101025_updateTripController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DF63AA55-BB48-4F94-A8F6-8DFF165F6A15}|TestAPI\\TestAPI.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\testapi\\testapi\\controllers\\tripscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DF63AA55-BB48-4F94-A8F6-8DFF165F6A15}|TestAPI\\TestAPI.csproj|solutionrelative:testapi\\controllers\\tripscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DF63AA55-BB48-4F94-A8F6-8DFF165F6A15}|TestAPI\\TestAPI.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\testapi\\testapi\\models\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF63AA55-BB48-4F94-A8F6-8DFF165F6A15}|TestAPI\\TestAPI.csproj|solutionrelative:testapi\\models\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DF63AA55-BB48-4F94-A8F6-8DFF165F6A15}|TestAPI\\TestAPI.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\testapi\\testapi\\models\\trip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,6 +13,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{DF63AA55-BB48-4F94-A8F6-8DFF165F6A15}|TestAPI\\TestAPI.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\testapi\\testapi\\models\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DF63AA55-BB48-4F94-A8F6-8DFF165F6A15}|TestAPI\\TestAPI.csproj|solutionrelative:testapi\\models\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF63AA55-BB48-4F94-A8F6-8DFF165F6A15}|TestAPI\\TestAPI.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\testapi\\testapi\\controllers\\tripscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF63AA55-BB48-4F94-A8F6-8DFF165F6A15}|TestAPI\\TestAPI.csproj|solutionrelative:testapi\\controllers\\tripscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DF63AA55-BB48-4F94-A8F6-8DFF165F6A15}|TestAPI\\TestAPI.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\testapi\\testapi\\models\\continent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -37,10 +37,6 @@
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localDB__MSSQLlocaldb/db_countries_test/True/SqlTable/dbo.Person.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DF63AA55-BB48-4F94-A8F6-8DFF165F6A15}|TestAPI\\TestAPI.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\testapi\\testapi\\models\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DF63AA55-BB48-4F94-A8F6-8DFF165F6A15}|TestAPI\\TestAPI.csproj|solutionrelative:testapi\\models\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DF63AA55-BB48-4F94-A8F6-8DFF165F6A15}|TestAPI\\TestAPI.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\testapi\\testapi\\controllers\\peoplecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DF63AA55-BB48-4F94-A8F6-8DFF165F6A15}|TestAPI\\TestAPI.csproj|solutionrelative:testapi\\controllers\\peoplecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -57,10 +53,6 @@
       "RelativeMoniker": "D:0:0:{DF63AA55-BB48-4F94-A8F6-8DFF165F6A15}|TestAPI\\TestAPI.csproj|solutionrelative:testapi\\controllers\\continentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DF63AA55-BB48-4F94-A8F6-8DFF165F6A15}|TestAPI\\TestAPI.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\testapi\\testapi\\models\\city.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DF63AA55-BB48-4F94-A8F6-8DFF165F6A15}|TestAPI\\TestAPI.csproj|solutionrelative:testapi\\models\\city.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DF63AA55-BB48-4F94-A8F6-8DFF165F6A15}|TestAPI\\TestAPI.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\testapi\\testapi\\migrations\\20240827095227_test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DF63AA55-BB48-4F94-A8F6-8DFF165F6A15}|TestAPI\\TestAPI.csproj|solutionrelative:testapi\\migrations\\20240827095227_test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -72,24 +64,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20240829101025_updateTripController.cs",
-              "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TestAPI\\TestAPI\\Migrations\\20240829101025_updateTripController.cs",
-              "RelativeDocumentMoniker": "TestAPI\\Migrations\\20240829101025_updateTripController.cs",
-              "ToolTip": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TestAPI\\TestAPI\\Migrations\\20240829101025_updateTripController.cs",
-              "RelativeToolTip": "TestAPI\\Migrations\\20240829101025_updateTripController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-29T10:10:25.539Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -103,7 +82,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "PeopleController.cs",
               "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TestAPI\\TestAPI\\Controllers\\PeopleController.cs",
               "RelativeDocumentMoniker": "TestAPI\\Controllers\\PeopleController.cs",
@@ -116,20 +95,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "TripsController.cs",
               "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TestAPI\\TestAPI\\Controllers\\TripsController.cs",
               "RelativeDocumentMoniker": "TestAPI\\Controllers\\TripsController.cs",
               "ToolTip": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TestAPI\\TestAPI\\Controllers\\TripsController.cs",
               "RelativeToolTip": "TestAPI\\Controllers\\TripsController.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAArwFQAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAD4v1QAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-28T14:38:55.096Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Trip.cs",
               "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TestAPI\\TestAPI\\Models\\Trip.cs",
               "RelativeDocumentMoniker": "TestAPI\\Models\\Trip.cs",
@@ -142,7 +121,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Person.cs",
               "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TestAPI\\TestAPI\\Models\\Person.cs",
               "RelativeDocumentMoniker": "TestAPI\\Models\\Person.cs",
@@ -155,13 +134,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
               "Title": "Country.cs",
               "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TestAPI\\TestAPI\\Models\\Country.cs",
               "RelativeDocumentMoniker": "TestAPI\\Models\\Country.cs",
               "ToolTip": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TestAPI\\TestAPI\\Models\\Country.cs",
               "RelativeToolTip": "TestAPI\\Models\\Country.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACEAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-26T09:45:22.395Z",
               "EditorCaption": ""
@@ -217,7 +196,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
               "Title": "CitiesController.cs",
               "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TestAPI\\TestAPI\\Controllers\\CitiesController.cs",
               "RelativeDocumentMoniker": "TestAPI\\Controllers\\CitiesController.cs",
@@ -230,7 +209,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
               "Title": "CountriesController.cs",
               "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TestAPI\\TestAPI\\Controllers\\CountriesController.cs",
               "RelativeDocumentMoniker": "TestAPI\\Controllers\\CountriesController.cs",
@@ -243,7 +222,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 12,
               "Title": "ContinentsController.cs",
               "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TestAPI\\TestAPI\\Controllers\\ContinentsController.cs",
               "RelativeDocumentMoniker": "TestAPI\\Controllers\\ContinentsController.cs",
@@ -256,7 +235,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 13,
               "Title": "20240827095227_test.cs",
               "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TestAPI\\TestAPI\\Migrations\\20240827095227_test.cs",
               "RelativeDocumentMoniker": "TestAPI\\Migrations\\20240827095227_test.cs",
@@ -265,19 +244,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-27T09:52:27.959Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "City.cs",
-              "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TestAPI\\TestAPI\\Models\\City.cs",
-              "RelativeDocumentMoniker": "TestAPI\\Models\\City.cs",
-              "ToolTip": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TestAPI\\TestAPI\\Models\\City.cs",
-              "RelativeToolTip": "TestAPI\\Models\\City.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T10:22:56.966Z",
               "EditorCaption": ""
             }
           ]
