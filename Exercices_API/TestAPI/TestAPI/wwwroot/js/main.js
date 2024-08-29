@@ -80,7 +80,7 @@ const app = {
                 .then((response) => response.json())
                 .then((data) => this.updateList(data))
             }else{
-                console.warn('Un des champs est vide !')
+                console.warn('Au moins un des champs est vide !')
             }
         },
         updateList(data){
