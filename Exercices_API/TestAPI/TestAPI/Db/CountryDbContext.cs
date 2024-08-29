@@ -10,11 +10,13 @@ namespace TestAPI.Db
 
         public DbSet<City> Cities { get; set; }
 
+        public DbSet<Trip> Trip { get; set; }
+        public DbSet<Person> Person { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=db_countries_test;Trusted_Connection=True;");
         }
-        public DbSet<TestAPI.Models.Trip> Trip { get; set; } = default!;
-        public DbSet<TestAPI.Models.Person> Person { get; set; } = default!;
+
     }
 }

@@ -60,7 +60,7 @@ namespace TestAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PersonExists(id))
+                if (!PersonExists(person))
                 {
                     return NotFound();
                 }
@@ -78,10 +78,16 @@ namespace TestAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Person>> PostPerson(Person person)
         {
-            _context.Person.Add(person);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetPerson", new { id = person.Id }, person);
+            if (PersonExists(person))
+            {
+                return Conflict("La personne \"" + person.Name + "\" existe déjà");
+            }
+            else
+            {
+                _context.Person.Add(person);
+                await _context.SaveChangesAsync();
+                return CreatedAtAction("GetPerson", new { id = person.Id }, person);
+            }
         }
 
         // DELETE: api/People/5
@@ -100,9 +106,9 @@ namespace TestAPI.Controllers
             return NoContent();
         }
 
-        private bool PersonExists(int id)
+        private bool PersonExists(Person person)
         {
-            return _context.Person.Any(e => e.Id == id);
+            return _context.Person.Any(e => e.Name == person.Name);
         }
     }
 }

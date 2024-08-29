@@ -78,10 +78,17 @@ namespace TestAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Trip>> PostTrip(Trip trip)
         {
-            _context.Trip.Add(trip);
-            await _context.SaveChangesAsync();
+            if (!HasDriver(trip.Persons))
+            {
+                return BadRequest("Au moins un des participants doit être conducteur");
+            }
+            else
+            {
+                _context.Trip.Add(trip);
+                await _context.SaveChangesAsync();
+                return CreatedAtAction("GetTrip", new { id = trip.Id }, trip);
+            }
 
-            return CreatedAtAction("GetTrip", new { id = trip.Id }, trip);
         }
 
         // DELETE: api/Trips/5
@@ -103,6 +110,11 @@ namespace TestAPI.Controllers
         private bool TripExists(int id)
         {
             return _context.Trip.Any(e => e.Id == id);
+        }
+
+        private static bool HasDriver(ICollection<Person> Persons)
+        {
+            return Persons.Any(e => e.IsDriver);
         }
     }
 }
