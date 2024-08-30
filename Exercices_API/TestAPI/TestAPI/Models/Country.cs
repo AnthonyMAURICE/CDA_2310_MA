@@ -30,6 +30,7 @@ namespace TestAPI.Models
         [JsonIgnore]
         public Continent? Continent { get; set; }
 
+        [JsonIgnore]
         public ICollection<City>? Cities { get; set; }
     }
 }

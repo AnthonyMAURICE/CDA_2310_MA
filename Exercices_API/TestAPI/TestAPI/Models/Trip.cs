@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace TestAPI.Models
 {
@@ -16,6 +18,7 @@ namespace TestAPI.Models
         [ForeignKey("City")]
         public int ArrivalCityId { get; set; }
 
-        public ICollection<Person> Persons { get; }
+        [JsonIgnore]
+        public ICollection<Person>? Persons { get; }
     }
 }
