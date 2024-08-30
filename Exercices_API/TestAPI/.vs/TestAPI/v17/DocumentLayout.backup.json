@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TestAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DF63AA55-BB48-4F94-A8F6-8DFF165F6A15}|TestAPI\\TestAPI.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\testapi\\testapi\\models\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DF63AA55-BB48-4F94-A8F6-8DFF165F6A15}|TestAPI\\TestAPI.csproj|solutionrelative:testapi\\models\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DF63AA55-BB48-4F94-A8F6-8DFF165F6A15}|TestAPI\\TestAPI.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\testapi\\testapi\\models\\trip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DF63AA55-BB48-4F94-A8F6-8DFF165F6A15}|TestAPI\\TestAPI.csproj|solutionrelative:testapi\\models\\trip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF63AA55-BB48-4F94-A8F6-8DFF165F6A15}|TestAPI\\TestAPI.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\testapi\\testapi\\models\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF63AA55-BB48-4F94-A8F6-8DFF165F6A15}|TestAPI\\TestAPI.csproj|solutionrelative:testapi\\models\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DF63AA55-BB48-4F94-A8F6-8DFF165F6A15}|TestAPI\\TestAPI.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\testapi\\testapi\\models\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -58,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -90,15 +90,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Trip.cs",
               "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TestAPI\\TestAPI\\Models\\Trip.cs",
               "RelativeDocumentMoniker": "TestAPI\\Models\\Trip.cs",
               "ToolTip": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TestAPI\\TestAPI\\Models\\Trip.cs",
               "RelativeToolTip": "TestAPI\\Models\\Trip.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-28T14:27:08.848Z"
+              "WhenOpened": "2024-08-28T14:27:08.848Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -114,7 +115,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Country.cs",
               "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TestAPI\\TestAPI\\Models\\Country.cs",
               "RelativeDocumentMoniker": "TestAPI\\Models\\Country.cs",
