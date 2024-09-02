@@ -10,7 +10,7 @@ namespace TestAPI.Models
     {
         public int Id { get; set; }
         public DateTime Departure { get; set; }
-        public DateTime Arrival { get; set; }
+        public DateTime? Arrival { get; set; }
 
         [ForeignKey("City")]
         public int DepartureCityId { get; set; }
