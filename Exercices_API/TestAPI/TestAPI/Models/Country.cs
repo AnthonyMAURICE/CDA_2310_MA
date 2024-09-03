@@ -15,6 +15,7 @@ namespace TestAPI.Models
 
         [MaxLength(200, ErrorMessage ="Nom définitivement trop long")]
         [Column("country_name")]
+        [Required]
         public string CountryName { get; set; }
 
         [Column("country_area")]
@@ -22,6 +23,7 @@ namespace TestAPI.Models
 
         [StringLength(2)]
         [Column("country_code")]
+        [Required]
         public string CountryCode { get; set; }
 
         [ForeignKey("Continent")]

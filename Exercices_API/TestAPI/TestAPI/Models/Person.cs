@@ -7,6 +7,7 @@ namespace TestAPI.Models
     [ReadOnly(true)]
     public class Person
     {
+        [Key]
         public int Id { get; set; }
 
         [MaxLength(50)]

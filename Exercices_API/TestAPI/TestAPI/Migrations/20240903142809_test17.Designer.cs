@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestAPI.Db;
 
@@ -11,9 +12,11 @@ using TestAPI.Db;
 namespace TestAPI.Migrations
 {
     [DbContext(typeof(CountryDbContext))]
-    partial class CountryDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240903142809_test17")]
+    partial class test17
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -164,20 +167,16 @@ namespace TestAPI.Migrations
                     b.Property<DateTime?>("Arrival")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("ArrivalCityId")
+                    b.Property<int>("ArrivalCityId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Departure")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("DepartureCityId")
+                    b.Property<int>("DepartureCityId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ArrivalCityId");
-
-                    b.HasIndex("DepartureCityId");
 
                     b.ToTable("Trip");
                 });
@@ -217,21 +216,6 @@ namespace TestAPI.Migrations
                         .IsRequired();
 
                     b.Navigation("Continent");
-                });
-
-            modelBuilder.Entity("TestAPI.Models.Trip", b =>
-                {
-                    b.HasOne("TestAPI.Models.City", "CityDeparture")
-                        .WithMany()
-                        .HasForeignKey("ArrivalCityId");
-
-                    b.HasOne("TestAPI.Models.City", "CityArrival")
-                        .WithMany()
-                        .HasForeignKey("DepartureCityId");
-
-                    b.Navigation("CityArrival");
-
-                    b.Navigation("CityDeparture");
                 });
 
             modelBuilder.Entity("TestAPI.Models.Continent", b =>

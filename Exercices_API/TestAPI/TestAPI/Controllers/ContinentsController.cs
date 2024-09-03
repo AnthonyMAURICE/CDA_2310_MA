@@ -26,6 +26,11 @@ namespace TestAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Continent>>> GetContinents()
         {
+            if(_context.Continents == null)
+            {
+                return NoContent();
+            }
+
             return await _context.Continents.Include(c => c.Countries).ToListAsync();
         }
 

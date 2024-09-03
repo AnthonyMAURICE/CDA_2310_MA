@@ -11,10 +11,10 @@ namespace TestAPI.Models
         public int Id { get; set; }
 
         [Column("city_zipcode")]
-        public string CityZipCode { get; set; }
+        public string? CityZipCode { get; set; }
 
         [Column("city_name")]
-        public string CityName { get; set; }
+        public string? CityName { get; set; }
 
         [ForeignKey("Country")]
         [Column("country_id")]
