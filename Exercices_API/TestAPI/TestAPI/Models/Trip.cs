@@ -18,13 +18,13 @@ namespace TestAPI.Models
 
         public int? ArrivalCityId { get; set; }
 
-        [ForeignKey("ArrivalCityId")]
+        [ForeignKey("DepartureCityId")]
         public City? CityDeparture { get; set; }
 
-        [ForeignKey("DepartureCityId")]
+        [ForeignKey("ArrivalCityId")]
         public City? CityArrival { get; set; }
 
-        [JsonIgnore]
-        public ICollection<Person>? Persons { get; }
+        //[JsonIgnore]
+        //public ICollection<Person>? Persons { get; }
     }
 }

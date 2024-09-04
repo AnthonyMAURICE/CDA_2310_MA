@@ -22,21 +22,6 @@ namespace TestAPI.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("PersonTrip", b =>
-                {
-                    b.Property<int>("PersonsId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TripListId")
-                        .HasColumnType("int");
-
-                    b.HasKey("PersonsId", "TripListId");
-
-                    b.HasIndex("TripListId");
-
-                    b.ToTable("PersonTrip");
-                });
-
             modelBuilder.Entity("TestAPI.Models.City", b =>
                 {
                     b.Property<int>("Id")
@@ -140,9 +125,6 @@ namespace TestAPI.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<bool>("IsDriver")
-                        .HasColumnType("bit");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -151,6 +133,22 @@ namespace TestAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Person");
+                });
+
+            modelBuilder.Entity("TestAPI.Models.PersonTrip", b =>
+                {
+                    b.Property<int>("PersonId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TripId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDriver")
+                        .HasColumnType("bit");
+
+                    b.HasKey("PersonId", "TripId");
+
+                    b.ToTable("PersonTrip");
                 });
 
             modelBuilder.Entity("TestAPI.Models.Trip", b =>
@@ -182,21 +180,6 @@ namespace TestAPI.Migrations
                     b.ToTable("Trip");
                 });
 
-            modelBuilder.Entity("PersonTrip", b =>
-                {
-                    b.HasOne("TestAPI.Models.Person", null)
-                        .WithMany()
-                        .HasForeignKey("PersonsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("TestAPI.Models.Trip", null)
-                        .WithMany()
-                        .HasForeignKey("TripListId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("TestAPI.Models.City", b =>
                 {
                     b.HasOne("TestAPI.Models.Country", "Country")
@@ -221,11 +204,11 @@ namespace TestAPI.Migrations
 
             modelBuilder.Entity("TestAPI.Models.Trip", b =>
                 {
-                    b.HasOne("TestAPI.Models.City", "CityDeparture")
+                    b.HasOne("TestAPI.Models.City", "CityArrival")
                         .WithMany()
                         .HasForeignKey("ArrivalCityId");
 
-                    b.HasOne("TestAPI.Models.City", "CityArrival")
+                    b.HasOne("TestAPI.Models.City", "CityDeparture")
                         .WithMany()
                         .HasForeignKey("DepartureCityId");
 

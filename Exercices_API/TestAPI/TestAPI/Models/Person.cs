@@ -15,9 +15,9 @@ namespace TestAPI.Models
         [MaxLength(50)]
         public string FirstName { get; set; }
 
-        public bool IsDriver { get; set; }
+        //public bool IsDriver { get; set; }
 
-        [JsonIgnore]
-        public ICollection<Trip>? TripList { get; }
+        //[JsonIgnore]
+        //public ICollection<Trip>? TripList { get; }
     }
 }
