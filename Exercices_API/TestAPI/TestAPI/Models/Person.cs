@@ -17,7 +17,7 @@ namespace TestAPI.Models
 
         //public bool IsDriver { get; set; }
 
-        //[JsonIgnore]
-        //public ICollection<Trip>? TripList { get; }
+        
+        public ICollection<Trip>? TripList { get; }
     }
 }

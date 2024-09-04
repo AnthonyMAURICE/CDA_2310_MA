@@ -3,6 +3,17 @@
   "WorkspaceRootPath": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TutoAPI\\TutoAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3546DA05-05E4-4609-BA20-867C256F5302}|TutoAPI\\TutoAPI.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\tutoapi\\tutoapi\\tutoapi\\models\\enrollmenntdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3546DA05-05E4-4609-BA20-867C256F5302}|TutoAPI\\TutoAPI.csproj|solutionrelative:tutoapi\\models\\enrollmenntdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3546DA05-05E4-4609-BA20-867C256F5302}|TutoAPI\\TutoAPI.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\tutoapi\\tutoapi\\tutoapi\\models\\enrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3546DA05-05E4-4609-BA20-867C256F5302}|TutoAPI\\TutoAPI.csproj|solutionrelative:tutoapi\\models\\enrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localDB__MSSQLlocaldb/db_tuto_school/True/SqlTable/dbo.Enrollments.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3546DA05-05E4-4609-BA20-867C256F5302}|TutoAPI\\TutoAPI.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\tutoapi\\tutoapi\\tutoapi\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3546DA05-05E4-4609-BA20-867C256F5302}|TutoAPI\\TutoAPI.csproj|solutionrelative:tutoapi\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,15 +22,8 @@
       "RelativeMoniker": "D:0:0:{3546DA05-05E4-4609-BA20-867C256F5302}|TutoAPI\\TutoAPI.csproj|solutionrelative:tutoapi\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3546DA05-05E4-4609-BA20-867C256F5302}|TutoAPI\\TutoAPI.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\tutoapi\\tutoapi\\tutoapi\\models\\enrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3546DA05-05E4-4609-BA20-867C256F5302}|TutoAPI\\TutoAPI.csproj|solutionrelative:tutoapi\\models\\enrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3546DA05-05E4-4609-BA20-867C256F5302}|TutoAPI\\TutoAPI.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\tutoapi\\tutoapi\\tutoapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3546DA05-05E4-4609-BA20-867C256F5302}|TutoAPI\\TutoAPI.csproj|solutionrelative:tutoapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localDB__MSSQLlocaldb/db_tuto_school/True/SqlTable/dbo.Enrollments.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3546DA05-05E4-4609-BA20-867C256F5302}|TutoAPI\\TutoAPI.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\tutoapi\\tutoapi\\tutoapi\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -33,7 +37,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -41,17 +45,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "dbo.Enrollments [Donn\u00E9es]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localDB__MSSQLlocaldb/db_tuto_school/True/SqlTable/dbo.Enrollments.sql",
-              "ToolTip": "dbo.Enrollments [Donn\u00E9es]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-09-04T09:12:57.693Z",
+              "DocumentIndex": 0,
+              "Title": "EnrollmenntDTO.cs",
+              "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TutoAPI\\TutoAPI\\TutoAPI\\Models\\EnrollmenntDTO.cs",
+              "RelativeDocumentMoniker": "TutoAPI\\Models\\EnrollmenntDTO.cs",
+              "ToolTip": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TutoAPI\\TutoAPI\\TutoAPI\\Models\\EnrollmenntDTO.cs",
+              "RelativeToolTip": "TutoAPI\\Models\\EnrollmenntDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T12:09:56.557Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
+              "Title": "dbo.Enrollments.sql",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localDB__MSSQLlocaldb/db_tuto_school/True/SqlTable/dbo.Enrollments.sql",
+              "ToolTip": "ViewDataWindow_MSSQL__/_localDB__MSSQLlocaldb/db_tuto_school/True/SqlTable/dbo.Enrollments.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-09-04T09:12:57.693Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "StudentsController.cs",
               "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TutoAPI\\TutoAPI\\TutoAPI\\Controllers\\StudentsController.cs",
               "RelativeDocumentMoniker": "TutoAPI\\Controllers\\StudentsController.cs",
@@ -59,38 +75,37 @@
               "RelativeToolTip": "TutoAPI\\Controllers\\StudentsController.cs",
               "ViewState": "AgIAAC8AAAAAAAAAAAAwwGYAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T07:59:36.035Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-04T07:59:36.035Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Course.cs",
               "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TutoAPI\\TutoAPI\\TutoAPI\\Models\\Course.cs",
               "RelativeDocumentMoniker": "TutoAPI\\Models\\Course.cs",
               "ToolTip": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TutoAPI\\TutoAPI\\TutoAPI\\Models\\Course.cs",
               "RelativeToolTip": "TutoAPI\\Models\\Course.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-04T07:52:30.938Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Enrollment.cs",
               "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TutoAPI\\TutoAPI\\TutoAPI\\Models\\Enrollment.cs",
               "RelativeDocumentMoniker": "TutoAPI\\Models\\Enrollment.cs",
               "ToolTip": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TutoAPI\\TutoAPI\\TutoAPI\\Models\\Enrollment.cs",
               "RelativeToolTip": "TutoAPI\\Models\\Enrollment.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-04T07:50:26.754Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Student.cs",
               "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TutoAPI\\TutoAPI\\TutoAPI\\Models\\Student.cs",
               "RelativeDocumentMoniker": "TutoAPI\\Models\\Student.cs",
@@ -98,12 +113,11 @@
               "RelativeToolTip": "TutoAPI\\Models\\Student.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T07:48:11.651Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-04T07:48:11.651Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TutoAPI\\TutoAPI\\TutoAPI\\Program.cs",
               "RelativeDocumentMoniker": "TutoAPI\\Program.cs",
@@ -111,8 +125,7 @@
               "RelativeToolTip": "TutoAPI\\Program.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAxwCMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T07:43:54.545Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-04T07:43:54.545Z"
             }
           ]
         }

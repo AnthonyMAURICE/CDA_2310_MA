@@ -10,6 +10,7 @@ namespace TestAPI.Db
 
         public DbSet<City> Cities { get; set; }
 
+
         public DbSet<Trip> Trip { get; set; }
         public DbSet<Person> Person { get; set; }
 

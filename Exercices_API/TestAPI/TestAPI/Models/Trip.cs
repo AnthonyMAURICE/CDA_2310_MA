@@ -24,7 +24,7 @@ namespace TestAPI.Models
         [ForeignKey("ArrivalCityId")]
         public City? CityArrival { get; set; }
 
-        //[JsonIgnore]
-        //public ICollection<Person>? Persons { get; }
+        
+        public ICollection<Person>? Persons { get; }
     }
 }
