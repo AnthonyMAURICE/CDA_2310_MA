@@ -12,6 +12,8 @@ namespace ExDto.Db
 
         public DbSet<Enrollment> Enrollments { get; set; }
 
+        public DbSet<ClassesStudents> ClassesStudents { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {

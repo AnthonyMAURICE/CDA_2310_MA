@@ -26,13 +26,13 @@ namespace ExDto.Controllers
         public IQueryable<StudentDTO> GetEnrollment()
         {
             var students = from b in _context.Students
-                              select new StudentDTO()
-                              {
-                                  Id = b.Id,
-                                  Name = b.Name,
-                                  Firstname = b.Firstname,
-                                  Enrollments = b.Enrollments
-                              };
+                select new StudentDTO()
+                {
+                    Id = b.Id,
+                    Name = b.Name,
+                    Firstname = b.Firstname,
+                    Enrollments = b.Enrollments
+                };
 
             return students;
         }

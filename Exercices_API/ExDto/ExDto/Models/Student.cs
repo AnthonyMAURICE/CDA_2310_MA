@@ -21,5 +21,7 @@ namespace ExDto.Models
         [JsonIgnore]
         public virtual ICollection<Enrollment>? Enrollments { get; set; }
 
+        [JsonIgnore]
+        public virtual ICollection<Classes>? Classes { get; set; }
     }
 }

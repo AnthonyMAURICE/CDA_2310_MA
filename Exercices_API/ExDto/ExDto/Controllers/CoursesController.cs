@@ -25,6 +25,11 @@ namespace ExDto.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Course>>> GetCourses()
         {
+            if(_context.Courses == null)
+            {
+                return NoContent();
+            }
+
             return await _context.Courses.ToListAsync();
         }
 
@@ -32,6 +37,11 @@ namespace ExDto.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<CourseDTO>> GetCourse(int id)
         {
+            if (_context.Courses == null)
+            {
+                return NoContent();
+            }
+
             var course = await _context.Courses.Select(b =>
                 new CourseDTO()
                 {
@@ -53,6 +63,7 @@ namespace ExDto.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCourse(int id, Course course)
         {
+
             if (id != course.Id)
             {
                 return BadRequest();
@@ -84,6 +95,11 @@ namespace ExDto.Controllers
         [HttpPost]
         public async Task<ActionResult<Course>> PostCourse(Course course)
         {
+            if (_context.Courses == null)
+            {
+                return NoContent();
+            }
+
             _context.Courses.Add(course);
             await _context.SaveChangesAsync();
 
