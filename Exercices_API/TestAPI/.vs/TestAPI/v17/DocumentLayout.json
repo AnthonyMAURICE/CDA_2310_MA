@@ -76,7 +76,7 @@
               "RelativeDocumentMoniker": "TestAPI\\Models\\PersonTrip.cs",
               "ToolTip": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\TestAPI\\TestAPI\\Models\\PersonTrip.cs",
               "RelativeToolTip": "TestAPI\\Models\\PersonTrip.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-04T06:56:39.454Z",
               "EditorCaption": ""
@@ -91,8 +91,7 @@
               "RelativeToolTip": "TestAPI\\Db\\CountryDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T10:25:45.238Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-26T10:25:45.238Z"
             },
             {
               "$type": "Document",
@@ -104,8 +103,7 @@
               "RelativeToolTip": "TestAPI\\Models\\Trip.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-28T14:27:08.848Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-28T14:27:08.848Z"
             },
             {
               "$type": "Document",
@@ -141,8 +139,7 @@
               "RelativeToolTip": "TestAPI\\Models\\Person.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-28T14:26:38.341Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-28T14:26:38.341Z"
             },
             {
               "$type": "Document",
@@ -166,8 +163,7 @@
               "RelativeToolTip": "TestAPI\\Controllers\\TripsController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAFYAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-28T14:38:55.096Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-28T14:38:55.096Z"
             },
             {
               "$type": "Document",
@@ -179,8 +175,7 @@
               "RelativeToolTip": "TestAPI\\Models\\Country.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T09:45:22.395Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-26T09:45:22.395Z"
             },
             {
               "$type": "Document",
