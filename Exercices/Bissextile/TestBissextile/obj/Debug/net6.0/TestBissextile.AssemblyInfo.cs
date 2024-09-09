@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TestBissextile")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9ef58515d8f934e9e2d81b442cc97f0bb9bebdc3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ba1cd0a538753f4e0bbfe904cfe6e388df1e43d5")]
 [assembly: System.Reflection.AssemblyProductAttribute("TestBissextile")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TestBissextile")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
