@@ -86,7 +86,6 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(100, 20);
             this.textBoxName.TabIndex = 4;
-            this.textBoxName.Text = " ";
             this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
             // textBoxDate
