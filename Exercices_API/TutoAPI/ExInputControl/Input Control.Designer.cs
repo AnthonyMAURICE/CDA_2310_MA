@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelName = new System.Windows.Forms.Label();
             this.labelDate = new System.Windows.Forms.Label();
             this.labelAmount = new System.Windows.Forms.Label();
@@ -39,6 +40,8 @@
             this.labelDateFormat = new System.Windows.Forms.Label();
             this.buttonErase = new System.Windows.Forms.Button();
             this.buttonValidate = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelName
@@ -83,6 +86,7 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(100, 20);
             this.textBoxName.TabIndex = 4;
+            this.textBoxName.Text = " ";
             this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
             // textBoxDate
@@ -135,6 +139,10 @@
             this.buttonValidate.Text = "Valider";
             this.buttonValidate.UseVisualStyleBackColor = true;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // FormInputControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -154,6 +162,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "FormInputControl";
             this.Text = "Les contrôles";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,6 +181,7 @@
         private System.Windows.Forms.Label labelDateFormat;
         private System.Windows.Forms.Button buttonErase;
         private System.Windows.Forms.Button buttonValidate;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 
