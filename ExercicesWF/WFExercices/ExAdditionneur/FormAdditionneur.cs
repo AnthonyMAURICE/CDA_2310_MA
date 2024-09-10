@@ -12,9 +12,30 @@ namespace ExAdditionneur
 {
     public partial class FormAdditionneur : Form
     {
+        int totalValue = 0;
+
         public FormAdditionneur()
         {
             InitializeComponent();
+        }
+
+        private void buttonBase_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            calcBox.Text += (calcBox.Text != "" ? "+" :"") + button.Tag;
+            //calcBox.Text += button.Text + "+";
+            totalValue += int.Parse(button.Tag.ToString());
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            totalValue = 0;
+            calcBox.Clear();
+        }
+
+        private void buttonCalc_Click(object sender, EventArgs e)
+        {
+            calcBox.Text += " = " + totalValue;
         }
     }
 }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WFHelloWorld", "WFHelloWorl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExAdditionneur", "ExAdditionneur\ExAdditionneur.csproj", "{D4D70574-B5F0-4B4A-BEAF-EED7D92B0BB6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExInputControl", "ExInputControl\ExInputControl.csproj", "{5070B7BF-FFA2-41EA-8DA9-6318C6C5D1F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D4D70574-B5F0-4B4A-BEAF-EED7D92B0BB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4D70574-B5F0-4B4A-BEAF-EED7D92B0BB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4D70574-B5F0-4B4A-BEAF-EED7D92B0BB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5070B7BF-FFA2-41EA-8DA9-6318C6C5D1F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5070B7BF-FFA2-41EA-8DA9-6318C6C5D1F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5070B7BF-FFA2-41EA-8DA9-6318C6C5D1F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5070B7BF-FFA2-41EA-8DA9-6318C6C5D1F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
