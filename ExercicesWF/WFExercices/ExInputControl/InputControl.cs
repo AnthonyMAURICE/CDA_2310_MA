@@ -17,19 +17,17 @@ namespace ExInputControl
     public partial class FormInputControl : Form
     {
         
-        readonly Regex nameRegex = new Regex(@"^\p{Lu}[a-zA-z,/.-]{1,30}$");
+        readonly Regex nameRegex = new Regex(@"^\p{Lu}[a-zA-z,/.-]{0,30}$");
         readonly Regex timeRegex = new Regex(@"^(3[01]|[12][0-9]|0?[1-9])(\/|-)(1[0-2]|0?[1-9])\2([0-9]{2})?[0-9]{2}$");
         readonly Regex amountRegex = new Regex(@"[0-9]?[0-9]?([\.\,][0-9][0-9]?)?");
         readonly Regex zipCodeRegex = new Regex(@"^\d{5}$");
-        private string format;
-
+        private string format = "dd/MM/yyyy";
 
         private string name;
         private DateTime date;
         private double parsedAmount;
         private string zipCode;
 
-        //Transaction transaction = new Transaction();
         public FormInputControl()
         {
             InitializeComponent();
@@ -44,8 +42,7 @@ namespace ExInputControl
             MessageBoxDefaultButton.Button1);
             if (dr == DialogResult.Yes)
             {
-                Application.Exit();
-
+                Application.ExitThread();
             }
             else
             {
@@ -55,7 +52,7 @@ namespace ExInputControl
 
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {
-            
+            string errorMessage = "";
             Match match = nameRegex.Match(textBoxName.Text);
             if (match.Success)
             {
@@ -64,7 +61,13 @@ namespace ExInputControl
             }
             else
             {
-                errorProvider1.SetError(textBoxName, "Entrée invalide");
+                if (!Transaction.CheckNameValidity(textBoxName.Text))
+                {
+                    errorMessage += "Nom trop long / ";
+                    errorProvider1.SetError(textBoxName, "Nom trop long");
+                }
+                errorMessage += "Nom invalide";
+                errorProvider1.SetError(textBoxName, errorMessage);
             }
         }
 
@@ -92,7 +95,6 @@ namespace ExInputControl
         {
             CultureInfo provider = CultureInfo.InvariantCulture;
             Match match = timeRegex.Match(textBoxDate.Text);
-            format = "dd/MM/yyyy";
             if (match.Success)
             {
                 date = DateTime.ParseExact(textBoxDate.Text, format, provider);
@@ -145,23 +147,37 @@ namespace ExInputControl
         }
 
         private void buttonErase_Click(object sender, EventArgs e)
-        {
-            errorProvider1.SetError(textBoxName, string.Empty);
+        {  
             textBoxName.Text = string.Empty;
             textBoxZipCode.Text = string.Empty;
             textBoxDate.Text = string.Empty;
             textBoxAmount.Text = string.Empty;
-            
+            errorProvider1.SetError(textBoxName, string.Empty);
         }
 
         private void buttonValidate_Click(object sender, EventArgs e)
         {
-            Transaction transaction = new Transaction(name, date, parsedAmount, zipCode);
-            DialogResult dr = MessageBox.Show
-            (" Nom : " + transaction.Name + " Date : " + transaction.Date + " Montant : " + transaction.Amount + " Code : " + transaction.Zipcode, "Validation effectuée",
-            MessageBoxButtons.OK,
-            MessageBoxIcon.None,
-            MessageBoxDefaultButton.Button1); 
+            if (!Transaction.CheckNameValidity(name))
+            {
+                errorProvider1.SetError(textBoxName, "Nom trop long");
+            }
+            else if (!Transaction.CheckDateValidity(date))
+            {
+                errorProvider1.SetError(textBoxDate, "Date invalide");
+            }
+            else if (!Transaction.CheckAmountValidity(parsedAmount))
+            {
+                errorProvider1.SetError(textBoxAmount, "Montant invalide");
+            }
+            else
+            {
+                Transaction transaction = new Transaction(name, date, parsedAmount, zipCode);
+                MessageBox.Show
+                ("Nom : " + transaction.Name + "\nDate : " + transaction.Date.ToString(format) + "\nMontant : " + transaction.Amount + "\nCode : " + transaction.Zipcode, "Validation effectuée",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.None,
+                MessageBoxDefaultButton.Button1);
+            }
         }
     }
 }
