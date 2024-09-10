@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExAdditionneur", "ExAdditio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExInputControl", "ExInputControl\ExInputControl.csproj", "{5070B7BF-FFA2-41EA-8DA9-6318C6C5D1F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassWinForm", "ClassWinForm\ClassWinForm.csproj", "{FFBA7CD7-F996-4C2E-9A61-58F3D603D2DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5070B7BF-FFA2-41EA-8DA9-6318C6C5D1F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5070B7BF-FFA2-41EA-8DA9-6318C6C5D1F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5070B7BF-FFA2-41EA-8DA9-6318C6C5D1F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFBA7CD7-F996-4C2E-9A61-58F3D603D2DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFBA7CD7-F996-4C2E-9A61-58F3D603D2DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFBA7CD7-F996-4C2E-9A61-58F3D603D2DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFBA7CD7-F996-4C2E-9A61-58F3D603D2DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

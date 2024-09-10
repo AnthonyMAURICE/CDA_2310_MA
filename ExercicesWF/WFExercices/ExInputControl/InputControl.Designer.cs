@@ -87,6 +87,7 @@
             this.textBoxName.Size = new System.Drawing.Size(100, 20);
             this.textBoxName.TabIndex = 4;
             this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
+            this.textBoxName.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxName_Validating);
             // 
             // textBoxDate
             // 
@@ -94,6 +95,8 @@
             this.textBoxDate.Name = "textBoxDate";
             this.textBoxDate.Size = new System.Drawing.Size(100, 20);
             this.textBoxDate.TabIndex = 5;
+            this.textBoxDate.TextChanged += new System.EventHandler(this.textBoxDate_TextChanged);
+            this.textBoxDate.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxDate_Validating);
             // 
             // textBoxAmount
             // 
@@ -101,6 +104,8 @@
             this.textBoxAmount.Name = "textBoxAmount";
             this.textBoxAmount.Size = new System.Drawing.Size(100, 20);
             this.textBoxAmount.TabIndex = 6;
+            this.textBoxAmount.TextChanged += new System.EventHandler(this.textBoxAmount_TextChanged);
+            this.textBoxAmount.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxAmount_Validating);
             // 
             // textBoxZipCode
             // 
@@ -108,11 +113,12 @@
             this.textBoxZipCode.Name = "textBoxZipCode";
             this.textBoxZipCode.Size = new System.Drawing.Size(100, 20);
             this.textBoxZipCode.TabIndex = 7;
+            this.textBoxZipCode.TextChanged += new System.EventHandler(this.textBoxZipCode_TextChanged);
             // 
             // labelDateFormat
             // 
             this.labelDateFormat.AutoSize = true;
-            this.labelDateFormat.Location = new System.Drawing.Point(216, 92);
+            this.labelDateFormat.Location = new System.Drawing.Point(222, 92);
             this.labelDateFormat.Name = "labelDateFormat";
             this.labelDateFormat.Size = new System.Drawing.Size(79, 13);
             this.labelDateFormat.TabIndex = 8;
@@ -120,6 +126,7 @@
             // 
             // buttonErase
             // 
+            this.buttonErase.CausesValidation = false;
             this.buttonErase.Location = new System.Drawing.Point(220, 248);
             this.buttonErase.Name = "buttonErase";
             this.buttonErase.Size = new System.Drawing.Size(75, 23);
@@ -127,9 +134,11 @@
             this.buttonErase.Tag = "erase";
             this.buttonErase.Text = "Effacer";
             this.buttonErase.UseVisualStyleBackColor = true;
+            this.buttonErase.Click += new System.EventHandler(this.buttonErase_Click);
             // 
             // buttonValidate
             // 
+            this.buttonValidate.Enabled = false;
             this.buttonValidate.Location = new System.Drawing.Point(220, 219);
             this.buttonValidate.Name = "buttonValidate";
             this.buttonValidate.Size = new System.Drawing.Size(75, 23);
@@ -137,6 +146,7 @@
             this.buttonValidate.Tag = "validate";
             this.buttonValidate.Text = "Valider";
             this.buttonValidate.UseVisualStyleBackColor = true;
+            this.buttonValidate.Click += new System.EventHandler(this.buttonValidate_Click);
             // 
             // errorProvider1
             // 
@@ -146,6 +156,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(313, 300);
             this.Controls.Add(this.buttonValidate);
             this.Controls.Add(this.buttonErase);
@@ -161,6 +172,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "FormInputControl";
             this.Text = "Les contrôles";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormInputControl_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
