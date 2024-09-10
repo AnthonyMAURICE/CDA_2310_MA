@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClassWinForm;
 
 namespace ExInputControl
 {
@@ -15,6 +16,11 @@ namespace ExInputControl
         public FormResult()
         {
             InitializeComponent();
+        }
+
+        private void FormResult_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

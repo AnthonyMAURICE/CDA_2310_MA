@@ -21,7 +21,7 @@ namespace ExInputControl
         readonly Regex timeRegex = new Regex(@"^(3[01]|[12][0-9]|0?[1-9])(\/|-)(1[0-2]|0?[1-9])\2([0-9]{2})?[0-9]{2}$");
         readonly Regex amountRegex = new Regex(@"[0-9]?[0-9]?([\.\,][0-9][0-9]?)?");
         readonly Regex zipCodeRegex = new Regex(@"^\d{5}$");
-        private string format = "dd/MM/yyyy";
+        private const string format = "dd/MM/yyyy";
 
         private string name;
         private DateTime date;
@@ -93,11 +93,10 @@ namespace ExInputControl
 
         private void textBoxDate_Validating(object sender, CancelEventArgs e)
         {
-            CultureInfo provider = CultureInfo.InvariantCulture;
             Match match = timeRegex.Match(textBoxDate.Text);
             if (match.Success)
             {
-                date = DateTime.ParseExact(textBoxDate.Text, format, provider);
+                date = DateTime.ParseExact(textBoxDate.Text, format, CultureInfo.CurrentCulture); // voir tryparseexact
             }
             else
             {

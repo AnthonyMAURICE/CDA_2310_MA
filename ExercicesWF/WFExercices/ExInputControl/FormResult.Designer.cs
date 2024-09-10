@@ -92,6 +92,7 @@
             this.Controls.Add(this.labelName);
             this.Name = "FormResult";
             this.Text = "FormResult";
+            this.Load += new System.EventHandler(this.FormResult_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
