@@ -17,7 +17,7 @@ namespace ExInputControl
 {
     public partial class FormInputControl : Form
     {
-        private const string format = "dd/MM/yyyy";
+        
         private string name = "";
         private DateTime date;
         private double parsedAmount;
@@ -35,11 +35,7 @@ namespace ExInputControl
             MessageBoxButtons.YesNo,
             MessageBoxIcon.Question,
             MessageBoxDefaultButton.Button1);
-            if (dr == DialogResult.Yes)
-            {
-                Application.ExitThread();
-            }
-            else
+            if (dr != DialogResult.Yes)
             {
                 e.Cancel = true;
             }
@@ -47,7 +43,7 @@ namespace ExInputControl
 
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {
-            errorProvider1.SetError(textBoxName, ClassErrors.ErrorName(textBoxName.Text));
+            errorProvider1.SetError(textBoxName, FormControls.ErrorName(textBoxName.Text));
         }
 
 
@@ -64,24 +60,19 @@ namespace ExInputControl
 
         private void textBoxName_Leave(object sender, EventArgs e)
         {
-            FormControls.CheckNameValidity(textBoxName.Text);
             name = textBoxName.Text;
-
         }
 
         private void textBoxAmount_Leave(object sender, EventArgs e)
         {
-            if (Double.TryParse(textBoxAmount.Text.Replace('.', ','), out double amount))
-            {
-                parsedAmount = amount;
-            }
-            errorProvider1.SetError(textBoxAmount, ClassErrors.ErrorAmount(parsedAmount));
+            FormControls.CheckAmountValidity(textBoxAmount.Text, out parsedAmount);
+            errorProvider1.SetError(textBoxAmount, FormControls.ErrorAmount(textBoxAmount.Text));
         }
 
         private void textBoxZipCode_Leave(object sender, EventArgs e)
         {
             zipCode = textBoxZipCode.Text;
-            errorProvider1.SetError(textBoxZipCode, ClassErrors.ErrorZipCode(zipCode));
+            errorProvider1.SetError(textBoxZipCode, FormControls.ErrorZipCode(zipCode));
         }
 
         private void maskedTextBoxDate_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -93,38 +84,36 @@ namespace ExInputControl
         {
             if(maskedTextBoxDate.Text.Length == 10)
             {
-                errorProvider1.SetError(maskedTextBoxDate, ClassErrors.ErrorDate(maskedTextBoxDate.Text));
+                errorProvider1.SetError(maskedTextBoxDate, FormControls.ErrorDate(maskedTextBoxDate.Text));
             }
         }
 
         private void maskedTextBoxDate_Leave(object sender, EventArgs e)
         {
-            if (FormControls.CheckDateValidity(maskedTextBoxDate.Text))
-            {
-                DateTime.TryParseExact(maskedTextBoxDate.Text, format, CultureInfo.CurrentCulture, style: 0, out date);
-            }
-            errorProvider1.SetError(maskedTextBoxDate, ClassErrors.FutureDate(date));  
+            FormControls.CheckDateValidity(maskedTextBoxDate.Text, out date);
+            errorProvider1.SetError(maskedTextBoxDate, FormControls.FutureDate(date));  
         }
 
         private void buttonValidate_Click(object sender, EventArgs e)
         {
-            if (FormControls.CheckNameValidity(name) && (FormControls.CheckDateValidity(maskedTextBoxDate.Text) || !FormControls.DateIsFuture(date)) && FormControls.CheckAmountValidity(parsedAmount) && FormControls.CheckZipCodeValidity(zipCode)){
+            if (FormControls.CheckNameValidity(name) && (FormControls.CheckDateValidity(maskedTextBoxDate.Text, out date) || !FormControls.DateIsFuture(date)) && FormControls.CheckAmountValidity(textBoxAmount.Text , out parsedAmount) && FormControls.CheckZipCodeValidity(zipCode)){
                 Transaction transaction = new Transaction(name, date, parsedAmount, zipCode);
                 MessageBox.Show
-                ("Nom : " + transaction.Name + "\nDate : " 
-                + transaction.Date.ToString(format) 
-                + "\nMontant : " + transaction.Amount + "\nCode : " 
-                + transaction.Zipcode, "Validation effectuée",
+                ("Nom : " + transaction.Name 
+                + "\nDate : " + transaction.Date.ToString("dd/MM/yyyy") 
+                + "\nMontant : " + transaction.Amount 
+                + "\nCode : " + transaction.Zipcode, 
+                "Validation effectuée",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.None,
                 MessageBoxDefaultButton.Button1);
             }
             else
             {
-                errorProvider1.SetError(textBoxName, ClassErrors.ErrorName(name));
-                errorProvider1.SetError(maskedTextBoxDate, ClassErrors.FutureDate(date));
-                errorProvider1.SetError(textBoxAmount, ClassErrors.ErrorAmount(parsedAmount));
-                errorProvider1.SetError(textBoxZipCode, ClassErrors.ErrorZipCode(zipCode));
+                errorProvider1.SetError(textBoxName, FormControls.ErrorName(name));
+                errorProvider1.SetError(maskedTextBoxDate, FormControls.FutureDate(date));
+                errorProvider1.SetError(textBoxAmount, FormControls.ErrorAmount(textBoxAmount.Text));
+                errorProvider1.SetError(textBoxZipCode, FormControls.ErrorZipCode(zipCode));
             }
         }
 
