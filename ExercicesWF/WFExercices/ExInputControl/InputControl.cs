@@ -18,10 +18,10 @@ namespace ExInputControl
     public partial class FormInputControl : Form
     {
         private const string format = "dd/MM/yyyy";
-        private string name;
+        private string name = "";
         private DateTime date;
         private double parsedAmount;
-        private string zipCode;
+        private string zipCode = "";
 
         public FormInputControl()
         {
@@ -64,28 +64,24 @@ namespace ExInputControl
 
         private void textBoxName_Leave(object sender, EventArgs e)
         {
-            //FormControls.CheckNameValidity(textBoxName.Text);
+            FormControls.CheckNameValidity(textBoxName.Text);
             name = textBoxName.Text;
 
         }
 
         private void textBoxAmount_Leave(object sender, EventArgs e)
         {
-            if (!Double.TryParse(textBoxAmount.Text.Replace('.', ','), out double amount))
-            {
-                errorProvider1.SetError(textBoxAmount, "Montant invalide");
-            }
-            else
+            if (Double.TryParse(textBoxAmount.Text.Replace('.', ','), out double amount))
             {
                 parsedAmount = amount;
             }
+            errorProvider1.SetError(textBoxAmount, ClassErrors.ErrorAmount(parsedAmount));
         }
 
         private void textBoxZipCode_Leave(object sender, EventArgs e)
         {
-            FormControls.CheckZipCodeValidity(textBoxZipCode.Text);
             zipCode = textBoxZipCode.Text;
-
+            errorProvider1.SetError(textBoxZipCode, ClassErrors.ErrorZipCode(zipCode));
         }
 
         private void maskedTextBoxDate_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -103,10 +99,11 @@ namespace ExInputControl
 
         private void maskedTextBoxDate_Leave(object sender, EventArgs e)
         {
-            
-            DateTime.TryParseExact(maskedTextBoxDate.Text, format, CultureInfo.CurrentCulture, style: 0, out date);
-            errorProvider1.SetError(maskedTextBoxDate, ClassErrors.FutureDate(date));
-
+            if (FormControls.CheckDateValidity(maskedTextBoxDate.Text))
+            {
+                DateTime.TryParseExact(maskedTextBoxDate.Text, format, CultureInfo.CurrentCulture, style: 0, out date);
+            }
+            errorProvider1.SetError(maskedTextBoxDate, ClassErrors.FutureDate(date));  
         }
 
         private void buttonValidate_Click(object sender, EventArgs e)

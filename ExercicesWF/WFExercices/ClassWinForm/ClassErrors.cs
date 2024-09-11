@@ -52,13 +52,13 @@ namespace ClassWinForm
 
         public static string ErrorAmount(double amount)
         {
-            return amount < 0 ? "Le montant doit être supérieur à 0" : string.Empty;
+            return (amount <= 0) ? "Le montant doit être supérieur à 0" : string.Empty;
         }
 
         public static string ErrorZipCode(string code)
         {
             string zipPattern = @"^\d{5}$";
-            if (code.Length != 5)
+            if (code.Length != 5 || code == null)
             {
                 return "Un code postal doit comporter 5 caractères";
             }
