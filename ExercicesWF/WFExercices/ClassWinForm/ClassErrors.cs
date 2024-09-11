@@ -13,8 +13,7 @@ namespace ClassWinForm
     {
         public static string ErrorName(string name)
         {
-            string namePattern = @"^\p{Lu}[a-zA-z,/.-]{0,30}$";
-            if (name.Length == 0 || name == null)
+            if (name == "")
             {
                 return "Saisissez un nom";
             }
@@ -22,49 +21,36 @@ namespace ClassWinForm
             {
                 return "Nom trop long";
             }
-            else if (!Regex.IsMatch(name, namePattern))
-            {
-                return "Format de nom incorrect";
-            }
             else
             {
-                return string.Empty;
+                return !FormControls.CheckNameValidity(name)? "Format de nom incorrect" : string.Empty;
             }
         }
 
         public static string ErrorDate(string dateString)
         {
-            string datePattern = @"^(3[01]|[12][0-9]|0?[1-9])(\/|-)(1[0-2]|0?[1-9])\2([0-9]{2})?[0-9]{2}$";
-            if(!Regex.IsMatch(dateString, datePattern))
-            {
-                return "Format de date invalide";
-            }
-            else
-            {
-                return string.Empty;
-            }
+            return !FormControls.CheckDateValidity(dateString)? "Format de date invalide" : string.Empty;
         }
 
         public static string FutureDate(DateTime date)
         {
-            return date < DateTime.Now? "La date doit être dans le futur" : string.Empty;
+            return !FormControls.DateIsFuture(date)? "La date doit être dans le futur" : string.Empty;
         }
 
         public static string ErrorAmount(double amount)
         {
-            return (amount <= 0) ? "Le montant doit être supérieur à 0" : string.Empty;
+            return !FormControls.CheckAmountValidity(amount)? "Le montant doit être supérieur à 0" : string.Empty;
         }
 
         public static string ErrorZipCode(string code)
         {
-            string zipPattern = @"^\d{5}$";
-            if (code.Length != 5 || code == null)
+            if (code.Length != 5)
             {
                 return "Un code postal doit comporter 5 caractères";
             }
             else
             {
-                return !Regex.IsMatch(code, zipPattern) ? "Format de code postal invalide" : string.Empty;
+                return !FormControls.CheckZipCodeValidity(code)? "Format de code postal invalide" : string.Empty;
             }
             
         }
