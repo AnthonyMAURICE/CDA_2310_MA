@@ -34,14 +34,16 @@
             this.labelAmount = new System.Windows.Forms.Label();
             this.labelZipCode = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
-            this.textBoxDate = new System.Windows.Forms.TextBox();
             this.textBoxAmount = new System.Windows.Forms.TextBox();
             this.textBoxZipCode = new System.Windows.Forms.TextBox();
             this.labelDateFormat = new System.Windows.Forms.Label();
             this.buttonErase = new System.Windows.Forms.Button();
             this.buttonValidate = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.maskedTextBoxDate = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             this.SuspendLayout();
             // 
             // labelName
@@ -87,16 +89,7 @@
             this.textBoxName.Size = new System.Drawing.Size(100, 20);
             this.textBoxName.TabIndex = 4;
             this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
-            this.textBoxName.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxName_Validating);
-            // 
-            // textBoxDate
-            // 
-            this.textBoxDate.Location = new System.Drawing.Point(98, 89);
-            this.textBoxDate.Name = "textBoxDate";
-            this.textBoxDate.Size = new System.Drawing.Size(100, 20);
-            this.textBoxDate.TabIndex = 5;
-            this.textBoxDate.TextChanged += new System.EventHandler(this.textBoxDate_TextChanged);
-            this.textBoxDate.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxDate_Validating);
+            this.textBoxName.Leave += new System.EventHandler(this.textBoxName_Leave);
             // 
             // textBoxAmount
             // 
@@ -105,7 +98,7 @@
             this.textBoxAmount.Size = new System.Drawing.Size(100, 20);
             this.textBoxAmount.TabIndex = 6;
             this.textBoxAmount.TextChanged += new System.EventHandler(this.textBoxAmount_TextChanged);
-            this.textBoxAmount.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxAmount_Validating);
+            this.textBoxAmount.Leave += new System.EventHandler(this.textBoxAmount_Leave);
             // 
             // textBoxZipCode
             // 
@@ -114,6 +107,7 @@
             this.textBoxZipCode.Size = new System.Drawing.Size(100, 20);
             this.textBoxZipCode.TabIndex = 7;
             this.textBoxZipCode.TextChanged += new System.EventHandler(this.textBoxZipCode_TextChanged);
+            this.textBoxZipCode.Leave += new System.EventHandler(this.textBoxZipCode_Leave);
             // 
             // labelDateFormat
             // 
@@ -138,7 +132,6 @@
             // 
             // buttonValidate
             // 
-            this.buttonValidate.Enabled = false;
             this.buttonValidate.Location = new System.Drawing.Point(220, 219);
             this.buttonValidate.Name = "buttonValidate";
             this.buttonValidate.Size = new System.Drawing.Size(75, 23);
@@ -152,18 +145,34 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
+            // 
+            // maskedTextBoxDate
+            // 
+            this.maskedTextBoxDate.Location = new System.Drawing.Point(98, 92);
+            this.maskedTextBoxDate.Mask = "00/00/0000";
+            this.maskedTextBoxDate.Name = "maskedTextBoxDate";
+            this.maskedTextBoxDate.Size = new System.Drawing.Size(100, 20);
+            this.maskedTextBoxDate.TabIndex = 5;
+            this.maskedTextBoxDate.ValidatingType = typeof(System.DateTime);
+            this.maskedTextBoxDate.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBoxDate_MaskInputRejected);
+            this.maskedTextBoxDate.TextChanged += new System.EventHandler(this.maskedTextBoxDate_TextChanged);
+            this.maskedTextBoxDate.Leave += new System.EventHandler(this.maskedTextBoxDate_Leave);
+            // 
             // FormInputControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(313, 300);
+            this.Controls.Add(this.maskedTextBoxDate);
             this.Controls.Add(this.buttonValidate);
             this.Controls.Add(this.buttonErase);
             this.Controls.Add(this.labelDateFormat);
             this.Controls.Add(this.textBoxZipCode);
             this.Controls.Add(this.textBoxAmount);
-            this.Controls.Add(this.textBoxDate);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.labelZipCode);
             this.Controls.Add(this.labelAmount);
@@ -174,6 +183,7 @@
             this.Text = "Les contrôles";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormInputControl_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,13 +196,14 @@
         private System.Windows.Forms.Label labelAmount;
         private System.Windows.Forms.Label labelZipCode;
         private System.Windows.Forms.TextBox textBoxName;
-        private System.Windows.Forms.TextBox textBoxDate;
         private System.Windows.Forms.TextBox textBoxAmount;
         private System.Windows.Forms.TextBox textBoxZipCode;
         private System.Windows.Forms.Label labelDateFormat;
         private System.Windows.Forms.Button buttonErase;
         private System.Windows.Forms.Button buttonValidate;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxDate;
     }
 }
 

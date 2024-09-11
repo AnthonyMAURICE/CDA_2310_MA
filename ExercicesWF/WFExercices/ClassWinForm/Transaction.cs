@@ -32,19 +32,6 @@ namespace ClassWinForm
             this.zipcode = zipcode;
         }
 
-        public static bool CheckNameValidity(string name)
-        {
-            return name.Length <= 30;
-        }
-
-        public static bool CheckAmountValidity(double amount)
-        {
-            return amount > 0;
-        }
-
-        public static bool CheckDateValidity(DateTime date)
-        {
-            return date > DateTime.Now;
-        }
+        
     }
 }

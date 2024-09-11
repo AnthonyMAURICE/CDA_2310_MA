@@ -11,18 +11,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using ClassWinForm;
+using System.Security.Policy;
 
 namespace ExInputControl
 {
     public partial class FormInputControl : Form
     {
-        
-        readonly Regex nameRegex = new Regex(@"^\p{Lu}[a-zA-z,/.-]{0,30}$");
-        readonly Regex timeRegex = new Regex(@"^(3[01]|[12][0-9]|0?[1-9])(\/|-)(1[0-2]|0?[1-9])\2([0-9]{2})?[0-9]{2}$");
-        readonly Regex amountRegex = new Regex(@"[0-9]?[0-9]?([\.\,][0-9][0-9]?)?");
-        readonly Regex zipCodeRegex = new Regex(@"^\d{5}$");
         private const string format = "dd/MM/yyyy";
-
         private string name;
         private DateTime date;
         private double parsedAmount;
@@ -52,69 +47,32 @@ namespace ExInputControl
 
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {
-            string errorMessage = "";
-            Match match = nameRegex.Match(textBoxName.Text);
-            if (match.Success)
-            {
-                errorProvider1.SetError(textBoxName, string.Empty);
-                
-            }
-            else
-            {
-                if (!Transaction.CheckNameValidity(textBoxName.Text))
-                {
-                    errorMessage += "Nom trop long / ";
-                    errorProvider1.SetError(textBoxName, "Nom trop long");
-                }
-                errorMessage += "Nom invalide";
-                errorProvider1.SetError(textBoxName, errorMessage);
-            }
+            errorProvider1.SetError(textBoxName, ClassErrors.ErrorName(textBoxName.Text));
         }
 
-        private void textBoxDate_TextChanged(object sender, EventArgs e)
-        {
-            errorProvider1.SetError(textBoxDate, string.Empty);
-        }
-
-        private void textBoxName_Validating(object sender, CancelEventArgs e)
-        {
-            Match match = nameRegex.Match(textBoxName.Text);
-            if (match.Success)
-            {
-                errorProvider1.SetError(textBoxName, string.Empty);
-                name = textBoxName.Text;
-            }
-            else
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(textBoxName, "Nom invalide");
-            }
-        }
-
-        private void textBoxDate_Validating(object sender, CancelEventArgs e)
-        {
-            Match match = timeRegex.Match(textBoxDate.Text);
-            if (match.Success)
-            {
-                date = DateTime.ParseExact(textBoxDate.Text, format, CultureInfo.CurrentCulture); // voir tryparseexact
-            }
-            else
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(textBoxDate, "Date invalide");
-            }
-        }
 
         private void textBoxAmount_TextChanged(object sender, EventArgs e)
         {
             errorProvider1.SetError(textBoxAmount, string.Empty);
         }
 
-        private void textBoxAmount_Validating(object sender, CancelEventArgs e)
+        private void textBoxZipCode_TextChanged(object sender, EventArgs e)
+        {
+            errorProvider1.SetError(textBoxZipCode, string.Empty);
+        }
+
+
+        private void textBoxName_Leave(object sender, EventArgs e)
+        {
+            //FormControls.CheckNameValidity(textBoxName.Text);
+            name = textBoxName.Text;
+
+        }
+
+        private void textBoxAmount_Leave(object sender, EventArgs e)
         {
             if (!Double.TryParse(textBoxAmount.Text.Replace('.', ','), out double amount))
             {
-                e.Cancel = true;
                 errorProvider1.SetError(textBoxAmount, "Montant invalide");
             }
             else
@@ -123,60 +81,66 @@ namespace ExInputControl
             }
         }
 
-        private void textBoxZipCode_TextChanged(object sender, EventArgs e)
+        private void textBoxZipCode_Leave(object sender, EventArgs e)
         {
-            errorProvider1.SetError(textBoxZipCode, string.Empty);
-            if(textBoxZipCode.Text.Length == 5)
+            FormControls.CheckZipCodeValidity(textBoxZipCode.Text);
+            zipCode = textBoxZipCode.Text;
+
+        }
+
+        private void maskedTextBoxDate_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            errorProvider1.SetError(maskedTextBoxDate, "Format de date incorrect");
+        }
+
+        private void maskedTextBoxDate_TextChanged(object sender, EventArgs e)
+        {
+            if(maskedTextBoxDate.Text.Length == 10)
             {
-                Match match = zipCodeRegex.Match(textBoxZipCode.Text);
-                if (match.Success)
-                {
-                    zipCode = textBoxZipCode.Text;
-                    buttonValidate.Enabled = true;
-                }
-                else
-                {
-                    errorProvider1.SetError(textBoxZipCode, "Code postal invalide");
-                }
-            }
-            else
-            {
-                buttonValidate.Enabled = false;
+                errorProvider1.SetError(maskedTextBoxDate, ClassErrors.ErrorDate(maskedTextBoxDate.Text));
             }
         }
 
-        private void buttonErase_Click(object sender, EventArgs e)
-        {  
-            textBoxName.Text = string.Empty;
-            textBoxZipCode.Text = string.Empty;
-            textBoxDate.Text = string.Empty;
-            textBoxAmount.Text = string.Empty;
-            errorProvider1.SetError(textBoxName, string.Empty);
+        private void maskedTextBoxDate_Leave(object sender, EventArgs e)
+        {
+            
+            DateTime.TryParseExact(maskedTextBoxDate.Text, format, CultureInfo.CurrentCulture, style: 0, out date);
+            errorProvider1.SetError(maskedTextBoxDate, ClassErrors.FutureDate(date));
+
         }
 
         private void buttonValidate_Click(object sender, EventArgs e)
         {
-            if (!Transaction.CheckNameValidity(name))
-            {
-                errorProvider1.SetError(textBoxName, "Nom trop long");
-            }
-            else if (!Transaction.CheckDateValidity(date))
-            {
-                errorProvider1.SetError(textBoxDate, "Date invalide");
-            }
-            else if (!Transaction.CheckAmountValidity(parsedAmount))
-            {
-                errorProvider1.SetError(textBoxAmount, "Montant invalide");
-            }
-            else
-            {
+            if (FormControls.CheckNameValidity(name) && (FormControls.CheckDateValidity(maskedTextBoxDate.Text) || !FormControls.DateIsFuture(date)) && FormControls.CheckAmountValidity(parsedAmount) && FormControls.CheckZipCodeValidity(zipCode)){
                 Transaction transaction = new Transaction(name, date, parsedAmount, zipCode);
                 MessageBox.Show
-                ("Nom : " + transaction.Name + "\nDate : " + transaction.Date.ToString(format) + "\nMontant : " + transaction.Amount + "\nCode : " + transaction.Zipcode, "Validation effectuée",
+                ("Nom : " + transaction.Name + "\nDate : " 
+                + transaction.Date.ToString(format) 
+                + "\nMontant : " + transaction.Amount + "\nCode : " 
+                + transaction.Zipcode, "Validation effectuée",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.None,
                 MessageBoxDefaultButton.Button1);
             }
+            else
+            {
+                errorProvider1.SetError(textBoxName, ClassErrors.ErrorName(name));
+                errorProvider1.SetError(maskedTextBoxDate, ClassErrors.FutureDate(date));
+                errorProvider1.SetError(textBoxAmount, ClassErrors.ErrorAmount(parsedAmount));
+                errorProvider1.SetError(textBoxZipCode, ClassErrors.ErrorZipCode(zipCode));
+            }
         }
+
+        private void buttonErase_Click(object sender, EventArgs e)
+        {
+            textBoxName.Text = string.Empty;
+            textBoxZipCode.Text = string.Empty;
+            maskedTextBoxDate.Text = string.Empty;
+            textBoxAmount.Text = string.Empty;
+            errorProvider1.SetError(textBoxName, string.Empty);
+            errorProvider1.SetError(maskedTextBoxDate, string.Empty);
+            errorProvider1.SetError(textBoxAmount, string.Empty);
+            errorProvider1.SetError(textBoxZipCode, string.Empty);
+        }  
     }
 }
