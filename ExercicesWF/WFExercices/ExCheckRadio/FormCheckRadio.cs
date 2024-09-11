@@ -16,5 +16,51 @@ namespace ExCheckRadio
         {
             InitializeComponent();
         }
+
+        private void checkBoxBack_CheckedChanged(object sender, EventArgs e)
+        {
+            groupBoxRadioBack.Visible = checkBoxBack.Checked;
+        }
+
+        private void checkBoxChar_CheckedChanged(object sender, EventArgs e)
+        {
+            groupBoxRadioChar.Visible = checkBoxChar.Checked;
+        }
+
+        private void checkBoxCase_CheckedChanged(object sender, EventArgs e)
+        {
+            groupBoxRadioCase.Visible = checkBoxCase.Checked;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            groupBoxCheck.Enabled = textBox1.Text != "";
+            labelText.Text = textBox1.Text;
+        }
+
+        private void radioButtonBackRed_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton btn = (RadioButton)sender;
+            labelText.BackColor = Color.FromName(btn.Tag.ToString());
+        }
+
+        private void radioButtonCharaRed_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton btn = (RadioButton)sender;
+            labelText.ForeColor = Color.FromName(btn.Tag.ToString());
+        }
+
+        private void radioButtonLowerCase_CheckedChanged(object sender, EventArgs e)
+        {
+            labelText.Text = radioButtonLowerCase.Checked ? labelText.Text.ToLower() : labelText.Text.ToUpper();
+        }
+
+        private void labelText_TextChanged(object sender, EventArgs e)
+        {
+            if(radioButtonLowerCase.Checked || radioButtonUpperCase.Checked)
+            {
+                labelText.Text = radioButtonLowerCase.Checked ? labelText.Text.ToLower() : labelText.Text.ToUpper();
+            }
+        }
     }
 }
