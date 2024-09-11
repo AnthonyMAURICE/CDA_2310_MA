@@ -139,7 +139,7 @@
             this.radioButtonBackBlue.Tag = "Blue";
             this.radioButtonBackBlue.Text = "Bleu";
             this.radioButtonBackBlue.UseVisualStyleBackColor = true;
-            this.radioButtonBackBlue.CheckedChanged += new System.EventHandler(this.radioButtonBackRed_CheckedChanged);
+            this.radioButtonBackBlue.CheckedChanged += new System.EventHandler(this.radioButtonBack_CheckedChanged);
             // 
             // radioButtonBackGreen
             // 
@@ -152,7 +152,7 @@
             this.radioButtonBackGreen.Tag = "Green";
             this.radioButtonBackGreen.Text = "Vert";
             this.radioButtonBackGreen.UseVisualStyleBackColor = true;
-            this.radioButtonBackGreen.CheckedChanged += new System.EventHandler(this.radioButtonBackRed_CheckedChanged);
+            this.radioButtonBackGreen.CheckedChanged += new System.EventHandler(this.radioButtonBack_CheckedChanged);
             // 
             // radioButtonBackRed
             // 
@@ -165,7 +165,7 @@
             this.radioButtonBackRed.Tag = "Red";
             this.radioButtonBackRed.Text = "Rouge";
             this.radioButtonBackRed.UseVisualStyleBackColor = true;
-            this.radioButtonBackRed.CheckedChanged += new System.EventHandler(this.radioButtonBackRed_CheckedChanged);
+            this.radioButtonBackRed.CheckedChanged += new System.EventHandler(this.radioButtonBack_CheckedChanged);
             // 
             // groupBoxRadioChar
             // 
@@ -190,7 +190,7 @@
             this.radioButtonCharaBlack.Tag = "Black";
             this.radioButtonCharaBlack.Text = "Noir";
             this.radioButtonCharaBlack.UseVisualStyleBackColor = true;
-            this.radioButtonCharaBlack.CheckedChanged += new System.EventHandler(this.radioButtonCharaRed_CheckedChanged);
+            this.radioButtonCharaBlack.CheckedChanged += new System.EventHandler(this.radioButtonChara_CheckedChanged);
             // 
             // radioButtonCharaWhite
             // 
@@ -202,7 +202,7 @@
             this.radioButtonCharaWhite.Tag = "White";
             this.radioButtonCharaWhite.Text = "Blanc";
             this.radioButtonCharaWhite.UseVisualStyleBackColor = true;
-            this.radioButtonCharaWhite.CheckedChanged += new System.EventHandler(this.radioButtonCharaRed_CheckedChanged);
+            this.radioButtonCharaWhite.CheckedChanged += new System.EventHandler(this.radioButtonChara_CheckedChanged);
             // 
             // radioButtonCharaRed
             // 
@@ -214,7 +214,7 @@
             this.radioButtonCharaRed.Tag = "Red";
             this.radioButtonCharaRed.Text = "Rouge";
             this.radioButtonCharaRed.UseVisualStyleBackColor = true;
-            this.radioButtonCharaRed.CheckedChanged += new System.EventHandler(this.radioButtonCharaRed_CheckedChanged);
+            this.radioButtonCharaRed.CheckedChanged += new System.EventHandler(this.radioButtonChara_CheckedChanged);
             // 
             // groupBoxRadioCase
             // 
@@ -238,7 +238,7 @@
             this.radioButtonUpperCase.TabStop = true;
             this.radioButtonUpperCase.Text = "Majuscules";
             this.radioButtonUpperCase.UseVisualStyleBackColor = true;
-            this.radioButtonUpperCase.CheckedChanged += new System.EventHandler(this.radioButtonLowerCase_CheckedChanged);
+            this.radioButtonUpperCase.CheckedChanged += new System.EventHandler(this.radioButtonCase_CheckedChanged);
             // 
             // radioButtonLowerCase
             // 
@@ -249,7 +249,7 @@
             this.radioButtonLowerCase.TabIndex = 0;
             this.radioButtonLowerCase.Text = "Minuscules";
             this.radioButtonLowerCase.UseVisualStyleBackColor = true;
-            this.radioButtonLowerCase.CheckedChanged += new System.EventHandler(this.radioButtonLowerCase_CheckedChanged);
+            this.radioButtonLowerCase.CheckedChanged += new System.EventHandler(this.radioButtonCase_CheckedChanged);
             // 
             // labelText
             // 

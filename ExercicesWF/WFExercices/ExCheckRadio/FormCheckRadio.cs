@@ -38,19 +38,8 @@ namespace ExCheckRadio
             labelText.Text = textBox1.Text;
         }
 
-        private void radioButtonBackRed_CheckedChanged(object sender, EventArgs e)
-        {
-            RadioButton btn = (RadioButton)sender;
-            labelText.BackColor = Color.FromName(btn.Tag.ToString());
-        }
 
-        private void radioButtonCharaRed_CheckedChanged(object sender, EventArgs e)
-        {
-            RadioButton btn = (RadioButton)sender;
-            labelText.ForeColor = Color.FromName(btn.Tag.ToString());
-        }
-
-        private void radioButtonLowerCase_CheckedChanged(object sender, EventArgs e)
+        private void radioButtonCase_CheckedChanged(object sender, EventArgs e)
         {
             labelText.Text = radioButtonLowerCase.Checked ? labelText.Text.ToLower() : labelText.Text.ToUpper();
         }
@@ -62,5 +51,18 @@ namespace ExCheckRadio
                 labelText.Text = radioButtonLowerCase.Checked ? labelText.Text.ToLower() : labelText.Text.ToUpper();
             }
         }
+
+        private void radioButtonBack_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton btn = (RadioButton)sender;
+            labelText.BackColor = Color.FromName(btn.Tag.ToString());
+        }
+
+        private void radioButtonChara_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton btn = (RadioButton)sender;
+            labelText.ForeColor = Color.FromName(btn.Tag.ToString());
+        }
+
     }
 }
