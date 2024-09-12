@@ -120,6 +120,7 @@
             this.groupBoxRadioBack.Controls.Add(this.radioButtonBackBlue);
             this.groupBoxRadioBack.Controls.Add(this.radioButtonBackGreen);
             this.groupBoxRadioBack.Controls.Add(this.radioButtonBackRed);
+            this.groupBoxRadioBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxRadioBack.Location = new System.Drawing.Point(45, 171);
             this.groupBoxRadioBack.Name = "groupBoxRadioBack";
             this.groupBoxRadioBack.Size = new System.Drawing.Size(189, 135);

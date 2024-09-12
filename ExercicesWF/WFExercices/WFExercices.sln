@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassWinForm", "ClassWinFor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExCheckRadio", "ExCheckRadio\ExCheckRadio.csproj", "{86221C4C-8B19-46A7-81B6-F918A3205679}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormList", "FormList\FormList.csproj", "{40A52F7B-1735-469C-95D6-364A028ABA4F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{86221C4C-8B19-46A7-81B6-F918A3205679}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86221C4C-8B19-46A7-81B6-F918A3205679}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86221C4C-8B19-46A7-81B6-F918A3205679}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40A52F7B-1735-469C-95D6-364A028ABA4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40A52F7B-1735-469C-95D6-364A028ABA4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40A52F7B-1735-469C-95D6-364A028ABA4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40A52F7B-1735-469C-95D6-364A028ABA4F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

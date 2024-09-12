@@ -27,6 +27,11 @@ namespace ClassWinForm
             return parsedAmount > 0;
         }
 
+        public static bool CheckIfInt(string stringNumberToTest, out int parsedInt)
+        {
+            return int.TryParse(stringNumberToTest, out parsedInt);
+        }
+
         public static bool CheckDateValidity(string stringDate, out DateTime date)
         {
             const string format = "dd/MM/yyyy";
