@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassWinForm;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -95,7 +96,7 @@ namespace FormComboBox
 
         private void comboBoxOrigin_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Return && comboBoxOrigin.Text != "")
+            if (e.KeyChar == (char)Keys.Return && FormControls.CheckNameValidity(comboBoxOrigin.Text))
             {
                 if (!comboBoxOrigin.Items.Contains(comboBoxOrigin.Text) && !listBoxTarget.Items.Contains(comboBoxOrigin.Text))
                 {
@@ -109,7 +110,7 @@ namespace FormComboBox
             }
             else
             {
-                errorProvider1.SetError(comboBoxOrigin, "Saisissez quelque chose !");
+                errorProvider1.SetError(comboBoxOrigin, comboBoxOrigin.Text == ""? "Saisissez quelque chose !" : "Saisie invalide !");
             }
         }
 
