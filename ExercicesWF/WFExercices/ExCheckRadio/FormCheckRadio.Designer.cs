@@ -81,6 +81,7 @@
             this.groupBoxCheck.TabIndex = 2;
             this.groupBoxCheck.TabStop = false;
             this.groupBoxCheck.Text = "Choix";
+            this.groupBoxCheck.EnabledChanged += new System.EventHandler(this.groupBoxCheck_EnabledChanged);
             // 
             // checkBoxCase
             // 

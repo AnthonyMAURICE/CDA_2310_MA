@@ -64,5 +64,11 @@ namespace ExCheckRadio
             labelText.ForeColor = Color.FromName(btn.Tag.ToString());
         }
 
+        private void groupBoxCheck_EnabledChanged(object sender, EventArgs e)
+        {
+            groupBoxRadioBack.Visible = groupBoxCheck.Enabled;
+            groupBoxRadioChar.Visible = groupBoxCheck.Enabled;
+            groupBoxRadioCase.Visible = groupBoxCheck.Enabled;
+        }
     }
 }
