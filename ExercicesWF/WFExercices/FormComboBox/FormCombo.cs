@@ -13,8 +13,7 @@ namespace FormComboBox
 {
     public partial class FormCombo : Form
     {
-        private string[] countries = {"France", "Belgique", "Allemagne", "Japon", "Portugal", "Grece", "Bulgarie", "Espagne"};
-
+        private readonly string[] countries = {"France", "Belgique", "Allemagne", "Japon", "Portugal", "Grece", "Bulgarie", "Espagne"};
         public FormCombo()
         {
             InitializeComponent();
@@ -44,7 +43,7 @@ namespace FormComboBox
                     listBoxTarget.Items.Remove(listBoxTarget.SelectedItem);
                 }
             }
-            SetBtnEnabled();
+            comboBoxOrigin.Text = string.Empty;
         }
 
         private void buttonMany_Click(object sender, EventArgs e)
@@ -66,7 +65,7 @@ namespace FormComboBox
                 }
                 listBoxTarget.Items.Clear();
             }
-            SetBtnEnabled();
+            comboBoxOrigin.Text = "";
         }
 
         private void MoveItem(int way) 
@@ -101,16 +100,16 @@ namespace FormComboBox
                 if (!comboBoxOrigin.Items.Contains(comboBoxOrigin.Text) && !listBoxTarget.Items.Contains(comboBoxOrigin.Text))
                 {
                     comboBoxOrigin.Items.Add(comboBoxOrigin.Text);
-                    comboBoxOrigin.Text = "";
+                    comboBoxOrigin.Text = string.Empty;
                 }
                 else
                 {
-                    errorProvider1.SetError(comboBoxOrigin, comboBoxOrigin.Text + " est déjà présent dans une des listes !");
+                    errorProvider1.SetError(comboBoxOrigin, comboBoxOrigin.Text == string.Empty ? "Saisissez quelque chose !" : comboBoxOrigin.Text + " est déjà présent dans une des listes !");
                 }
             }
             else
             {
-                errorProvider1.SetError(comboBoxOrigin, comboBoxOrigin.Text == ""? "Saisissez quelque chose !" : "Saisie invalide !");
+                errorProvider1.SetError(comboBoxOrigin, comboBoxOrigin.Text == string.Empty? "Saisissez quelque chose !" : "Saisie invalide !");
             }
         }
 
@@ -119,10 +118,10 @@ namespace FormComboBox
             errorProvider1.SetError(comboBoxOrigin, string.Empty);
         }
 
-        private void SetBtnEnabled()
+        private void listBoxTarget_SelectedIndexChanged(object sender, EventArgs e)
         {
-            buttonUp.Enabled = listBoxTarget.Items.Count > 1;
-            buttonDown.Enabled = listBoxTarget.Items.Count > 1;
-        }    
+            buttonUp.Enabled = listBoxTarget.Items.Count > 1 && listBoxTarget.SelectedIndex > 0;
+            buttonDown.Enabled = listBoxTarget.Items.Count > 1 && listBoxTarget.SelectedIndex < listBoxTarget.Items.Count -1;
+        }
     }
 }

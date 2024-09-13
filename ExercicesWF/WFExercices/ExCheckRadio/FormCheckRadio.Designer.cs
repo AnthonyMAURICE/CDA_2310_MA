@@ -129,6 +129,7 @@
             this.groupBoxRadioBack.TabStop = false;
             this.groupBoxRadioBack.Text = "Fond";
             this.groupBoxRadioBack.Visible = false;
+            this.groupBoxRadioBack.VisibleChanged += new System.EventHandler(this.groupBoxRadioBack_VisibleChanged);
             // 
             // radioButtonBackBlue
             // 
@@ -181,6 +182,7 @@
             this.groupBoxRadioChar.TabStop = false;
             this.groupBoxRadioChar.Text = "Caractères";
             this.groupBoxRadioChar.Visible = false;
+            this.groupBoxRadioChar.VisibleChanged += new System.EventHandler(this.groupBoxRadioChar_VisibleChanged);
             // 
             // radioButtonCharaBlack
             // 
@@ -229,6 +231,7 @@
             this.groupBoxRadioCase.TabStop = false;
             this.groupBoxRadioCase.Text = "Casse";
             this.groupBoxRadioCase.Visible = false;
+            this.groupBoxRadioCase.VisibleChanged += new System.EventHandler(this.groupBoxRadioCase_VisibleChanged);
             // 
             // radioButtonUpperCase
             // 

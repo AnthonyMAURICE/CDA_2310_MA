@@ -60,6 +60,7 @@
             this.listBoxTarget.Name = "listBoxTarget";
             this.listBoxTarget.Size = new System.Drawing.Size(120, 251);
             this.listBoxTarget.TabIndex = 1;
+            this.listBoxTarget.SelectedIndexChanged += new System.EventHandler(this.listBoxTarget_SelectedIndexChanged);
             // 
             // buttonAddOne
             // 
