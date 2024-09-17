@@ -8,8 +8,8 @@ namespace ExLoan
     public partial class Form1 : Form
     {
 
-        
 
+        private Loan loan = new();
         private double refundDivider;
         private double refunds = 0;
         private double rate;
@@ -26,7 +26,7 @@ namespace ExLoan
             hScrollBarMonth.Value = 1;
             labelMonthNumber.Text = hScrollBarMonth.Value.ToString();
             labelNbRefund.Text = (hScrollBarMonth.Value / refundDivider).ToString();
-            Loan loan = new Loan();
+            
         }
 
         private void hScrollBarMonth_ValueChanged(object sender, EventArgs e)
@@ -77,7 +77,8 @@ namespace ExLoan
                     buttonOk.Enabled = false;
                     break;
             }
-            hScrollBarMonth.Value = 1;
+            loan.SetPeriodicity(listBoxTime.SelectedIndex);
+            //hScrollBarMonth.Value = 1;
         }
 
         private void textBoxCapital_TextChanged(object sender, EventArgs e)

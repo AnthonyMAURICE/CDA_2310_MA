@@ -8,23 +8,7 @@ namespace ClassLibrary2
 {
     public class Loan
     {
-        private double amount;
-        private double monthLength;
-        private double rate;
-        private double nbRefund;
-
-        public Loan()
-        {
-            this.amount = 0;
-            this.monthLength = 1;
-            this.rate = 7;    
-        }
-
-        public double Amount { get; set; }
-        public double MonthLength { get; set; }
-        public double Rate { get; set; }
-
-        private enum Periodicity
+        public enum Periodicity
         {
             Mensuelle,
             Bimestrielle,
@@ -32,6 +16,28 @@ namespace ClassLibrary2
             Semestrielle,
             Annulelle,
             Jamais
+        }
+        private double amount;
+        private double monthLength;
+        private double rate;
+        private double nbRefund;
+        private Periodicity periodicity;
+
+        public Loan()
+        {
+            this.amount = 0;
+            this.monthLength = 1;
+            this.rate = 7;
+            this.periodicity = Periodicity.Mensuelle;
+        }
+
+        public double Amount { get; set; }
+        public double MonthLength { get; set; }
+        public double Rate { get; set; }
+
+        public void SetPeriodicity(int value)
+        {
+            this.periodicity = (Periodicity)value;
         }
 
         private double GetnbRefunds()
