@@ -13,18 +13,31 @@ namespace ClassLibrary2
         private double rate;
         private double nbRefund;
 
-        public Loan(double amount, double monthLength, double rate, double nbRefund)
+        public Loan()
         {
-            this.amount = amount;
-            this.monthLength = monthLength;
-            this.rate = rate;    
-            this.nbRefund = nbRefund;   
+            this.amount = 0;
+            this.monthLength = 1;
+            this.rate = 7;    
         }
 
-        public double Amount { get { return amount; } }
-        public double MonthLength { get { return monthLength; } }
-        public double Rate { get { return rate; } }
-        public double NbeRefund { get { return nbRefund; } }
+        public double Amount { get; set; }
+        public double MonthLength { get; set; }
+        public double Rate { get; set; }
+
+        private enum Periodicity
+        {
+            Mensuelle,
+            Bimestrielle,
+            Trimestrielle,
+            Semestrielle,
+            Annulelle,
+            Jamais
+        }
+
+        private double GetnbRefunds()
+        {
+            return this.monthLength / 4;
+        }
 
         public static double Power(double timedRate, double nbeRefunds)
         {
