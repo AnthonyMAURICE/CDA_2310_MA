@@ -92,7 +92,7 @@
             this.checkBoxCase.TabIndex = 2;
             this.checkBoxCase.Text = "Casse";
             this.checkBoxCase.UseVisualStyleBackColor = true;
-            this.checkBoxCase.CheckedChanged += new System.EventHandler(this.checkBoxCase_CheckedChanged);
+            this.checkBoxCase.CheckedChanged += new System.EventHandler(this.checkBoxBack_CheckedChanged);
             // 
             // checkBoxChar
             // 
@@ -103,7 +103,7 @@
             this.checkBoxChar.TabIndex = 1;
             this.checkBoxChar.Text = "Couleur des caractères";
             this.checkBoxChar.UseVisualStyleBackColor = true;
-            this.checkBoxChar.CheckedChanged += new System.EventHandler(this.checkBoxChar_CheckedChanged);
+            this.checkBoxChar.CheckedChanged += new System.EventHandler(this.checkBoxBack_CheckedChanged);
             // 
             // checkBoxBack
             // 

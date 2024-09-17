@@ -21,16 +21,7 @@ namespace ExCheckRadio
         private void checkBoxBack_CheckedChanged(object sender, EventArgs e)
         {
             groupBoxRadioBack.Visible = checkBoxBack.Checked;
-
-        }
-
-        private void checkBoxChar_CheckedChanged(object sender, EventArgs e)
-        {
             groupBoxRadioChar.Visible = checkBoxChar.Checked;
-        }
-
-        private void checkBoxCase_CheckedChanged(object sender, EventArgs e)
-        {
             groupBoxRadioCase.Visible = checkBoxCase.Checked;
         }
 

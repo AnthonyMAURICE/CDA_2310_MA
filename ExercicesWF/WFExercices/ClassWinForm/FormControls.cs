@@ -17,7 +17,7 @@ namespace ClassWinForm
 
         public static bool CheckNameValidity(string name)
         {
-            string namePattern = @"^\p{Lu}[a-zA-z,/.-]{0,30}$";
+            string namePattern = @"^\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+";
             return (Regex.IsMatch(name, namePattern));
         }
 

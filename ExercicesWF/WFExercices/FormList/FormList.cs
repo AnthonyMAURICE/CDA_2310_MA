@@ -37,7 +37,7 @@ namespace FormList
                 {
                     errorProvider1.SetError(textBoxNewElem, string.Empty);
                     listBox1.Items.Add(textBoxNewElem.Text);
-                    textBoxNewElem.Text = "";
+                    textBoxNewElem.Text = string.Empty;
                     textBoxItemCount.Text = listBox1.Items.Count.ToString();
                 }     
             }
@@ -67,6 +67,7 @@ namespace FormList
                     errorProvider1.SetError(textBoxIndexElem, string.Empty);
                     textBoxSelectedIndex.Text = parsedInt.ToString();
                     textBoxText.Text = listBox1.Items[parsedInt].ToString();
+                    textBoxIndexElem.Text = string.Empty;
                 }
             }
         }
@@ -84,6 +85,16 @@ namespace FormList
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             textBoxItemCount.Text = listBox1.Items.Count.ToString();
+        }
+
+        private void textBoxIndexElem_TextChanged(object sender, EventArgs e)
+        {
+            errorProvider1.SetError(textBoxIndexElem, string.Empty);
+        }
+
+        private void textBoxNewElem_TextChanged(object sender, EventArgs e)
+        {
+            errorProvider1.SetError(textBoxNewElem, string.Empty);
         }
     }
 }

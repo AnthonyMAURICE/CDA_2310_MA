@@ -75,6 +75,7 @@
             this.textBoxNewElem.Name = "textBoxNewElem";
             this.textBoxNewElem.Size = new System.Drawing.Size(100, 20);
             this.textBoxNewElem.TabIndex = 2;
+            this.textBoxNewElem.TextChanged += new System.EventHandler(this.textBoxNewElem_TextChanged);
             // 
             // textBoxIndexElem
             // 
@@ -82,6 +83,7 @@
             this.textBoxIndexElem.Name = "textBoxIndexElem";
             this.textBoxIndexElem.Size = new System.Drawing.Size(46, 20);
             this.textBoxIndexElem.TabIndex = 3;
+            this.textBoxIndexElem.TextChanged += new System.EventHandler(this.textBoxIndexElem_TextChanged);
             // 
             // buttonSelect
             // 
