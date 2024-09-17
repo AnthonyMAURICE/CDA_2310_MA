@@ -17,6 +17,7 @@ namespace ExLoan
         {
             textBoxName.Focus();
             radioButtonSeven.Checked = true;
+            SetRate(radioButtonSeven);
             listBoxTime.SelectedIndex = 0;
             hScrollBarMonth.Value = 1;
             labelMonthNumber.Text = hScrollBarMonth.Value.ToString();
@@ -76,29 +77,22 @@ namespace ExLoan
 
         private void textBoxCapital_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxCapital.Text != string.Empty && FormControls.CheckAmountValidity(textBoxCapital.Text, out double amount))
-            {
-                calcRefund(amount);
-            }
+
         }
 
         private void calcRefund(double amount)
         {
-            FormControls.CheckAmountValidity(hScrollBarMonth.Value.ToString(), out double parsedMonth);
-            double timedRate = rate / (12 / refundDivider);
-            double nbeRefunds = parsedMonth / refundDivider;
 
-            if (amount == 150000)
-            {
-                refunds = amount * (timedRate / (1- Loan.Power(timedRate, nbeRefunds)));
-            }
         }
 
         private void radioButtonRate_CheckedChanged(object sender, EventArgs e)
         {
-            RadioButton btn = sender as RadioButton;
-            FormControls.CheckIfInt(btn.Tag.ToString(), out int parsedRate);
-            rate = parsedRate;
+
+        }
+
+        private void SetRate(RadioButton btn)
+        {
+
         }
     }
 }
