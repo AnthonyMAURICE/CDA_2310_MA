@@ -77,8 +77,7 @@ namespace ExLoan
                     break;
             }
             hScrollBarMonth.Minimum = refundDivider;
-            hScrollBarMonth.Value = hScrollBarMonth.Minimum;
-            if(hScrollBarMonth.Value <= refundDivider)
+            if (hScrollBarMonth.Value <= refundDivider)
             {
                 hScrollBarMonth.Value = refundDivider;
                 labelMonthNumber.Text = hScrollBarMonth.Value.ToString();
@@ -154,6 +153,18 @@ namespace ExLoan
             if (textBoxCapital.Text != string.Empty)
             {
                 DisplayResults();
+            }
+        }
+
+        private void buttonOk_Click(object sender, EventArgs e)
+        {
+            if (textBoxCapital.Text != string.Empty)
+            {
+                loan.SaveData();
+            }
+            else
+            {
+                errorProvider1.SetError(textBoxCapital, "Entrez un montant à emprunter");
             }
         }
     }

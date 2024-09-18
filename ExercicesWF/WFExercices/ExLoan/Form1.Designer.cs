@@ -221,6 +221,7 @@
             buttonOk.TabIndex = 13;
             buttonOk.Text = "OK";
             buttonOk.UseVisualStyleBackColor = true;
+            buttonOk.Click += buttonOk_Click;
             // 
             // buttonCancel
             // 
