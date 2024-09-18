@@ -1,5 +1,6 @@
 using ClassLibrary2;
 using ClassWinForm;
+using Microsoft.VisualBasic.Devices;
 
 namespace ExLoan
 {
@@ -8,9 +9,9 @@ namespace ExLoan
     public partial class Form1 : Form
     {
         private Loan loan = new();
-        private double refundDivider;
+        private int refundDivider;
         private double refunds = 0;
-        private double rate;
+        private int rate;
         public Form1()
         {
             InitializeComponent();
@@ -24,6 +25,7 @@ namespace ExLoan
             hScrollBarMonth.Value = 1;
             labelMonthNumber.Text = hScrollBarMonth.Value.ToString();
             labelNbRefund.Text = (hScrollBarMonth.Value / refundDivider).ToString();
+            loan.Rate = RateCalc(radioButtonSeven.Tag.ToString());
         }
 
         private void hScrollBarMonth_ValueChanged(object sender, EventArgs e)
@@ -75,18 +77,79 @@ namespace ExLoan
                     break;
             }
             loan.SetPeriodicity(listBoxTime.SelectedIndex);
+            SetScrollvalue(hScrollBarMonth.Value, refundDivider);
+            if (textBoxCapital.Text != string.Empty && listBoxTime.SelectedIndex != 5)
+            {
+                DisplayResults();
+            }
+
+        }
+
+        private double RateCalc(string tag)
+        {
+            FormControls.CheckAmountValidity(tag, out double parsedRate);
+
+            double calcedRate = parsedRate / 12 * refundDivider / 100;
+
+            return calcedRate;
         }
 
         private void textBoxCapital_TextChanged(object sender, EventArgs e)
         {
-
+            buttonOk.Enabled = true;
+            errorProvider1.SetError(textBoxCapital, string.Empty);
+            FormControls.CheckAmountValidity(textBoxCapital.Text, out double amount);
+            loan.Amount = amount;
+            if (textBoxCapital.Text != string.Empty && FormControls.CheckIfInt(textBoxCapital.Text, out int parsedInt))
+            {
+                if (!FormControls.CheckLength(textBoxCapital.Text))
+                {
+                    buttonOk.Enabled = false;
+                    errorProvider1.SetError(textBoxCapital, "Nombre trop long");
+                }
+                else
+                {
+                    DisplayResults();
+                }
+            }
+            else
+            {
+                buttonOk.Enabled = false;
+                errorProvider1.SetError(textBoxCapital, textBoxCapital.Text != string.Empty ? "Entrez un nombre" : "Format incorrect");
+            }
         }
 
+        private void DisplayResults()
+        {
+            loan.CalcRefunds(hScrollBarMonth.Value / refundDivider);
+            labelRefundAmount.Text = Math.Round(loan.Refunds, 2).ToString() + " €";
+        }
+
+        private void SetScrollvalue(int change, int divider)
+        {
+            while (change % divider != 0 && hScrollBarMonth.Value > 12)
+            {
+                change--;
+            }
+            hScrollBarMonth.Value = change;
+        }
 
         private void radioButtonRate_CheckedChanged(object sender, EventArgs e)
         {
-
+            RadioButton radio = sender as RadioButton;
+            loan.Rate = RateCalc(radio.Tag.ToString());
+            if (textBoxCapital.Text != string.Empty)
+            {
+                DisplayResults();
+            }
         }
 
+        private void hScrollBarMonth_Scroll(object sender, ScrollEventArgs e)
+        {
+            if (textBoxCapital.Text != string.Empty)
+            {
+                DisplayResults();
+            }
+        }
     }
 }

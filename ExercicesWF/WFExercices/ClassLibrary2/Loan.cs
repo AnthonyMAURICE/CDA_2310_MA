@@ -18,37 +18,43 @@ namespace ClassLibrary2
             Jamais
         }
         private double amount;
-        private double monthLength;
         private double rate;
-        private double nbRefund;
+        private double refunds;
         private Periodicity periodicity;
 
         public Loan()
         {
             this.amount = 0;
-            this.monthLength = 1;
             this.rate = 7;
             this.periodicity = Periodicity.Mensuelle;
         }
 
-        public double Amount { get; set; }
-        public double MonthLength { get; set; }
-        public double Rate { get; set; }
+        public double Amount {
+            get { return this.amount; } 
+            set { this.amount = value; }
+        }
+
+        public double Rate
+        {
+            get { return this.rate; }
+            set { this.rate = value; }
+        }
+
+        public double Refunds
+        {
+            get { return this.refunds; }
+        }
 
         public void SetPeriodicity(int value)
         {
             this.periodicity = (Periodicity)value;
         }
 
-        private double GetnbRefunds()
+        public void CalcRefunds(double nbeRefunds)
         {
-            return this.monthLength / 4;
+            refunds = this.amount * (this.rate / (1- Math.Pow((1 + this.rate), -nbeRefunds)));
         }
 
-        public static double Power(double timedRate, double nbeRefunds)
-        {
-            return (Math.Pow((1 + timedRate), -nbeRefunds));
-        }
 
     }
 }

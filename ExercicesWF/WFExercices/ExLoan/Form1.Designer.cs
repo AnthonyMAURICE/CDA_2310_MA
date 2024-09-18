@@ -112,6 +112,7 @@
             hScrollBarMonth.Size = new Size(181, 17);
             hScrollBarMonth.TabIndex = 6;
             hScrollBarMonth.Value = 1;
+            hScrollBarMonth.Scroll += hScrollBarMonth_Scroll;
             hScrollBarMonth.ValueChanged += hScrollBarMonth_ValueChanged;
             // 
             // groupBoxRate

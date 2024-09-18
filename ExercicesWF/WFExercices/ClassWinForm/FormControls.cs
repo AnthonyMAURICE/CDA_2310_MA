@@ -27,6 +27,12 @@ namespace ClassWinForm
             return parsedAmount > 0;
         }
 
+        public static bool CheckLength(string length)
+        {
+            string lengthPattern = @"^[0-9]{1,10}$";
+            return (Regex.IsMatch(length, lengthPattern));
+        }
+
         public static bool CheckIfInt(string stringNumberToTest, out int parsedInt)
         {
             return int.TryParse(stringNumberToTest, out parsedInt);
