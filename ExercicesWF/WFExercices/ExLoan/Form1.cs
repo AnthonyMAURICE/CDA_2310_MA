@@ -76,6 +76,13 @@ namespace ExLoan
                     buttonOk.Enabled = false;
                     break;
             }
+            hScrollBarMonth.Minimum = refundDivider;
+            hScrollBarMonth.Value = hScrollBarMonth.Minimum;
+            if(hScrollBarMonth.Value <= refundDivider)
+            {
+                hScrollBarMonth.Value = refundDivider;
+                labelMonthNumber.Text = hScrollBarMonth.Value.ToString();
+            }
             loan.SetPeriodicity(listBoxTime.SelectedIndex);
             SetScrollvalue(hScrollBarMonth.Value, refundDivider);
             if (textBoxCapital.Text != string.Empty && listBoxTime.SelectedIndex != 5)
@@ -88,9 +95,7 @@ namespace ExLoan
         private double RateCalc(string tag)
         {
             FormControls.CheckAmountValidity(tag, out double parsedRate);
-
             double calcedRate = parsedRate / 12 * refundDivider / 100;
-
             return calcedRate;
         }
 
