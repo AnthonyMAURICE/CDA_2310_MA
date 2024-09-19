@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassWinForm;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -60,14 +61,20 @@ namespace ClassLibrary2
             this.refunds = this.amount * (this.rate / (1- Math.Pow((1 + this.rate), -nbeRefunds)));
         }
 
+        public void CalcRate(string tag, int refundDivider)
+        {
+            FormControls.CheckAmountValidity(tag, out double parsedRate);
+            this.rate = parsedRate / 12 * refundDivider / 100;
+        }
+
         public bool SaveData()
         {
-            string savePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/loan/save";
+            string savePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\loan\\save\\save.json";
             if (!Directory.Exists(savePath))
             {
                 Directory.CreateDirectory(savePath);
             }
-            File.WriteAllText(savePath, CreateJSon());
+            File.WriteAllText(savePath, CreateJSon(), Encoding.UTF8);
             return true;
         }
 

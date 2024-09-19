@@ -10,8 +10,6 @@ namespace ExLoan
     {
         private Loan loan = new();
         private int refundDivider;
-        private double refunds = 0;
-        private int rate;
         public Form1()
         {
             InitializeComponent();
@@ -22,14 +20,16 @@ namespace ExLoan
             textBoxName.Focus();
             radioButtonSeven.Checked = true;
             listBoxTime.SelectedIndex = 0;
+            refundDivider = 1;
             hScrollBarMonth.Value = 1;
             labelMonthNumber.Text = hScrollBarMonth.Value.ToString();
             labelNbRefund.Text = (hScrollBarMonth.Value / refundDivider).ToString();
-            loan.Rate = RateCalc(radioButtonSeven.Tag.ToString());
+            loan.CalcRate(radioButtonSeven.Tag.ToString(), refundDivider);
         }
 
         private void hScrollBarMonth_ValueChanged(object sender, EventArgs e)
         {
+            SetScrollvalue(hScrollBarMonth.Value, refundDivider);
             labelMonthNumber.Text = hScrollBarMonth.Value.ToString();
             labelNbRefund.Text = (hScrollBarMonth.Value / refundDivider).ToString();
         }
@@ -76,6 +76,11 @@ namespace ExLoan
                     buttonOk.Enabled = false;
                     break;
             }
+            AdjustScrollBar();
+        }
+
+        private void AdjustScrollBar()
+        {
             hScrollBarMonth.Minimum = refundDivider;
             if (hScrollBarMonth.Value <= refundDivider)
             {
@@ -84,18 +89,11 @@ namespace ExLoan
             }
             loan.SetPeriodicity(listBoxTime.SelectedIndex);
             SetScrollvalue(hScrollBarMonth.Value, refundDivider);
+
             if (textBoxCapital.Text != string.Empty && listBoxTime.SelectedIndex != 5)
             {
                 DisplayResults();
             }
-
-        }
-
-        private double RateCalc(string tag)
-        {
-            FormControls.CheckAmountValidity(tag, out double parsedRate);
-            double calcedRate = parsedRate / 12 * refundDivider / 100;
-            return calcedRate;
         }
 
         private void textBoxCapital_TextChanged(object sender, EventArgs e)
@@ -141,7 +139,7 @@ namespace ExLoan
         private void radioButtonRate_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton radio = sender as RadioButton;
-            loan.Rate = RateCalc(radio.Tag.ToString());
+            loan.CalcRate(radio.Tag.ToString(), refundDivider);
             if (textBoxCapital.Text != string.Empty)
             {
                 DisplayResults();
