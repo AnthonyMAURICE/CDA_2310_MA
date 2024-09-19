@@ -19,20 +19,26 @@ namespace ClassLibrary2
     }
     public class Loan
     {
-        
-
         private string name;
         private double amount;
         private double rate;
         private double refunds;
-        private Periodicity periodicity;
+        private double calculatedRate;
+        private int refundDivider;
+        private int months;
+        private int periodicity;
+        private static readonly string savePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\loan\\save\\";
 
         public Loan()
         {
             this.name = "Placeholder";
             this.amount = 0;
             this.rate = 0;
-            this.periodicity = Periodicity.Mensuelle;
+            this.calculatedRate = 0;
+            this.months = 1;
+            this.refunds = 0;
+            this.refundDivider = 1;
+            this.Periodicity = 0;
         }
 
         public Loan(string _name, double _amount, double _rate, double _refunds)
@@ -40,7 +46,7 @@ namespace ClassLibrary2
             this.name = _name;
             Amount = _amount;
             Rate = _rate;
-            this.refunds = _refunds;
+            this.Refunds = _refunds;
         }
 
         public string Name
@@ -63,33 +69,50 @@ namespace ClassLibrary2
         public double Refunds
         {
             get { return this.refunds; }
+            set { this.refunds = value; }
+        }
+        public double CalculatedRate 
+        {
+            get { return this.calculatedRate; }
+            set { this.calculatedRate = value; }
         }
 
-        public void SetPeriodicity(int value)
+        public int RefundDivider 
         {
-            this.periodicity = (Periodicity)value;
+            get { return this.refundDivider; }
+            set { this.refundDivider = value; }
+        }
+
+        public int Months 
+        { 
+            get { return this.months; }
+            set { this.months = value; }
+        }
+
+        public int Periodicity 
+        {
+            get { return this.periodicity; }
+            set { this.periodicity = value; }
         }
 
         public void CalcRefunds(double nbeRefunds)
         {
-            this.refunds = Math.Round(this.amount * (this.rate / (1- Math.Pow((1 + this.rate), -nbeRefunds))), 2);
+            this.CalcRate(this.refundDivider);
+            this.refunds = Math.Round(this.amount * (this.calculatedRate / (1- Math.Pow((1 + this.calculatedRate), -nbeRefunds))), 2);
         }
 
-        public void CalcRate(string tag, int refundDivider)
+        public void CalcRate(int refundDivider)
         {
-            FormControls.CheckAmountValidity(tag, out double parsedRate);
-            this.rate = parsedRate / 12 * refundDivider / 100;
+            this.calculatedRate = this.rate / 12 * refundDivider / 100;
         }
 
-        public bool SaveData()
-        {
-            string savePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\loan\\save\\";
+        public void SaveData()
+        {  
             if (!Directory.Exists(savePath))
             {
                 Directory.CreateDirectory(savePath);
             }
             File.WriteAllText(savePath + "save.json", CreateJSon(), Encoding.UTF8);
-            return true;
         }
 
         private string CreateJSon()
@@ -97,6 +120,19 @@ namespace ClassLibrary2
             string jsonSave = JsonSerializer.Serialize(this);
 
             return jsonSave;
+        }
+
+        public static Loan LoadData()
+        {
+            Loan loan = new();
+            if (!File.Exists(Loan.savePath + "save.json"))
+            {
+                 return loan;
+            }else
+            {
+                string jsonLoad = File.ReadAllText(savePath + "save.json");
+                return loan = JsonSerializer.Deserialize<Loan>(jsonLoad);
+            }
         }
     }
 }

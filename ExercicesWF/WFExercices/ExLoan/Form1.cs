@@ -9,8 +9,7 @@ namespace ExLoan
 
     public partial class Form1 : Form
     {
-        private Loan loan = new();
-        private int refundDivider;
+        private Loan loan = Loan.LoadData();
         
         public Form1()
         {
@@ -19,29 +18,22 @@ namespace ExLoan
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string savepath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\loan\\save\\save.json";
             textBoxName.Focus();
-            radioButtonSeven.Checked = true;
-            listBoxTime.SelectedIndex = 0;
-            refundDivider = 1;
-            hScrollBarMonth.Value = 1;
+            hScrollBarMonth.Value = loan.Months;
             labelMonthNumber.Text = hScrollBarMonth.Value.ToString();
-            labelNbRefund.Text = (hScrollBarMonth.Value / refundDivider).ToString();
-            loan.CalcRate(radioButtonSeven.Tag.ToString(), refundDivider);
-            if (File.Exists(savepath))
-            {
-                string jsonLoad = File.ReadAllText(savepath);
-                Loan? savedLoan = JsonSerializer.Deserialize<Loan>(jsonLoad);
-                textBoxName.Text = savedLoan.Name;
-                textBoxCapital.Text = savedLoan.Amount.ToString();
-            }
+            labelNbRefund.Text = (hScrollBarMonth.Value / loan.RefundDivider).ToString();
+            loan.CalcRate(loan.RefundDivider);
+            textBoxCapital.Text = loan.Amount.ToString();
+            listBoxTime.SelectedIndex = loan.Periodicity;
+            textBoxName.Text = loan.Name;
+            CheckRadioButtons();
         }
 
         private void hScrollBarMonth_ValueChanged(object sender, EventArgs e)
         {
-            SetScrollvalue(hScrollBarMonth.Value, refundDivider);
+            SetScrollvalue(hScrollBarMonth.Value, loan.RefundDivider);
             labelMonthNumber.Text = hScrollBarMonth.Value.ToString();
-            labelNbRefund.Text = (hScrollBarMonth.Value / refundDivider).ToString();
+            labelNbRefund.Text = (hScrollBarMonth.Value / loan.RefundDivider).ToString();
         }
 
         private void listBoxTime_SelectedIndexChanged(object sender, EventArgs e)
@@ -54,31 +46,31 @@ namespace ExLoan
                     hScrollBarMonth.LargeChange = 1;
                     hScrollBarMonth.SmallChange = 1;
                     hScrollBarMonth.Maximum = 200;
-                    refundDivider = 1;
+                    loan.RefundDivider = 1;
                     break;
                 case 1:
                     hScrollBarMonth.LargeChange = 2;
                     hScrollBarMonth.SmallChange = 2;
                     hScrollBarMonth.Maximum = 201;
-                    refundDivider = 2;
+                    loan.RefundDivider = 2;
                     break;
                 case 2:
                     hScrollBarMonth.LargeChange = 3;
                     hScrollBarMonth.SmallChange = 3;
                     hScrollBarMonth.Maximum = 202;
-                    refundDivider = 3;
+                    loan.RefundDivider = 3;
                     break;
                 case 3:
                     hScrollBarMonth.LargeChange = 6;
                     hScrollBarMonth.SmallChange = 6;
                     hScrollBarMonth.Maximum = 205;
-                    refundDivider = 6;
+                    loan.RefundDivider = 6;
                     break;
                 case 4:
                     hScrollBarMonth.LargeChange = 12;
                     hScrollBarMonth.SmallChange = 12;
                     hScrollBarMonth.Maximum = 211;
-                    refundDivider = 12;
+                    loan.RefundDivider = 12;
                     break;
                 default:
                     labelRefundAmount.Text = "Hé, c'est du vol ça !";
@@ -89,16 +81,36 @@ namespace ExLoan
             AdjustScrollBar();
         }
 
+        private void CheckRadioButtons()
+        {
+            switch (loan.Rate)
+            {
+                case 7:
+                    radioButtonSeven.Checked = true;
+                    break;
+                case 8:
+                    radioButtonEight.Checked = true;
+                    break;
+                case 9:
+                    radioButtonNine.Checked = true;
+                    break;
+                default:
+                    radioButtonSeven.Checked = true;
+                    break;
+            }
+
+        }
+
         private void AdjustScrollBar()
         {
-            hScrollBarMonth.Minimum = refundDivider;
-            if (hScrollBarMonth.Value <= refundDivider)
+            hScrollBarMonth.Minimum = loan.RefundDivider;
+            if (hScrollBarMonth.Value <= loan.RefundDivider)
             {
-                hScrollBarMonth.Value = refundDivider;
+                hScrollBarMonth.Value = loan.RefundDivider;
                 labelMonthNumber.Text = hScrollBarMonth.Value.ToString();
             }
-            loan.SetPeriodicity(listBoxTime.SelectedIndex);
-            SetScrollvalue(hScrollBarMonth.Value, refundDivider);
+            loan.Periodicity = listBoxTime.SelectedIndex;
+            SetScrollvalue(hScrollBarMonth.Value, loan.RefundDivider);
 
             if (textBoxCapital.Text != string.Empty && listBoxTime.SelectedIndex != 5)
             {
@@ -133,8 +145,8 @@ namespace ExLoan
 
         private void DisplayResults()
         {
-            loan.CalcRefunds(hScrollBarMonth.Value / refundDivider);
-            labelRefundAmount.Text = loan.Refunds.ToString() + " €";
+            loan.CalcRefunds(hScrollBarMonth.Value / loan.RefundDivider);
+            labelRefundAmount.Text = (labelRefundAmount.Text == string.Empty? "Zéro" : loan.Refunds.ToString()) + " €";
         }
 
         private void SetScrollvalue(int change, int divider)
@@ -144,12 +156,13 @@ namespace ExLoan
                 change--;
             }
             hScrollBarMonth.Value = change;
+            loan.Months = change;
         }
 
         private void radioButtonRate_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton radio = sender as RadioButton;
-            loan.CalcRate(radio.Tag.ToString(), refundDivider);
+            loan.Rate = Double.Parse(radio.Tag.ToString());
             if (textBoxCapital.Text != string.Empty)
             {
                 DisplayResults();

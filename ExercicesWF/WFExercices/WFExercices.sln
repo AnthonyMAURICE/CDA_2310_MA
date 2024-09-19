@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary2", "ClassLibra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FormRange", "FormRange\FormRange.csproj", "{5C20E874-8BCC-4743-AF58-402F7CDF7403}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExLoan", "ExLoan\ExLoan.csproj", "{9085777A-4CEC-4F15-9660-3A47999BD7B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExLoan", "ExLoan\ExLoan.csproj", "{9085777A-4CEC-4F15-9660-3A47999BD7B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WFControls", "WFControls\WFControls.csproj", "{9815C05B-F9A0-4EBA-A6AB-3AC4174CFC3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{9085777A-4CEC-4F15-9660-3A47999BD7B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9085777A-4CEC-4F15-9660-3A47999BD7B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9085777A-4CEC-4F15-9660-3A47999BD7B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9815C05B-F9A0-4EBA-A6AB-3AC4174CFC3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9815C05B-F9A0-4EBA-A6AB-3AC4174CFC3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9815C05B-F9A0-4EBA-A6AB-3AC4174CFC3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9815C05B-F9A0-4EBA-A6AB-3AC4174CFC3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
