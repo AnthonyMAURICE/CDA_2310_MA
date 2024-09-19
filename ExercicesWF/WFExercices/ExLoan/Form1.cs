@@ -110,7 +110,7 @@ namespace ExLoan
 
         private void DisplayResults()
         {
-            loan.CalcRefunds(hScrollBarMonth.Value / loan.RefundDivider);
+            loan.CalcRefunds();
             labelRefundAmount.Text = (labelRefundAmount.Text == string.Empty? "Zéro" : loan.Refunds.ToString()) + " €";
         }
 

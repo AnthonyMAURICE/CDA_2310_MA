@@ -95,10 +95,10 @@ namespace ClassLibrary2
             set { this.periodicity = value; }
         }
 
-        public void CalcRefunds(double nbeRefunds)
+        public void CalcRefunds()
         {
             this.CalcRate(this.refundDivider);
-            this.refunds = Math.Round(this.amount * (this.calculatedRate / (1- Math.Pow((1 + this.calculatedRate), -nbeRefunds))), 2);
+            this.refunds = Math.Round(this.amount * (this.calculatedRate / (1- Math.Pow((1 + this.calculatedRate), -(this.months / this.refundDivider)))), 2);
         }
 
         public void CalcRate(int refundDivider)

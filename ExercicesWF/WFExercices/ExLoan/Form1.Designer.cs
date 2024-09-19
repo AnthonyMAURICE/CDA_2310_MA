@@ -216,19 +216,19 @@
             // 
             // buttonOk
             // 
-            buttonOk.Location = new Point(663, 31);
+            buttonOk.Location = new Point(654, 31);
             buttonOk.Name = "buttonOk";
-            buttonOk.Size = new Size(75, 23);
+            buttonOk.Size = new Size(84, 23);
             buttonOk.TabIndex = 13;
-            buttonOk.Text = "OK";
+            buttonOk.Text = "Sauvegarder";
             buttonOk.UseVisualStyleBackColor = true;
             buttonOk.Click += buttonOk_Click;
             // 
             // buttonCancel
             // 
-            buttonCancel.Location = new Point(663, 73);
+            buttonCancel.Location = new Point(654, 73);
             buttonCancel.Name = "buttonCancel";
-            buttonCancel.Size = new Size(75, 23);
+            buttonCancel.Size = new Size(84, 23);
             buttonCancel.TabIndex = 14;
             buttonCancel.Text = "Annuler";
             buttonCancel.UseVisualStyleBackColor = true;
