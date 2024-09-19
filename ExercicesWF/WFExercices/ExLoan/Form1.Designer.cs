@@ -67,6 +67,7 @@
             textBoxName.Name = "textBoxName";
             textBoxName.Size = new Size(118, 23);
             textBoxName.TabIndex = 1;
+            textBoxName.TextChanged += textBoxName_TextChanged;
             // 
             // labelCapital
             // 

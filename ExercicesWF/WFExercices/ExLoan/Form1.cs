@@ -1,6 +1,7 @@
 using ClassLibrary2;
 using ClassWinForm;
 using Microsoft.VisualBasic.Devices;
+using System.Text.Json;
 
 namespace ExLoan
 {
@@ -10,6 +11,7 @@ namespace ExLoan
     {
         private Loan loan = new();
         private int refundDivider;
+        
         public Form1()
         {
             InitializeComponent();
@@ -17,6 +19,7 @@ namespace ExLoan
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            string savepath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\loan\\save\\save.json";
             textBoxName.Focus();
             radioButtonSeven.Checked = true;
             listBoxTime.SelectedIndex = 0;
@@ -25,6 +28,13 @@ namespace ExLoan
             labelMonthNumber.Text = hScrollBarMonth.Value.ToString();
             labelNbRefund.Text = (hScrollBarMonth.Value / refundDivider).ToString();
             loan.CalcRate(radioButtonSeven.Tag.ToString(), refundDivider);
+            if (File.Exists(savepath))
+            {
+                string jsonLoad = File.ReadAllText(savepath);
+                Loan? savedLoan = JsonSerializer.Deserialize<Loan>(jsonLoad);
+                textBoxName.Text = savedLoan.Name;
+                textBoxCapital.Text = savedLoan.Amount.ToString();
+            }
         }
 
         private void hScrollBarMonth_ValueChanged(object sender, EventArgs e)
@@ -124,7 +134,7 @@ namespace ExLoan
         private void DisplayResults()
         {
             loan.CalcRefunds(hScrollBarMonth.Value / refundDivider);
-            labelRefundAmount.Text = Math.Round(loan.Refunds, 2).ToString() + " €";
+            labelRefundAmount.Text = loan.Refunds.ToString() + " €";
         }
 
         private void SetScrollvalue(int change, int divider)
@@ -164,6 +174,11 @@ namespace ExLoan
             {
                 errorProvider1.SetError(textBoxCapital, "Entrez un montant à emprunter");
             }
+        }
+
+        private void textBoxName_TextChanged(object sender, EventArgs e)
+        {
+            loan.Name = textBoxName.Text;
         }
     }
 }

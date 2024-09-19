@@ -31,8 +31,22 @@ namespace ClassLibrary2
         {
             this.name = "Placeholder";
             this.amount = 0;
-            this.rate = 7;
+            this.rate = 0;
             this.periodicity = Periodicity.Mensuelle;
+        }
+
+        public Loan(string _name, double _amount, double _rate, double _refunds)
+        {
+            this.name = _name;
+            Amount = _amount;
+            Rate = _rate;
+            this.refunds = _refunds;
+        }
+
+        public string Name
+        {
+            get { return this.name; }
+            set { this.name = value; }
         }
 
         public double Amount {
@@ -58,7 +72,7 @@ namespace ClassLibrary2
 
         public void CalcRefunds(double nbeRefunds)
         {
-            this.refunds = this.amount * (this.rate / (1- Math.Pow((1 + this.rate), -nbeRefunds)));
+            this.refunds = Math.Round(this.amount * (this.rate / (1- Math.Pow((1 + this.rate), -nbeRefunds))), 2);
         }
 
         public void CalcRate(string tag, int refundDivider)
@@ -69,12 +83,12 @@ namespace ClassLibrary2
 
         public bool SaveData()
         {
-            string savePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\loan\\save\\save.json";
+            string savePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\loan\\save\\";
             if (!Directory.Exists(savePath))
             {
                 Directory.CreateDirectory(savePath);
             }
-            File.WriteAllText(savePath, CreateJSon(), Encoding.UTF8);
+            File.WriteAllText(savePath + "save.json", CreateJSon(), Encoding.UTF8);
             return true;
         }
 
