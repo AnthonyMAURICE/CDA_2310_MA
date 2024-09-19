@@ -169,7 +169,7 @@
             // labelTime
             // 
             labelTime.AutoSize = true;
-            labelTime.Location = new Point(28, 228);
+            labelTime.Location = new Point(27, 253);
             labelTime.Name = "labelTime";
             labelTime.Size = new Size(167, 15);
             labelTime.TabIndex = 8;
@@ -179,10 +179,10 @@
             // 
             listBoxTime.FormattingEnabled = true;
             listBoxTime.ItemHeight = 15;
-            listBoxTime.Items.AddRange(new object[] { "Mensuelle\t", "Bimestrielle", "Trimestrielle", "Semestrielle", "Annuelle", "Jamais" });
-            listBoxTime.Location = new Point(30, 259);
+            listBoxTime.Items.AddRange(new object[] { "Mensuelle\t", "Bimestrielle", "Trimestrielle", "Semestrielle", "Annuelle" });
+            listBoxTime.Location = new Point(30, 274);
             listBoxTime.Name = "listBoxTime";
-            listBoxTime.Size = new Size(313, 94);
+            listBoxTime.Size = new Size(313, 79);
             listBoxTime.TabIndex = 9;
             listBoxTime.SelectedIndexChanged += listBoxTime_SelectedIndexChanged;
             // 

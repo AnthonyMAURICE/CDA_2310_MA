@@ -20,13 +20,14 @@ namespace ExLoan
         {
             textBoxName.Focus();
             hScrollBarMonth.Value = loan.Months;
+            CheckRadioButtons();
             labelMonthNumber.Text = hScrollBarMonth.Value.ToString();
             labelNbRefund.Text = (hScrollBarMonth.Value / loan.RefundDivider).ToString();
             loan.CalcRate(loan.RefundDivider);
             textBoxCapital.Text = loan.Amount.ToString();
             listBoxTime.SelectedIndex = loan.Periodicity;
             textBoxName.Text = loan.Name;
-            CheckRadioButtons();
+            
         }
 
         private void hScrollBarMonth_ValueChanged(object sender, EventArgs e)
@@ -38,46 +39,10 @@ namespace ExLoan
 
         private void listBoxTime_SelectedIndexChanged(object sender, EventArgs e)
         {
-            labelRefundAmount.Text = string.Empty;
-            buttonOk.Enabled = true;
-            switch (listBoxTime.SelectedIndex)
-            {
-                case 0:
-                    hScrollBarMonth.LargeChange = 1;
-                    hScrollBarMonth.SmallChange = 1;
-                    hScrollBarMonth.Maximum = 200;
-                    loan.RefundDivider = 1;
-                    break;
-                case 1:
-                    hScrollBarMonth.LargeChange = 2;
-                    hScrollBarMonth.SmallChange = 2;
-                    hScrollBarMonth.Maximum = 201;
-                    loan.RefundDivider = 2;
-                    break;
-                case 2:
-                    hScrollBarMonth.LargeChange = 3;
-                    hScrollBarMonth.SmallChange = 3;
-                    hScrollBarMonth.Maximum = 202;
-                    loan.RefundDivider = 3;
-                    break;
-                case 3:
-                    hScrollBarMonth.LargeChange = 6;
-                    hScrollBarMonth.SmallChange = 6;
-                    hScrollBarMonth.Maximum = 205;
-                    loan.RefundDivider = 6;
-                    break;
-                case 4:
-                    hScrollBarMonth.LargeChange = 12;
-                    hScrollBarMonth.SmallChange = 12;
-                    hScrollBarMonth.Maximum = 211;
-                    loan.RefundDivider = 12;
-                    break;
-                default:
-                    labelRefundAmount.Text = "Hé, c'est du vol ça !";
-                    labelNbRefund.Text = string.Empty;
-                    buttonOk.Enabled = false;
-                    break;
-            }
+            hScrollBarMonth.LargeChange = listBoxTime.SelectedIndex + 1;
+            hScrollBarMonth.SmallChange = listBoxTime.SelectedIndex + 1;
+            hScrollBarMonth.Maximum = hScrollBarMonth.Maximum + listBoxTime.SelectedIndex -1;
+            loan.RefundDivider = listBoxTime.SelectedIndex + 1;
             AdjustScrollBar();
         }
 
@@ -96,9 +61,9 @@ namespace ExLoan
                     break;
                 default:
                     radioButtonSeven.Checked = true;
+                    loan.Rate = Double.Parse(radioButtonSeven.Tag.ToString());
                     break;
             }
-
         }
 
         private void AdjustScrollBar()

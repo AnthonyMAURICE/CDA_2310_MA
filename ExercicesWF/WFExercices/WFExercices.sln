@@ -27,6 +27,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExLoan", "ExLoan\ExLoan.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WFControls", "WFControls\WFControls.csproj", "{9815C05B-F9A0-4EBA-A6AB-3AC4174CFC3C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WFMenu", "WFMenu\WFMenu.csproj", "{9C7B9C50-B50F-4B10-A3AD-EDFF06651348}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{9815C05B-F9A0-4EBA-A6AB-3AC4174CFC3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9815C05B-F9A0-4EBA-A6AB-3AC4174CFC3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9815C05B-F9A0-4EBA-A6AB-3AC4174CFC3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C7B9C50-B50F-4B10-A3AD-EDFF06651348}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C7B9C50-B50F-4B10-A3AD-EDFF06651348}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C7B9C50-B50F-4B10-A3AD-EDFF06651348}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C7B9C50-B50F-4B10-A3AD-EDFF06651348}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
