@@ -139,7 +139,6 @@
             MainMenuStrip = menuStrip1;
             Name = "FormMenu";
             Text = "Créer des formulaires";
-            FormClosing += FormMenu_FormClosing;
             toolStripBtnLogin.ResumeLayout(false);
             toolStripBtnLogin.PerformLayout();
             menuStrip1.ResumeLayout(false);
