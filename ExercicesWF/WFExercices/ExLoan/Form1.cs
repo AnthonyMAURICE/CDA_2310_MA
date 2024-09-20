@@ -10,7 +10,7 @@ namespace ExLoan
     public partial class Form1 : Form
     {
         private Loan loan = Loan.LoadData();
-        
+
         public Form1()
         {
             InitializeComponent();
@@ -19,15 +19,14 @@ namespace ExLoan
         private void Form1_Load(object sender, EventArgs e)
         {
             textBoxName.Focus();
-            hScrollBarMonth.Value = loan.Months;
+            listBoxTime.SelectedIndex = loan.Periodicity;
             CheckRadioButtons();
             labelMonthNumber.Text = hScrollBarMonth.Value.ToString();
             labelNbRefund.Text = (hScrollBarMonth.Value / loan.RefundDivider).ToString();
             loan.CalcRate(loan.RefundDivider);
             textBoxCapital.Text = loan.Amount.ToString();
-            listBoxTime.SelectedIndex = loan.Periodicity;
             textBoxName.Text = loan.Name;
-            
+            DisplayResults();
         }
 
         private void hScrollBarMonth_ValueChanged(object sender, EventArgs e)
@@ -41,7 +40,7 @@ namespace ExLoan
         {
             hScrollBarMonth.LargeChange = listBoxTime.SelectedIndex + 1;
             hScrollBarMonth.SmallChange = listBoxTime.SelectedIndex + 1;
-            hScrollBarMonth.Maximum = hScrollBarMonth.Maximum + listBoxTime.SelectedIndex -1;
+            hScrollBarMonth.Maximum = hScrollBarMonth.Maximum + listBoxTime.SelectedIndex - 1;
             loan.RefundDivider = listBoxTime.SelectedIndex + 1;
             AdjustScrollBar();
         }
@@ -69,15 +68,20 @@ namespace ExLoan
         private void AdjustScrollBar()
         {
             hScrollBarMonth.Minimum = loan.RefundDivider;
+            hScrollBarMonth.Value = loan.Months;
             if (hScrollBarMonth.Value <= loan.RefundDivider)
             {
                 hScrollBarMonth.Value = loan.RefundDivider;
-                labelMonthNumber.Text = hScrollBarMonth.Value.ToString();
             }
+            else
+            {
+                hScrollBarMonth.Value = loan.Months;
+            }
+            labelMonthNumber.Text = hScrollBarMonth.Value.ToString();
             loan.Periodicity = listBoxTime.SelectedIndex;
             SetScrollvalue(hScrollBarMonth.Value, loan.RefundDivider);
 
-            if (textBoxCapital.Text != string.Empty && listBoxTime.SelectedIndex != 5)
+            if (textBoxCapital.Text != string.Empty)
             {
                 DisplayResults();
             }
@@ -111,7 +115,7 @@ namespace ExLoan
         private void DisplayResults()
         {
             loan.CalcRefunds();
-            labelRefundAmount.Text = (labelRefundAmount.Text == string.Empty? "Zéro" : loan.Refunds.ToString()) + " €";
+            labelRefundAmount.Text = (labelRefundAmount.Text == string.Empty ? "Zéro" : loan.Refunds.ToString()) + " €";
         }
 
         private void SetScrollvalue(int change, int divider)
@@ -146,6 +150,11 @@ namespace ExLoan
         {
             if (textBoxCapital.Text != string.Empty)
             {
+                MessageBox.Show
+                ("Données sauvegardées", "Save Done",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information,
+                MessageBoxDefaultButton.Button1);
                 loan.SaveData();
             }
             else
@@ -157,6 +166,25 @@ namespace ExLoan
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {
             loan.Name = textBoxName.Text;
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            loan = new Loan();
+            Form1_Load(sender, EventArgs.Empty);
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dr = MessageBox.Show
+            ("Quitter l’application ?", "Quitter",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question,
+            MessageBoxDefaultButton.Button1);
+            if (dr != DialogResult.Yes)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

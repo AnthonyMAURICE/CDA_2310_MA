@@ -74,7 +74,6 @@ namespace ClassLibrary2
         public double CalculatedRate 
         {
             get { return this.calculatedRate; }
-            set { this.calculatedRate = value; }
         }
 
         public int RefundDivider 

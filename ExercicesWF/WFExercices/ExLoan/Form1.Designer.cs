@@ -232,6 +232,7 @@
             buttonCancel.TabIndex = 14;
             buttonCancel.Text = "Annuler";
             buttonCancel.UseVisualStyleBackColor = true;
+            buttonCancel.Click += buttonCancel_Click;
             // 
             // errorProvider1
             // 
@@ -259,6 +260,7 @@
             Controls.Add(labelName);
             Name = "Form1";
             Text = "Form1";
+            FormClosing += Form1_FormClosing;
             Load += Form1_Load;
             groupBoxRate.ResumeLayout(false);
             groupBoxRate.PerformLayout();

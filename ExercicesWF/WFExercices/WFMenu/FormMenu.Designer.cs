@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             toolStripBtnLogin = new ToolStrip();
+            toolStripButtonBtnLogin = new ToolStripButton();
             statusStrip1 = new StatusStrip();
             MenuItemCo = new ToolStripMenuItem();
             toolStripMenuItemID = new ToolStripMenuItem();
@@ -38,7 +39,6 @@
             MenuItemP3 = new ToolStripMenuItem();
             MenuItemW1 = new ToolStripMenuItem();
             menuStrip1 = new MenuStrip();
-            toolStripButtonBtnLogin = new ToolStripButton();
             toolStripBtnLogin.SuspendLayout();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -51,6 +51,15 @@
             toolStripBtnLogin.Size = new Size(800, 25);
             toolStripBtnLogin.TabIndex = 1;
             toolStripBtnLogin.Text = "S'identifier";
+            // 
+            // toolStripButtonBtnLogin
+            // 
+            toolStripButtonBtnLogin.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripButtonBtnLogin.ImageTransparentColor = Color.Magenta;
+            toolStripButtonBtnLogin.Name = "toolStripButtonBtnLogin";
+            toolStripButtonBtnLogin.Size = new Size(67, 22);
+            toolStripButtonBtnLogin.Text = "S'identifier";
+            toolStripButtonBtnLogin.Click += toolStripMenuItemID_Click;
             // 
             // statusStrip1
             // 
@@ -70,14 +79,16 @@
             // toolStripMenuItemID
             // 
             toolStripMenuItemID.Name = "toolStripMenuItemID";
-            toolStripMenuItemID.Size = new Size(130, 22);
+            toolStripMenuItemID.Size = new Size(180, 22);
             toolStripMenuItemID.Text = "S'identifier";
+            toolStripMenuItemID.Click += toolStripMenuItemID_Click;
             // 
             // toolStripMenuItemQuit
             // 
             toolStripMenuItemQuit.Name = "toolStripMenuItemQuit";
-            toolStripMenuItemQuit.Size = new Size(130, 22);
+            toolStripMenuItemQuit.Size = new Size(180, 22);
             toolStripMenuItemQuit.Text = "Quitter";
+            toolStripMenuItemQuit.Click += toolStripMenuItemQuit_Click;
             // 
             // MenuItemP1
             // 
@@ -116,14 +127,6 @@
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
-            // toolStripButtonBtnLogin
-            // 
-            toolStripButtonBtnLogin.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStripButtonBtnLogin.ImageTransparentColor = Color.Magenta;
-            toolStripButtonBtnLogin.Name = "toolStripButtonBtnLogin";
-            toolStripButtonBtnLogin.Size = new Size(67, 22);
-            toolStripButtonBtnLogin.Text = "S'identifier";
-            // 
             // FormMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -132,9 +135,11 @@
             Controls.Add(statusStrip1);
             Controls.Add(toolStripBtnLogin);
             Controls.Add(menuStrip1);
+            IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
             Name = "FormMenu";
             Text = "Créer des formulaires";
+            FormClosing += FormMenu_FormClosing;
             toolStripBtnLogin.ResumeLayout(false);
             toolStripBtnLogin.PerformLayout();
             menuStrip1.ResumeLayout(false);
