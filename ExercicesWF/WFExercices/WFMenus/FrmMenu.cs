@@ -1,9 +1,9 @@
 namespace WFMenus
 {
-    public partial class Form1 : Form
+    public partial class FrmMenu : Form
     {
         private bool logged = false;
-        public Form1()
+        public FrmMenu()
         {
             InitializeComponent();
         }

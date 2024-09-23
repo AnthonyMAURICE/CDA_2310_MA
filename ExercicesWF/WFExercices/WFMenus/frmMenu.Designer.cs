@@ -1,6 +1,6 @@
 ﻿namespace WFMenus
 {
-    partial class Form1
+    partial class frmMenu
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             menuStrip1 = new MenuStrip();
             toolStripMenuItemID = new ToolStripMenuItem();
             toolStripMenuItemLogIn = new ToolStripMenuItem();
@@ -38,10 +38,10 @@
             toolStripMenuItemP3 = new ToolStripMenuItem();
             toolStripMenuItemWindows = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
+            toolStripStatusLabel1 = new ToolStripStatusLabel();
             toolStrip1 = new ToolStrip();
             toolStripButtonID = new ToolStripButton();
             connexionToolStripMenuItem = new ToolStripMenuItem();
-            toolStripStatusLabel1 = new ToolStripStatusLabel();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -113,6 +113,12 @@
             statusStrip1.TabIndex = 2;
             statusStrip1.Text = "statusStrip1";
             // 
+            // toolStripStatusLabel1
+            // 
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new Size(27, 17);
+            toolStripStatusLabel1.Text = "Test";
+            // 
             // toolStrip1
             // 
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButtonID });
@@ -138,12 +144,6 @@
             connexionToolStripMenuItem.Size = new Size(132, 22);
             connexionToolStripMenuItem.Text = "Connexion";
             // 
-            // toolStripStatusLabel1
-            // 
-            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            toolStripStatusLabel1.Size = new Size(27, 17);
-            toolStripStatusLabel1.Text = "Test";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -155,7 +155,7 @@
             IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
             Name = "Form1";
-            Text = "Form1";
+            Text = "Créer des formulaires";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             statusStrip1.ResumeLayout(false);

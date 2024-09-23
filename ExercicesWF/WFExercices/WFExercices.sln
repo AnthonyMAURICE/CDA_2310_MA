@@ -27,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExLoan", "ExLoan\ExLoan.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WFControls", "WFControls\WFControls.csproj", "{9815C05B-F9A0-4EBA-A6AB-3AC4174CFC3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WFMenus", "WFMenus\WFMenus.csproj", "{EDCF5555-07D6-4231-9CA1-35C3E6AB018F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsMenu", "WinFormsMenu\WinFormsMenu.csproj", "{3E9CB417-887B-4682-B4DF-5FA287815D1B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,10 +83,10 @@ Global
 		{9815C05B-F9A0-4EBA-A6AB-3AC4174CFC3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9815C05B-F9A0-4EBA-A6AB-3AC4174CFC3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9815C05B-F9A0-4EBA-A6AB-3AC4174CFC3C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EDCF5555-07D6-4231-9CA1-35C3E6AB018F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EDCF5555-07D6-4231-9CA1-35C3E6AB018F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EDCF5555-07D6-4231-9CA1-35C3E6AB018F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EDCF5555-07D6-4231-9CA1-35C3E6AB018F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E9CB417-887B-4682-B4DF-5FA287815D1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E9CB417-887B-4682-B4DF-5FA287815D1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E9CB417-887B-4682-B4DF-5FA287815D1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E9CB417-887B-4682-B4DF-5FA287815D1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
