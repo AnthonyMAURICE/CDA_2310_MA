@@ -204,6 +204,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "FormAdditionneur";
             this.Text = "Additionneur";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormAdditionneur_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

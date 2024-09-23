@@ -37,5 +37,10 @@ namespace ExAdditionneur
         {
             calcBox.Text += " = " + totalValue;
         }
+
+        private void FormAdditionneur_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+        }
     }
 }

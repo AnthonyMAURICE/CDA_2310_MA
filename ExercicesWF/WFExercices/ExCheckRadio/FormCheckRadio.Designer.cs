@@ -298,7 +298,6 @@
         #endregion
 
         private System.Windows.Forms.Label labelTxtInput;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBoxCheck;
         private System.Windows.Forms.CheckBox checkBoxCase;
         private System.Windows.Forms.CheckBox checkBoxChar;
@@ -315,6 +314,7 @@
         private System.Windows.Forms.RadioButton radioButtonUpperCase;
         private System.Windows.Forms.RadioButton radioButtonLowerCase;
         private System.Windows.Forms.Label labelText;
+        public System.Windows.Forms.TextBox textBox1;
     }
 }
 
