@@ -6,50 +6,103 @@ using System.Threading.Tasks;
 
 namespace LibraryCratesProd
 {
-    internal class Production
+    public class Production
     {
-        private int productionPerHour;
-        private int productionGoal;
-        private List<Crate>? crates;
-        private decimal? flawRateHour;
-        private decimal? flawRateTotal;
-        private int totalNumberOfCrates;
-        private CrateType? crateTypeProduction;
-
-        public Production(CrateType _crateType)
+        public enum State
         {
-            this.crateTypeProduction = _crateType;
-            this.calcStuff();
+            Initialized,
+            Started,
+            Suspended,
+            Stopped
         }
 
-        public int ProductionPerHour { get => productionPerHour; }
-        public List<Crate>? Crates { get => crates; set => crates = value; }
-        public decimal? FlawRateHour { get => flawRateHour; set => flawRateHour = value; }
-        public decimal? FlawRateTotal { get => flawRateTotal; set => flawRateTotal = value; }
-        public int TotalNumberOfCrates { get => totalNumberOfCrates; set => totalNumberOfCrates = value; }
-        public int ProductionGoal { get => productionGoal;}
+        private string? type;
+        private readonly int cratesGoal;
+        private List<Crate> crates;
+        private State currentState = State.Initialized;
 
-        private void calcStuff()
+        public State CurrentState { get => currentState; set => currentState = value; }
+
+        public Production(string _type, int _cratesGoal)
         {
-            switch (this.crateTypeProduction) 
+            this.type = _type;
+            this.cratesGoal = _cratesGoal;
+        }
+
+        public bool Start()
+        {
+            if (this.currentState != State.Initialized || this.currentState != State.Suspended) 
             {
-                case CrateType.A:
-                    this.productionPerHour = 1000;
-                    this.productionGoal = 10000;
-                    break;
-                case CrateType.B:
-                    this.productionPerHour = 5000;
-                    this.productionGoal = 25000;
-                    break;
-                case CrateType.C:
-                    this.productionPerHour = 10000;
-                    this.productionGoal = 120000;
-                    break;
-                default:
-                    throw new NotImplementedException();
+                return false;
+            }
+            else
+            {
+                this.currentState = State.Started;
+                return true;
+            }
+            
+        }
+
+        public bool Suspend() 
+        {
+            if (this.currentState != State.Started)
+            {
+                return false;
+            }
+            else
+            {
+                this.currentState = State.Suspended;
+                return true;
             }
         }
+
+        public bool Continue() 
+        {
+            if (this.currentState != State.Suspended) 
+            {
+                return false;
+            }
+            else
+            {
+                this.currentState = State.Started;
+                return true;
+            }
+        }
+
+        private void Stop()
+        {
+            this.currentState = State.Stopped;
+        }
+
+        public bool IsGoalMet()
+        {
+            return this.crates.Count == this.cratesGoal;
+        }
+
+        public void AddCrate()
+        {
+            Random rnd = new Random();
+            int random = rnd.Next(1, 10);
+            bool failure = random == 6;
+            Crate crate = new Crate(failure);
+            crates.Add(crate);
+        }
+
+        public decimal GetTotalFailureRate()
+        {
+            decimal failures = this.crates.FindAll(x => x.IsValid == false).Count;
+            return failures / this.crates.Count;
+        }
+
+        public decimal GetLastHourFailureRate()
+        {
+            decimal lastHourFailures = this.crates.FindAll(x => x.IsValid == false && x.DateOfProduction > DateTime.Now.AddHours(-1)).Count;
+            return lastHourFailures / this.crates.Count;
+        }
+
+        public int GetValidCratesNumber()
+        {
+            return this.crates.FindAll(x => x.IsValid).Count;
+        }
     }
-
-
 }
