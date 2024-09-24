@@ -18,10 +18,12 @@ namespace LibraryCratesProd
 
         private string? type;
         private readonly int cratesGoal;
-        private List<Crate> crates;
+        private List<Crate> crates = new List<Crate>();
         private State currentState = State.Initialized;
 
         public State CurrentState { get => currentState; set => currentState = value; }
+        public List<Crate> Crates { get => crates; }
+        public string? Type { get => type; set => type = value; }
 
         public Production(string _type, int _cratesGoal)
         {
@@ -85,7 +87,7 @@ namespace LibraryCratesProd
             int random = rnd.Next(1, 10);
             bool failure = random == 6;
             Crate crate = new Crate(failure);
-            crates.Add(crate);
+            this.crates.Add(crate);
         }
 
         public decimal GetTotalFailureRate()
@@ -103,6 +105,19 @@ namespace LibraryCratesProd
         public int GetValidCratesNumber()
         {
             return this.crates.FindAll(x => x.IsValid).Count;
+        }
+
+        public decimal GetProgress()
+        {
+            if(this.crates != null && this.crates.Count > 0)
+            {
+                decimal progress = (decimal)((this.crates.Count / this.cratesGoal) * 100);
+                return Math.Ceiling(progress);
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 }

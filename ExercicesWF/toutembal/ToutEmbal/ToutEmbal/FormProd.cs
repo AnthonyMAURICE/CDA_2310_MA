@@ -5,10 +5,15 @@ namespace ToutEmbal
     public partial class FormProd : Form
     {
         Production prod;
+        List<Production> productions = new List<Production>();
+        System.Windows.Forms.Timer timer;
 
         public FormProd()
         {
             InitializeComponent();
+            timer = new System.Windows.Forms.Timer();
+            timer.Interval = 1000;
+            
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -33,17 +38,22 @@ namespace ToutEmbal
         {
             ToolStripMenuItem btn = sender as ToolStripMenuItem;
             prod = new Production(btn.Tag.ToString(), 10000);
+            productions.Add(prod);
             if (prod.CurrentState == Production.State.Initialized) 
             {
                 prod.Start();
+                timer.Tick += new EventHandler(timer_Tick);
+                timer.Start();
             }
             else if(prod.CurrentState == Production.State.Started)
             {
                 prod.Suspend();
+                timer.Stop();
             }
             else
             {
                 prod.Continue();
+                timer.Start();
             }
             
             btn.Enabled = false;
@@ -70,6 +80,14 @@ namespace ToutEmbal
                 {
                     item.Enabled = !btn.Enabled;
                 }
+            }
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (prod != null)
+            {
+               
             }
         }
     }
