@@ -2,6 +2,7 @@
 using ExAdditionneur;
 using ExInputControl;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -81,7 +82,8 @@ namespace WindowsFormsMenuOld
         private void toolStripMenuItemInput_Click(object sender, EventArgs e)
         {
             FormClosedEventArgs closed = new FormClosedEventArgs(CloseReason.None);
-            formCount = Application.OpenForms.OfType<FormAdditionneur>().Count() + 1;
+
+            formCount = Application.OpenForms.OfType<FormAdditionneur>().Count();
             additionneur = new FormAdditionneur();
             additionneur.Text += " N°" + formCount;
             additionneur.MdiParent = this;
@@ -115,10 +117,19 @@ namespace WindowsFormsMenuOld
 
         private void ChildFormClosed(object sender, FormClosedEventArgs e)
         {
-            object f = sender;
+            FormAdditionneur f = sender as FormAdditionneur;
             ToolStripMenuItem toolStripMenuItem = new ToolStripMenuItem();
-            toolStripMenuItem.Text = f.ToString();
-            toolStripMenuItemWindow.DropDownItems.Remove();
+            toolStripMenuItem.Text = f.Text;
+            int index = 0;
+            for (int i = 0; i < toolStripMenuItemWindow.DropDownItems.Count; i++)
+            {
+                if (toolStripMenuItemWindow.DropDownItems[i].Text == toolStripMenuItem.Text)
+                {
+                    index = i;
+                    break;
+                }
+            }
+            toolStripMenuItemWindow.DropDownItems.Remove(toolStripMenuItemWindow.DropDownItems[index]);
         }
     }
 }
