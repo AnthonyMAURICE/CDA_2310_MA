@@ -68,6 +68,10 @@ namespace ToutEmbal
                 {
                     item.Enabled = !btn.Enabled;
                 }
+                /*if (item.Enabled)  // à voir si déchanchement du timer ici
+                {
+
+                }*/
             }
         }
 
@@ -85,9 +89,8 @@ namespace ToutEmbal
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            if (prod != null)
+            if (productions.Count > 0)
             {
-               
             }
         }
     }

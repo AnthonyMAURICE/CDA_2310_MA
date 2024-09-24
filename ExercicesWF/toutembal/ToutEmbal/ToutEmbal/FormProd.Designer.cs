@@ -468,6 +468,7 @@
             progressBar1.Name = "progressBar1";
             progressBar1.Size = new Size(469, 23);
             progressBar1.TabIndex = 5;
+            progressBar1.Tag = "A";
             // 
             // progressBar2
             // 
@@ -475,6 +476,7 @@
             progressBar2.Name = "progressBar2";
             progressBar2.Size = new Size(469, 23);
             progressBar2.TabIndex = 6;
+            progressBar2.Tag = "B";
             // 
             // progressBar3
             // 
@@ -482,6 +484,7 @@
             progressBar3.Name = "progressBar3";
             progressBar3.Size = new Size(469, 23);
             progressBar3.TabIndex = 7;
+            progressBar3.Tag = "C";
             // 
             // FormProd
             // 
