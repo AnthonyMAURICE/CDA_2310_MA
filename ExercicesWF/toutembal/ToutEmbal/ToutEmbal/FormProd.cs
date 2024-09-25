@@ -7,7 +7,7 @@ namespace ToutEmbal
         ProdLine prodLines = new ProdLine();
         System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer
         {
-            Interval = 1000 / 3600
+            Interval = 100
         };
 
         public FormProd()
@@ -42,7 +42,7 @@ namespace ToutEmbal
                 string identifier = btn.Tag.ToString();
                 if (prodLines.Prods != null)
                 {
-                    if (!prodLines.Prods.ContainsKey("prod" + btn.Tag.ToString()))
+                    if (!prodLines.Prods.ContainsKey("prod" + identifier))
                     {
                         prodLines.CreateProd(identifier);
                     }
@@ -50,7 +50,6 @@ namespace ToutEmbal
                     {
                         prodLines.Prods["prod" + btn.Tag.ToString()].Start();
                         timer.Start();
-
                     }
                     else if (prodLines.Prods["prod" + identifier].CurrentState == Production.State.Started)
                     {
@@ -76,27 +75,19 @@ namespace ToutEmbal
                     {
                         btn.Enabled = prod.CurrentState == Production.State.Stopped || prod.CurrentState == Production.State.Initialized;
                     }
-
                 }
-            }
-            foreach (Production prod in prodLines.Prods.Values)
-            {
-                foreach (ToolStripMenuItem btn in toolStripMenuItemStop.DropDownItems)
-                {
-                    if (btn.Tag.ToString() == prod.Type)
-                    {
-                        btn.Enabled = prod.CurrentState == Production.State.Started;
-                    }
-
-                }
-            }
-            foreach (Production prod in prodLines.Prods.Values)
-            {
                 foreach (ToolStripMenuItem btn in toolStripMenuItemResume.DropDownItems)
                 {
                     if (btn.Tag.ToString() == prod.Type)
                     {
                         btn.Enabled = prod.CurrentState == Production.State.Suspended;
+                    }
+                }
+                foreach (ToolStripMenuItem btn in toolStripMenuItemStop.DropDownItems)
+                {
+                    if (btn.Tag.ToString() == prod.Type)
+                    {
+                        btn.Enabled = prod.CurrentState == Production.State.Started;
                     }
                 }
             }
@@ -106,21 +97,20 @@ namespace ToutEmbal
         {
             foreach (Production item in prodLines.Prods.Values)
             {
-                if (item.Type == "A" && item.CurrentState == Production.State.Started)
+                if(item.CurrentState == Production.State.Started)
+                item.AddCrate();
+                if (item.Type == "A")
                 {
-                    item.AddCrate();
                     progressBar1.Value = item.GetProgress();
                     textBoxTotalA.Text = item.Crates.Count.ToString();
                 }
-                if (item.Type == "B" && item.CurrentState == Production.State.Started)
+                if (item.Type == "B")
                 {
-                    item.AddCrate();
                     progressBar2.Value = item.GetProgress();
                     textBoxTotalB.Text = item.Crates.Count.ToString();
                 }
-                if (item.Type == "C" && item.CurrentState == Production.State.Started)
+                if (item.Type == "C")
                 {
-                    item.AddCrate();
                     progressBar3.Value = item.GetProgress();
                     textBoxTotalC.Text = item.Crates.Count.ToString();
                 }
@@ -132,8 +122,7 @@ namespace ToutEmbal
                     ("Production atteinte sur la ligne " + item.Type, "Job Done",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information,
-                    MessageBoxDefaultButton.Button1);
-                    
+                    MessageBoxDefaultButton.Button1); 
                 }
             }
         }
@@ -148,7 +137,6 @@ namespace ToutEmbal
                 textBoxHours.Text = flawsByHour.ToString("0.####");
                 textBoxAll.Text = flaws.ToString("0.####");
             }
-
         }
 
         private void textBoxTotalB_TextChanged(object sender, EventArgs e)
