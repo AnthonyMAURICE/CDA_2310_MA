@@ -4,16 +4,16 @@ namespace ToutEmbal
 {
     public partial class FormProd : Form
     {
-        Production prod;
-        List<Production> productions = new List<Production>();
-        System.Windows.Forms.Timer timer;
+        ProdLine prodLines = new ProdLine();
+        System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer
+        {
+            Interval = 1000 / 3600
+        };
 
         public FormProd()
         {
             InitializeComponent();
-            timer = new System.Windows.Forms.Timer();
-            timer.Interval = 1000;
-            
+            timer.Tick += new System.EventHandler(OnTimerEvent);
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -36,62 +36,134 @@ namespace ToutEmbal
 
         private void aToolStripMenuItemStart_Click(object sender, EventArgs e)
         {
-            ToolStripMenuItem btn = sender as ToolStripMenuItem;
-            prod = new Production(btn.Tag.ToString(), 10000);
-            productions.Add(prod);
-            if (prod.CurrentState == Production.State.Initialized) 
+            ToolStripMenuItem btn = (ToolStripMenuItem)sender;
+            if (btn.Tag != null)
             {
-                prod.Start();
-                timer.Tick += new EventHandler(timer_Tick);
-                timer.Start();
+                string identifier = btn.Tag.ToString();
+                if (prodLines.Prods != null)
+                {
+                    if (!prodLines.Prods.ContainsKey("prod" + btn.Tag.ToString()))
+                    {
+                        prodLines.CreateProd(identifier);
+                    }
+                    if (prodLines.Prods["prod" + identifier].CurrentState == Production.State.Initialized)
+                    {
+                        prodLines.Prods["prod" + btn.Tag.ToString()].Start();
+                        timer.Start();
+
+                    }
+                    else if (prodLines.Prods["prod" + identifier].CurrentState == Production.State.Started)
+                    {
+                        prodLines.Prods["prod" + identifier].Suspend();
+                    }
+                    else
+                    {
+                        prodLines.Prods["prod" + identifier].Continue();
+                    }
+                    ButtonEnabledOrNot();
+                }
             }
-            else if(prod.CurrentState == Production.State.Started)
-            {
-                prod.Suspend();
-                timer.Stop();
-            }
-            else
-            {
-                prod.Continue();
-                timer.Start();
-            }
-            
             btn.Enabled = false;
         }
 
-        private void aToolStripMenuItemStart_EnabledChanged(object sender, EventArgs e)
+        private void ButtonEnabledOrNot()
         {
-            ToolStripMenuItem btn = sender as ToolStripMenuItem;
-            foreach (ToolStripMenuItem item in toolStripMenuItemStop.DropDownItems)
+            foreach (Production prod in prodLines.Prods.Values)
             {
-                if (item.Tag.ToString() == btn.Tag.ToString())
+                foreach (ToolStripMenuItem btn in toolStripMenuItemStart.DropDownItems)
                 {
-                    item.Enabled = !btn.Enabled;
-                }
-                /*if (item.Enabled)  // à voir si déchanchement du timer ici
-                {
+                    if (btn.Tag.ToString() == prod.Type)
+                    {
+                        btn.Enabled = prod.CurrentState == Production.State.Stopped || prod.CurrentState == Production.State.Initialized;
+                    }
 
-                }*/
+                }
+            }
+            foreach (Production prod in prodLines.Prods.Values)
+            {
+                foreach (ToolStripMenuItem btn in toolStripMenuItemStop.DropDownItems)
+                {
+                    if (btn.Tag.ToString() == prod.Type)
+                    {
+                        btn.Enabled = prod.CurrentState == Production.State.Started;
+                    }
+
+                }
+            }
+            foreach (Production prod in prodLines.Prods.Values)
+            {
+                foreach (ToolStripMenuItem btn in toolStripMenuItemResume.DropDownItems)
+                {
+                    if (btn.Tag.ToString() == prod.Type)
+                    {
+                        btn.Enabled = prod.CurrentState == Production.State.Suspended;
+                    }
+                }
             }
         }
 
-        private void aToolStripMenuItemStop_EnabledChanged(object sender, EventArgs e)
+        private void OnTimerEvent(object sender, EventArgs e)
         {
-            ToolStripMenuItem btn = sender as ToolStripMenuItem;
-            foreach (ToolStripMenuItem item in toolStripMenuItemResume.DropDownItems)
+            foreach (Production item in prodLines.Prods.Values)
             {
-                if (item.Tag.ToString() == btn.Tag.ToString())
+                if (item.Type == "A" && item.CurrentState == Production.State.Started)
                 {
-                    item.Enabled = !btn.Enabled;
+                    item.AddCrate();
+                    progressBar1.Value = item.GetProgress();
+                    textBoxTotalA.Text = item.Crates.Count.ToString();
+                }
+                if (item.Type == "B" && item.CurrentState == Production.State.Started)
+                {
+                    item.AddCrate();
+                    progressBar2.Value = item.GetProgress();
+                    textBoxTotalB.Text = item.Crates.Count.ToString();
+                }
+                if (item.Type == "C" && item.CurrentState == Production.State.Started)
+                {
+                    item.AddCrate();
+                    progressBar3.Value = item.GetProgress();
+                    textBoxTotalC.Text = item.Crates.Count.ToString();
+                }
+                if (item.CurrentState == Production.State.Stopped)
+                {
+                    ButtonEnabledOrNot();
+                    prodLines.Prods.Remove("prod" + item.Type);
+                    MessageBox.Show
+                    ("Production atteinte sur la ligne " + item.Type, "Job Done",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1);
+                    
                 }
             }
         }
 
-        private void timer_Tick(object sender, EventArgs e)
+        private void textBoxTotal(object sender, TextBox textBoxHours, TextBox textBoxAll)
         {
-            if (productions.Count > 0)
+            TextBox flawsBox = (TextBox)sender;
+            if (prodLines.Prods.ContainsKey("prod" +flawsBox.Tag.ToString()))
             {
+                decimal flawsByHour = prodLines.Prods["prod" + flawsBox.Tag.ToString()].GetLastHourFailureRate();
+                decimal flaws = prodLines.Prods["prod" + flawsBox.Tag.ToString()].GetTotalFailureRate();
+                textBoxHours.Text = flawsByHour.ToString("0.####");
+                textBoxAll.Text = flaws.ToString("0.####");
             }
+
+        }
+
+        private void textBoxTotalB_TextChanged(object sender, EventArgs e)
+        {
+            textBoxTotal(sender, textBoxFlawsHourB, textBoxFlawsTotalB);
+        }
+
+        private void textBoxTotalA_TextChanged(object sender, EventArgs e)
+        {
+            textBoxTotal(sender, textBoxFlawsHoursA, textBoxFlawsTotalA);
+        }
+
+        private void textBoxTotalC_TextChanged(object sender, EventArgs e)
+        {
+            textBoxTotal(sender, textBoxFlawsHourC, textBoxFlawsTotalC);
         }
     }
 }

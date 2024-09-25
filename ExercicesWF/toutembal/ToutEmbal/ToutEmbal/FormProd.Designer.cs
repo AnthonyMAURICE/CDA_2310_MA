@@ -123,7 +123,6 @@
             aToolStripMenuItemStart.Tag = "A";
             aToolStripMenuItemStart.Text = "A";
             aToolStripMenuItemStart.Click += aToolStripMenuItemStart_Click;
-            aToolStripMenuItemStart.EnabledChanged += aToolStripMenuItemStart_EnabledChanged;
             // 
             // bToolStripMenuItemStart
             // 
@@ -132,7 +131,6 @@
             bToolStripMenuItemStart.Tag = "B";
             bToolStripMenuItemStart.Text = "B";
             bToolStripMenuItemStart.Click += aToolStripMenuItemStart_Click;
-            bToolStripMenuItemStart.EnabledChanged += aToolStripMenuItemStart_EnabledChanged;
             // 
             // cToolStripMenuItemStart
             // 
@@ -141,7 +139,6 @@
             cToolStripMenuItemStart.Tag = "C";
             cToolStripMenuItemStart.Text = "C";
             cToolStripMenuItemStart.Click += aToolStripMenuItemStart_Click;
-            cToolStripMenuItemStart.EnabledChanged += aToolStripMenuItemStart_EnabledChanged;
             // 
             // toolStripMenuItemStop
             // 
@@ -158,7 +155,6 @@
             aToolStripMenuItemStop.Tag = "A";
             aToolStripMenuItemStop.Text = "A";
             aToolStripMenuItemStop.Click += aToolStripMenuItemStart_Click;
-            aToolStripMenuItemStop.EnabledChanged += aToolStripMenuItemStop_EnabledChanged;
             // 
             // bToolStripMenuItemStop
             // 
@@ -168,7 +164,6 @@
             bToolStripMenuItemStop.Tag = "B";
             bToolStripMenuItemStop.Text = "B";
             bToolStripMenuItemStop.Click += aToolStripMenuItemStart_Click;
-            bToolStripMenuItemStop.EnabledChanged += aToolStripMenuItemStop_EnabledChanged;
             // 
             // cToolStripMenuItemStop
             // 
@@ -178,7 +173,6 @@
             cToolStripMenuItemStop.Tag = "C";
             cToolStripMenuItemStop.Text = "C";
             cToolStripMenuItemStop.Click += aToolStripMenuItemStart_Click;
-            cToolStripMenuItemStop.EnabledChanged += aToolStripMenuItemStop_EnabledChanged;
             // 
             // toolStripMenuItemResume
             // 
@@ -195,7 +189,6 @@
             aToolStripMenuItemContinue.Tag = "A";
             aToolStripMenuItemContinue.Text = "A";
             aToolStripMenuItemContinue.Click += aToolStripMenuItemStart_Click;
-            aToolStripMenuItemContinue.EnabledChanged += aToolStripMenuItemStart_EnabledChanged;
             // 
             // bToolStripMenuItemContinue
             // 
@@ -205,7 +198,6 @@
             bToolStripMenuItemContinue.Tag = "B";
             bToolStripMenuItemContinue.Text = "B";
             bToolStripMenuItemContinue.Click += aToolStripMenuItemStart_Click;
-            bToolStripMenuItemContinue.EnabledChanged += aToolStripMenuItemStart_Click;
             // 
             // cToolStripMenuItemContinue
             // 
@@ -215,7 +207,6 @@
             cToolStripMenuItemContinue.Tag = "C";
             cToolStripMenuItemContinue.Text = "C";
             cToolStripMenuItemContinue.Click += aToolStripMenuItemStart_Click;
-            cToolStripMenuItemContinue.EnabledChanged += aToolStripMenuItemStart_EnabledChanged;
             // 
             // tabControl1
             // 
@@ -227,6 +218,7 @@
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(473, 208);
             tabControl1.TabIndex = 1;
+            tabControl1.Tag = "";
             // 
             // tabPageA
             // 
@@ -251,6 +243,7 @@
             textBoxFlawsTotalA.ReadOnly = true;
             textBoxFlawsTotalA.Size = new Size(100, 23);
             textBoxFlawsTotalA.TabIndex = 5;
+            textBoxFlawsTotalA.Tag = "A";
             // 
             // textBoxFlawsHoursA
             // 
@@ -259,6 +252,7 @@
             textBoxFlawsHoursA.ReadOnly = true;
             textBoxFlawsHoursA.Size = new Size(100, 23);
             textBoxFlawsHoursA.TabIndex = 4;
+            textBoxFlawsHoursA.Tag = "A";
             // 
             // textBoxTotalA
             // 
@@ -268,24 +262,26 @@
             textBoxTotalA.Size = new Size(100, 23);
             textBoxTotalA.TabIndex = 3;
             textBoxTotalA.Tag = "A";
+            textBoxTotalA.Text = "0";
+            textBoxTotalA.TextChanged += textBoxTotalA_TextChanged;
             // 
             // labelTotalFlaws
             // 
             labelTotalFlaws.AutoSize = true;
             labelTotalFlaws.Location = new Point(29, 126);
             labelTotalFlaws.Name = "labelTotalFlaws";
-            labelTotalFlaws.Size = new Size(166, 15);
+            labelTotalFlaws.Size = new Size(195, 15);
             labelTotalFlaws.TabIndex = 2;
-            labelTotalFlaws.Text = "Taux défaut depuis démarrage";
+            labelTotalFlaws.Text = "Taux défaut depuis démarrage en %";
             // 
             // labelFlawsHour
             // 
             labelFlawsHour.AutoSize = true;
             labelFlawsHour.Location = new Point(29, 83);
             labelFlawsHour.Name = "labelFlawsHour";
-            labelFlawsHour.Size = new Size(101, 15);
+            labelFlawsHour.Size = new Size(130, 15);
             labelFlawsHour.TabIndex = 1;
-            labelFlawsHour.Text = "Taux défaut heure";
+            labelFlawsHour.Text = "Taux défaut heure en %";
             // 
             // labelTotal
             // 
@@ -319,6 +315,7 @@
             textBoxFlawsTotalB.ReadOnly = true;
             textBoxFlawsTotalB.Size = new Size(100, 23);
             textBoxFlawsTotalB.TabIndex = 11;
+            textBoxFlawsTotalB.Tag = "B";
             // 
             // textBoxFlawsHourB
             // 
@@ -327,6 +324,7 @@
             textBoxFlawsHourB.ReadOnly = true;
             textBoxFlawsHourB.Size = new Size(100, 23);
             textBoxFlawsHourB.TabIndex = 10;
+            textBoxFlawsHourB.Tag = "B";
             // 
             // textBoxTotalB
             // 
@@ -335,25 +333,27 @@
             textBoxTotalB.ReadOnly = true;
             textBoxTotalB.Size = new Size(100, 23);
             textBoxTotalB.TabIndex = 9;
-            textBoxTotalB.Tag = "A";
+            textBoxTotalB.Tag = "B";
+            textBoxTotalB.Text = "0";
+            textBoxTotalB.TextChanged += textBoxTotalB_TextChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Location = new Point(28, 126);
             label1.Name = "label1";
-            label1.Size = new Size(166, 15);
+            label1.Size = new Size(195, 15);
             label1.TabIndex = 8;
-            label1.Text = "Taux défaut depuis démarrage";
+            label1.Text = "Taux défaut depuis démarrage en %";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Location = new Point(28, 83);
             label2.Name = "label2";
-            label2.Size = new Size(101, 15);
+            label2.Size = new Size(130, 15);
             label2.TabIndex = 7;
-            label2.Text = "Taux défaut heure";
+            label2.Text = "Taux défaut heure en %";
             // 
             // label3
             // 
@@ -387,6 +387,7 @@
             textBoxFlawsTotalC.ReadOnly = true;
             textBoxFlawsTotalC.Size = new Size(100, 23);
             textBoxFlawsTotalC.TabIndex = 11;
+            textBoxFlawsTotalC.Tag = "C";
             // 
             // textBoxFlawsHourC
             // 
@@ -395,6 +396,7 @@
             textBoxFlawsHourC.ReadOnly = true;
             textBoxFlawsHourC.Size = new Size(100, 23);
             textBoxFlawsHourC.TabIndex = 10;
+            textBoxFlawsHourC.Tag = "C";
             // 
             // textBoxTotalC
             // 
@@ -403,25 +405,27 @@
             textBoxTotalC.ReadOnly = true;
             textBoxTotalC.Size = new Size(100, 23);
             textBoxTotalC.TabIndex = 9;
-            textBoxTotalC.Tag = "A";
+            textBoxTotalC.Tag = "C";
+            textBoxTotalC.Text = "0";
+            textBoxTotalC.TextChanged += textBoxTotalC_TextChanged;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Location = new Point(28, 126);
             label4.Name = "label4";
-            label4.Size = new Size(166, 15);
+            label4.Size = new Size(195, 15);
             label4.TabIndex = 8;
-            label4.Text = "Taux défaut depuis démarrage";
+            label4.Text = "Taux défaut depuis démarrage en %";
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Location = new Point(28, 83);
             label5.Name = "label5";
-            label5.Size = new Size(101, 15);
+            label5.Size = new Size(130, 15);
             label5.TabIndex = 7;
-            label5.Text = "Taux défaut heure";
+            label5.Text = "Taux défaut heure en %";
             // 
             // label6
             // 

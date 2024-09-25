@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,8 @@ namespace LibraryCratesProd
         public List<Crate> Crates { get => crates; }
         public string? Type { get => type; set => type = value; }
 
+        public int CratesGoal => cratesGoal;
+
         public Production(string _type, int _cratesGoal)
         {
             this.type = _type;
@@ -33,7 +36,7 @@ namespace LibraryCratesProd
 
         public bool Start()
         {
-            if (this.currentState != State.Initialized || this.currentState != State.Suspended) 
+            if (this.currentState != State.Initialized && this.currentState != State.Suspended) 
             {
                 return false;
             }
@@ -86,20 +89,20 @@ namespace LibraryCratesProd
             Random rnd = new Random();
             int random = rnd.Next(1, 10);
             bool failure = random == 6;
-            Crate crate = new Crate(failure);
+            Crate crate = new Crate(!failure);
             this.crates.Add(crate);
         }
 
         public decimal GetTotalFailureRate()
         {
             decimal failures = this.crates.FindAll(x => x.IsValid == false).Count;
-            return failures / this.crates.Count;
+            return failures / this.crates.Count *100;
         }
 
         public decimal GetLastHourFailureRate()
         {
             decimal lastHourFailures = this.crates.FindAll(x => x.IsValid == false && x.DateOfProduction > DateTime.Now.AddHours(-1)).Count;
-            return lastHourFailures / this.crates.Count;
+            return lastHourFailures / this.crates.Count *100;
         }
 
         public int GetValidCratesNumber()
@@ -107,12 +110,19 @@ namespace LibraryCratesProd
             return this.crates.FindAll(x => x.IsValid).Count;
         }
 
-        public decimal GetProgress()
+        public int GetProgress()
         {
             if(this.crates != null && this.crates.Count > 0)
             {
-                decimal progress = (decimal)((this.crates.Count / this.cratesGoal) * 100);
-                return Math.Ceiling(progress);
+                double progress = (double)this.crates.Count / (double)this.cratesGoal;
+                progress *= 100;
+                int castedProgress;
+                castedProgress = (int)Math.Round(progress);
+                if (progress == 100) 
+                {
+                    this.Stop();
+                }
+                return castedProgress;
             }
             else
             {
