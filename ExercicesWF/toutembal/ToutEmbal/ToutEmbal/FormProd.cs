@@ -6,10 +6,10 @@ namespace ToutEmbal
     public partial class FormProd : Form
     {
         ProdLine prodLines = new ProdLine();
-        System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer
-        {
-            Interval = 100
-        };
+        //System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer
+        //{
+        //    Interval = 100
+        //};
 
         public FormProd()
         {
@@ -47,15 +47,12 @@ namespace ToutEmbal
                     if (!prodLines.Prods.ContainsKey("prod" + identifier))
                     {
                         prodLines.CreateProd(identifier);
-                        foreach (Production production in prodLines.Prods.Values)
-                        {
-                            production.itemAdded += ProgressEvent;
-                        }
+                        prodLines.Prods["prod" + identifier].itemAdded += ProgressEvent;
                     }
                     if (prodLines.Prods["prod" + identifier].CurrentState == Production.State.Initialized)
                     {
                         prodLines.Prods["prod" + btn.Tag.ToString()].Start();
-                        timer.Start();
+                        //timer.Start();
                     }
                     else if (prodLines.Prods["prod" + identifier].CurrentState == Production.State.Started)
                     {

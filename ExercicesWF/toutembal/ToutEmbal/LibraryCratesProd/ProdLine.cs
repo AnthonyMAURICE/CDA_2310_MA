@@ -23,7 +23,7 @@ namespace LibraryCratesProd
             switch (identifier)
             {
                 case "A":
-                    maxCrates = 10000;
+                    maxCrates = 100;
                     break;
                 case "B":
                     maxCrates = 25000;

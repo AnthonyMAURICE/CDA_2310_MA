@@ -19,7 +19,7 @@ namespace LibraryCratesProd
             Suspended,
             Stopped
         }
-        //Voir pour le timer sur la classe
+        
         System.Timers.Timer timer = new System.Timers.Timer(100);
         
         private string? type;
