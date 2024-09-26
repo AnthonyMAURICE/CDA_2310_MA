@@ -5,7 +5,7 @@ namespace ToutEmbal
 {
     public partial class FormProd : Form
     {
-        ProdLine prodLines = new ProdLine();
+        readonly ProdLine prodLines = new();
         //System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer
         //{
         //    Interval = 100
@@ -46,11 +46,11 @@ namespace ToutEmbal
                     if (!prodLines.Prods.ContainsKey("prod" + identifier))
                     {
                         prodLines.CreateProd(identifier);
-                        prodLines.Prods["prod" + identifier].itemAddedInList += ProgressEvent;
+                        prodLines.Prods["prod" + identifier].ItemAddedInList += ProgressEvent;
                     }
                     if (prodLines.Prods["prod" + identifier].CurrentState == Production.State.Initialized)
                     {
-                        prodLines.Prods["prod" + btn.Tag.ToString()].Start();
+                        prodLines.Prods["prod" + btn.Tag.ToString()].StartProd();
                         //timer.Start();
                     }
                     else if (prodLines.Prods["prod" + identifier].CurrentState == Production.State.Started)
@@ -171,7 +171,7 @@ namespace ToutEmbal
             if (item.CurrentState == Production.State.Stopped)
             {
                 ButtonEnabledOrNot();
-                prodLines.Prods["prod" + item.Type].itemAddedInList -= ProgressEvent;
+                prodLines.Prods["prod" + item.Type].ItemAddedInList -= ProgressEvent;
                 prodLines.Prods.Remove("prod" + item.Type);
                 MessageBox.Show
                 ("Production atteinte sur la ligne " + item.Type, "Job Done",

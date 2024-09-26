@@ -27,22 +27,28 @@ namespace LibraryCratesProd
         private List<Crate> crates = new List<Crate>();
         private State currentState = State.Initialized;
 
-        public event EventHandler itemAddedInList;
+        public event EventHandler ItemAddedInList;
 
         public State CurrentState { get => currentState; set => currentState = value; }
         public List<Crate> Crates { get => crates; }
         public string? Type { get => type; set => type = value; }
 
+        private Thread thread;
+
         public int CratesGoal => cratesGoal;
+
+        public Thread Thread { get => thread; set => thread = value; }
 
         public Production(string _type, int _cratesGoal)
         {
             this.type = _type;
             this.cratesGoal = _cratesGoal;
             timer.Elapsed += OnTimedEvent;
+            this.thread = new Thread(new ThreadStart(this.LaunchProd));
+            
         }
 
-        public bool Start()
+        public bool StartProd()
         {
             if (this.currentState != State.Initialized && this.currentState != State.Suspended) 
             {
@@ -51,7 +57,10 @@ namespace LibraryCratesProd
             else
             {
                 this.currentState = State.Started;
-                timer.Start();
+                //timer.Start();
+
+                //this.LaunchProd();
+                this.thread.Start();
                 return true;
             }  
         }
@@ -143,8 +152,30 @@ namespace LibraryCratesProd
             if (this.currentState == State.Started) 
             {
                 this.AddCrate();
-                itemAddedInList?.Invoke(this, null);
+                ItemAddedInList?.Invoke(this, null);
             }  
+        }
+
+        // Avec timer de classe
+
+        //public void LaunchProd()
+        //{
+        //    if (this.currentState == State.Started)
+        //    {
+        //        this.AddCrate();
+        //        ItemAddedInList?.Invoke(this, null);
+        //    }
+        //}
+
+        // Avec le Thread
+        public void LaunchProd()
+        {
+            while (this.currentState == State.Started)
+            {
+                this.AddCrate();
+                ItemAddedInList?.Invoke(this, null);  
+                Thread.Sleep(100);
+            }
         }
     }
 }

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace LibraryCratesProd
 {
-    public class Observer
+    public class ProdThread
     {
-       
+        
     }
 }
