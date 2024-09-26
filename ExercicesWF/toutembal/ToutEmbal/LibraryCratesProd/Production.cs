@@ -27,7 +27,7 @@ namespace LibraryCratesProd
         private List<Crate> crates = new List<Crate>();
         private State currentState = State.Initialized;
 
-        public event EventHandler itemAdded;
+        public event EventHandler itemAddedInList;
 
         public State CurrentState { get => currentState; set => currentState = value; }
         public List<Crate> Crates { get => crates; }
@@ -122,7 +122,7 @@ namespace LibraryCratesProd
         {
             if(this.crates != null && this.crates.Count > 0)
             {
-                double progress = (double)this.crates.Count / (double)this.cratesGoal;
+                double progress = (double)this.GetValidCratesNumber() / (double)this.cratesGoal;
                 progress *= 100;
                 int castedProgress;
                 castedProgress = (int)Math.Round(progress);
@@ -143,7 +143,7 @@ namespace LibraryCratesProd
             if (this.currentState == State.Started) 
             {
                 this.AddCrate();
-                itemAdded?.Invoke(this, null);
+                itemAddedInList?.Invoke(this, null);
             }  
         }
     }

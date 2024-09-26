@@ -14,8 +14,7 @@ namespace ToutEmbal
         public FormProd()
         {
             InitializeComponent();
-            //timer.Tick += new System.EventHandler(OnTimerEvent);
-            
+            //timer.Tick += new System.EventHandler(OnTimerEvent);    
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -47,7 +46,7 @@ namespace ToutEmbal
                     if (!prodLines.Prods.ContainsKey("prod" + identifier))
                     {
                         prodLines.CreateProd(identifier);
-                        prodLines.Prods["prod" + identifier].itemAdded += ProgressEvent;
+                        prodLines.Prods["prod" + identifier].itemAddedInList += ProgressEvent;
                     }
                     if (prodLines.Prods["prod" + identifier].CurrentState == Production.State.Initialized)
                     {
@@ -144,7 +143,7 @@ namespace ToutEmbal
                 }));
                 textBoxTotalA.Invoke(new MethodInvoker(delegate
                 {
-                    textBoxTotalA.Text = item.Crates.Count.ToString();
+                    textBoxTotalA.Text = item.GetValidCratesNumber().ToString();
                 }));
             }
             if (item.Type == "B")
@@ -155,7 +154,7 @@ namespace ToutEmbal
                 }));
                 textBoxTotalB.Invoke(new MethodInvoker(delegate
                 {
-                    textBoxTotalB.Text = item.Crates.Count.ToString();
+                    textBoxTotalB.Text = item.GetValidCratesNumber().ToString();
                 }));
             }
             if (item.Type == "C")
@@ -166,12 +165,13 @@ namespace ToutEmbal
                 }));
                 textBoxTotalC.Invoke(new MethodInvoker(delegate
                 {
-                    textBoxTotalC.Text = item.Crates.Count.ToString();
+                    textBoxTotalC.Text = item.GetValidCratesNumber().ToString();
                 }));
             }
             if (item.CurrentState == Production.State.Stopped)
             {
                 ButtonEnabledOrNot();
+                prodLines.Prods["prod" + item.Type].itemAddedInList -= ProgressEvent;
                 prodLines.Prods.Remove("prod" + item.Type);
                 MessageBox.Show
                 ("Production atteinte sur la ligne " + item.Type, "Job Done",
