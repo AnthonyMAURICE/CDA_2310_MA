@@ -28,6 +28,7 @@ namespace ToutEmbal
             {
                 e.Cancel = true;
             }
+
         }
 
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
@@ -51,7 +52,10 @@ namespace ToutEmbal
                     if (prodLines.Prods["prod" + identifier].CurrentState == Production.State.Initialized)
                     {
                         prodLines.Prods["prod" + btn.Tag.ToString()].StartProd();
+
+                        //pour avec le timer sur l'IHM
                         //timer.Start();
+
                     }
                     else if (prodLines.Prods["prod" + identifier].CurrentState == Production.State.Started)
                     {
@@ -131,42 +135,34 @@ namespace ToutEmbal
         //    }
         //}
 
-        // Méthode avec Timer géré par la classe
+        // Méthode avec Timer géré par la classe ou avec les threads
         private void ProgressEvent(object sender, EventArgs e)
         {
             Production item = (Production)sender;
-            if (item.Type == "A")
+
+            foreach(ProgressBar elem in this.Controls.OfType<ProgressBar>())
             {
-                progressBar1.Invoke(new MethodInvoker(delegate
+                if (item.Type == elem.Tag.ToString())
                 {
-                    progressBar1.Value = item.GetProgress();
-                }));
-                textBoxTotalA.Invoke(new MethodInvoker(delegate
-                {
-                    textBoxTotalA.Text = item.GetValidCratesNumber().ToString();
-                }));
+                    elem.Invoke(new MethodInvoker(delegate
+                    {
+                        elem.Value = item.GetProgress();
+                    }));
+                }
             }
-            if (item.Type == "B")
+
+            foreach(TabPage page in this.tabControl1.TabPages)
             {
-                progressBar2.Invoke(new MethodInvoker(delegate
+                foreach(TextBox box in page.Controls.OfType<TextBox>())
                 {
-                    progressBar2.Value = item.GetProgress();
-                }));
-                textBoxTotalB.Invoke(new MethodInvoker(delegate
-                {
-                    textBoxTotalB.Text = item.GetValidCratesNumber().ToString();
-                }));
-            }
-            if (item.Type == "C")
-            {
-                progressBar3.Invoke(new MethodInvoker(delegate
-                {
-                    progressBar3.Value = item.GetProgress();
-                }));
-                textBoxTotalC.Invoke(new MethodInvoker(delegate
-                {
-                    textBoxTotalC.Text = item.GetValidCratesNumber().ToString();
-                }));
+                    if (item.Type == box.Tag.ToString())
+                    {
+                        box.Invoke(new MethodInvoker(delegate
+                        {
+                            box.Text = item.GetValidCratesNumber().ToString();
+                        }));
+                    }
+                }     
             }
             if (item.CurrentState == Production.State.Stopped)
             {

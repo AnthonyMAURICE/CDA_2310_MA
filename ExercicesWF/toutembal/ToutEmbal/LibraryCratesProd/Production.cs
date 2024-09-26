@@ -37,15 +37,14 @@ namespace LibraryCratesProd
 
         public int CratesGoal => cratesGoal;
 
-        public Thread Thread { get => thread; set => thread = value; }
+        public Thread Thread { get => thread; }
 
         public Production(string _type, int _cratesGoal)
         {
             this.type = _type;
             this.cratesGoal = _cratesGoal;
             timer.Elapsed += OnTimedEvent;
-            this.thread = new Thread(new ThreadStart(this.LaunchProd));
-            
+            this.thread = new Thread(new ThreadStart(this.LaunchProd)); 
         }
 
         public bool StartProd()

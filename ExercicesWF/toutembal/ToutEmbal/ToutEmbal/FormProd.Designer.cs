@@ -218,7 +218,7 @@
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(473, 208);
             tabControl1.TabIndex = 1;
-            tabControl1.Tag = "";
+            tabControl1.Tag = "C";
             // 
             // tabPageA
             // 
@@ -243,7 +243,7 @@
             textBoxFlawsTotalA.ReadOnly = true;
             textBoxFlawsTotalA.Size = new Size(100, 23);
             textBoxFlawsTotalA.TabIndex = 5;
-            textBoxFlawsTotalA.Tag = "A";
+            textBoxFlawsTotalA.Tag = "";
             // 
             // textBoxFlawsHoursA
             // 
@@ -252,7 +252,7 @@
             textBoxFlawsHoursA.ReadOnly = true;
             textBoxFlawsHoursA.Size = new Size(100, 23);
             textBoxFlawsHoursA.TabIndex = 4;
-            textBoxFlawsHoursA.Tag = "A";
+            textBoxFlawsHoursA.Tag = "";
             // 
             // textBoxTotalA
             // 
@@ -377,6 +377,7 @@
             tabPageC.Padding = new Padding(3);
             tabPageC.Size = new Size(465, 180);
             tabPageC.TabIndex = 2;
+            tabPageC.Tag = "C";
             tabPageC.Text = "Type C";
             tabPageC.UseVisualStyleBackColor = true;
             // 
@@ -505,6 +506,7 @@
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "FormProd";
+            Tag = "A";
             Text = "PRODUCTION DES CAISSES";
             FormClosing += Form1_FormClosing;
             menuStrip1.ResumeLayout(false);
