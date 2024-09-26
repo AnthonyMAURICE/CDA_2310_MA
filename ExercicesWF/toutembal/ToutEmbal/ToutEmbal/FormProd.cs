@@ -29,6 +29,7 @@ namespace ToutEmbal
                 e.Cancel = true;
             }
 
+
         }
 
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)

@@ -26,24 +26,20 @@ namespace LibraryCratesProd
         private readonly int cratesGoal;
         private List<Crate> crates = new List<Crate>();
         private State currentState = State.Initialized;
+        private Thread thread;
 
         public event EventHandler ItemAddedInList;
-
         public State CurrentState { get => currentState; set => currentState = value; }
         public List<Crate> Crates { get => crates; }
         public string? Type { get => type; set => type = value; }
-
-        private Thread thread;
-
         public int CratesGoal => cratesGoal;
-
         public Thread Thread { get => thread; }
 
         public Production(string _type, int _cratesGoal)
         {
             this.type = _type;
             this.cratesGoal = _cratesGoal;
-            timer.Elapsed += OnTimedEvent;
+            //timer.Elapsed += OnTimedEvent;
             this.thread = new Thread(new ThreadStart(this.LaunchProd)); 
         }
 
@@ -56,9 +52,14 @@ namespace LibraryCratesProd
             else
             {
                 this.currentState = State.Started;
+                              
+                // Pour avec le timer de l'IHM
+                //this.LaunchProd();
+                
+                // Timer de classe
                 //timer.Start();
 
-                //this.LaunchProd();
+                // Thread
                 this.thread.Start();
                 return true;
             }  
@@ -172,7 +173,7 @@ namespace LibraryCratesProd
             while (this.currentState == State.Started)
             {
                 this.AddCrate();
-                ItemAddedInList?.Invoke(this, null);  
+                ItemAddedInList?.Invoke(this, null);
                 Thread.Sleep(100);
             }
         }
