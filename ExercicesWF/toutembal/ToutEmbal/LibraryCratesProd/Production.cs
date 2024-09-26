@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics.Tracing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,11 +19,15 @@ namespace LibraryCratesProd
             Suspended,
             Stopped
         }
-
+        //Voir pour le timer sur la classe
+        System.Timers.Timer timer = new System.Timers.Timer(100);
+        
         private string? type;
         private readonly int cratesGoal;
         private List<Crate> crates = new List<Crate>();
         private State currentState = State.Initialized;
+
+        public event EventHandler itemAdded;
 
         public State CurrentState { get => currentState; set => currentState = value; }
         public List<Crate> Crates { get => crates; }
@@ -32,6 +39,7 @@ namespace LibraryCratesProd
         {
             this.type = _type;
             this.cratesGoal = _cratesGoal;
+            timer.Elapsed += OnTimedEvent;
         }
 
         public bool Start()
@@ -43,9 +51,9 @@ namespace LibraryCratesProd
             else
             {
                 this.currentState = State.Started;
+                timer.Start();
                 return true;
-            }
-            
+            }  
         }
 
         public bool Suspend() 
@@ -90,7 +98,7 @@ namespace LibraryCratesProd
             int random = rnd.Next(1, 10);
             bool failure = random == 6;
             Crate crate = new Crate(!failure);
-            this.crates.Add(crate);
+            this.crates.Add(crate); 
         }
 
         public decimal GetTotalFailureRate()
@@ -128,6 +136,15 @@ namespace LibraryCratesProd
             {
                 return 0;
             }
+        }
+
+        private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
+        {
+            if (this.currentState == State.Started) 
+            {
+                this.AddCrate();
+                itemAdded?.Invoke(this, null);
+            }  
         }
     }
 }

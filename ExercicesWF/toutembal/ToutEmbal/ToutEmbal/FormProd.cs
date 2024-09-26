@@ -1,4 +1,5 @@
 using LibraryCratesProd;
+using System.Collections.ObjectModel;
 
 namespace ToutEmbal
 {
@@ -13,7 +14,8 @@ namespace ToutEmbal
         public FormProd()
         {
             InitializeComponent();
-            timer.Tick += new System.EventHandler(OnTimerEvent);
+            //timer.Tick += new System.EventHandler(OnTimerEvent);
+            
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -45,6 +47,10 @@ namespace ToutEmbal
                     if (!prodLines.Prods.ContainsKey("prod" + identifier))
                     {
                         prodLines.CreateProd(identifier);
+                        foreach (Production production in prodLines.Prods.Values)
+                        {
+                            production.itemAdded += ProgressEvent;
+                        }
                     }
                     if (prodLines.Prods["prod" + identifier].CurrentState == Production.State.Initialized)
                     {
@@ -93,44 +99,97 @@ namespace ToutEmbal
             }
         }
 
-        private void OnTimerEvent(object sender, EventArgs e)
+        //Méthode avec Timer integré à l'IHM
+
+        //private void OnTimerEvent(object sender, EventArgs e)
+        //{
+        //    foreach (Production item in prodLines.Prods.Values)
+        //    {
+        //        //if(item.CurrentState == Production.State.Started)
+        //        //item.AddCrate();
+        //        if (item.Type == "A")
+        //        {
+        //            progressBar1.Value = item.GetProgress();
+        //            textBoxTotalA.Text = item.Crates.Count.ToString();
+        //        }
+        //        if (item.Type == "B")
+        //        {
+        //            progressBar2.Value = item.GetProgress();
+        //            textBoxTotalB.Text = item.Crates.Count.ToString();
+        //        }
+        //        if (item.Type == "C")
+        //        {
+        //            progressBar3.Value = item.GetProgress();
+        //            textBoxTotalC.Text = item.Crates.Count.ToString();
+        //        }
+        //        if (item.CurrentState == Production.State.Stopped)
+        //        {
+        //            ButtonEnabledOrNot();
+        //            prodLines.Prods.Remove("prod" + item.Type);
+        //            MessageBox.Show
+        //            ("Production atteinte sur la ligne " + item.Type, "Job Done",
+        //            MessageBoxButtons.OK,
+        //            MessageBoxIcon.Information,
+        //            MessageBoxDefaultButton.Button1); 
+        //        }
+        //    }
+        //}
+
+        // Méthode avec Timer géré par la classe
+        private void ProgressEvent(object sender, EventArgs e)
         {
-            foreach (Production item in prodLines.Prods.Values)
+            Production item = (Production)sender;
+            if (item.Type == "A")
             {
-                if(item.CurrentState == Production.State.Started)
-                item.AddCrate();
-                if (item.Type == "A")
+                progressBar1.Invoke(new MethodInvoker(delegate
                 {
                     progressBar1.Value = item.GetProgress();
+                }));
+                textBoxTotalA.Invoke(new MethodInvoker(delegate
+                {
                     textBoxTotalA.Text = item.Crates.Count.ToString();
-                }
-                if (item.Type == "B")
+                }));
+            }
+            if (item.Type == "B")
+            {
+                progressBar2.Invoke(new MethodInvoker(delegate
                 {
                     progressBar2.Value = item.GetProgress();
+                }));
+                textBoxTotalB.Invoke(new MethodInvoker(delegate
+                {
                     textBoxTotalB.Text = item.Crates.Count.ToString();
-                }
-                if (item.Type == "C")
+                }));
+            }
+            if (item.Type == "C")
+            {
+                progressBar3.Invoke(new MethodInvoker(delegate
                 {
                     progressBar3.Value = item.GetProgress();
-                    textBoxTotalC.Text = item.Crates.Count.ToString();
-                }
-                if (item.CurrentState == Production.State.Stopped)
+                }));
+                textBoxTotalC.Invoke(new MethodInvoker(delegate
                 {
-                    ButtonEnabledOrNot();
-                    prodLines.Prods.Remove("prod" + item.Type);
-                    MessageBox.Show
-                    ("Production atteinte sur la ligne " + item.Type, "Job Done",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information,
-                    MessageBoxDefaultButton.Button1); 
-                }
+                    textBoxTotalC.Text = item.Crates.Count.ToString();
+                }));
+            }
+            if (item.CurrentState == Production.State.Stopped)
+            {
+                ButtonEnabledOrNot();
+                prodLines.Prods.Remove("prod" + item.Type);
+                MessageBox.Show
+                ("Production atteinte sur la ligne " + item.Type, "Job Done",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information,
+                MessageBoxDefaultButton.Button1);
             }
         }
+
+
 
         private void textBoxTotal(object sender, TextBox textBoxHours, TextBox textBoxAll)
         {
             TextBox flawsBox = (TextBox)sender;
-            if (prodLines.Prods.ContainsKey("prod" +flawsBox.Tag.ToString()))
+            if (prodLines.Prods.ContainsKey("prod" + flawsBox.Tag.ToString()))
             {
                 decimal flawsByHour = prodLines.Prods["prod" + flawsBox.Tag.ToString()].GetLastHourFailureRate();
                 decimal flaws = prodLines.Prods["prod" + flawsBox.Tag.ToString()].GetTotalFailureRate();
