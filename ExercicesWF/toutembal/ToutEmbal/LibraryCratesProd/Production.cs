@@ -138,10 +138,8 @@ namespace LibraryCratesProd
         {
             if(this.crates != null && this.crates.Count > 0)
             {
-                double progress = (double)this.GetValidCratesNumber() / (double)this.cratesGoal;
-                progress *= 100;
-                int castedProgress = (int)Math.Round(progress);
-                return castedProgress;
+                double progress = ((double)this.GetValidCratesNumber() / (double)this.cratesGoal) * 100d;
+                return (int)Math.Round(progress);
             }
             else
             {
