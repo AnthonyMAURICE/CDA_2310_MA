@@ -5,10 +5,16 @@
         private bool isValid;
         private DateTime dateOfProduction;
 
-        public Crate(bool _isValid)
+        public Crate()
         {
-            this.isValid = _isValid;
             dateOfProduction = DateTime.Now;
+        }
+
+        public bool SetValidity()
+        {
+            Random rnd = new Random();
+            int random = rnd.Next(1, 10);
+            return random != 6;
         }
 
         public bool IsValid { get => isValid; }

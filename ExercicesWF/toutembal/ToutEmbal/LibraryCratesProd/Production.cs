@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -52,10 +53,10 @@ namespace LibraryCratesProd
             else
             {
                 this.currentState = State.Started;
-                              
+
                 // Pour avec le timer de l'IHM
-                //this.LaunchProd();
-                
+                //this.LaunchProdIHM();
+
                 // Timer de classe
                 //timer.Start();
 
@@ -98,16 +99,21 @@ namespace LibraryCratesProd
 
         public bool IsGoalMet()
         {
-            return this.crates.Count == this.cratesGoal;
+            return this.GetValidCratesNumber() == this.cratesGoal;
         }
 
         public void AddCrate()
         {
-            Random rnd = new Random();
-            int random = rnd.Next(1, 10);
-            bool failure = random == 6;
-            Crate crate = new Crate(!failure);
-            this.crates.Add(crate); 
+            if (this.IsGoalMet())
+            {
+                this.Stop();
+            }
+            else
+            {
+                Crate crate = new();
+                crate.SetValidity();
+                this.crates.Add(crate); 
+            }
         }
 
         public decimal GetTotalFailureRate()
@@ -118,7 +124,8 @@ namespace LibraryCratesProd
 
         public decimal GetLastHourFailureRate()
         {
-            decimal lastHourFailures = this.crates.FindAll(x => x.IsValid == false && x.DateOfProduction > DateTime.Now.AddHours(-1)).Count;
+            System.TimeSpan tSpan = new(0, 1, 0, 0);
+            decimal lastHourFailures = this.crates.FindAll(x => x.IsValid == false && x.DateOfProduction > DateTime.Now.Subtract(tSpan)).Count;
             return lastHourFailures / this.crates.Count *100;
         }
 
@@ -133,12 +140,7 @@ namespace LibraryCratesProd
             {
                 double progress = (double)this.GetValidCratesNumber() / (double)this.cratesGoal;
                 progress *= 100;
-                int castedProgress;
-                castedProgress = (int)Math.Round(progress);
-                if (progress == 100) 
-                {
-                    this.Stop();
-                }
+                int castedProgress = (int)Math.Round(progress);
                 return castedProgress;
             }
             else
@@ -147,34 +149,38 @@ namespace LibraryCratesProd
             }
         }
 
-        private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
-        {
-            if (this.currentState == State.Started) 
-            {
-                this.AddCrate();
-                ItemAddedInList?.Invoke(this, null);
-            }  
-        }
+        // Avec timer de l'IHM
 
-        // Avec timer de classe
-
-        //public void LaunchProd()
+        //public void LaunchProdIHM()
         //{
         //    if (this.currentState == State.Started)
         //    {
         //        this.AddCrate();
-        //        ItemAddedInList?.Invoke(this, null);
+        //        ItemAddedInList?.Invoke(this, new EventArgs());
         //    }
+        //}
+
+        // Avec le Timer de la classe
+        //private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
+        //{
+        //    if (this.currentState == State.Started) 
+        //    {
+        //        this.AddCrate();
+        //        ItemAddedInList?.Invoke(this, new EventArgs());
+        //    }  
         //}
 
         // Avec le Thread
         public void LaunchProd()
         {
-            while (this.currentState == State.Started)
+            while (this.currentState != State.Stopped)
             {
-                this.AddCrate();
-                ItemAddedInList?.Invoke(this, null);
-                Thread.Sleep(100);
+                if(this.currentState == State.Started)
+                {
+                    this.AddCrate();
+                    ItemAddedInList?.Invoke(this, new EventArgs());
+                    Thread.Sleep(100);
+                }
             }
         }
     }

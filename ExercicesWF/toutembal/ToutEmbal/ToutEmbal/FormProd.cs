@@ -6,6 +6,9 @@ namespace ToutEmbal
     public partial class FormProd : Form
     {
         readonly ProdLine prodLines = new();
+
+        //Timer de l'IHM
+
         //System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer
         //{
         //    Interval = 100
@@ -14,6 +17,8 @@ namespace ToutEmbal
         public FormProd()
         {
             InitializeComponent();
+
+            //Méthode liée au tick du timer IHM
             //timer.Tick += new System.EventHandler(OnTimerEvent);    
         }
 
@@ -28,7 +33,10 @@ namespace ToutEmbal
             {
                 e.Cancel = true;
             }
-
+            foreach (Production prod in prodLines.Prods.Values) 
+            {
+                prod.ItemAddedInList -= ProgressEvent;
+            }
 
         }
 
@@ -101,38 +109,44 @@ namespace ToutEmbal
         }
 
         //Méthode avec Timer integré à l'IHM
-
         //private void OnTimerEvent(object sender, EventArgs e)
         //{
-        //    foreach (Production item in prodLines.Prods.Values)
+        //    Production item = (Production)sender;
+
+        //    foreach(ProgressBar elem in this.Controls.OfType<ProgressBar>())
         //    {
-        //        //if(item.CurrentState == Production.State.Started)
-        //        //item.AddCrate();
-        //        if (item.Type == "A")
+        //        if (item.Type == elem.Tag.ToString())
         //        {
-        //            progressBar1.Value = item.GetProgress();
-        //            textBoxTotalA.Text = item.Crates.Count.ToString();
+        //            elem.Invoke(new MethodInvoker(delegate
+        //            {
+        //                elem.Value = item.GetProgress();
+        //            }));
         //        }
-        //        if (item.Type == "B")
+        //    }
+
+        //    foreach(TabPage page in this.tabControl1.TabPages)
+        //    {
+        //        foreach(TextBox box in page.Controls.OfType<TextBox>())
         //        {
-        //            progressBar2.Value = item.GetProgress();
-        //            textBoxTotalB.Text = item.Crates.Count.ToString();
-        //        }
-        //        if (item.Type == "C")
-        //        {
-        //            progressBar3.Value = item.GetProgress();
-        //            textBoxTotalC.Text = item.Crates.Count.ToString();
-        //        }
-        //        if (item.CurrentState == Production.State.Stopped)
-        //        {
-        //            ButtonEnabledOrNot();
-        //            prodLines.Prods.Remove("prod" + item.Type);
-        //            MessageBox.Show
-        //            ("Production atteinte sur la ligne " + item.Type, "Job Done",
-        //            MessageBoxButtons.OK,
-        //            MessageBoxIcon.Information,
-        //            MessageBoxDefaultButton.Button1); 
-        //        }
+        //            if (item.Type == box.Tag.ToString())
+        //            {
+        //                box.Invoke(new MethodInvoker(delegate
+        //                {
+        //                    box.Text = item.GetValidCratesNumber().ToString();
+        //                }));
+        //            }
+        //        }     
+        //    }
+        //    if (item.CurrentState == Production.State.Stopped)
+        //    {
+        //        ButtonEnabledOrNot();
+        //        prodLines.Prods["prod" + item.Type].ItemAddedInList -= ProgressEvent;
+        //        prodLines.Prods.Remove("prod" + item.Type);
+        //        MessageBox.Show
+        //        ("Production atteinte sur la ligne " + item.Type, "Job Done",
+        //        MessageBoxButtons.OK,
+        //        MessageBoxIcon.Information,
+        //        MessageBoxDefaultButton.Button1);
         //    }
         //}
 
@@ -141,7 +155,7 @@ namespace ToutEmbal
         {
             Production item = (Production)sender;
 
-            foreach(ProgressBar elem in this.Controls.OfType<ProgressBar>())
+            foreach(ProgressBar elem in this.Controls.OfType<ProgressBar>())// a mettre sur teams
             {
                 if (item.Type == elem.Tag.ToString())
                 {
@@ -151,6 +165,11 @@ namespace ToutEmbal
                     }));
                 }
             }
+            //ProgressBar elem = this.Controls.OfType<ProgressBar>().Where(elem => elem.Tag.ToString() == item.Type).First();
+            //elem.Invoke(new MethodInvoker(delegate
+            //{
+            //    elem.Value = item.GetProgress();
+            //}));
 
             foreach(TabPage page in this.tabControl1.TabPages)
             {
@@ -168,7 +187,6 @@ namespace ToutEmbal
             if (item.CurrentState == Production.State.Stopped)
             {
                 ButtonEnabledOrNot();
-                prodLines.Prods["prod" + item.Type].ItemAddedInList -= ProgressEvent;
                 prodLines.Prods.Remove("prod" + item.Type);
                 MessageBox.Show
                 ("Production atteinte sur la ligne " + item.Type, "Job Done",
