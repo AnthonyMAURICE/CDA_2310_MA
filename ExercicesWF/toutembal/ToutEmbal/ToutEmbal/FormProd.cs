@@ -155,21 +155,21 @@ namespace ToutEmbal
         {
             Production item = (Production)sender;
 
-            //foreach(ProgressBar elem in this.Controls.OfType<ProgressBar>())// a mettre sur teams
-            //{
-            //    if (item.Type == elem.Tag.ToString())
-            //    {
-            //        elem.Invoke(new MethodInvoker(delegate
-            //        {
-            //            elem.Value = item.GetProgress();
-            //        }));
-            //    }
-            //}
-            ProgressBar elem = this.Controls.OfType<ProgressBar>().Where(elem => elem.Tag.ToString() == item.Type).First();
-            elem.Invoke(new MethodInvoker(delegate
+            foreach (ProgressBar elem in this.Controls.OfType<ProgressBar>())// a mettre sur teams
             {
-                elem.Value = item.GetProgress();
-            }));
+                if (item.Type == elem.Tag.ToString())
+                {
+                    elem.Invoke(new MethodInvoker(delegate
+                    {
+                        elem.Value = item.GetProgress();
+                    }));
+                }
+            }
+            //ProgressBar elem = this.Controls.OfType<ProgressBar>().Where(elem => elem.Tag.ToString() == item.Type).First();
+            //elem.Invoke(new MethodInvoker(delegate
+            //{
+            //    elem.Value = item.GetProgress();
+            //}));
 
             foreach (TabPage page in this.tabControl1.TabPages)
             {
