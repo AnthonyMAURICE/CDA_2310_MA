@@ -28,42 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
-            userControlProgress1 = new UCProd.UserControlProgress();
-            panel1.SuspendLayout();
+            panelProgress = new Panel();
+            tabControl = new TabControl();
             SuspendLayout();
             // 
-            // panel1
+            // panelProgress
             // 
-            panel1.Controls.Add(userControlProgress1);
-            panel1.Location = new Point(23, 237);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(747, 192);
-            panel1.TabIndex = 0;
+            panelProgress.Location = new Point(23, 237);
+            panelProgress.Name = "panelProgress";
+            panelProgress.Size = new Size(747, 192);
+            panelProgress.TabIndex = 0;
             // 
-            // userControlProgress1
+            // tabControl
             // 
-            userControlProgress1.Dock = DockStyle.Top;
-            userControlProgress1.Location = new Point(0, 0);
-            userControlProgress1.Name = "userControlProgress1";
-            userControlProgress1.Size = new Size(747, 69);
-            userControlProgress1.TabIndex = 0;
+            tabControl.Location = new Point(379, 31);
+            tabControl.Name = "tabControl";
+            tabControl.SelectedIndex = 0;
+            tabControl.Size = new Size(391, 190);
+            tabControl.TabIndex = 1;
             // 
             // FormProd2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(panel1);
+            Controls.Add(tabControl);
+            Controls.Add(panelProgress);
             Name = "FormProd2";
             Text = "Form1";
-            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel1;
+        private Panel panelProgress;
         private UCProd.UserControlProgress userControlProgress1;
+        private TabControl tabControl;
     }
 }
