@@ -3,18 +3,18 @@
     public class Crate
     {
         private bool isValid;
-        private DateTime dateOfProduction;
+        private readonly DateTime dateOfProduction;
 
         public Crate()
         {
             dateOfProduction = DateTime.Now;
         }
 
-        public bool SetValidity()
+        public void SetValidity()
         {
-            Random rnd = new Random();
+            Random rnd = new();
             int random = rnd.Next(1, 10);
-            return random != 6;
+            this.isValid = (random != 6);
         }
 
         public bool IsValid { get => isValid; }

@@ -40,8 +40,8 @@ namespace LibraryCratesProd
         {
             this.type = _type;
             this.cratesGoal = _cratesGoal;
-            timer.Elapsed += OnTimedEvent;
-            //this.thread = new Thread(new ThreadStart(this.LaunchProd)); 
+            //timer.Elapsed += OnTimedEvent;
+            this.thread = new Thread(new ThreadStart(this.LaunchProd)); 
         }
 
         public bool StartProd()
@@ -58,10 +58,10 @@ namespace LibraryCratesProd
                 //this.LaunchProdIHM();
 
                 // Timer de classe
-                timer.Start();
+                //timer.Start();
 
                 // Thread
-                //this.thread.Start();
+                this.thread.Start();
                 return true;
             }  
         }
@@ -131,6 +131,7 @@ namespace LibraryCratesProd
 
         public int GetValidCratesNumber()
         {
+            int validCrates = this.crates.FindAll(x => x.IsValid).Count;
             return this.crates.FindAll(x => x.IsValid).Count;
         }
 
@@ -159,27 +160,27 @@ namespace LibraryCratesProd
         //}
 
         //Avec le Timer de la classe
-        private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
-        {
-            if (this.currentState == State.Started)
-            {
-                this.AddCrate();
-                ItemAddedInList?.Invoke(this, new EventArgs());
-            }
-        }
-
-        // Avec le Thread
-        //public void LaunchProd()
+        //private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         //{
-        //    while (this.currentState != State.Stopped)
+        //    if (this.currentState == State.Started)
         //    {
-        //        if(this.currentState == State.Started)
-        //        {
-        //            this.AddCrate();
-        //            ItemAddedInList?.Invoke(this, new EventArgs());
-        //            Thread.Sleep(100);
-        //        }
+        //        this.AddCrate();
+        //        ItemAddedInList?.Invoke(this, new EventArgs());
         //    }
         //}
+
+        // Avec le Thread
+        public void LaunchProd()
+        {
+            while (this.currentState != State.Stopped)
+            {
+                if (this.currentState == State.Started)
+                {
+                    this.AddCrate();
+                    ItemAddedInList?.Invoke(this, new EventArgs());
+                    Thread.Sleep(100);
+                }
+            }
+        }
     }
 }
