@@ -16,73 +16,42 @@ namespace ToutEmbal2
             for (int i = 0; i < 3; i++)
             {
                 UserControlProgress progress = new UserControlProgress(i);
+                UserControlTab tab = new UserControlTab(i);
                 progress.Name = "progressBar" + i.ToString();
                 progress.Location = new Point(0, yAxis);
+                tab.Name = "tab" + i.ToString();
                 panelProgress.Controls.Add(progress);
-                AddTabPages(i);
+                panelTab.Controls.Add(tab.TabControl);
                 yAxis += 40;
             }
         }
 
-        private void AddTabPages(int i)
+        
+
+        private void AddMenuItems()
         {
-            int yAxisTabPage = 10;
-            TabPage tabPage = new TabPage();
-            tabPage.Text = "Type " + UserControlProgress.alphabet[i];
-            for (int count = 0; count < 3; count++)
+            foreach (ToolStripMenuItem item in productionToolStripMenuItem.DropDownItems)
             {
-                tabPage.Controls.Add(AddLabel(count, yAxisTabPage));
-                tabPage.Controls.Add(AddTextBox(count, yAxisTabPage));
-                yAxisTabPage += 40;
+                
             }
-            this.tabControl.Controls.Add(tabPage);
         }
 
-        private Label AddLabel(int count, int yAxis)
+        private void FormProd2_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Label label = new Label();
-            label.Location = new Point(10, yAxis);
-            label.Size = new Size(250, 20);
-            switch (count)
+            DialogResult dr = MessageBox.Show
+            ("Quitter l’application ?", "Quitter",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question,
+            MessageBoxDefaultButton.Button1);
+            if (dr != DialogResult.Yes)
             {
-                case 0:
-                    label.Text = "Nombre de caisses depuis le démarrage";
-                    break;
-                case 1:
-                    label.Text = "Taux défaut heure (en %)";
-                    break;
-                case 2:
-                    label.Text = "Taux défaut depuis démarrage (en %)";
-                    break;
-                default:
-                    label.Text = "Something went wrong";
-                    break;
+                e.Cancel = true;
             }
-            return label;
         }
 
-        private TextBox AddTextBox(int y, int yAxis)
+        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TextBox textBox = new TextBox();
-            textBox.Location = new Point(280, yAxis);
-            char identifier = UserControlProgress.alphabet[y];
-            switch (y)
-            {
-                case 0:
-                    textBox.Name = "textBoxTotal" + identifier;
-                    textBox.Tag = identifier;
-                    break;
-                case 1:
-                    textBox.Name = "textBoxFlawsHour" + identifier;
-                    break;
-                case 2:
-                    textBox.Name = "textBoxFlawsTotal" + identifier;
-                    break;
-                default:
-                    textBox.Name = "textBoxTotal" + identifier;
-                    break;
-            }
-            return textBox;
+            this.Close();
         }
     }
 }
