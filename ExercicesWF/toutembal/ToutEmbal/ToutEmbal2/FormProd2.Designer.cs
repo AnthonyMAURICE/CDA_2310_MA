@@ -80,26 +80,26 @@
             // démarrerToolStripMenuItem
             // 
             démarrerToolStripMenuItem.Name = "démarrerToolStripMenuItem";
-            démarrerToolStripMenuItem.Size = new Size(180, 22);
+            démarrerToolStripMenuItem.Size = new Size(129, 22);
             démarrerToolStripMenuItem.Text = "Démarrer";
             // 
             // suspendreToolStripMenuItem
             // 
             suspendreToolStripMenuItem.Name = "suspendreToolStripMenuItem";
-            suspendreToolStripMenuItem.Size = new Size(180, 22);
+            suspendreToolStripMenuItem.Size = new Size(129, 22);
             suspendreToolStripMenuItem.Text = "Suspendre";
             // 
             // continuerToolStripMenuItem
             // 
             continuerToolStripMenuItem.Name = "continuerToolStripMenuItem";
-            continuerToolStripMenuItem.Size = new Size(180, 22);
+            continuerToolStripMenuItem.Size = new Size(129, 22);
             continuerToolStripMenuItem.Text = "Continuer";
             // 
             // panelTab
             // 
-            panelTab.Location = new Point(364, 44);
+            panelTab.Location = new Point(370, 51);
             panelTab.Name = "panelTab";
-            panelTab.Size = new Size(406, 178);
+            panelTab.Size = new Size(400, 180);
             panelTab.TabIndex = 3;
             // 
             // FormProd2

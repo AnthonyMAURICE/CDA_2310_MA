@@ -16,7 +16,7 @@ namespace ToutEmbal2
             for (int i = 0; i < 3; i++)
             {
                 UserControlProgress progress = new UserControlProgress(i);
-                UserControlTab tab = new UserControlTab(i);
+                UserControlTab tab = new UserControlTab();
                 progress.Name = "progressBar" + i.ToString();
                 progress.Location = new Point(0, yAxis);
                 tab.Name = "tab" + i.ToString();

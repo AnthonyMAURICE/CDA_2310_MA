@@ -36,7 +36,7 @@
             tabControl1.Location = new Point(3, 3);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(524, 344);
+            tabControl1.Size = new Size(400, 180);
             tabControl1.TabIndex = 0;
             // 
             // UserControlTab
@@ -45,7 +45,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tabControl1);
             Name = "UserControlTab";
-            Size = new Size(570, 389);
+            Size = new Size(444, 220);
             ResumeLayout(false);
         }
 

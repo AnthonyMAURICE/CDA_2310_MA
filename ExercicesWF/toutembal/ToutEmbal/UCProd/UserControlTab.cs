@@ -16,25 +16,29 @@ namespace UCProd
 
         public TabControl TabControl { get => tabControl;  }
 
-        public UserControlTab(int i)
+        public UserControlTab()
         {
             InitializeComponent();
             this.tabControl = new TabControl();
-            AddTabPages(i);
+            AddTabPages();
         }
 
-        private void AddTabPages(int i)
+        private void AddTabPages()
         {
-            int yAxisTabPage = 10;
-            TabPage tabPage = new TabPage();
-            tabPage.Text = "Type " + UserControlProgress.alphabet[i];
-            for (int count = 0; count < 3; count++)
+            for(int i = 0; i < 3; i++)
             {
-                tabPage.Controls.Add(AddLabel(count, yAxisTabPage));
-                tabPage.Controls.Add(AddTextBox(count, yAxisTabPage));
-                yAxisTabPage += 40;
+                int yAxisTabPage = 10;
+                TabPage tabPage = new TabPage();
+                this.tabControl.Size = new Size(400, 180);
+                tabPage.Text = "Type " + UserControlProgress.alphabet[i];
+                for (int count = 0; count < 3; count++)
+                {
+                    tabPage.Controls.Add(AddLabel(count, yAxisTabPage));
+                    tabPage.Controls.Add(AddTextBox(count, yAxisTabPage));
+                    yAxisTabPage += 40;
+                }
+                this.tabControl.Controls.Add(tabPage);
             }
-            this.tabControl.Controls.Add(tabPage);
         }
 
         private Label AddLabel(int count, int yAxis)
