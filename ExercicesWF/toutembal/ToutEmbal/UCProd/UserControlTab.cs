@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UCProd
 {
@@ -27,8 +28,10 @@ namespace UCProd
         {
             for(int i = 0; i < 3; i++)
             {
+                
                 int yAxisTabPage = 10;
                 TabPage tabPage = new TabPage();
+                tabPage.Name = "tab" + i.ToString();
                 this.tabControl.Size = new Size(400, 180);
                 tabPage.Text = "Type " + UserControlProgress.alphabet[i];
                 for (int count = 0; count < 3; count++)

@@ -15,11 +15,8 @@ namespace ToutEmbal2
             int yAxis = 0;
             for (int i = 0; i < 3; i++)
             {
-                UserControlProgress progress = new UserControlProgress(i);
+                UserControlProgress progress = new UserControlProgress(i, yAxis);
                 UserControlTab tab = new UserControlTab();
-                progress.Name = "progressBar" + i.ToString();
-                progress.Location = new Point(0, yAxis);
-                tab.Name = "tab" + i.ToString();
                 panelProgress.Controls.Add(progress);
                 panelTab.Controls.Add(tab.TabControl);
                 yAxis += 40;
