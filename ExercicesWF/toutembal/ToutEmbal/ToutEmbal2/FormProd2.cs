@@ -88,6 +88,7 @@ namespace ToutEmbal2
             //}));
 
             this.tab.UpdateTextBoxes(item);
+            
             if (item.CurrentState == Production.State.Stopped)
             {
                 menu.ButtonEnabledOrNot();
