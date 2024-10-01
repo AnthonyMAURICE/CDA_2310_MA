@@ -1,5 +1,6 @@
 ﻿using LibraryCratesProd;
 using System;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading;
 
@@ -44,19 +45,20 @@ namespace UCProd
         public void UpdateProgressBar(Production item)
         {
             int progress = 0;
-
-            foreach (ProgressBar elem in this.Controls.OfType<ProgressBar>())
+            IEnumerable<ProgressBar> elem = this.Controls.OfType<ProgressBar>();
+            foreach (ProgressBar pb in elem)
             {
-                if (item.Type == elem.Tag.ToString())
+                if (item.Type == pb.Tag.ToString())
                 {
-                    elem.Invoke(new MethodInvoker(delegate
+                    pb.Invoke(new MethodInvoker(delegate
                     {
-                        elem.Value = item.GetProgress();
-                        elem.Update();
+                        //elem.Value = item.GetProgress();
+                        pb.Value = 50;
+                        pb.Update();
+                        pb.Refresh();
                     }));
-                    
-                }
 
+                }
             }
         }
     }

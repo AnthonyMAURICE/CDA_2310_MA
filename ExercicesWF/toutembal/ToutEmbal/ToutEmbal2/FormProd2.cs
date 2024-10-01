@@ -83,7 +83,7 @@ namespace ToutEmbal2
             //ProgressBar elem = this.Controls.OfType<ProgressBar>().Where(elem => elem.Tag.ToString() == item.Type).First();
             //elem.Invoke(new MethodInvoker(delegate
             //{
-            //    elem.Value = item.GetProgress();
+            //    elem.Update();
             //}));
 
             this.tab.UpdateTextBoxes(item);
@@ -101,15 +101,15 @@ namespace ToutEmbal2
             }
         }
 
-        public void RefreshEvent(object sender, EventArgs e)
-        {
-            ProgressBar elem = (ProgressBar)sender;
+        //public void RefreshEvent(object sender, EventArgs e)
+        //{
+        //    ProgressBar elem = (ProgressBar)sender;
 
-            elem.Invoke(new MethodInvoker(delegate
-            {
-                elem.Refresh();
-            }));
+        //    elem.Invoke(new MethodInvoker(delegate
+        //    {
+        //        elem.Refresh();
+        //    }));
 
-        }
+        //}
     }
 }
