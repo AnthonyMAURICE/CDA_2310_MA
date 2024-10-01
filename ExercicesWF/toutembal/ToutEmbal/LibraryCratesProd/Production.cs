@@ -22,7 +22,8 @@ namespace LibraryCratesProd
         }
         
         System.Timers.Timer timer = new System.Timers.Timer(100);
-        
+
+        public readonly static char[] alphabet = Enumerable.Range('A', 26).Select(asciiCode => (char)asciiCode).ToArray();
         private string? type;
         private readonly int cratesGoal;
         private List<Crate> crates = new List<Crate>();
@@ -30,6 +31,7 @@ namespace LibraryCratesProd
         private Thread thread;
 
         public event EventHandler ItemAddedInList;
+
         public State CurrentState { get => currentState; set => currentState = value; }
         public List<Crate> Crates { get => crates; }
         public string? Type { get => type; set => type = value; }

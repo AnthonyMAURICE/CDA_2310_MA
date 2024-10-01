@@ -1,16 +1,33 @@
-﻿using System;
+﻿using LibraryCratesProd;
+using System;
 
 namespace UCProd
 {
     public partial class UserControlProgress : UserControl
     {
-        public readonly static char[] alphabet = Enumerable.Range('A', 26).Select(asciiCode => (char)asciiCode).ToArray();
-        public UserControlProgress(int i, int yAxis)
+        Label label;
+        ProgressBar progressBar;
+        public UserControlProgress(int count, int yAxis)
         {
             InitializeComponent();
-            label1.Text = "Production " + alphabet[i];
-            this.Name = "progressBar" + i.ToString();
-            this.Location = new Point(0, yAxis);
+            ProgressCreation(count, yAxis);
+        }
+
+        private void ProgressCreation(int count, int yAxis)
+        {
+            for (int i = 0; i < count; i++) 
+            {
+                progressBar = new ProgressBar();
+                label = new Label();
+                label.Text = "Production " + Production.alphabet[i];
+                label.Location = new Point(10, yAxis);
+                progressBar.Name = "progressBar" + i.ToString();
+                progressBar.Tag = Production.alphabet[i] as object;
+                progressBar.Location = new Point(200, yAxis);
+                this.Controls.Add(label);
+                this.Controls.Add(progressBar);
+                yAxis += 40;
+            }  
         }
     }
 }

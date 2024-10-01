@@ -28,41 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            progressBar1 = new ProgressBar();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(23, 22);
-            label1.Name = "label1";
-            label1.Size = new Size(77, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Production A";
-            // 
-            // progressBar1
-            // 
-            progressBar1.Location = new Point(152, 14);
-            progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(456, 23);
-            progressBar1.TabIndex = 1;
             // 
             // UserControlProgress
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(progressBar1);
-            Controls.Add(label1);
             Name = "UserControlProgress";
-            Size = new Size(631, 51);
+            Size = new Size(631, 282);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Label label1;
-        private ProgressBar progressBar1;
     }
 }
