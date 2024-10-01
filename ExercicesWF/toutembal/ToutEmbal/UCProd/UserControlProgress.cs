@@ -1,5 +1,7 @@
 ﻿using LibraryCratesProd;
 using System;
+using System.Diagnostics;
+using System.Threading;
 
 namespace UCProd
 {
@@ -7,27 +9,57 @@ namespace UCProd
     {
         Label label;
         ProgressBar progressBar;
-        public UserControlProgress(int count, int yAxis)
+        ProdLine prodLine;
+
+        public UserControlProgress(int count, int yAxis, ProdLine prodLine)
         {
             InitializeComponent();
             ProgressCreation(count, yAxis);
+            this.prodLine = prodLine;
+            
+            
         }
 
         private void ProgressCreation(int count, int yAxis)
         {
-            for (int i = 0; i < count; i++) 
+            for (int i = 0; i < count; i++)
             {
                 progressBar = new ProgressBar();
                 label = new Label();
                 label.Text = "Production " + Production.alphabet[i];
                 label.Location = new Point(10, yAxis);
                 progressBar.Name = "progressBar" + i.ToString();
-                progressBar.Tag = Production.alphabet[i] as object;
+                progressBar.Tag = Production.alphabet[i].ToString();
+                progressBar.Size = new Size(200, 20);
+                progressBar.Minimum = 0;
+                progressBar.Maximum = 100;
                 progressBar.Location = new Point(200, yAxis);
                 this.Controls.Add(label);
                 this.Controls.Add(progressBar);
                 yAxis += 40;
-            }  
+            }
+
         }
+
+        //public void UpdateProgressBar()
+        //{
+        //    int progress = 0;
+
+        //    foreach (ProgressBar elem in this.Controls.OfType<ProgressBar>())
+        //    {
+
+
+        //        Production item = this.prodLine.Prods.Values.Where(item => item.Type == elem.Tag.ToString()).First();
+        //        if (item.Type == elem.Tag.ToString())
+        //        {
+        //            elem.Invoke(new MethodInvoker(delegate
+        //            {
+        //                elem.Value = item.GetProgress();
+        //            }));
+
+        //        }
+ 
+        //    }
+        //}
     }
 }

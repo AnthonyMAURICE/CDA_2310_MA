@@ -22,14 +22,18 @@ namespace ToutEmbal2
             int yAxis = 0;
             for (int i = 0; i < elemCount; i++)
             {
-                progress = new UserControlProgress(elemCount, yAxis);
+                menu = new(elemCount, prodLines);
+                menu.ProdlinesCreated += AddEvent;
+                progress = new UserControlProgress(elemCount, yAxis, prodLines);
                 tab = new UserControlTab(elemCount);
                 panelProgress.Controls.Add(progress);
                 panelTab.Controls.Add(tab.TabControl);
                 yAxis += 40;
-                menu = new(elemCount, prodLines);
-                menu.ProdlinesCreated += AddEvent;
+                
+
+                //progress.ProgressChanged += RefreshEvent;
                 this.Controls.Add(menu);
+                
             }
         }
 
@@ -63,6 +67,8 @@ namespace ToutEmbal2
         {
             Production item = (Production)sender;
 
+            //this.progress.UpdateProgressBar(item);
+
             foreach (ProgressBar elem in this.progress.Controls.OfType<ProgressBar>())// a mettre sur teams
             {
                 if (item.Type == elem.Tag.ToString())
@@ -70,6 +76,8 @@ namespace ToutEmbal2
                     elem.Invoke(new MethodInvoker(delegate
                     {
                         elem.Value = item.GetProgress();
+                        elem.Update();
+                        this.progress.Update();
                     }));
                 }
             }
@@ -91,6 +99,17 @@ namespace ToutEmbal2
                 MessageBoxIcon.Information,
                 MessageBoxDefaultButton.Button1);
             }
+        }
+
+        public void RefreshEvent(object sender, EventArgs e)
+        {
+            ProgressBar elem = (ProgressBar)sender;
+
+            elem.Invoke(new MethodInvoker(delegate
+            {
+                elem.Refresh();
+            }));
+
         }
     }
 }
