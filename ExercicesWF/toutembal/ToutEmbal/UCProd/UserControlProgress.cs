@@ -41,25 +41,23 @@ namespace UCProd
 
         }
 
-        //public void UpdateProgressBar()
-        //{
-        //    int progress = 0;
+        public void UpdateProgressBar(Production item)
+        {
+            int progress = 0;
 
-        //    foreach (ProgressBar elem in this.Controls.OfType<ProgressBar>())
-        //    {
+            foreach (ProgressBar elem in this.Controls.OfType<ProgressBar>())
+            {
+                if (item.Type == elem.Tag.ToString())
+                {
+                    elem.Invoke(new MethodInvoker(delegate
+                    {
+                        elem.Value = item.GetProgress();
+                        elem.Update();
+                    }));
+                    
+                }
 
-
-        //        Production item = this.prodLine.Prods.Values.Where(item => item.Type == elem.Tag.ToString()).First();
-        //        if (item.Type == elem.Tag.ToString())
-        //        {
-        //            elem.Invoke(new MethodInvoker(delegate
-        //            {
-        //                elem.Value = item.GetProgress();
-        //            }));
-
-        //        }
- 
-        //    }
-        //}
+            }
+        }
     }
 }

@@ -67,20 +67,19 @@ namespace ToutEmbal2
         {
             Production item = (Production)sender;
 
-            //this.progress.UpdateProgressBar(item);
+            this.progress.UpdateProgressBar(item);
 
-            foreach (ProgressBar elem in this.progress.Controls.OfType<ProgressBar>())// a mettre sur teams
-            {
-                if (item.Type == elem.Tag.ToString())
-                {
-                    elem.Invoke(new MethodInvoker(delegate
-                    {
-                        elem.Value = item.GetProgress();
-                        elem.Update();
-                        this.progress.Update();
-                    }));
-                }
-            }
+            //foreach (ProgressBar elem in this.progress.Controls.OfType<ProgressBar>())// a mettre sur teams
+            //{
+            //    if (item.Type == elem.Tag.ToString())
+            //    {
+            //        elem.Invoke(new MethodInvoker(delegate
+            //        {
+            //            elem.Value = item.GetProgress();
+            //            this.progress.Update();
+            //        }));
+            //    }
+            //}
             //ProgressBar elem = this.Controls.OfType<ProgressBar>().Where(elem => elem.Tag.ToString() == item.Type).First();
             //elem.Invoke(new MethodInvoker(delegate
             //{
