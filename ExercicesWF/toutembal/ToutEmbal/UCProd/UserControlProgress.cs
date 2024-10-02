@@ -1,7 +1,9 @@
 ﻿using LibraryCratesProd;
 using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading;
 
 namespace UCProd
@@ -11,14 +13,25 @@ namespace UCProd
         Label label;
         ProgressBar progressBar;
         ProdLine prodLine;
+        List<Production> productions = new List<Production>();
+
+        public event EventHandler ProgressBarUpdate;
 
         public UserControlProgress(int count, int yAxis, ProdLine prodLine)
         {
             InitializeComponent();
             ProgressCreation(count, yAxis);
             this.prodLine = prodLine;
-            
-            
+            this.prodLine.ProdAdded += SetListProd;
+        }
+
+        public void SetListProd(object sender, EventArgs e) 
+        {
+            foreach (Production prod in prodLine.Prods.Values)
+            {
+                prod.ItemAddedInList += Test;
+                productions.Add(prod);
+            }
         }
 
         private void ProgressCreation(int count, int yAxis)
@@ -31,35 +44,36 @@ namespace UCProd
                 label.Location = new Point(10, yAxis);
                 progressBar.Name = "progressBar" + i.ToString();
                 progressBar.Tag = Production.alphabet[i].ToString();
-                progressBar.Size = new Size(200, 20);
+                progressBar.Size = new Size(300, 20);
                 progressBar.Minimum = 0;
                 progressBar.Maximum = 100;
                 progressBar.Location = new Point(200, yAxis);
+                
                 this.Controls.Add(label);
                 this.Controls.Add(progressBar);
                 yAxis += 40;
             }
-
         }
 
-        public void UpdateProgressBar(Production item)
+        public void Test(object sender, EventArgs e)
         {
-            int progress = 0;
-            IEnumerable<ProgressBar> elem = this.Controls.OfType<ProgressBar>();
-            foreach (ProgressBar pb in elem)
+            foreach (ProgressBar pb in this.Controls.OfType<ProgressBar>())
             {
-                if (item.Type == pb.Tag.ToString())
+                foreach (Production prod in productions) 
                 {
-                    pb.Invoke(new MethodInvoker(delegate
+                    if(prod.Type == pb.Tag.ToString())
                     {
-                        //elem.Value = item.GetProgress();
-                        pb.Value = 50;
-                        pb.Update();
-                        pb.Refresh();
-                    }));
-
+                        pb.Invoke(new MethodInvoker(delegate
+                        {
+                            pb.Value = prod.GetProgress();
+                        }));
+                        ProgressBarUpdate?.Invoke(pb, new EventArgs());
+                    } 
                 }
+                
             }
         }
+
+
     }
 }

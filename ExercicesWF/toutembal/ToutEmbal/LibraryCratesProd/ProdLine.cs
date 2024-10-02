@@ -12,6 +12,8 @@ namespace LibraryCratesProd
 
         public Dictionary<string, Production> Prods { get => prods; set => prods = value; }
 
+        public event EventHandler ProdAdded;
+
         public ProdLine() 
         {
             this.prods = new Dictionary<string, Production>();
@@ -38,6 +40,7 @@ namespace LibraryCratesProd
             if (!prods.ContainsKey("prod" + identifier))
             {
                 this.prods.Add("prod" + identifier, new Production(identifier, maxCrates));
+                this.ProdAdded?.Invoke(this, EventArgs.Empty);
             }
         }
 
