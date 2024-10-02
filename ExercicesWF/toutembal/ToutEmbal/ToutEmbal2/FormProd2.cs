@@ -62,7 +62,6 @@ namespace ToutEmbal2
             {
                 if (prod.CurrentState == Production.State.Stopped)
                 {
-                    menu.ButtonEnabledOrNot(prod);
                     progress.ProgressBarUpdate -= ProgressEvent;
                     prodLines.Prods.Remove("prod" + prod.Type);
                     MessageBox.Show

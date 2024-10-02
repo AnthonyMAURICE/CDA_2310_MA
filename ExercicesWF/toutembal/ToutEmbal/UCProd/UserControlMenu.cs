@@ -19,12 +19,11 @@ namespace UCProd
         private ToolStripMenuItem start;
         private ToolStripMenuItem stop;
         private ToolStripMenuItem resume;
-        private List<ToolStripMenuItem> items = new();
-        private ProdLine prodLines;
         List<Production> productions = new List<Production>();
+        private ProdLine prodLines;
 
         public event EventHandler ProdlinesCreated;
-        public event EventHandler MenuUpdate;
+
 
         public UserControlMenu(int elemCount, ProdLine prodLines)
         {
@@ -38,13 +37,10 @@ namespace UCProd
         {
             foreach (Production prod in prodLines.Prods.Values)
             {
-                //prod.HasStopped += ButtonEnabledOrNot;
-                this.productions.Add(prod);
+                prod.HasStopped += ButtonEnabledOrNot;
+                productions.Add(prod);
             }
         }
-
-        public List<ToolStripMenuItem> Items { get => items; }
-
         private void CreateMenuElem(int elemCount)
         {
             bool initialized = true;
@@ -82,7 +78,6 @@ namespace UCProd
                     item.DropDownItems.Add(element);
                 }
                 productionToolStripMenuItem.DropDownItems.Add(item);
-                this.items.Add(item);
                 initialized = false;
             }
         }
@@ -122,19 +117,15 @@ namespace UCProd
                     {
                         this.prodLines.Prods["prod" + identifier].Continue();
                     }
-                    ButtonEnabledOrNot(this.prodLines.Prods["prod" + identifier]);
+                    ButtonEnabledOrNot(this.prodLines.Prods["prod" + identifier], null);
                 }
             }
             btn.Enabled = false;
         }
 
-        private void UserControlMenu_ItemAddedInList(object? sender, EventArgs e)
+        public void ButtonEnabledOrNot(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
-        }
-
-        public void ButtonEnabledOrNot(Production prod)
-        {
+            Production prod = (Production)sender;
             foreach (ToolStripMenuItem btn in this.start.DropDownItems)
             {
                 if (btn.Tag.ToString() == prod.Type)

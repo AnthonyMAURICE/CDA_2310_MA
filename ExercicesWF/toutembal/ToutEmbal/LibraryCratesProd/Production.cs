@@ -98,6 +98,7 @@ namespace LibraryCratesProd
         private void Stop()
         {
             this.currentState = State.Stopped;
+            HasStopped?.Invoke(this, new EventArgs());
         }
 
         public bool IsGoalMet()
