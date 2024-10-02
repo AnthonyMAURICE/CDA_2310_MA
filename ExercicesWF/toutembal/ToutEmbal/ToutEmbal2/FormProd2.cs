@@ -27,7 +27,7 @@ namespace ToutEmbal2
                 menu = new(elemCount, prodLines);
                 progress = new UserControlProgress(elemCount, yAxis, prodLines);
                 progress.ProgressBarUpdate += ProgressEvent;
-                tab = new UserControlTab(elemCount);
+                tab = new UserControlTab(elemCount, prodLines);
                 panelProgress.Controls.Add(progress);
                 panelTab.Controls.Add(tab.TabControl);
                 yAxis += 40;

@@ -8,20 +8,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace UCProd
 {
     public partial class UserControlTab : UserControl
     {
         private TabControl tabControl;
+        ProdLine prodLine;
+        List<Production> productions = new List<Production>();
 
         public TabControl TabControl { get => tabControl;  }
 
-        public UserControlTab(int elemCount)
+        public UserControlTab(int elemCount, ProdLine prodLine)
         {
             InitializeComponent();
             this.tabControl = new TabControl();
             AddTabPages(elemCount);
+            this.prodLine = prodLine;
+            this.prodLine.ProdAdded += SetListProd;
+        }
+
+        public void SetListProd(object sender, EventArgs e)
+        {
+            foreach (Production prod in prodLine.Prods.Values)
+            {
+                prod.ItemAddedInList += UpdateTextBoxes;
+                productions.Add(prod);
+            }
         }
 
         private void AddTabPages(int elemCount)
@@ -95,19 +109,23 @@ namespace UCProd
             return textBox;
         }
 
-        public void UpdateTextBoxes(Production item)
+        public void UpdateTextBoxes(object sender, EventArgs e)
         {
             foreach (TabPage page in this.TabControl.TabPages)
             {
                 foreach (TextBox box in page.Controls.OfType<TextBox>())
                 {
-                    if (item.Type == box.Tag.ToString())
+                    foreach (Production item in productions)
                     {
-                        box.Invoke(new MethodInvoker(delegate
+                        if (item.Type == box.Tag.ToString())
                         {
-                            box.Text = item.GetValidCratesNumber().ToString();
-                        }));
+                            box.Invoke(new MethodInvoker(delegate
+                            {
+                                box.Text = item.GetValidCratesNumber().ToString();
+                            }));
+                        }
                     }
+                    
                 }
             }
         }
