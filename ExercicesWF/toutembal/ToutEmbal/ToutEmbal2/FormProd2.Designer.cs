@@ -34,16 +34,16 @@
             // 
             // panelProgress
             // 
-            panelProgress.Location = new Point(23, 237);
+            panelProgress.Location = new Point(23, 291);
             panelProgress.Name = "panelProgress";
-            panelProgress.Size = new Size(747, 192);
+            panelProgress.Size = new Size(747, 138);
             panelProgress.TabIndex = 0;
             // 
             // panelTab
             // 
             panelTab.Location = new Point(370, 51);
             panelTab.Name = "panelTab";
-            panelTab.Size = new Size(400, 180);
+            panelTab.Size = new Size(400, 234);
             panelTab.TabIndex = 3;
             // 
             // FormProd2

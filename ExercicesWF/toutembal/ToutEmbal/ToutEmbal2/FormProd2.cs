@@ -7,12 +7,11 @@ namespace ToutEmbal2
     public partial class FormProd2 : Form
     {
         public readonly ProdLine prodLines = new();
-        private int elemCount = 3;
+        private readonly int elemCount = 3;
 
         UserControlProgress progress;
         UserControlTab tab;
         UserControlMenu menu;
-        Task task;
         public FormProd2()
         {
             InitializeComponent();
