@@ -31,7 +31,6 @@ namespace ToutEmbal2
                 panelTab.Controls.Add(tab.TabControl);
                 yAxis += 40;
                 this.Controls.Add(menu);
-
             }
         }
 
