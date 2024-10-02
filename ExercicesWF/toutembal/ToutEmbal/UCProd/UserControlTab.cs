@@ -51,7 +51,7 @@ namespace UCProd
                 for (int count = 0; count < elemCount; count++)
                 {
                     tabPage.Controls.Add(AddLabel(count, yAxisTabPage));
-                    tabPage.Controls.Add(AddTextBox(count, yAxisTabPage));
+                    tabPage.Controls.Add(AddTextBox(i, yAxisTabPage, count));
                     yAxisTabPage += 40;
                 }
                 this.tabControl.Controls.Add(tabPage);
@@ -81,16 +81,16 @@ namespace UCProd
             return label;
         }
 
-        private TextBox AddTextBox(int y, int yAxis)
+        private TextBox AddTextBox(int i, int yAxis, int count)
         {
             TextBox textBox = new();
             textBox.Location = new Point(280, yAxis);
-            char identifier = Production.alphabet[y];
-            switch (y)
+            char identifier = Production.alphabet[i];
+            switch (count)
             {
                 case 0:
                     textBox.Name = "textBoxTotal" + identifier;
-                    textBox.Tag = identifier;
+                    textBox.Tag = identifier.ToString();
                     break;
                 case 1:
                     textBox.Name = "textBoxFlawsHour" + identifier;
@@ -100,10 +100,6 @@ namespace UCProd
                     textBox.Name = "textBoxFlawsTotal" + identifier;
                     textBox.Tag = "textBoxFlawsTotal" + identifier;
                     break;
-                default:
-                    textBox.Name = "textBoxTotal" + identifier;
-                    textBox.Tag = "textBoxTotal" + identifier;
-                    break;
             }
             textBox.ReadOnly = true;
             return textBox;
@@ -111,21 +107,36 @@ namespace UCProd
 
         public void UpdateTextBoxes(object sender, EventArgs e)
         {
+            Production item = (Production)sender;
             foreach (TabPage page in this.TabControl.TabPages)
             {
                 foreach (TextBox box in page.Controls.OfType<TextBox>())
                 {
-                    foreach (Production item in productions)
+                    if (item.Type == box.Tag.ToString())
                     {
-                        if (item.Type == box.Tag.ToString())
+                        box.Invoke(new MethodInvoker(delegate
                         {
-                            box.Invoke(new MethodInvoker(delegate
-                            {
-                                box.Text = item.GetValidCratesNumber().ToString();
-                            }));
-                        }
+                            box.Text = item.GetValidCratesNumber().ToString();
+                        }));
                     }
-                    
+                    if(box.Tag.ToString() == "textBoxFlawsHour" + item.Type)
+                    {
+
+                        box.Invoke(new MethodInvoker(delegate
+                        {
+                            decimal flaws = item.GetLastHourFailureRate();
+                            box.Text = flaws.ToString("0.####");
+                        }));
+                    }
+                    if (box.Tag.ToString() == "textBoxFlawsTotal" + item.Type)
+                    {
+
+                        box.Invoke(new MethodInvoker(delegate
+                        {
+                            decimal flaws = item.GetTotalFailureRate();
+                            box.Text = flaws.ToString("0.####");
+                        }));
+                    }
                 }
             }
         }
