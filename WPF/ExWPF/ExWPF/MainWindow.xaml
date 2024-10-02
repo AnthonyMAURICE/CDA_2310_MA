@@ -1,0 +1,26 @@
+﻿<Window x:Class="ExWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExWPF"
+        mc:Ignorable="d"
+        xmlns:viewModels="clr-namespace:ExWPF.ViewModels"
+        Title="Les Contrôles" Height="350" Width="500">
+    <Window.DataContext>
+        <viewModels:ControlViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <TextBox HorizontalAlignment="Center" Margin="0,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="Nom" HorizontalAlignment="Left" Margin="88,54,0,0" VerticalAlignment="Top"/>
+        <Label Content="Date" HorizontalAlignment="Left" Margin="88,96,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.771,-0.272"/>
+        <Label Content="Montant" HorizontalAlignment="Left" Margin="88,143,0,0" VerticalAlignment="Top"/>
+        <Label Content="Code Postal" HorizontalAlignment="Left" Margin="88,198,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Center" Margin="0,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Text="{Binding FormatedDate, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox HorizontalAlignment="Center" Margin="0,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Text="{Binding Amount, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox HorizontalAlignment="Center" Margin="0,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Text="{Binding Zipcode, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Name="btnValid" Content="Valider" HorizontalAlignment="Left" Margin="363,191,0,0" VerticalAlignment="Top" Height="25" Width="60" Click="btnValid_Click"/>
+        <Button Name="btnErase" Content="Effacer" HorizontalAlignment="Left" Margin="363,235,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.911,0.517" Height="25" Width="60" Click="btnErase_Click"/>
+
+    </Grid>
+</Window>
