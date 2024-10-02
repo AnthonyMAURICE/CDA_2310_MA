@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UCProd
@@ -20,14 +21,26 @@ namespace UCProd
         private ToolStripMenuItem resume;
         private List<ToolStripMenuItem> items = new();
         private ProdLine prodLines;
+        List<Production> productions = new List<Production>();
 
-        public EventHandler ProdlinesCreated;
+        public event EventHandler ProdlinesCreated;
+        public event EventHandler MenuUpdate;
 
         public UserControlMenu(int elemCount, ProdLine prodLines)
         {
             InitializeComponent();
             CreateMenuElem(elemCount);
             this.prodLines = prodLines;
+            this.prodLines.ProdAdded += SetListProd;
+        }
+
+        public void SetListProd(object sender, EventArgs e)
+        {
+            foreach (Production prod in prodLines.Prods.Values)
+            {
+                //prod.HasStopped += ButtonEnabledOrNot;
+                this.productions.Add(prod);
+            }
         }
 
         public List<ToolStripMenuItem> Items { get => items; }
@@ -100,10 +113,6 @@ namespace UCProd
                     if (this.prodLines.Prods["prod" + identifier].CurrentState == Production.State.Initialized)
                     {
                         this.prodLines.Prods["prod" + btn.Tag.ToString()].StartProd();
-
-                        //pour avec le timer sur l'IHM
-                        //timer.Start();
-
                     }
                     else if (this.prodLines.Prods["prod" + identifier].CurrentState == Production.State.Started)
                     {
@@ -113,7 +122,7 @@ namespace UCProd
                     {
                         this.prodLines.Prods["prod" + identifier].Continue();
                     }
-                    ButtonEnabledOrNot();
+                    ButtonEnabledOrNot(this.prodLines.Prods["prod" + identifier]);
                 }
             }
             btn.Enabled = false;
@@ -124,30 +133,27 @@ namespace UCProd
             throw new NotImplementedException();
         }
 
-        public void ButtonEnabledOrNot()
+        public void ButtonEnabledOrNot(Production prod)
         {
-            foreach (Production prod in prodLines.Prods.Values)
+            foreach (ToolStripMenuItem btn in this.start.DropDownItems)
             {
-                foreach (ToolStripMenuItem btn in this.start.DropDownItems)
+                if (btn.Tag.ToString() == prod.Type)
                 {
-                    if (btn.Tag.ToString() == prod.Type)
-                    {
-                        btn.Enabled = prod.CurrentState == Production.State.Stopped || prod.CurrentState == Production.State.Initialized;
-                    }
+                    btn.Enabled = prod.CurrentState == Production.State.Stopped || prod.CurrentState == Production.State.Initialized;
                 }
-                foreach (ToolStripMenuItem btn in this.resume.DropDownItems)
+            }
+            foreach (ToolStripMenuItem btn in this.resume.DropDownItems)
+            {
+                if (btn.Tag.ToString() == prod.Type)
                 {
-                    if (btn.Tag.ToString() == prod.Type)
-                    {
-                        btn.Enabled = prod.CurrentState == Production.State.Suspended;
-                    }
+                    btn.Enabled = prod.CurrentState == Production.State.Suspended;
                 }
-                foreach (ToolStripMenuItem btn in this.stop.DropDownItems)
+            }
+            foreach (ToolStripMenuItem btn in this.stop.DropDownItems)
+            {
+                if (btn.Tag.ToString() == prod.Type)
                 {
-                    if (btn.Tag.ToString() == prod.Type)
-                    {
-                        btn.Enabled = prod.CurrentState == Production.State.Started;
-                    }
+                    btn.Enabled = prod.CurrentState == Production.State.Started;
                 }
             }
         }

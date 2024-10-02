@@ -31,6 +31,7 @@ namespace LibraryCratesProd
         private Thread thread;
 
         public event EventHandler ItemAddedInList;
+        public event EventHandler HasStopped;
 
         public State CurrentState { get => currentState; set => currentState = value; }
         public List<Crate> Crates { get => crates; }

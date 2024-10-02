@@ -47,6 +47,7 @@ namespace ToutEmbal2
             {
                 e.Cancel = true;
             }
+            progress.ProgressBarUpdate -= ProgressEvent;
         }
 
         public void ProgressEvent(object sender, EventArgs e)
@@ -61,7 +62,8 @@ namespace ToutEmbal2
             {
                 if (prod.CurrentState == Production.State.Stopped)
                 {
-                    menu.ButtonEnabledOrNot();
+                    menu.ButtonEnabledOrNot(prod);
+                    progress.ProgressBarUpdate -= ProgressEvent;
                     prodLines.Prods.Remove("prod" + prod.Type);
                     MessageBox.Show
                     ("Production atteinte sur la ligne " + prod.Type, "Job Done",
