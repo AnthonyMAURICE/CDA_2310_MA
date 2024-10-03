@@ -73,11 +73,11 @@ namespace ExWPF.ViewModels
                 {
                     if (string.IsNullOrEmpty(Name))
                     {
-                        result = "Name is Required";
+                        result = "Un nom est requis";
                     }
                     else if (!Controls.CheckNameValidity(Name)) 
                     {
-                        result = "Name is incorrect";
+                        result = "Le nom est incorrect";
                     }
                     else
                     {
@@ -88,15 +88,15 @@ namespace ExWPF.ViewModels
                 {
                     if (string.IsNullOrEmpty(FormatedDate))
                     {
-                        result = "Date is Required";
+                        result = "Une date est requise";
                     }
                     else if (!Controls.CheckDateValidity(FormatedDate, out DateTime _date))
                     {
-                        result = "Date is incorrect";
+                        result = "La date est incorrecte";
                     }
                     else if (!Controls.DateIsFuture(_date))
                     {
-                        result = "Date is in the past";
+                        result = "La date doit être future";
                     }
                     else
                     {
@@ -107,15 +107,15 @@ namespace ExWPF.ViewModels
                 { 
                     if(Amount == 0)
                     {
-                        result = "No Amount entered";
+                        result = "Aucun montant entré";
                     }
                     else if (Amount < 0)
                     {
-                        result = "Amount is Negative";
+                        result = "Le montant est négatif";
                     }
                     else if (!Controls.CheckAmountValidity(Amount.ToString(), out double amount))
                     {
-                        result = "Amount is incorrect";
+                        result = "Le montant est incorrect";
                     }
                     else
                     {
@@ -126,11 +126,11 @@ namespace ExWPF.ViewModels
                 {
                     if (string.IsNullOrEmpty(Zipcode))
                     {
-                        result = "Zipcode is Required";
+                        result = "Un code postal est requis";
                     }
                     else if (!Controls.CheckZipCodeValidity(Zipcode))
                     {
-                        result = "Zipcode is incorrect";
+                        result = "Le code postal est incorrect";
                     }
                     else
                     {
