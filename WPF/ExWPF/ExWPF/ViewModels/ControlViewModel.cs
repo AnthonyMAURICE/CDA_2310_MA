@@ -25,6 +25,6 @@ namespace ExWPF.ViewModels
         public DateTime Date { get => date; set => date = value; }
         public double Amount { get => amount; set => amount = value; }
         public string Zipcode { get => zipcode; set => zipcode = value; }
-        public string FormatedDate { get => this.date.ToShortDateString(); set => formatedDate = value; }
+        public string FormatedDate { get => this.formatedDate; set => formatedDate = value; }
     }
 }
