@@ -12,16 +12,16 @@
         <viewModels:ControlViewModel/>
     </Window.DataContext>
     <Grid>
-        <TextBox Name="nameValue" HorizontalAlignment="Center" Margin="0,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Style="{StaticResource ValidatingControl}" Name="nameValue" HorizontalAlignment="Center" Margin="0,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" RenderTransformOrigin="-1559237020.729,255170278.733"/>
         <Label Content="Nom" HorizontalAlignment="Left" Margin="88,54,0,0" VerticalAlignment="Top"/>
         <Label Content="Date" HorizontalAlignment="Left" Margin="88,96,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.771,-0.272"/>
         <Label Content="Montant" HorizontalAlignment="Left" Margin="88,143,0,0" VerticalAlignment="Top"/>
-        <Label Content="Code Postal" HorizontalAlignment="Left" Margin="88,198,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="dateValue" HorizontalAlignment="Center" Margin="0,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Text="{Binding FormatedDate, StringFormat={}{0:dd/MM/yyyy}, UpdateSourceTrigger=PropertyChanged}" TextChanged="dateValue_TextChanged"/>
-        <TextBox Name="amountValue" HorizontalAlignment="Center" Margin="0,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Text="{Binding Amount, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBox Name="zipValue" HorizontalAlignment="Center" Margin="0,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Text="{Binding Zipcode, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="Code Postal" HorizontalAlignment="Left" Margin="88,187,0,0" VerticalAlignment="Top"/>
+        <TextBox Style="{StaticResource ValidatingControl}" Name="dateValue" HorizontalAlignment="Center" Margin="0,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Text="{Binding FormatedDate, StringFormat={}{0:dd/MM/yyyy}, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" TextChanged="dateValue_TextChanged" GotFocus="dateValue_GotFocus"/>
+        <TextBox Style="{StaticResource ValidatingControl}" Name="amountValue" HorizontalAlignment="Center" Margin="0,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Text="{Binding Amount, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+        <TextBox Style="{StaticResource ValidatingControl}" Name="zipValue" HorizontalAlignment="Center" Margin="0,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Text="{Binding Zipcode, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
         <Button Name="btnValid" Content="Valider" HorizontalAlignment="Left" Margin="363,191,0,0" VerticalAlignment="Top" Height="25" Width="60" Click="btnValid_Click"/>
         <Button Name="btnErase" Content="Effacer" HorizontalAlignment="Left" Margin="363,235,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.911,0.517" Height="25" Width="60" Click="btnErase_Click"/>
-
     </Grid>
 </Window>
+    

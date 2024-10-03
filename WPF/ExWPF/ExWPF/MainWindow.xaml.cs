@@ -18,8 +18,8 @@ namespace ExWPF
     /// </summary>
     public partial class MainWindow : Window
     { 
-        IEnumerable<TextBox> collection;
         ControlViewModel viewModel = new();
+        private bool firstInput = true; 
         public MainWindow()
         {
             InitializeComponent();
@@ -45,14 +45,27 @@ namespace ExWPF
                     notEmptyTextbox = false;
                 }
             }
-            if (notEmptyTextbox)
+            if (notEmptyTextbox && viewModel.Control(nameValue.Text, dateValue.Text, amountValue.Text, zipValue.Text))
             {
-                MessageBox.Show("Nom : " + viewModel.Name 
+                this.ShowMessage();
+            }
+            else
+            {
+                this.ShowErrorMessage();
+            }
+        }
+
+        private void ShowMessage()
+        {
+            MessageBox.Show("Nom : " + viewModel.Name
                     + "\nDate : " + viewModel.FormatedDate
                     + "\nMontant : " + viewModel.Amount
                     + "\nCode : " + viewModel.Zipcode, "Validation effectuée");
-            }
+        }
 
+        private void ShowErrorMessage()
+        {
+            MessageBox.Show("Erreur(s) dans votre saisie !", "Validation refusée");
         }
 
         public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
@@ -82,6 +95,15 @@ namespace ExWPF
                     textBox.Text = text.Insert(2, "/").Insert(5, "/");
                     textBox.Select(textBox.Text.Length, 0);
                 }
+            }
+        }
+
+        private void dateValue_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (firstInput)
+            {
+                dateValue.Text = string.Empty;
+                firstInput = false;
             }
         }
     }
