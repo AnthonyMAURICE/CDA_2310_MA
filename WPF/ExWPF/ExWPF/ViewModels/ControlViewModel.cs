@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -30,6 +31,7 @@ namespace ExWPF.ViewModels
 
         public string Error => throw new NotImplementedException();
 
+        Person newPerson = new();
 
         public ControlViewModel()
         {
@@ -38,17 +40,16 @@ namespace ExWPF.ViewModels
             this.amount = 0;
             this.zipcode = "11111";
             this.FormatedDate = this.date.AddDays(1).ToShortDateString();
+            
         }
-
 
         public bool Control(string _name, string _date, string _amount, string _zipcode)
         {
             if(Controls.CheckNameValidity(_name) && Controls.CheckDateValidity(_date, out DateTime dateFormated) && Controls.CheckAmountValidity(_amount, out double amount) && Controls.CheckZipCodeValidity(_zipcode)){
-                Person newPerson = new(_name, dateFormated, amount, _zipcode);
-                this.name = newPerson.Name;
-                this.date = newPerson.Date;
-                this.amount = newPerson.Amount;
-                this.zipcode = newPerson.Zipcode;
+                newPerson.Name = this.name;
+                newPerson.Date = dateFormated;
+                newPerson.Amount = this.amount;
+                newPerson.Zipcode = _zipcode;
                 return true;
             }
             else
@@ -56,8 +57,6 @@ namespace ExWPF.ViewModels
                 return false;
             }
         }
-
-        #region IDataErrorInfo Members
 
         string IDataErrorInfo.Error
         {
@@ -140,6 +139,5 @@ namespace ExWPF.ViewModels
                 return result;
             }
         }
-        #endregion
     }
 }

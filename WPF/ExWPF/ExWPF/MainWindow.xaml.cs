@@ -19,17 +19,20 @@ namespace ExWPF
     public partial class MainWindow : Window
     { 
         ControlViewModel viewModel = new();
-        private bool firstInput = true; 
+        private bool firstInput = true;
+        IEnumerable<TextBox> textBoxes;
         public MainWindow()
         {
             InitializeComponent();
             this.DataContext = viewModel;
+            this.textBoxes = this.MainGrid.Children.OfType<TextBox>();
         }
 
 
         private void btnErase_Click(object sender, RoutedEventArgs e)
         {
-            foreach (TextBox tb in FindVisualChildren<TextBox>(this))
+            
+            foreach (TextBox tb in textBoxes)
             {
                 tb.Text = string.Empty;
             }
@@ -38,7 +41,7 @@ namespace ExWPF
         private void btnValid_Click(object sender, RoutedEventArgs e)
         {
             bool notEmptyTextbox = true;
-            foreach (TextBox tb in FindVisualChildren<TextBox>(this))
+            foreach (TextBox tb in textBoxes)
             {
                 if(tb.Text == string.Empty)
                 {
@@ -66,18 +69,6 @@ namespace ExWPF
         private void ShowErrorMessage()
         {
             MessageBox.Show("Erreur(s) dans votre saisie !", "Validation refusée");
-        }
-
-        public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
-        {
-            if (depObj == null) yield return (T)Enumerable.Empty<T>();
-            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
-            {
-                DependencyObject ithChild = VisualTreeHelper.GetChild(depObj, i);
-                if (ithChild == null) continue;
-                if (ithChild is T t) yield return t;
-                foreach (T childOfChild in FindVisualChildren<T>(ithChild)) yield return childOfChild;
-            }
         }
 
         private void dateValue_TextChanged(object sender, TextChangedEventArgs e)

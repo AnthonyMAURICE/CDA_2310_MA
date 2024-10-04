@@ -11,7 +11,7 @@
     <Window.DataContext>
         <viewModels:ControlViewModel/>
     </Window.DataContext>
-    <Grid>
+    <Grid x:Name="MainGrid">
         <TextBox Style="{StaticResource ValidatingControl}" Name="nameValue" HorizontalAlignment="Center" Margin="0,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" RenderTransformOrigin="-1559237020.729,255170278.733"/>
         <Label Content="Nom" HorizontalAlignment="Left" Margin="88,54,0,0" VerticalAlignment="Top"/>
         <Label Content="Date" HorizontalAlignment="Left" Margin="88,96,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.771,-0.272"/>
