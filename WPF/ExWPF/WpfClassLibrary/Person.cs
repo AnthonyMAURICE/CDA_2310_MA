@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,7 +37,7 @@ namespace WpfClassLibrary
         {
             if (!Controls.CheckNameValidity(value))
             {
-                throw new Exception("Nom invalide");
+                throw new ValidationException("Nom invalide");
             }
             else
             {
@@ -47,7 +48,7 @@ namespace WpfClassLibrary
         {
             if (!Controls.DateIsFuture(value))
             {
-                throw new Exception("Date invalide");
+                throw new Exception("La datedoit être dans le futur");
             }
             else
             {
@@ -69,7 +70,7 @@ namespace WpfClassLibrary
         {
             if (!Controls.CheckZipCodeValidity(value))
             {
-                throw new Exception("Code Postal invalide");
+                throw new ValidationException("Code Postal invalide");
             }
             else
             {

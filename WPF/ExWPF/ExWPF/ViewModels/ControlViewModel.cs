@@ -37,7 +37,7 @@ namespace ExWPF.ViewModels
         {
             this.name = "Placeholder";
             this.date = DateTime.Now;
-            this.amount = 0;
+            this.amount = 1;
             this.zipcode = "11111";
             this.FormatedDate = this.date.AddDays(1).ToShortDateString();
             
