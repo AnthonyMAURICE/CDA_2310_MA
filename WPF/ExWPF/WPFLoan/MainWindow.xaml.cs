@@ -29,7 +29,6 @@ namespace WPFLoan
             listBoxTime.SelectedIndex = loanVM.Periodicity;
             CheckRadioButtons();
             durationText.Text = durationSlider.Value.ToString();
-            RefundsNumber.Text = (durationSlider.Value / loanVM.RefundDivider).ToString();
             loanVM.CalcRate(loanVM.RefundDivider);
             textBoxCapital.Text = loanVM.Amount.ToString();
             textBoxName.Text = loanVM.Name;
@@ -39,6 +38,12 @@ namespace WPFLoan
         {
             SetScrollvalue((int)durationSlider.Value, loanVM.RefundDivider);
             durationText.Text = durationSlider.Value.ToString();
+            loanVM.Months = (int)durationSlider.Value;
+            loan.RefundDivider = (int)durationSlider.Value / SetPeriodicity();
+            if (textBoxCapital.Text != string.Empty)
+            {
+                DisplayResults();
+            }
         }
 
         private void RadioRate_Checked(object sender, RoutedEventArgs e)
@@ -54,8 +59,20 @@ namespace WPFLoan
 
         private void DisplayResults()
         {
+            SetRefundNumber();
             loanVM.CalcRefunds();
-            labelRefundAmount.Text = loanVM.Refunds.ToString() + " €";
+            if (labelRefundAmount != null) 
+            {
+                labelRefundAmount.Text = loanVM.Refunds.ToString() + " €";
+            }   
+        }
+
+        private void SetRefundNumber()
+        {
+            if (refundsNumber != null)
+            {
+                refundsNumber.Text = (loanVM.Months / SetPeriodicity()).ToString();
+            } 
         }
 
         private void CheckRadioButtons()
@@ -95,6 +112,10 @@ namespace WPFLoan
             durationSlider.LargeChange = SetPeriodicity();
             durationSlider.SmallChange = SetPeriodicity();
             AdjustScrollBar();
+            if (textBoxCapital.Text != string.Empty)
+            {
+                DisplayResults();
+            }
         }
 
 
@@ -135,6 +156,17 @@ namespace WPFLoan
             }
         }
 
+        private void okButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
 
+        private void cancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            textBoxName.Text = loan.Name;
+            textBoxCapital.Text = loan.Amount.ToString();
+            listBoxTime.SelectedIndex = (int)loan.Periodicity;
+            durationSlider.Value = loan.Months;
+        }
     }
 }

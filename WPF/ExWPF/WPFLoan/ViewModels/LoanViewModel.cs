@@ -51,10 +51,6 @@ namespace WPFLoan.ViewModels
         {
             this.CalcRate(this.refundDivider);
             this.refunds = Math.Round(this.amount * (this.calculatedRate / (1 - Math.Pow((1 + this.calculatedRate), -(this.months / this.refundDivider)))), 2);
-            if(this.amount > 100)
-            {
-
-            }
         }
 
         public void CalcRate(int refundDivider)

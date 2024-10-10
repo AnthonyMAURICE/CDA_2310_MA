@@ -23,8 +23,8 @@
                 <RadioButton Name="RadioRateNine" Tag="9" Content="9%" Checked="RadioRate_Checked"/>
             </StackPanel>
         </GroupBox>
-        <Button Content="Ok" HorizontalAlignment="Left" Margin="530,37,0,0" VerticalAlignment="Top" Width="75" Height="22"/>
-        <Button Content="Annuler" HorizontalAlignment="Left" Margin="530,89,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="okButton" Content="Ok" HorizontalAlignment="Left" Margin="530,37,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="okButton_Click"/>
+        <Button x:Name="cancelButton" Content="Annuler" HorizontalAlignment="Left" Margin="530,89,0,0" VerticalAlignment="Top" Width="75" Click="cancelButton_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="25,132,0,0" TextWrapping="Wrap" Text="Durée en mois du remboursement" VerticalAlignment="Top" Width="131"/>
         <TextBlock x:Name="durationText"  HorizontalAlignment="Left" Margin="179,141,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top"/>
         <Slider x:Name="durationSlider" Minimum="1" Maximum="200" TickFrequency="1" IsSnapToTickEnabled="True" SmallChange="1" LargeChange="1" HorizontalAlignment="Left" Margin="203,140,0,0" VerticalAlignment="Top" Width="150" ValueChanged="DurationSlider_ValueChanged"/>
@@ -36,7 +36,7 @@
             <ListBoxItem Content="Semestrielle"/>
             <ListBoxItem Content="Annuelle"/>
         </ListBox>
-        <TextBlock Name="RefundsNumber" HorizontalAlignment="Left" Margin="340,248,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="Red"/>
+        <TextBlock x:Name="refundsNumber" HorizontalAlignment="Left" Margin="415,248,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="Red"/>
         <TextBlock HorizontalAlignment="Left" Margin="490,248,0,0" TextWrapping="Wrap" Text="Remboursements" VerticalAlignment="Top"/>
         <TextBlock x:Name="labelRefundAmount" HorizontalAlignment="Left" Margin="490,300,0,0" TextWrapping="Wrap" Text="0 €" VerticalAlignment="Top" Foreground="Red"/>
     </Grid>
