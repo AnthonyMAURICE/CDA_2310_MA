@@ -3,28 +3,33 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:WPFLoan"
         mc:Ignorable="d"
+        xmlns:viewModels="clr-namespace:WPFLoan.ViewModels"
         Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <viewModels:LoanViewModel/>
+    </Window.DataContext>
     <Grid Name="MainGrid">
         <Label Content="Nom" HorizontalAlignment="Left" Margin="25,33,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="179,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Style="{StaticResource ValidatingControl}"  x:Name="textBoxName" HorizontalAlignment="Left" Margin="179,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
         <Label Content="Capital Emprunté" HorizontalAlignment="Left" Margin="25,76,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxCapital" HorizontalAlignment="Left" Margin="179,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Style="{StaticResource ValidatingControl}"  x:Name="textBoxCapital" HorizontalAlignment="Left" Margin="179,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textBoxCapital_TextChanged" Text="{Binding Amount, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
         <GroupBox Header="Taux d'intérêt" Margin="390,23,310,261" Height="150" Width="100">
-            <StackPanel Height="124">
+            <StackPanel x:Name="radioButtons" Height="124" Width="90">
                 <RadioButton Name="RadioRateSeven" Tag="7" IsChecked="True"  Content="7%" Margin="0,15,0,0" Checked="RadioRate_Checked"/>
-                <RadioButton Name="RadioRateEight" Tag="8" Content="8%" Margin="0,25,0,25"/>
-                <RadioButton Name="RadioRateNine" Tag="9" Content="9%"/>
+                <RadioButton Name="RadioRateEight" Tag="8" Content="8%" Margin="0,25,0,25" Width="90" Height="15" Checked="RadioRate_Checked"/>
+                <RadioButton Name="RadioRateNine" Tag="9" Content="9%" Checked="RadioRate_Checked"/>
             </StackPanel>
         </GroupBox>
         <Button Content="Ok" HorizontalAlignment="Left" Margin="530,37,0,0" VerticalAlignment="Top" Width="75" Height="22"/>
         <Button Content="Annuler" HorizontalAlignment="Left" Margin="530,89,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBlock HorizontalAlignment="Left" Margin="25,132,0,0" TextWrapping="Wrap" Text="Durée en mois du remboursement" VerticalAlignment="Top" Width="131"/>
-        <TextBlock Name="DurationText"  HorizontalAlignment="Left" Margin="179,141,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top"/>
-        <Slider Name="DurationSlider" Minimum="1" Maximum="150" TickFrequency="1" IsSnapToTickEnabled="True" SmallChange="1" LargeChange="1" HorizontalAlignment="Left" Margin="203,140,0,0" VerticalAlignment="Top" Width="150" ValueChanged="DurationSlider_ValueChanged"/>
+        <TextBlock x:Name="durationText"  HorizontalAlignment="Left" Margin="179,141,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top"/>
+        <Slider x:Name="durationSlider" Minimum="1" Maximum="200" TickFrequency="1" IsSnapToTickEnabled="True" SmallChange="1" LargeChange="1" HorizontalAlignment="Left" Margin="203,140,0,0" VerticalAlignment="Top" Width="150" ValueChanged="DurationSlider_ValueChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="25,213,0,0" TextWrapping="Wrap" Text="Périodicité de remboursement" VerticalAlignment="Top"/>
-        <ListBox HorizontalAlignment="Left" Height="105" Margin="25,248,0,0" VerticalAlignment="Top" Width="274">
+        <ListBox x:Name="listBoxTime" HorizontalAlignment="Left" Height="105" Margin="25,248,0,0" VerticalAlignment="Top" Width="274" SelectionChanged="listBoxTime_SelectionChanged">
             <ListBoxItem Content="Mensuelle"/>
             <ListBoxItem Content="Bimestrielle"/>
             <ListBoxItem Content="Trimestrielle"/>
@@ -33,10 +38,6 @@
         </ListBox>
         <TextBlock Name="RefundsNumber" HorizontalAlignment="Left" Margin="340,248,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="Red"/>
         <TextBlock HorizontalAlignment="Left" Margin="490,248,0,0" TextWrapping="Wrap" Text="Remboursements" VerticalAlignment="Top"/>
-        <TextBlock x:Name="labelRefundAmount" HorizontalAlignment="Left" Margin="490,300,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="Red"/>
-
-
-
-
+        <TextBlock x:Name="labelRefundAmount" HorizontalAlignment="Left" Margin="490,300,0,0" TextWrapping="Wrap" Text="0 €" VerticalAlignment="Top" Foreground="Red"/>
     </Grid>
 </Window>

@@ -14,8 +14,7 @@ namespace WpfClassLibrary
         Bimestrielle,
         Trimestrielle,
         Semestrielle,
-        Annulelle,
-        Jamais
+        Annulelle
     }
     public class Loan
     {
@@ -27,7 +26,7 @@ namespace WpfClassLibrary
         private int refundDivider;
         private int months;
         private int periodicity;
-        private static readonly string savePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\loan\\save\\";
+        private static readonly string savePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\loanWPF\\save\\";
 
         public Loan()
         {
@@ -95,16 +94,7 @@ namespace WpfClassLibrary
             set { this.periodicity = value; }
         }
 
-        public void CalcRefunds()
-        {
-            this.CalcRate(this.refundDivider);
-            this.refunds = Math.Round(this.amount * (this.calculatedRate / (1 - Math.Pow((1 + this.calculatedRate), -(this.months / this.refundDivider)))), 2);
-        }
-
-        public void CalcRate(int refundDivider)
-        {
-            this.calculatedRate = this.rate / 12 * refundDivider / 100;
-        }
+        
 
         public void SaveData()
         {
