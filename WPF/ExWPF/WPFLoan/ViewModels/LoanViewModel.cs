@@ -12,7 +12,8 @@ namespace WPFLoan.ViewModels
 {
     public class LoanViewModel : INotifyPropertyChanged, IDataErrorInfo
     {
-        private Loan loan = new();
+
+        private Loan loan = Loan.LoadData();
         private string name;
         private double amount;
         private double rate;
