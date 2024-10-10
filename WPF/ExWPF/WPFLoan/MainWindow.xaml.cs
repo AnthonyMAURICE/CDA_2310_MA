@@ -18,11 +18,11 @@ namespace WPFLoan
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Loan loan = Loan.LoadData();
-        LoanViewModel loanVM = new();
+        LoanViewModel loanVM;
         public MainWindow()
         {
-            
+            Loan.LoadData();
+            loanVM = new();
             InitializeComponent();
             this.DataContext = loanVM;
             textBoxName.Focus();
@@ -39,7 +39,7 @@ namespace WPFLoan
             SetScrollvalue((int)durationSlider.Value, loanVM.RefundDivider);
             durationText.Text = durationSlider.Value.ToString();
             loanVM.Months = (int)durationSlider.Value;
-            loan.RefundDivider = (int)durationSlider.Value / SetPeriodicity();
+            loanVM.RefundDivider = (int)durationSlider.Value / SetPeriodicity();
             if (textBoxCapital.Text != string.Empty)
             {
                 DisplayResults();
@@ -118,7 +118,6 @@ namespace WPFLoan
             }
         }
 
-
         private void AdjustScrollBar()
         {
             durationSlider.Minimum = loanVM.RefundDivider;
@@ -158,15 +157,15 @@ namespace WPFLoan
 
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            loanVM.ControlAndSave();
         }
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
-            textBoxName.Text = loan.Name;
-            textBoxCapital.Text = loan.Amount.ToString();
-            listBoxTime.SelectedIndex = (int)loan.Periodicity;
-            durationSlider.Value = loan.Months;
+            textBoxName.Text = loanVM.Loan.Name;
+            textBoxCapital.Text = loanVM.Loan.Amount.ToString();
+            listBoxTime.SelectedIndex = (int)loanVM.Loan.Periodicity;
+            durationSlider.Value = loanVM.Loan.Months;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
@@ -11,6 +12,7 @@ namespace WPFLoan.ViewModels
 {
     public class LoanViewModel : INotifyPropertyChanged, IDataErrorInfo
     {
+        private Loan loan = new();
         private string name;
         private double amount;
         private double rate;
@@ -22,6 +24,7 @@ namespace WPFLoan.ViewModels
 
 
         public string this[string columnName] => throw new NotImplementedException();
+        
 
         public string Error => throw new NotImplementedException();
 
@@ -38,13 +41,13 @@ namespace WPFLoan.ViewModels
 
         public LoanViewModel() 
         {
-            this.name = "Placeholder";
-            this.amount = 0;
-            this.rate = 7;
-            this.refunds = 0;
-            this.months = 0;
-            this.refundDivider = 1;
-            this.periodicity = 0;
+            this.name = loan.Name;
+            this.amount = loan.Amount;
+            this.rate = loan.Rate;
+            this.refunds = loan.Refunds;
+            this.months = loan.Months;
+            this.refundDivider = loan.RefundDivider;
+            this.periodicity = (int)loan.Periodicity;
         }
 
         public void CalcRefunds()
@@ -58,10 +61,28 @@ namespace WPFLoan.ViewModels
             this.calculatedRate = this.rate / 12 * refundDivider / 100;
         }
 
+        public void ControlAndSave()
+        {
+            if (Controls.CheckNameValidity(this.name))
+            {
+                loan.Name = this.name;
+                loan.Amount = this.amount;
+                loan.Rate = this.rate;
+                loan.RefundDivider = this.refundDivider;
+                loan.Refunds = this.refunds;
+                loan.Months = this.months;
+                loan.Periodicity = (int)Periodicity;
+                loan.CalculatedRate = this.calculatedRate;
+                loan.SaveData();
+            }
+        }
+
         string IDataErrorInfo.Error
         {
             get { throw new NotImplementedException(); }
         }
+
+        public Loan Loan { get => loan; set => loan = value; }
 
         string IDataErrorInfo.this[string columnName]
         {
