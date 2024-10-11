@@ -36,7 +36,7 @@ namespace WPFLoan
 
         private void DurationSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            SetScrollvalue((int)durationSlider.Value, loanVM.RefundDivider);
+            //SetScrollvalue((int)durationSlider.Value, loanVM.RefundDivider);
             durationText.Text = durationSlider.Value.ToString();
             loanVM.Months = (int)durationSlider.Value;
             loanVM.RefundDivider = (int)durationSlider.Value / SetPeriodicity();
@@ -49,7 +49,7 @@ namespace WPFLoan
         private void RadioRate_Checked(object sender, RoutedEventArgs e)
         {
             RadioButton radio = (RadioButton)sender;
-            loanVM.Rate = Double.Parse(radio.Tag.ToString());
+            loanVM.Rate = Double.Parse(radio.Tag.ToString() ?? "0");
             CheckRadioButtons();
             if (textBoxCapital.Text != string.Empty)
             {
@@ -90,7 +90,7 @@ namespace WPFLoan
                     break;
                 default:
                     RadioRateSeven.IsChecked = true;
-                    loanVM.Rate = Double.Parse(RadioRateSeven.Tag.ToString());
+                    loanVM.Rate = Double.Parse(RadioRateSeven.Tag.ToString() ?? "0");
                     break;
             }
         }
@@ -112,10 +112,6 @@ namespace WPFLoan
             durationSlider.LargeChange = SetPeriodicity();
             durationSlider.SmallChange = SetPeriodicity();
             AdjustScrollBar();
-            if (textBoxCapital.Text != string.Empty)
-            {
-                DisplayResults();
-            }
         }
 
         private void AdjustScrollBar()
@@ -126,7 +122,6 @@ namespace WPFLoan
             durationText.Text = durationSlider.Value.ToString();
             loanVM.Periodicity = listBoxTime.SelectedIndex;
             SetScrollvalue((int)durationSlider.Value, loanVM.RefundDivider);
-
             if (textBoxCapital.Text != string.Empty)
             {
                 DisplayResults();

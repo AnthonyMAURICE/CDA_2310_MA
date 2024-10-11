@@ -75,8 +75,7 @@
               "RelativeToolTip": "ExDto\\Models\\CourseDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T12:38:33.516Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-04T12:38:33.516Z"
             },
             {
               "$type": "Document",
@@ -88,8 +87,7 @@
               "RelativeToolTip": "ExDto\\Models\\EnrollmentDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T12:38:44.909Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-04T12:38:44.909Z"
             },
             {
               "$type": "Document",
@@ -101,8 +99,7 @@
               "RelativeToolTip": "ExDto\\Models\\Enrollment.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAQwBsAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T12:22:58.988Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-04T12:22:58.988Z"
             },
             {
               "$type": "Document",
@@ -126,8 +123,7 @@
               "RelativeToolTip": "ExDto\\Program.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAgwBAAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T12:15:43.186Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-04T12:15:43.186Z"
             },
             {
               "$type": "Document",
@@ -139,8 +135,7 @@
               "RelativeToolTip": "ExDto\\Models\\StudentDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T12:38:23.213Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-04T12:38:23.213Z"
             },
             {
               "$type": "Document",
@@ -152,8 +147,7 @@
               "RelativeToolTip": "ExDto\\Controllers\\EnrollmentsController.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAgwBYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T12:50:49.901Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-04T12:50:49.901Z"
             },
             {
               "$type": "Document",
@@ -165,8 +159,7 @@
               "RelativeToolTip": "ExDto\\Controllers\\StudentsController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAGMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T12:50:28.529Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-04T12:50:28.529Z"
             }
           ]
         }

@@ -35,7 +35,7 @@ namespace WpfClassLibrary
             this.rate = 0;
             this.calculatedRate = 0;
             this.months = 1;
-            this.refunds = 0;
+            this.refunds = 1;
             this.refundDivider = 1;
             this.Periodicity = 0;
         }
@@ -121,7 +121,7 @@ namespace WpfClassLibrary
             else
             {
                 string jsonLoad = File.ReadAllText(savePath + "save.json");
-                return loan = JsonSerializer.Deserialize<Loan>(jsonLoad);
+                return loan = JsonSerializer.Deserialize<Loan>(jsonLoad)!;
             }
         }
     }
