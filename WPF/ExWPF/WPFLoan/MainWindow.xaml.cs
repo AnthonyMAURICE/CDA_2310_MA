@@ -36,7 +36,7 @@ namespace WPFLoan
             CheckRadioButtons();
             durationText.Text = durationSlider.Value.ToString();
             textBoxCapital.Text = loanVM.Amount.ToString();
-            textBoxName.Text = loanVM.Name;
+            textBoxName.Text = loanVM.Name;  
         }
 
         private void DurationSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -112,15 +112,14 @@ namespace WPFLoan
         {
             loanVM.Periodicity = listBoxTime.SelectedIndex;
             loanVM.RefundDivider = SetRefundDivider();
-            durationSlider.LargeChange = SetRefundDivider();
-            durationSlider.SmallChange = SetRefundDivider();
             AdjustScrollBar();
         }
 
         private void AdjustScrollBar()
         {
             durationSlider.Minimum = loanVM.RefundDivider;
-            durationSlider.Value = loanVM.Months;
+            durationSlider.LargeChange = SetRefundDivider();
+            durationSlider.SmallChange = SetRefundDivider();
             durationSlider.Value = durationSlider.Value <= loanVM.RefundDivider ? durationSlider.Minimum : loanVM.Months;
             durationText.Text = durationSlider.Value.ToString();
             loanVM.Periodicity = listBoxTime.SelectedIndex;

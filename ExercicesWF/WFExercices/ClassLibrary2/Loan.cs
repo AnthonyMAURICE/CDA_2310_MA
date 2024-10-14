@@ -130,7 +130,7 @@ namespace ClassLibrary2
             }else
             {
                 string jsonLoad = File.ReadAllText(savePath + "save.json");
-                return loan = JsonSerializer.Deserialize<Loan>(jsonLoad);
+                return loan = JsonSerializer.Deserialize<Loan>(jsonLoad)!;
             }
         }
     }

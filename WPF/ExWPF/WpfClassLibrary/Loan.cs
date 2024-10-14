@@ -25,7 +25,7 @@ namespace WpfClassLibrary
         private double calculatedRate;
         private int refundDivider;
         private int months;
-        private int periodicity;
+        private Periodicity periodicity;
         public static readonly string savePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\loanWPF\\save\\";
 
         public Loan()
@@ -37,7 +37,7 @@ namespace WpfClassLibrary
             this.calculatedRate = 0;
             this.refundDivider = 1;
             this.months = 1;
-            this.periodicity = 0;
+            this.periodicity = Periodicity.Mensuelle;
         }
 
         public string Name
@@ -81,11 +81,7 @@ namespace WpfClassLibrary
             set { this.months = value; }
         }
 
-        public int Periodicity
-        {
-            get { return this.periodicity; }
-            set { this.periodicity = value; }
-        }
+        public Periodicity Periodicity { get => periodicity; set => periodicity = value; }
 
         public double CalcRefunds(double rate, int refundDivider, double amount, int months)
         {
