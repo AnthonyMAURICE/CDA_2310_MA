@@ -18,28 +18,31 @@ namespace WPFLoan
     /// </summary>
     public partial class MainWindow : Window
     {
-        LoanViewModel loanVM;
+        LoanViewModel loanVM = new();
+
         public MainWindow()
         {
-            Loan.LoadData();
-            loanVM = new();
             InitializeComponent();
+            SetIfLoaded();
             this.DataContext = loanVM;
             textBoxName.Focus();
+        }
+
+        private void SetIfLoaded()
+        {
+            loanVM = loanVM.LoadAfterSave();
+            durationSlider.Value = loanVM.Months;
             listBoxTime.SelectedIndex = loanVM.Periodicity;
             CheckRadioButtons();
             durationText.Text = durationSlider.Value.ToString();
-            loanVM.CalcRate(loanVM.RefundDivider);
             textBoxCapital.Text = loanVM.Amount.ToString();
             textBoxName.Text = loanVM.Name;
         }
 
         private void DurationSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            //SetScrollvalue((int)durationSlider.Value, loanVM.RefundDivider);
             durationText.Text = durationSlider.Value.ToString();
-            loanVM.Months = (int)durationSlider.Value;
-            loanVM.RefundDivider = (int)durationSlider.Value / SetPeriodicity();
+            SetScrollvalue((int)durationSlider.Value, SetRefundDivider());
             if (textBoxCapital.Text != string.Empty)
             {
                 DisplayResults();
@@ -60,7 +63,7 @@ namespace WPFLoan
         private void DisplayResults()
         {
             SetRefundNumber();
-            loanVM.CalcRefunds();
+            loanVM.CalculateRefunds();
             if (labelRefundAmount != null) 
             {
                 labelRefundAmount.Text = loanVM.Refunds.ToString() + " €";
@@ -71,7 +74,7 @@ namespace WPFLoan
         {
             if (refundsNumber != null)
             {
-                refundsNumber.Text = (loanVM.Months / SetPeriodicity()).ToString();
+                refundsNumber.Text = (loanVM.Months / SetRefundDivider()).ToString();
             } 
         }
 
@@ -108,9 +111,9 @@ namespace WPFLoan
         private void listBoxTime_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             loanVM.Periodicity = listBoxTime.SelectedIndex;
-            loanVM.RefundDivider = SetPeriodicity();
-            durationSlider.LargeChange = SetPeriodicity();
-            durationSlider.SmallChange = SetPeriodicity();
+            loanVM.RefundDivider = SetRefundDivider();
+            durationSlider.LargeChange = SetRefundDivider();
+            durationSlider.SmallChange = SetRefundDivider();
             AdjustScrollBar();
         }
 
@@ -118,17 +121,17 @@ namespace WPFLoan
         {
             durationSlider.Minimum = loanVM.RefundDivider;
             durationSlider.Value = loanVM.Months;
-            durationSlider.Value = durationSlider.Value <= loanVM.RefundDivider ? loanVM.RefundDivider : loanVM.Months;
+            durationSlider.Value = durationSlider.Value <= loanVM.RefundDivider ? durationSlider.Minimum : loanVM.Months;
             durationText.Text = durationSlider.Value.ToString();
             loanVM.Periodicity = listBoxTime.SelectedIndex;
-            SetScrollvalue((int)durationSlider.Value, loanVM.RefundDivider);
+            SetScrollvalue((int)durationSlider.Value, SetRefundDivider());
             if (textBoxCapital.Text != string.Empty)
             {
                 DisplayResults();
             }
         }
 
-        private int SetPeriodicity()
+        private int SetRefundDivider()
         {
             return (int)loanVM.Periodicity switch
             {
@@ -152,15 +155,33 @@ namespace WPFLoan
 
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
-            loanVM.ControlAndSave();
-        }
+            if (Controls.CheckNameValidity(textBoxName.Text) && Controls.CheckAmountValidity(textBoxCapital.Text, out double amount))
+            {
+                string messageBoxText = "Sauvegarde effectuée !";
+                string caption = "Job Done !";
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Information;
+                MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.OK);
+                loanVM.Save();
+            }
+            else
+            {
+                string messageBoxText = "Erreurs dans la saisie !";
+                string caption = "Warning : Error made of errors";
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Warning;
+                MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.OK);
+            }
+        }  
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
             textBoxName.Text = loanVM.Loan.Name;
-            textBoxCapital.Text = loanVM.Loan.Amount.ToString();
-            listBoxTime.SelectedIndex = (int)loanVM.Loan.Periodicity;
-            durationSlider.Value = loanVM.Loan.Months;
+            textBoxCapital.Text = "1";
+            listBoxTime.SelectedIndex = 0;
+            durationSlider.Value = 1;
+            loanVM.Rate = 7;
+            CheckRadioButtons();
         }
     }
 }

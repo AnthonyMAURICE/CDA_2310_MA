@@ -36,11 +36,6 @@ namespace WpfClassLibrary
             return int.TryParse(stringNumberToTest, out parsedInt);
         }
 
-        public static bool CheckIsInt(string stringNumberToTest, out int parsedInt)
-        {
-            return int.TryParse(stringNumberToTest, out parsedInt);
-        }
-
         public static bool CheckDateValidity(string stringDate, out DateTime date)
         {
             const string format = "dd/MM/yyyy";

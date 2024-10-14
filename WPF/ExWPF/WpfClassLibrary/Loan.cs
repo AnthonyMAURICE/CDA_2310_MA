@@ -31,21 +31,13 @@ namespace WpfClassLibrary
         public Loan()
         {
             this.name = "Placeholder";
-            this.amount = 0;
+            this.amount = 1;
             this.rate = 0;
-            this.calculatedRate = 0;
-            this.months = 1;
             this.refunds = 1;
+            this.calculatedRate = 0;
             this.refundDivider = 1;
-            this.Periodicity = 0;
-        }
-
-        public Loan(string _name, double _amount, double _rate, double _refunds)
-        {
-            this.name = _name;
-            Amount = _amount;
-            Rate = _rate;
-            this.Refunds = _refunds;
+            this.months = 1;
+            this.periodicity = 0;
         }
 
         public string Name
@@ -93,7 +85,18 @@ namespace WpfClassLibrary
         {
             get { return this.periodicity; }
             set { this.periodicity = value; }
-        }      
+        }
+
+        public double CalcRefunds(double rate, int refundDivider, double amount, int months)
+        {
+            this.CalcRate(rate, refundDivider);
+            return this.refunds = Math.Round(amount * (this.calculatedRate / (1 - Math.Pow((1 + this.calculatedRate), -(months / refundDivider)))), 2);
+        }
+
+        private void CalcRate(double rate, int refundDivider)
+        {
+            this.calculatedRate = rate / 12 * refundDivider / 100;
+        }
 
         public void SaveData()
         {
@@ -113,15 +116,14 @@ namespace WpfClassLibrary
 
         public static Loan LoadData()
         {
-            Loan loan = new();
             if (!File.Exists(Loan.savePath + "save.json"))
             {
-                return loan;
+                return new();
             }
             else
             {
                 string jsonLoad = File.ReadAllText(savePath + "save.json");
-                return loan = JsonSerializer.Deserialize<Loan>(jsonLoad)!;
+                return JsonSerializer.Deserialize<Loan>(jsonLoad)!;
             }
         }
     }
