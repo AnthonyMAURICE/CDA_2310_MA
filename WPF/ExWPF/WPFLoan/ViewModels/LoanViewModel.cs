@@ -10,7 +10,7 @@ using WpfClassLibrary;
 
 namespace WPFLoan.ViewModels
 {
-    public class LoanViewModel : INotifyPropertyChanged, IDataErrorInfo
+    public class LoanViewModel : BaseViewModel
     {
 
         private readonly Loan loan = Loan.LoadData();
@@ -23,14 +23,26 @@ namespace WPFLoan.ViewModels
         private int months;
         private int periodicity;
 
+        public string this[string columnName] => throw new NotImplementedException();       
 
-        public string this[string columnName] => throw new NotImplementedException();
-        
+        public string Name { get => name; set
+            {
+                this.name = value;
+                ValidateName(value);
+                this.OnPropertyChanged();
 
-        public string Error => throw new NotImplementedException();
-
-        public string Name { get => name; set => name = value; }
-        public double Amount { get => amount; set => amount = value; }
+            }
+        }
+        public double Amount
+        {
+            get => amount;
+            set
+            {
+                this.amount = value;
+                ValidateAmount(value.ToString());
+                this.OnPropertyChanged();
+            }
+        }
         public double Rate { get => rate; set => rate = value; }
         public double Refunds { get => refunds; set => refunds = value; }
         public double CalculatedRate { get => calculatedRate; set => calculatedRate = value; }
@@ -38,8 +50,6 @@ namespace WPFLoan.ViewModels
         public int Months { get => months; set => months = value; }
         public int Periodicity { get => periodicity; set => periodicity = value; }
         public Loan Loan { get => loan; }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
 
         public LoanViewModel() 
         {
@@ -63,7 +73,6 @@ namespace WPFLoan.ViewModels
             this.periodicity = (int)loan.Periodicity;
         }
 
-
         public void Save()
         {
             if (Controls.CheckNameValidity(this.name))
@@ -74,7 +83,7 @@ namespace WPFLoan.ViewModels
                 loan.RefundDivider = this.refundDivider;
                 loan.Refunds = this.refunds;
                 loan.Months = this.months;
-                loan.Periodicity = (WpfClassLibrary.Periodicity)this.periodicity;
+                loan.Periodicity = (Periodicity)this.periodicity;
                 loan.CalculatedRate = this.calculatedRate;
                 loan.SaveData();
             }
@@ -83,12 +92,7 @@ namespace WPFLoan.ViewModels
         public void CalculateRefunds()
         {
             this.refunds = loan.CalcRefunds(this.rate, this.refundDivider, this.amount, this.months);
-        }
-
-        string IDataErrorInfo.Error
-        {
-            get { throw new NotImplementedException(); }
-        }
+        } 
 
         public LoanViewModel LoadAfterSave()
         {
@@ -102,21 +106,34 @@ namespace WPFLoan.ViewModels
             }
         }
 
-        string IDataErrorInfo.this[string columnName]
+        private void ValidateName(string texte)
         {
-            get
+            ClearErrors(nameof(Name));
+            if (string.IsNullOrWhiteSpace(texte))
             {
-                string result = string.Empty;
-                if (columnName == "Name")
-                {
-                    result = Controls.ErrorName(this.name);
-                }
-                if (columnName == "Amount")
-                {
-                    result = Controls.ErrorAmount(this.amount.ToString());
-                }
-                return result;
+                AddError(nameof(Name), "Le Nom ne peut être vide");
             }
+            if (!string.IsNullOrEmpty(texte) && (texte[0] != char.ToUpper(texte[0])))
+            {
+                AddError(nameof(Name), "La premier lettre du Nom doit etre une majuscule");
+            }
+            if (!Controls.CheckNameValidity(Name))
+            {
+                AddError(nameof(Name), Controls.ErrorName(Name));
+            }   
         }
+
+        private void ValidateAmount(string _amount)
+        {
+            ClearErrors(nameof(Amount));
+            if (string.IsNullOrWhiteSpace(_amount))
+            {
+                AddError(nameof(Amount), "Le montant ne peut être vide");
+            }
+            if (!Controls.CheckAmountValidity(_amount, out _))
+            {
+                AddError(nameof(Amount), Controls.ErrorAmount(_amount));
+            }
+        }  
     }
 }
