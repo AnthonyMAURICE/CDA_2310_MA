@@ -18,7 +18,6 @@ namespace WPFLoan.ViewModels
         private double amount;
         private double rate;
         private double refunds;
-        private double calculatedRate;
         private int refundDivider;
         private int months;
         private int periodicity;
@@ -30,9 +29,9 @@ namespace WPFLoan.ViewModels
                 this.name = value;
                 ValidateName(value);
                 this.OnPropertyChanged();
-
             }
         }
+
         public double Amount
         {
             get => amount;
@@ -43,9 +42,9 @@ namespace WPFLoan.ViewModels
                 this.OnPropertyChanged();
             }
         }
+
         public double Rate { get => rate; set => rate = value; }
         public double Refunds { get => refunds; set => refunds = value; }
-        public double CalculatedRate { get => calculatedRate; set => calculatedRate = value; }
         public int RefundDivider { get => refundDivider; set => refundDivider = value; }
         public int Months { get => months; set => months = value; }
         public int Periodicity { get => periodicity; set => periodicity = value; }
@@ -84,7 +83,6 @@ namespace WPFLoan.ViewModels
                 loan.Refunds = this.refunds;
                 loan.Months = this.months;
                 loan.Periodicity = (Periodicity)this.periodicity;
-                loan.CalculatedRate = this.calculatedRate;
                 loan.SaveData();
             }
         }
@@ -102,7 +100,7 @@ namespace WPFLoan.ViewModels
             }
             else
             {
-                return new(this.loan);
+                return new(this.loan);   
             }
         }
 

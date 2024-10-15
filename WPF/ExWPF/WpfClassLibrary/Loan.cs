@@ -16,13 +16,13 @@ namespace WpfClassLibrary
         Semestrielle,
         Annulelle
     }
-    public class Loan
+    public partial class Loan
     {
+        private int id;
         private string name;
         private double amount;
         private double rate;
         private double refunds;
-        private double calculatedRate;
         private int refundDivider;
         private int months;
         private Periodicity periodicity;
@@ -34,7 +34,6 @@ namespace WpfClassLibrary
             this.amount = 1;
             this.rate = 0;
             this.refunds = 1;
-            this.calculatedRate = 0;
             this.refundDivider = 1;
             this.months = 1;
             this.periodicity = Periodicity.Mensuelle;
@@ -63,11 +62,6 @@ namespace WpfClassLibrary
             get { return this.refunds; }
             set { this.refunds = value; }
         }
-        public double CalculatedRate
-        {
-            get { return this.calculatedRate; }
-            set { this.calculatedRate = value; }
-        }
 
         public int RefundDivider
         {
@@ -82,16 +76,17 @@ namespace WpfClassLibrary
         }
 
         public Periodicity Periodicity { get => periodicity; set => periodicity = value; }
+        public int Id { get => id; set => id = value; }
 
         public double CalcRefunds(double rate, int refundDivider, double amount, int months)
         {
-            this.CalcRate(rate, refundDivider);
-            return this.refunds = Math.Round(amount * (this.calculatedRate / (1 - Math.Pow((1 + this.calculatedRate), -(months / refundDivider)))), 2);
+            
+            return this.refunds = Math.Round(amount * (this.CalcRate(rate, refundDivider) / (1 - Math.Pow((1 + this.CalcRate(rate, refundDivider)), -(months / refundDivider)))), 2);
         }
 
-        private void CalcRate(double rate, int refundDivider)
+        private double CalcRate(double rate, int refundDivider)
         {
-            this.calculatedRate = rate / 12 * refundDivider / 100;
+            return rate / 12 * refundDivider / 100;
         }
 
         public void SaveData()
