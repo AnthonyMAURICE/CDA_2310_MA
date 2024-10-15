@@ -16,7 +16,7 @@ namespace WpfClassLibrary
         Semestrielle,
         Annulelle
     }
-    public partial class Loan
+    public class Loan
     {
         private int id;
         private string name;

@@ -4,13 +4,7 @@ using WpfClassLibrary;
 
 namespace WPFLoan.Models;
 
-interface ISave
-{
-    void SaveDataInDB();
-    void LoadDataFromDB();
-}
-
-public partial class Loan : ISave
+public partial class Loan : ISaveLoad
 {
     public int LoanId { get; set; }
 

@@ -7,6 +7,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using WpfClassLibrary;
+using WPFLoan;
 
 namespace WPFLoan.ViewModels
 {
@@ -21,6 +22,8 @@ namespace WPFLoan.ViewModels
         private int refundDivider;
         private int months;
         private int periodicity;
+
+        public WPFLoan.Models.DbLoanContext DbLoanContext { get; set; }
 
         public string this[string columnName] => throw new NotImplementedException();       
 
@@ -48,7 +51,13 @@ namespace WPFLoan.ViewModels
         public int RefundDivider { get => refundDivider; set => refundDivider = value; }
         public int Months { get => months; set => months = value; }
         public int Periodicity { get => periodicity; set => periodicity = value; }
-        public Loan Loan { get => loan; }
+        public WpfClassLibrary.Loan Loan
+        {
+            get
+            {
+                return loan;
+            }
+        }
 
         public LoanViewModel() 
         {
@@ -61,7 +70,7 @@ namespace WPFLoan.ViewModels
             this.periodicity = (int)loan.Periodicity;
         }
 
-        public LoanViewModel(Loan loan)
+        public LoanViewModel(WpfClassLibrary.Loan loan)
         {
             this.name = loan.Name;
             this.amount = loan.Amount;
@@ -100,7 +109,8 @@ namespace WPFLoan.ViewModels
             }
             else
             {
-                return new(this.loan);   
+                return new(this.loan);
+    
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -30,7 +31,6 @@ namespace WPFLoan
 
         private void SetIfLoaded()
         {
-            loanVM = loanVM.LoadAfterSave();
             durationSlider.Value = loanVM.Months;
             listBoxTime.SelectedIndex = loanVM.Periodicity;
             CheckRadioButtons();
@@ -156,7 +156,7 @@ namespace WPFLoan
         {
             if (Controls.CheckNameValidity(textBoxName.Text) && Controls.CheckAmountValidity(textBoxCapital.Text, out double amount))
             {
-                string messageBoxText = "Sauvegarde effectuée !";
+                string messageBoxText = "Sauvegarde locale effectuée !";
                 string caption = "Job Done !";
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Information;
@@ -181,6 +181,24 @@ namespace WPFLoan
             durationSlider.Value = 1;
             loanVM.Rate = 7;
             CheckRadioButtons();
+        }
+
+        private void localLoad_Click(object sender, RoutedEventArgs e)
+        {
+            if (File.Exists(Loan.savePath + "save.json"))
+            {
+                loanVM = loanVM.LoadAfterSave();
+                SetIfLoaded();
+            }
+            else
+            {
+                string messageBoxText = "Aucune sauvegarde locale présente";
+                string caption = "Warning !";
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Warning;
+                MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.OK);
+            }
+            
         }
     }
 }
