@@ -8,5 +8,7 @@ namespace WpfPersistence
 {
     internal interface IPersistence
     {
+        public void Insert(SLoan sLoan);
+        public SLoan Select();
     }
 }

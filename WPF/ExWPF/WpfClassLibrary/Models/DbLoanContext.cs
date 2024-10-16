@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using WpfClassLibrary.Persistence;
 
 namespace WpfClassLibrary.Models;
 

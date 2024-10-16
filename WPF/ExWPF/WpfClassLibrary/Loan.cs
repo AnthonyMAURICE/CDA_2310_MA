@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using WpfClassLibrary.Persistence;
+using WpfPersistence;
 
 namespace WpfClassLibrary.Models
 {
-
     public enum Periodicity
     {
         Mensuelle,
@@ -20,7 +19,7 @@ namespace WpfClassLibrary.Models
     }
     public partial class Loan
     {
-
+        DbLoanContext _loanContext;
         public Loan()
         {
             this.loanName = "Placeholder";
