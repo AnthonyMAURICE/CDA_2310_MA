@@ -84,15 +84,20 @@ namespace WPFLoan.ViewModels
         {
             if (Controls.CheckNameValidity(this.name))
             {
-                loan.LoanName = this.name;
-                loan.Amount = this.amount;
-                loan.Rate = this.rate;
-                loan.RefundDivider = this.refundDivider;
-                loan.Refunds = this.refunds;
-                loan.Months = this.months;
-                loan.Periodicity = (Periodicity)this.periodicity;
+                SyncronizeData();
                 loan.SaveData();
             }
+        }
+
+        private void SyncronizeData()
+        {
+            loan.LoanName = this.name;
+            loan.Amount = this.amount;
+            loan.Rate = this.rate;
+            loan.RefundDivider = this.refundDivider;
+            loan.Refunds = this.refunds;
+            loan.Months = this.months;
+            loan.Periodicity = (Periodicity)this.periodicity;
         }
 
         public void CalculateRefunds()
@@ -146,6 +151,7 @@ namespace WPFLoan.ViewModels
         {
             try
             {
+                SyncronizeData();
                 loan.SaveData();
             }
             catch (Exception ex) 
