@@ -62,7 +62,7 @@ namespace WpfClassLibrary.Models
         public void SaveData()
         {
             DbPersistence dbPersistence = new DbPersistence();
-            dbPersistence.Insert(new SLoan(this));
+            //dbPersistence.Insert(new SLoan()); -> à étendre avec mise à jour des attributs
         }
     }
 }
