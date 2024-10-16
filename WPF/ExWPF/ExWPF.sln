@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExWPF", "ExWPF\ExWPF.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfClassLibrary", "WpfClassLibrary\WpfClassLibrary.csproj", "{FA55DBE0-49D9-4ECC-A1FC-6381CAF4251A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFLoan", "WPFLoan\WPFLoan.csproj", "{A1A26D3C-0FAF-4FBF-98F6-B649FA5AE524}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPFLoan", "WPFLoan\WPFLoan.csproj", "{A1A26D3C-0FAF-4FBF-98F6-B649FA5AE524}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfPersistence", "WpfPersistence\WpfPersistence.csproj", "{0DE9E57E-96B5-4FF0-B469-95D98B3A70F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{A1A26D3C-0FAF-4FBF-98F6-B649FA5AE524}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1A26D3C-0FAF-4FBF-98F6-B649FA5AE524}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1A26D3C-0FAF-4FBF-98F6-B649FA5AE524}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DE9E57E-96B5-4FF0-B469-95D98B3A70F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DE9E57E-96B5-4FF0-B469-95D98B3A70F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DE9E57E-96B5-4FF0-B469-95D98B3A70F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DE9E57E-96B5-4FF0-B469-95D98B3A70F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
