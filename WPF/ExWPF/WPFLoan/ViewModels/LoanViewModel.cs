@@ -6,15 +6,16 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using WpfClassLibrary;
-using WPFLoan;
+using WPFLoan.Models;
 
 namespace WPFLoan.ViewModels
 {
     public class LoanViewModel : BaseViewModel
     {
 
-        private readonly Loan loan = Loan.LoadData();
+        private WPFLoan.Models.Loan loan = WPFLoan.Models.Loan.LoadData();
         private string name;
         private double amount;
         private double rate;
@@ -51,7 +52,7 @@ namespace WPFLoan.ViewModels
         public int RefundDivider { get => refundDivider; set => refundDivider = value; }
         public int Months { get => months; set => months = value; }
         public int Periodicity { get => periodicity; set => periodicity = value; }
-        public WpfClassLibrary.Loan Loan
+        public Loan Loan
         {
             get
             {
@@ -61,18 +62,18 @@ namespace WPFLoan.ViewModels
 
         public LoanViewModel() 
         {
-            this.name = loan.Name;
-            this.amount = loan.Amount;
-            this.rate = loan.Rate;
-            this.refunds = loan.Refunds;
-            this.months = loan.Months;
-            this.refundDivider = loan.RefundDivider;
-            this.periodicity = (int)loan.Periodicity;
+            this.name = Loan.LoanName;
+            this.amount = Loan.Amount;
+            this.rate = Loan.Rate;
+            this.refunds = Loan.Refunds;
+            this.months = Loan.Months;
+            this.refundDivider = Loan.RefundDivider;
+            this.periodicity = (int)Loan.Periodicity;
         }
 
-        public LoanViewModel(WpfClassLibrary.Loan loan)
+        public LoanViewModel(Loan loan)
         {
-            this.name = loan.Name;
+            this.name = loan.LoanName;
             this.amount = loan.Amount;
             this.rate = loan.Rate;
             this.refunds = (int)loan.Refunds;
@@ -85,7 +86,7 @@ namespace WPFLoan.ViewModels
         {
             if (Controls.CheckNameValidity(this.name))
             {
-                loan.Name = this.name;
+                loan.LoanName = this.name;
                 loan.Amount = this.amount;
                 loan.Rate = this.rate;
                 loan.RefundDivider = this.refundDivider;
@@ -142,6 +143,45 @@ namespace WPFLoan.ViewModels
             {
                 AddError(nameof(Amount), Controls.ErrorAmount(_amount));
             }
-        }  
+        } 
+        
+        public void SaveInDb()
+        {
+            try
+            {
+                loan.SaveDataInDB();
+            }
+            catch (Exception ex) 
+            {
+                string messageBoxText = ex.Message;
+                string caption = "Warning !";
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Warning;
+                MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.OK);
+            }
+        }
+
+        public void LoadFromDb() 
+        {
+            try
+            {
+                loan = loan.LoadDataFromDB();
+                this.name = loan.LoanName;
+                this.amount = loan.Amount;
+                this.rate = loan.Rate;
+                this.refunds = (int)loan.Refunds;
+                this.months = (int)loan.Months;
+                this.refundDivider = (int)loan.RefundDivider;
+                this.periodicity = (int)loan.Periodicity;
+            }
+            catch (Exception ex)
+            {
+                string messageBoxText = ex.Message;
+                string caption = "Warning !";
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Warning;
+                MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.OK);
+            }
+        }
     }
 }

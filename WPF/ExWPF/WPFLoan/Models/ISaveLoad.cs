@@ -9,6 +9,6 @@ namespace WPFLoan.Models
     internal interface ISaveLoad
     {
         void SaveDataInDB();
-        void LoadDataFromDB();
+        Loan LoadDataFromDB();
     }
 }

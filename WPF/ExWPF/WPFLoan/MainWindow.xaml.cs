@@ -31,12 +31,15 @@ namespace WPFLoan
 
         private void SetIfLoaded()
         {
+            loanVM.LoadFromDb();
             durationSlider.Value = loanVM.Months;
             listBoxTime.SelectedIndex = loanVM.Periodicity;
             CheckRadioButtons();
+            SetRefundDivider();
             durationText.Text = durationSlider.Value.ToString();
             textBoxCapital.Text = loanVM.Amount.ToString();
-            textBoxName.Text = loanVM.Name;  
+            textBoxName.Text = loanVM.Name;
+            textBoxCapital.Text = loanVM.Amount.ToString();
         }
 
         private void DurationSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -154,7 +157,7 @@ namespace WPFLoan
 
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
-            if (Controls.CheckNameValidity(textBoxName.Text) && Controls.CheckAmountValidity(textBoxCapital.Text, out double amount))
+            if (Controls.CheckNameValidity(textBoxName.Text) && Controls.CheckAmountValidity(textBoxCapital.Text, out double _))
             {
                 string messageBoxText = "Sauvegarde locale effectuée !";
                 string caption = "Job Done !";
@@ -175,7 +178,7 @@ namespace WPFLoan
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
-            textBoxName.Text = loanVM.Loan.Name;
+            textBoxName.Text = loanVM.Loan.LoanName;
             textBoxCapital.Text = "1";
             listBoxTime.SelectedIndex = 0;
             durationSlider.Value = 1;
@@ -185,7 +188,7 @@ namespace WPFLoan
 
         private void localLoad_Click(object sender, RoutedEventArgs e)
         {
-            if (File.Exists(Loan.savePath + "save.json"))
+            if (File.Exists(WPFLoan.Models.Loan.savePath + "save.json"))
             {
                 loanVM = loanVM.LoadAfterSave();
                 SetIfLoaded();
@@ -199,6 +202,14 @@ namespace WPFLoan
                 MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.OK);
             }
             
+        }
+
+        private void saveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (Controls.CheckNameValidity(textBoxName.Text) && Controls.CheckAmountValidity(textBoxCapital.Text, out double _))
+            {
+                loanVM.SaveInDb();
+            }
         }
     }
 }

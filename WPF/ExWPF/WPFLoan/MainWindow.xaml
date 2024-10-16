@@ -48,7 +48,7 @@
         <TextBlock x:Name="refundsNumber" HorizontalAlignment="Left" Margin="415,248,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="Red"/>
         <TextBlock HorizontalAlignment="Left" Margin="490,248,0,0" TextWrapping="Wrap" Text="Remboursements" VerticalAlignment="Top"/>
         <TextBlock x:Name="labelRefundAmount" HorizontalAlignment="Left" Margin="490,300,0,0" TextWrapping="Wrap" Text="0 €" VerticalAlignment="Top" Foreground="Red"/>
-        <Button x:Name="saveBtn" Content="Save" HorizontalAlignment="Left" Margin="526,46,0,0" VerticalAlignment="Top" Width="75" Height="30"/>
+        <Button x:Name="saveBtn" Content="Save" HorizontalAlignment="Left" Margin="526,46,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="saveBtn_Click"/>
         <Button x:Name="localLoad" Content="Local Load" HorizontalAlignment="Left" Margin="526,148,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="localLoad_Click"/>
     </Grid>
 </Window>
