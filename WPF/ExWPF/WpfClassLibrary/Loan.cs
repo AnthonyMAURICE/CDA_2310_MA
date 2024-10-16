@@ -5,9 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using WpfClassLibrary.Persistence;
 
-namespace WpfClassLibrary
+namespace WpfClassLibrary.Models
 {
+
     public enum Periodicity
     {
         Mensuelle,
@@ -16,71 +18,34 @@ namespace WpfClassLibrary
         Semestrielle,
         Annulelle
     }
-    public class Loan
+    public partial class Loan
     {
-        private int id;
-        private string name;
-        private double amount;
-        private double rate;
-        private double refunds;
-        private int refundDivider;
-        private int months;
-        private Periodicity periodicity;
-        public static readonly string savePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\loanWPF\\save\\";
 
         public Loan()
         {
-            this.name = "Placeholder";
+            this.loanName = "Placeholder";
             this.amount = 1;
-            this.rate = 0;
+            this.rate = 7;
             this.refunds = 1;
             this.refundDivider = 1;
             this.months = 1;
             this.periodicity = Periodicity.Mensuelle;
         }
 
-        public string Name
+        public Loan(SLoan sLoan)
         {
-            get { return this.name; }
-            set { this.name = value; }
+            this.loanName= sLoan.loanName;
+            this.amount= sLoan.amount;
+            this.rate = sLoan.rate;
+            this.refunds = sLoan.refunds;
+            this.refundDivider = sLoan.refundDivider;
+            this.months = sLoan.months;
+            this.periodicity= (Periodicity)sLoan.periodicity;
         }
-
-        public double Amount
-        {
-            get { return this.amount; }
-            set { this.amount = value; }
-        }
-
-        public double Rate
-        {
-            get { return this.rate; }
-            set { this.rate = value; }
-        }
-
-        public double Refunds
-        {
-            get { return this.refunds; }
-            set { this.refunds = value; }
-        }
-
-        public int RefundDivider
-        {
-            get { return this.refundDivider; }
-            set { this.refundDivider = value; }
-        }
-
-        public int Months
-        {
-            get { return this.months; }
-            set { this.months = value; }
-        }
-
-        public Periodicity Periodicity { get => periodicity; set => periodicity = value; }
-        public int Id { get => id; set => id = value; }
 
         public double CalcRefunds(double rate, int refundDivider, double amount, int months)
         {
-            
+
             return this.refunds = Math.Round(amount * (this.CalcRate(rate, refundDivider) / (1 - Math.Pow((1 + this.CalcRate(rate, refundDivider)), -(months / refundDivider)))), 2);
         }
 
@@ -89,33 +54,16 @@ namespace WpfClassLibrary
             return rate / 12 * refundDivider / 100;
         }
 
+        public static Loan GetLoanStruct()
+        {
+            DbPersistence dbPersistence = new DbPersistence();
+            return new(dbPersistence.Select());
+        }
+
         public void SaveData()
         {
-            if (!Directory.Exists(savePath))
-            {
-                Directory.CreateDirectory(savePath);
-            }
-            File.WriteAllText(savePath + "save.json", CreateJSon(), Encoding.UTF8);
-        }
-
-        private string CreateJSon()
-        {
-            string jsonSave = JsonSerializer.Serialize(this);
-
-            return jsonSave;
-        }
-
-        public static Loan LoadData()
-        {
-            if (!File.Exists(Loan.savePath + "save.json"))
-            {
-                return new();
-            }
-            else
-            {
-                string jsonLoad = File.ReadAllText(savePath + "save.json");
-                return JsonSerializer.Deserialize<Loan>(jsonLoad)!;
-            }
+            DbPersistence dbPersistence = new DbPersistence();
+            dbPersistence.Insert(new SLoan(this));
         }
     }
 }

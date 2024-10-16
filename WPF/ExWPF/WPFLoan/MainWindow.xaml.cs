@@ -10,6 +10,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfClassLibrary;
+using WpfClassLibrary.Models;
 using WPFLoan.ViewModels;
 
 namespace WPFLoan
@@ -188,7 +189,7 @@ namespace WPFLoan
 
         private void localLoad_Click(object sender, RoutedEventArgs e)
         {
-            if (File.Exists(WPFLoan.Models.Loan.savePath + "save.json"))
+            if (File.Exists(Loan.savePath + "save.json"))
             {
                 loanVM = loanVM.LoadAfterSave();
                 SetIfLoaded();

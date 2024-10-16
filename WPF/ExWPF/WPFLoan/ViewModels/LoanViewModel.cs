@@ -8,14 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using WpfClassLibrary;
-using WPFLoan.Models;
+using WpfClassLibrary.Models;
 
 namespace WPFLoan.ViewModels
 {
     public class LoanViewModel : BaseViewModel
     {
 
-        private WPFLoan.Models.Loan loan = WPFLoan.Models.Loan.LoadData();
+        private Loan loan = Loan.GetLoanStruct();
         private string name;
         private double amount;
         private double rate;
@@ -23,8 +23,6 @@ namespace WPFLoan.ViewModels
         private int refundDivider;
         private int months;
         private int periodicity;
-
-        public WPFLoan.Models.DbLoanContext DbLoanContext { get; set; }
 
         public string this[string columnName] => throw new NotImplementedException();       
 
@@ -111,7 +109,6 @@ namespace WPFLoan.ViewModels
             else
             {
                 return new(this.loan);
-    
             }
         }
 
@@ -149,7 +146,7 @@ namespace WPFLoan.ViewModels
         {
             try
             {
-                loan.SaveDataInDB();
+                loan.SaveData();
             }
             catch (Exception ex) 
             {
@@ -157,7 +154,7 @@ namespace WPFLoan.ViewModels
                 string caption = "Warning !";
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Warning;
-                MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.OK);
+                MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.OK);
             }
         }
 
@@ -165,7 +162,7 @@ namespace WPFLoan.ViewModels
         {
             try
             {
-                loan = loan.LoadDataFromDB();
+                loan = Loan.GetLoanStruct();
                 this.name = loan.LoanName;
                 this.amount = loan.Amount;
                 this.rate = loan.Rate;
@@ -180,7 +177,7 @@ namespace WPFLoan.ViewModels
                 string caption = "Warning !";
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Warning;
-                MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.OK);
+                MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.OK);
             }
         }
     }

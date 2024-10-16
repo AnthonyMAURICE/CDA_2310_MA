@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WPFLoan.Models
+namespace WpfClassLibrary.Models
 {
     internal interface ISaveLoad
     {
