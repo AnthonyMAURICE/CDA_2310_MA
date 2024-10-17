@@ -52,7 +52,7 @@ namespace WpfPersistence
                     }
                     else
                     {
-                        Ref<SLoan> tempLoan = context.Loans.Find(5)!;
+                        Ref<SLoan> tempLoan = context.Loans.Find(17)!;
                         SLoan sLoan = new()
                         {
                             loanId = tempLoan.LoanId,
