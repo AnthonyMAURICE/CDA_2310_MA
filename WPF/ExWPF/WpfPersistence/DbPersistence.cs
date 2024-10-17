@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using WpfPersistence.Models;
 
 namespace WpfPersistence
 {
@@ -15,7 +16,17 @@ namespace WpfPersistence
             {
                 try
                 {
-                    context.Loans.Add((new WpfClassLibrary.Loan(sLoan)));
+                    Ref<SLoan> refSloan = new()
+                    {
+                        LoanName = sLoan.loanName,
+                        Amount = sLoan.amount,
+                        RefundDivider = sLoan.refundDivider,
+                        Refunds = sLoan.refunds,
+                        Rate = sLoan.rate,
+                        Months = sLoan.months,
+                        Periodicity = sLoan.periodicity
+                    };
+                    context.Loans.Add(refSloan);
                     context.SaveChanges();
                 }
                 catch (Exception ex)
@@ -31,7 +42,7 @@ namespace WpfPersistence
 
         public SLoan Select()
         {
-            using (DbLoanContext? context = new())
+            using (DbLoanContext context = new())
             {
                 try
                 {
@@ -41,7 +52,19 @@ namespace WpfPersistence
                     }
                     else
                     {
-                        return new(context.Loans.Find(8)!);
+                        Ref<SLoan> tempLoan = context.Loans.Find(5)!;
+                        SLoan sLoan = new()
+                        {
+                            loanId = tempLoan.LoanId,
+                            loanName = tempLoan.LoanName,
+                            amount = tempLoan.Amount,
+                            refunds = tempLoan.Refunds,
+                            refundDivider = tempLoan.RefundDivider,
+                            months = tempLoan.Months,
+                            rate = tempLoan.Rate,
+                            periodicity = (int)tempLoan.Periodicity
+                        };
+                        return sLoan;
                     }
                 }
                 catch (Exception ex)

@@ -9,6 +9,7 @@ namespace WpfPersistence
     public abstract class Persistence
     {
         private bool hasData;
+        
         public Persistence()
         {
             this.hasData = false;

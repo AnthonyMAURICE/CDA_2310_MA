@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-
-namespace WpfClassLibrary.Models;
+namespace WpfPersistence.Models;
 
 public partial class DbLoanContext : DbContext
 {
@@ -15,7 +14,7 @@ public partial class DbLoanContext : DbContext
     {
     }
 
-    public virtual DbSet<Loan> Loans { get; set; }
+    public virtual DbSet<Ref<SLoan>> Loans { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -23,8 +22,9 @@ public partial class DbLoanContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Loan>(entity =>
+        modelBuilder.Entity<Ref<SLoan>>(entity => 
         {
+            
             entity.HasKey(e => e.LoanId).HasName("PK__loan__A1F79554C739D198");
 
             entity.ToTable("loan");

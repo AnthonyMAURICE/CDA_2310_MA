@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using WpfClassLibrary;
-using WpfClassLibrary.Models;
+using WpfPersistence;
 
 namespace WPFLoan.ViewModels
 {
@@ -107,7 +107,7 @@ namespace WPFLoan.ViewModels
 
         public LoanViewModel LoadAfterSave()
         {
-            if (!File.Exists(Loan.savePath + "save.json"))
+            if (!File.Exists(LocalPersistence.savePath + "save.json"))
             {
                 return this;
             }

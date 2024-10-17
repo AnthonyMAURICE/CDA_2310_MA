@@ -10,8 +10,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfClassLibrary;
-using WpfClassLibrary.Models;
 using WPFLoan.ViewModels;
+using WpfPersistence;
 
 namespace WPFLoan
 {
@@ -189,7 +189,7 @@ namespace WPFLoan
 
         private void localLoad_Click(object sender, RoutedEventArgs e)
         {
-            if (File.Exists(Loan.savePath + "save.json"))
+            if (File.Exists(LocalPersistence.savePath + "save.json"))
             {
                 loanVM = loanVM.LoadAfterSave();
                 SetIfLoaded();
@@ -209,6 +209,11 @@ namespace WPFLoan
         {
             if (Controls.CheckNameValidity(textBoxName.Text) && Controls.CheckAmountValidity(textBoxCapital.Text, out double _))
             {
+                string messageBoxText = "Sauvegarde en base de données effectuée !";
+                string caption = "Job Done !";
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Information;
+                MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.OK);
                 loanVM.SaveInDb();
             }
         }

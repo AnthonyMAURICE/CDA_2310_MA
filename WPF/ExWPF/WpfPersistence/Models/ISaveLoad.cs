@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfClassLibrary.Models
+namespace WpfPersistence.Models
 {
     internal interface ISaveLoad
     {
         void SaveDataInDB();
-        Loan LoadDataFromDB();
+        SLoan LoadDataFromDB();
     }
 }

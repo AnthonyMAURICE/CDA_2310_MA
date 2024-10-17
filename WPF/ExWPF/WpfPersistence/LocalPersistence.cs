@@ -10,13 +10,14 @@ namespace WpfPersistence
 {
     public class LocalPersistence : Persistence, IPersistence
     {
+        public static readonly string savePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\loanWPF\\save\\";
         public void Insert(SLoan sLoan)
         {
-            if (!Directory.Exists(Loan.savePath))
+            if (!Directory.Exists(savePath))
             {
-                Directory.CreateDirectory(Loan.savePath);
+                Directory.CreateDirectory(savePath);
             }
-            File.WriteAllText(Loan.savePath + "save.json", CreateJSon(), Encoding.UTF8);
+            File.WriteAllText(savePath + "save.json", CreateJSon(), Encoding.UTF8);
         }
 
         private string CreateJSon()
@@ -28,13 +29,13 @@ namespace WpfPersistence
 
         public SLoan Select()
         {
-            if (!File.Exists(Loan.savePath + "save.json"))
+            if (!File.Exists(savePath + "save.json"))
             {
-                return new(new Loan());
+                return new SLoan();
             }
             else
             {
-                string jsonLoad = File.ReadAllText(Loan.savePath + "save.json");
+                string jsonLoad = File.ReadAllText(savePath + "save.json");
                 return JsonSerializer.Deserialize<SLoan>(jsonLoad)!;
             }
         }
