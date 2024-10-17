@@ -40,6 +40,25 @@ namespace WpfPersistence
             }
         }
 
+        public void Update(SLoan sLoan) 
+        {
+            using (DbLoanContext context = new())
+            {
+                Ref<SLoan> refSloan = new()
+                {
+                    LoanId = sLoan.loanId,
+                    LoanName = sLoan.loanName,
+                    Amount = sLoan.amount,
+                    RefundDivider = sLoan.refundDivider,
+                    Refunds = sLoan.refunds,
+                    Rate = sLoan.rate,
+                    Months = sLoan.months,
+                    Periodicity = sLoan.periodicity
+                };
+                context.Loans.Update(refSloan);
+            }
+        }
+
         public SLoan Select()
         {
             using (DbLoanContext context = new())
