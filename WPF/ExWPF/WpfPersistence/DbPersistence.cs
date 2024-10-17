@@ -8,7 +8,7 @@ using WpfPersistence.Models;
 
 namespace WpfPersistence
 {
-    public class DbPersistence : Persistence, IPersistence
+    public class DbPersistence : IPersistence
     {
         public void Insert(SLoan sLoan)
         {

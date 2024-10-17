@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WpfPersistence
 {
-    public class LocalPersistence : Persistence, IPersistence
+    public class LocalPersistence : IPersistence
     {
         public static readonly string savePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\loanWPF\\save\\";
         public void Insert(SLoan sLoan)
