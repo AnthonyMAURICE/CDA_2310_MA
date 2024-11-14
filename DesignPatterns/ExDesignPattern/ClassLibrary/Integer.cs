@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-    public class Digit : Expression
+    public class Integer : Expression
     {
         private int value;
-        public Digit(int _value) 
+        public Integer(int _value) 
         {
             this.value = _value;
         }
