@@ -21,28 +21,39 @@ namespace LibraryCratesProd
 
         public void CreateProd(string identifier)
         {
-            int maxCrates;
-            switch (identifier)
-            {
-                case "A":
-                    maxCrates = 100;
-                    break;
-                case "B":
-                    maxCrates = 25000;
-                    break;
-                case "C":
-                    maxCrates = 120000;
-                    break;
-                default:
-                    maxCrates = 10000;
-                    break;
-            }
+            //int maxCrates;
+            //switch (identifier)
+            //{
+            //    case "A":
+            //        maxCrates = 100;
+            //        break;
+            //    case "B":
+            //        maxCrates = 25000;
+            //        break;
+            //    case "C":
+            //        maxCrates = 120000;
+            //        break;
+            //    default:
+            //        maxCrates = 10000;
+            //        break;
+            //}
+
             if (!prods.ContainsKey("prod" + identifier))
             {
-                this.prods.Add("prod" + identifier, new Production(identifier, maxCrates));
+                this.prods.Add("prod" + identifier, new Production(identifier, MaxCrates(identifier)));
                 this.ProdAdded?.Invoke(this, EventArgs.Empty);
             }
         }
 
+        private int MaxCrates(string identifier) 
+        {
+            return identifier switch
+            {
+                "A" => 100,
+                "B" => 25000,
+                "C" => 120000,
+                _ => 10000,
+            };
+        }
     }
 }
