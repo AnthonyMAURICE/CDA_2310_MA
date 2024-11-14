@@ -10,11 +10,10 @@ namespace ClassLibrary
     {
         protected Expression expression1;
         protected Expression expression2;
-        protected List<Expression> expressionList = [];
         public Binary(Expression exp1, Expression exp2) 
         {
-            this.expressionList.Add(this.expression1 = exp1);
-            this.expressionList.Add(this.expression2 = exp2);
+            this.expression1 = exp1;
+            this.expression2 = exp2;
         }
     }
 }
