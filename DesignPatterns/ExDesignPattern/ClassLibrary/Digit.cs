@@ -9,9 +9,9 @@ namespace ClassLibrary
     public class Digit : Expression
     {
         private int value;
-        public Digit(int value) 
+        public Digit(int _value) 
         {
-            this.value = value;
+            this.value = _value;
         }
 
         public int Value { get => value; set => this.value = value; }
