@@ -19,12 +19,7 @@ namespace ClassLibrary
 
         public override string Format()
         {
-            string result = "";
-            for (int i = 0; i < this.expressionList.Count; i++)
-            {
-                result += this.expressionList[i].Format() + (i == this.expressionList.Count - 1 ? "" : " + ");
-            }
-            return result;
+            return this.expression1.Format() + " + " + this.expression2.Format();
         }
     }
 }
