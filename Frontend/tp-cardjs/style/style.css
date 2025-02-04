@@ -1,0 +1,118 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+table{
+    border-spacing: 0;
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+
+.grey-back{
+    background-color: lightgray;
+}
+
+.table-head > tr > td{
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    padding: 10px;
+}
+
+td{
+    border-top: 1px solid black;
+    padding: 5px;
+}
+
+#cards{
+    display: flex;
+    flex-flow: column;
+}
+
+h1, h2, p{
+    margin: 5px;
+}
+
+article{
+    display: flex;
+    flex-flow: column;
+    width: 33%;
+    margin: 10px;
+}
+
+div{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    max-width: 300px;
+    padding: 40px;
+    margin-bottom: 25px;
+    background-color: rgb(25, 25, 25);
+}
+
+h2{
+    text-align: center;
+}
+
+h3{
+    font-size: 60px;
+    padding: 0 12%;
+}
+
+.name{
+    flex-flow: row;
+    justify-content: flex-start;
+    background-color: darkgreen;
+    color: white;
+}
+
+.chara-name{
+    font-size: 30px;
+}
+
+span{
+    text-decoration: underline;
+}
+
+.main-div{
+    flex-flow: row;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+}
+
+.stats-div{
+    font-size: 20px;
+    padding: 40px;
+}
+
+.power{
+    color: rgb(54, 108, 255);
+}
+
+.attack{
+    color: red;
+}
+
+.armor{
+    color: lightblue;
+}
+
+.image-1{
+    filter: brightness(125%);
+}
+
+.image-2{
+    filter: blur(1px);
+}
+
+.image-3{
+    filter: sepia(100%);
+}

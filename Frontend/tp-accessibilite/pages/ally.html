@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/general-style.css">
+    <link rel="stylesheet" href="../style/ally.css">
+    <title>Accessiblilté - Best practices</title>
+</head>
+<body>
+    <header class="home-header">
+        <div class="logo-and-skip">
+            <a class="white-links" href="#content">Aller au contenu</a>
+            <img src="../assets/a11yNow.png" alt="Logo du site HandiA11y spécialisé dans l'accessibilité web">
+        </div>
+        <nav role="navigation">
+            <ul class="navbar">
+                <li><a class="white-links" href="../index.html">Accueil</a></li>
+                <li><a class="white-links" href="./ally.html">A11y</a></li>
+                <li><a class="white-links" href="./handicaps.html">Handicaps</a></li>
+                <li><a class="white-links" href="./form.html">Faites un don</a></li>
+                <li><a class="white-links" href="./team.html">Equipe</a></li>
+                <li><a class="white-links" href="./map.html">Plan du site</a></li>
+                <li><button class="btn btn-access" type="button">Paramètres Accessiblilté</button></li>
+            </ul>
+        </nav>
+        <form role="search">
+            <label class="hidden" for="search-bar">zone de recherche</label>
+            <input type="text" placeholder="zone de recherche" id="search-bar" name="search-bar">
+            <button class="btn btn-yellow" type="button">Rechercher</button>
+        </form>
+        <dialog>
+            <div class="dialog-title">
+                <h1>Paramètres d'accessibilité</h1>
+                <button class="close-dialog">X</button>
+            </div>
+            <div class="dialog-wrapper">
+                <fieldset class="dialog-options">
+                    <legend>Contrastes</legend>
+                    <div class="dialog-inputs">
+                        <input class="contrast" type="radio" id="default-contrast" checked name="contrast">
+                        <label for="default-contrast" name="contrast">Défaut</label>
+                        <input class="contrast" type="radio" id="enhanced-contrast" name="contrast">
+                        <label for="enhanced-contrast" name="contrast">Renforcer</label>
+                        <input class="contrast" type="radio" id="inverted-contrast" name="contrast">
+                        <label for="inverted-contrast" name="contrast">Inverser</label>
+                    </div>
+                </fieldset>
+                <fieldset class="dialog-options">
+                    <legend>
+                        Police (dyslexie)
+                    </legend>
+                    <div class="dialog-inputs">
+                        <input class="font" type="radio" id="default-font" checked name="font">
+                        <label for="default-font" name="font">Défaut</label>
+                        <input class="font" type="radio" id="adapted-font" name="font">
+                        <label for="adapted-font" name="font">Adapter</label>
+                    </div>
+                </fieldset>
+                <fieldset class="dialog-options">
+                    <legend>
+                        Interlignage
+                    </legend>
+                    <div class="dialog-inputs">
+                        <input class="interligne" type="radio" id="default-interline" checked name="interline">
+                        <label for="default-interline">Défaut</label>
+                        <input class="interligne" type="radio" id="enhanced-interline" name="interline">
+                        <label for="enhanced-interline">Augmenter</label>
+                    </div>
+                </fieldset>
+                <fieldset class="dialog-options">
+                    <legend>
+                        Justification
+                    </legend>
+                    <div class="dialog-inputs">
+                        <input class="justify" type="radio" id="default-justify" checked name="justify">
+                        <label for="default-justify">Défaut</label>
+                        <input class="justify" type="radio" id="remove-justify" name="justify">
+                        <label for="remove-justify">Supprimer</label>
+                    </div>
+                </fieldset>
+                <fieldset class="dialog-options">
+                    <legend>
+                        Images
+                    </legend>
+                    <div class="dialog-inputs">
+                        <input type="radio" id="default-images" checked name="images">
+                        <label for="default-images">Défaut</label>
+                        <input type="radio" id="text-images" name="images">
+                        <label for="text-images">Remplacer par du texte</label>
+                    </div>
+                </fieldset>
+            </div>    
+        </dialog>
+    </header>
+    <main id="content">
+        <h1>Quelques bonnes pratiques d'accessibilité...</h1>
+        <button class="btn btn-yellow" type="button">Afficher les textes alternatifs des images (WIP)</button>
+        <section id="practices">
+            <figure>
+                <img src="../assets/decorative-image.jpg" alt="">
+                <h2>Que faire avec des images décoratives ?</h2>
+                <figcaption>Utiliser des attributs "alt" vides ou nuls afin d'éviter qu'elles soient lues par les technologies d'assistance.</figcaption>
+            </figure>
+            <figure>
+                <img src="../assets/informative-image.jpg" alt="Couverture d'un livre traitant de l'accessibilité et du handicap - Joël Zaffran">
+                <h2>Quoi mettre dans les alternatives textuelles des images informatives ?</h2>
+                <figcaption>Des descriptions appropriées pour fournir des informations équivalentes pour les utilisateurs qui ne peuvent pas voir les images. Les attributs title et aria-describedby ne sont pas indispensables !</figcaption>
+            </figure>
+            <figure>
+                <img src="../assets/semantique-html.jpg" alt="">
+                <h2>Balises HTML sémantiques</h2>
+                <figcaption>Utiliser des balises HTML sémantiques appropriées (telles que &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;section&gt;, &lt;article&gt;, &lt;aside&gt;, &lt;footer&gt;) pour améliorer la structure et la compréhension du contenu par les technologies d'assistance.</figcaption>
+                <button class="btn btn-yellow" type="button">Afficher la description de l'image (WIP)</button>
+                <div class="very-hidden">
+                    <p>Purement démonstratif, cette image affiche une page HTML avec les balises habituelles qui permettent de structurer le code de la page.</p>
+                    <div class="code-snipnet" tabindex="0">
+                        <pre>
+                            <code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;fr&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Exemple de Sémantique minimaliste HTML pour l'Accessibilité&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Titre de la page&lt;/h1&gt;
+    &lt;/header&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt; &lt;a href=&quot;#&quot;&gt;Accueil&lt;/a&gt; &lt;/li&gt;
+            &lt;li&gt; &lt;a href=&quot;#&quot;&gt;À propos&lt;/a&gt; &lt;/li&gt;
+            &lt;li&gt; &lt;a href=&quot;#&quot;&gt;Services&lt;/a&gt; &lt;/li&gt;
+            &lt;li&gt; &lt;a href=&quot;#&quot;&gt;Contact&lt;/a&gt; &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+    &lt;main&gt;
+        &lt;h2&gt;Contenu principal &lt;/h2&gt;
+        &lt;p&gt;un paragraphe &lt;/p&gt;
+        &lt;p&gt;un autre paragraphe &lt;/p&gt;
+    &lt;/main&gt;
+    &lt;footer&gt;
+        &lt;p&gt;Copyright &copy; 2023. Tous droits réservés. &lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                            </code>
+                        </pre>
+                            
+                    </div>
+                </div>
+            </figure>
+            <figure>
+                <img src="../assets/image-clavier.png" alt="image soulignant l'importance de l'accès par utilisation du clavier quand l'accès par la souris n'est pas possible">
+                <h2>Donner l'accès au clavier</h2>
+                <figcaption>S'assurer que toutes les fonctionnalités du site sont accessibles via le clavier par les personnes qui ne peuvent pas utiliser la souris.</figcaption>
+            </figure>
+            <figure>
+                <img src="../assets/contraste-image.png" alt="image illustrant les contrastes de couleurs">
+                <h2>Régler les problèmes de contraste des couleurs</h2>
+                <figcaption>Utiliser des combinaisons de couleurs offrant un contraste suffisant pour rendre le contenu lisible pour les personnes atteintes de déficience visuelle.</figcaption>
+            </figure>
+            <figure>
+                <img src="../assets/image-formulaire.png" alt="image illustrant un formulaire HTML">
+                <h2>Comment rendre les formulaires accessibles ?</h2>
+                <figcaption>Il faut utiliser des balises HTML sémantiques et utiliser des patterns ARIA :</figcaption>
+                <ul class="aria-list">
+                    <li>aria-label</li>
+                    <li>aria-live</li>
+                    <li>aria-autocomplete</li>
+                    <li>aria-checked</li>
+                    <li>aria-modal</li>
+                    <li>aria-selected</li>
+                </ul>
+                <p>... pour améliorer la compréhension du contenu par les technologies d'assistance.</p>
+            </figure>
+        </section>
+        <section id="audit" class="last-section">
+            <img src="../assets/ara.png" alt="">
+            <p><span class="bolded">ARA</span> vous propose une méthodologie pour réaliser 3 types d'audit</p>
+            <p><span class="bolded">Rapide</span> (25 critères du <span class="underline">RGAA</span>)</p>
+            <p><span class="bolded">Complémentaire</span> (50 critères du <span class="underline">RGAA</span>)</p>
+            <p class="grey-back"><span class="bolded">Complet</span> dit de conformité (106 critères du <span class="underline">RGAA</span>)</p>
+            <p><a href="https://ara.numerique.gouv.fr/audits/nouveau">Lien pour effectuer un audit d'un site web</a></p>
+            <p><a href="https://ara.numerique.gouv.fr/ressources/outils">Lien vers une liste d'outils pour tester l'accessibilité</a></p>
+        </section>
+    </main>
+    <footer>
+        <p>© 2023 HandiA11y. Tous droits réservés.</p>
+        <p>Envoyez un courriel à <a class="white-links" href="mailto:philippe.bouget(@)laposte.net">philippe.bouget(@)laposte.net</a>  si vous souhaitez suivre une formation sur l'accessibilité.</p>
+    </footer>
+</body>
+<script src="../scripts/script.js"></script>
+</html>

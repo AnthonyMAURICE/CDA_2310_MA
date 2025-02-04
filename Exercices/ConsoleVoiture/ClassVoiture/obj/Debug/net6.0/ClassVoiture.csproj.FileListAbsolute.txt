@@ -1,0 +1,12 @@
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleVoiture\ClassVoiture\bin\Debug\net6.0\ClassVoiture.deps.json
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleVoiture\ClassVoiture\bin\Debug\net6.0\ClassVoiture.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleVoiture\ClassVoiture\bin\Debug\net6.0\ClassVoiture.pdb
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleVoiture\ClassVoiture\obj\Debug\net6.0\ClassVoiture.csproj.AssemblyReference.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleVoiture\ClassVoiture\obj\Debug\net6.0\ClassVoiture.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleVoiture\ClassVoiture\obj\Debug\net6.0\ClassVoiture.AssemblyInfoInputs.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleVoiture\ClassVoiture\obj\Debug\net6.0\ClassVoiture.AssemblyInfo.cs
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleVoiture\ClassVoiture\obj\Debug\net6.0\ClassVoiture.csproj.CoreCompileInputs.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleVoiture\ClassVoiture\obj\Debug\net6.0\ClassVoiture.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleVoiture\ClassVoiture\obj\Debug\net6.0\refint\ClassVoiture.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleVoiture\ClassVoiture\obj\Debug\net6.0\ClassVoiture.pdb
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleVoiture\ClassVoiture\obj\Debug\net6.0\ref\ClassVoiture.dll

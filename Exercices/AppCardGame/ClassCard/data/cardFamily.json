@@ -1,0 +1,29 @@
+{
+  "family": [
+    {
+      "name": "Corsaire",
+      "desc": "Les mercenaires",
+      "elem": "Eau"
+    },
+    {
+      "name": "Gardien",
+      "desc": "Les gardes royaux",
+      "elem": "Terre"
+    },
+    {
+      "name": "Mage",
+      "desc": "Les magiciens",
+      "elem": "Feu"
+    },
+    {
+      "name": "Paladin",
+      "desc": "Les protecteurs des cités",
+      "elem": "Terre"
+    },
+    {
+      "name": "Sage",
+      "desc": "Les érudits",
+      "elem": "Air"
+    }
+  ]
+}

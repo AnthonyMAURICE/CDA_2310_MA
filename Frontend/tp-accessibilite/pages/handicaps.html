@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/general-style.css">
+    <link rel="stylesheet" href="../style/handicaps.css">
+    <title>Handicaps et symboles liés</title>
+</head>
+<body>
+    <header class="home-header">
+        <div class="logo-and-skip">
+            <a class="white-links" href="#content">Aller au contenu</a>
+            <img src="../assets/a11yNow.png" alt="Logo du site HandiA11y spécialisé dans l'accessibilité web">
+        </div>
+        <nav role="navigation">
+            <ul class="navbar">
+                <li><a class="white-links" href="../index.html">Accueil</a></li>
+                <li><a class="white-links" href="./ally.html">A11y</a></li>
+                <li><a class="white-links" href="./handicaps.html">Handicaps</a></li>
+                <li><a class="white-links" href="./form.html">Faites un don</a></li>
+                <li><a class="white-links" href="./team.html">Equipe</a></li>
+                <li><a class="white-links" href="./map.html">Plan du site</a></li>
+                <li><button class="btn btn-access" type="button">Paramètres Accessiblilté</button></li>
+            </ul>
+        </nav>
+        <form role="search">
+            <label class="hidden" for="search-bar">zone de recherche</label>
+            <input type="text" placeholder="zone de recherche" id="search-bar" name="search-bar">
+            <button class="btn btn-yellow" type="button">Rechercher</button>
+        </form>
+        <dialog>
+            <div class="dialog-title">
+                <h1>Paramètres d'accessibilité</h1>
+                <button class="close-dialog">X</button>
+            </div>
+            <div class="dialog-wrapper">
+                <fieldset class="dialog-options">
+                    <legend>Contrastes</legend>
+                    <div class="dialog-inputs">
+                        <input class="contrast" type="radio" id="default-contrast" checked name="contrast">
+                        <label for="default-contrast" name="contrast">Défaut</label>
+                        <input class="contrast" type="radio" id="enhanced-contrast" name="contrast">
+                        <label for="enhanced-contrast" name="contrast">Renforcer</label>
+                        <input class="contrast" type="radio" id="inverted-contrast" name="contrast">
+                        <label for="inverted-contrast" name="contrast">Inverser</label>
+                    </div>
+                </fieldset>
+                <fieldset class="dialog-options">
+                    <legend>
+                        Police (dyslexie)
+                    </legend>
+                    <div class="dialog-inputs">
+                        <input class="font" type="radio" id="default-font" checked name="font">
+                        <label for="default-font" name="font">Défaut</label>
+                        <input class="font" type="radio" id="adapted-font" name="font">
+                        <label for="adapted-font" name="font">Adapter</label>
+                    </div>
+                </fieldset>
+                <fieldset class="dialog-options">
+                    <legend>
+                        Interlignage
+                    </legend>
+                    <div class="dialog-inputs">
+                        <input class="interligne" type="radio" id="default-interline" checked name="interline">
+                        <label for="default-interline">Défaut</label>
+                        <input class="interligne" type="radio" id="enhanced-interline" name="interline">
+                        <label for="enhanced-interline">Augmenter</label>
+                    </div>
+                </fieldset>
+                <fieldset class="dialog-options">
+                    <legend>
+                        Justification
+                    </legend>
+                    <div class="dialog-inputs">
+                        <input class="justify" type="radio" id="default-justify" checked name="justify">
+                        <label for="default-justify">Défaut</label>
+                        <input class="justify" type="radio" id="remove-justify" name="justify">
+                        <label for="remove-justify">Supprimer</label>
+                    </div>
+                </fieldset>
+                <fieldset class="dialog-options">
+                    <legend>
+                        Images
+                    </legend>
+                    <div class="dialog-inputs">
+                        <input type="radio" id="default-images" checked name="images">
+                        <label for="default-images">Défaut</label>
+                        <input type="radio" id="text-images" name="images">
+                        <label for="text-images">Remplacer par du texte</label>
+                    </div>
+                </fieldset>
+            </div>    
+        </dialog>
+    </header>
+    <main id="content">
+        <h1>Symboles et types de handicaps</h1>
+        <section id="handicaps" class="handicaps">
+            <article class="visual">
+                <figure class="row spaced">
+                    <img class="handi-img" src="../assets/handicap-visuel.jpg" alt="logo représentant les handicaps visuels">
+                    <figcaption class="handi-desc">
+                        <h2>Handicap visuel</h2>
+                        <p>Le handicap visuel désigne les limitations fonctionnelles liées à la vision, que ce soit une cécité totale ou partielle. Les personnes atteintes de handicap visuel peuvent utiliser des aides techniques telles que les plages brailles, les synthèses vocales, ou les dispositifs d'agrandissement de texte pour accéder à l'information.</p>
+                    </figcaption>
+                </figure>
+            </article>
+            <article class="audio">
+                <figure class="row spaced">
+                    <img class="handi-img" src="../assets/handicap-auditif.jpg" alt="logo représentant les handicaps visuels">
+                    <figcaption class="handi-desc">
+                        <h2>Handicap auditif</h2>
+                        <p>Le handicap auditif concerne les limitations fonctionnelles liées à l'ouïe, que ce soit une surdité totale ou partielle. Les personnes atteintes de handicap auditif peuvent utiliser des appareils auditifs, des boucles magnétiques ou des sous-titres pour accéder à l'information sonore.</p>
+                    </figcaption>
+                </figure>
+            </article>
+            <article class="movement">
+                <figure class="row spaced">
+                    <img class="handi-img" src="../assets/handicap-moteur.jpg" alt="logo représentant les handicaps visuels">
+                    <figcaption class="handi-desc">
+                        <h2>Handicap moteur</h2>
+                        <p>Le handicap moteur concerne les limitations physiques dans les mouvements et la coordination avec très souvent l'incapacité à utiliser une souris, voire même l'utilisation de matériels spécifiques avec le besoin de bénéficier de davantage de temps pour effectuer des manipulations.</p>
+                    </figcaption>
+                </figure>
+            </article>
+            <article class="cognition">
+                <figure class="row spaced">
+                    <img class="handi-img" src="../assets/handicap-cognitif.jpg" alt="logo représentant les handicaps visuels">
+                    <figcaption class="handi-desc">
+                        <h2>Handicap cognitif</h2>
+                        <p>Le handicap cognitif concerne les problèmes de troubles de l'apprentissage, l'incapacité à se souvenir ou à se concentrer sur de grandes quantités d'informations, difficultés de lecture et de compréhension, difficultés à prendre des décisions.</p>
+                    </figcaption>
+                </figure>
+            </article>
+        </section>
+        <section id="devices" class="devices">
+            <h2 class="title">Quelques matériels d'accessibilité</h2>
+            <article class="row">
+                <figure class="column devices-figure">
+                    <img class="handi-img" src="../assets/plage-braille.png" alt="">
+                    <figcaption>Plage braille</figcaption>
+                </figure>
+                <figure class="column devices-figure">
+                    <img class="handi-img" src="../assets/synthese-vocale.png" alt="">
+                    <figcaption>Synthèse vocale</figcaption>
+                </figure>
+                <figure class="column devices-figure">
+                    <img class="handi-img" src="../assets/image-trackball.jpg" alt="">
+                    <figcaption>Trackball (remplace la souris)</figcaption>
+                </figure>
+            </article>
+                
+        </section>
+    </main>
+    <footer>
+        <p>© 2023 HandiA11y. Tous droits réservés.</p>
+        <p>Envoyez un courriel à <a class="white-links" href="mailto:philippe.bouget(@)laposte.net">philippe.bouget(@)laposte.net</a>  si vous souhaitez suivre une formation sur l'accessibilité.</p>
+    </footer>
+</body>
+<script src="../scripts/script.js"></script>
+</html>

@@ -1,0 +1,56 @@
+*{
+    box-sizing: border-box;
+}
+
+:root {
+    --base-bg: #111111;
+    --base-txt: #CCCCCC;
+    --base-link: #E4D9FF;
+    --base-btn: #085E8F;
+}
+
+html{
+	font-size: 62.5%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+	font-size: 1.6rem;
+    background-color: var(--base-bg);
+    color: var(--base-txt);
+    border: 1px solid var(--base-link);
+}
+
+.first-inputs{
+    background-color: var(--base-txt);
+    color: var(--base-btn);
+    height: 35px;
+    border: none;
+    margin: 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#filter-wrap{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.filters{
+    background-color: var(--base-btn);
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+table{
+    background-color: var(--base-btn);
+    margin: 15px;
+    border-radius: 10px;
+}
+
+th, td{
+    padding: 10px;
+    text-align: center;
+}

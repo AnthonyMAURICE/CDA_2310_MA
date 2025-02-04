@@ -1,0 +1,52 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 25px;
+}
+
+.form-elements{
+    border-radius: 15px;
+    margin: 15px 0;
+    min-width: 450px;
+    max-width: 550px;
+}
+
+.form-labels{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 25px;
+}
+
+input{
+    width: 175px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#check{
+    justify-content: center;
+}
+
+#cgu{
+    width: 50px;
+}
+
+.sub-button{
+    justify-content: center;
+}
+
+button{
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+    border-color: lightgray;
+}
+
+button:hover{
+    background-color: black;
+    color: white;
+}

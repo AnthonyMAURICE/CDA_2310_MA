@@ -1,0 +1,169 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\ExDto\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{259D45B3-E917-4C6E-874D-0C80F5CFD9A9}|ExDto\\ExDto.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\exdto\\exdto\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{259D45B3-E917-4C6E-874D-0C80F5CFD9A9}|ExDto\\ExDto.csproj|solutionrelative:exdto\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{259D45B3-E917-4C6E-874D-0C80F5CFD9A9}|ExDto\\ExDto.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\exdto\\exdto\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{259D45B3-E917-4C6E-874D-0C80F5CFD9A9}|ExDto\\ExDto.csproj|solutionrelative:exdto\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{259D45B3-E917-4C6E-874D-0C80F5CFD9A9}|ExDto\\ExDto.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\exdto\\exdto\\controllers\\enrollmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{259D45B3-E917-4C6E-874D-0C80F5CFD9A9}|ExDto\\ExDto.csproj|solutionrelative:exdto\\controllers\\enrollmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{259D45B3-E917-4C6E-874D-0C80F5CFD9A9}|ExDto\\ExDto.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\exdto\\exdto\\models\\enrollmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{259D45B3-E917-4C6E-874D-0C80F5CFD9A9}|ExDto\\ExDto.csproj|solutionrelative:exdto\\models\\enrollmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{259D45B3-E917-4C6E-874D-0C80F5CFD9A9}|ExDto\\ExDto.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\exdto\\exdto\\models\\coursedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{259D45B3-E917-4C6E-874D-0C80F5CFD9A9}|ExDto\\ExDto.csproj|solutionrelative:exdto\\models\\coursedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{259D45B3-E917-4C6E-874D-0C80F5CFD9A9}|ExDto\\ExDto.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\exdto\\exdto\\models\\enrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{259D45B3-E917-4C6E-874D-0C80F5CFD9A9}|ExDto\\ExDto.csproj|solutionrelative:exdto\\models\\enrollment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{259D45B3-E917-4C6E-874D-0C80F5CFD9A9}|ExDto\\ExDto.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\exdto\\exdto\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{259D45B3-E917-4C6E-874D-0C80F5CFD9A9}|ExDto\\ExDto.csproj|solutionrelative:exdto\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{259D45B3-E917-4C6E-874D-0C80F5CFD9A9}|ExDto\\ExDto.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\exdto\\exdto\\models\\studentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{259D45B3-E917-4C6E-874D-0C80F5CFD9A9}|ExDto\\ExDto.csproj|solutionrelative:exdto\\models\\studentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{259D45B3-E917-4C6E-874D-0C80F5CFD9A9}|ExDto\\ExDto.csproj|c:\\users\\amaurice\\documents\\github\\cda_2310_ma\\exercices_api\\exdto\\exdto\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{259D45B3-E917-4C6E-874D-0C80F5CFD9A9}|ExDto\\ExDto.csproj|solutionrelative:exdto\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CoursesController.cs",
+              "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\ExDto\\ExDto\\Controllers\\CoursesController.cs",
+              "RelativeDocumentMoniker": "ExDto\\Controllers\\CoursesController.cs",
+              "ToolTip": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\ExDto\\ExDto\\Controllers\\CoursesController.cs",
+              "RelativeToolTip": "ExDto\\Controllers\\CoursesController.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAIwCcAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T12:49:51.478Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CourseDTO.cs",
+              "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\ExDto\\ExDto\\Models\\CourseDTO.cs",
+              "RelativeDocumentMoniker": "ExDto\\Models\\CourseDTO.cs",
+              "ToolTip": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\ExDto\\ExDto\\Models\\CourseDTO.cs",
+              "RelativeToolTip": "ExDto\\Models\\CourseDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T12:38:33.516Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EnrollmentDTO.cs",
+              "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\ExDto\\ExDto\\Models\\EnrollmentDTO.cs",
+              "RelativeDocumentMoniker": "ExDto\\Models\\EnrollmentDTO.cs",
+              "ToolTip": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\ExDto\\ExDto\\Models\\EnrollmentDTO.cs",
+              "RelativeToolTip": "ExDto\\Models\\EnrollmentDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T12:38:44.909Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Enrollment.cs",
+              "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\ExDto\\ExDto\\Models\\Enrollment.cs",
+              "RelativeDocumentMoniker": "ExDto\\Models\\Enrollment.cs",
+              "ToolTip": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\ExDto\\ExDto\\Models\\Enrollment.cs",
+              "RelativeToolTip": "ExDto\\Models\\Enrollment.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBsAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T12:22:58.988Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Student.cs",
+              "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\ExDto\\ExDto\\Models\\Student.cs",
+              "RelativeDocumentMoniker": "ExDto\\Models\\Student.cs",
+              "ToolTip": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\ExDto\\ExDto\\Models\\Student.cs",
+              "RelativeToolTip": "ExDto\\Models\\Student.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T12:16:47.428Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\ExDto\\ExDto\\Program.cs",
+              "RelativeDocumentMoniker": "ExDto\\Program.cs",
+              "ToolTip": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\ExDto\\ExDto\\Program.cs",
+              "RelativeToolTip": "ExDto\\Program.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwBAAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T12:15:43.186Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "StudentDTO.cs",
+              "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\ExDto\\ExDto\\Models\\StudentDTO.cs",
+              "RelativeDocumentMoniker": "ExDto\\Models\\StudentDTO.cs",
+              "ToolTip": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\ExDto\\ExDto\\Models\\StudentDTO.cs",
+              "RelativeToolTip": "ExDto\\Models\\StudentDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T12:38:23.213Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EnrollmentsController.cs",
+              "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\ExDto\\ExDto\\Controllers\\EnrollmentsController.cs",
+              "RelativeDocumentMoniker": "ExDto\\Controllers\\EnrollmentsController.cs",
+              "ToolTip": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\ExDto\\ExDto\\Controllers\\EnrollmentsController.cs",
+              "RelativeToolTip": "ExDto\\Controllers\\EnrollmentsController.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T12:50:49.901Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "StudentsController.cs",
+              "DocumentMoniker": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\ExDto\\ExDto\\Controllers\\StudentsController.cs",
+              "RelativeDocumentMoniker": "ExDto\\Controllers\\StudentsController.cs",
+              "ToolTip": "C:\\Users\\amaurice\\Documents\\GitHub\\CDA_2310_MA\\Exercices_API\\ExDto\\ExDto\\Controllers\\StudentsController.cs",
+              "RelativeToolTip": "ExDto\\Controllers\\StudentsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T12:50:28.529Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

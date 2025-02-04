@@ -1,0 +1,42 @@
+{
+    "companies": [
+        {
+            "airfrance": [
+                {
+                    "name": "Air France",
+                    "departure": [
+                        {
+                            "aeroDepart": "Orly",
+                            "flights": [
+                                {
+                                    "flightID": 1,
+                                    "flightNumber": "AF-110",
+                                    "destination": "McMurdo / Antartica",
+                                    "departureTime": "01/06/2024 / 9h30 CEST"
+                                },
+                                {
+                                    "flightID": 2,
+                                    "flightNumber": "AF-666",
+                                    "destination": "R'lyeh / South Pacific",
+                                    "departureTime": "01/06/2024 / 10h00 CEST"
+                                },
+                                {
+                                    "flightID": 3,
+                                    "flightNumber": "AF-000",
+                                    "destination": "Nowhere / Unending Void",
+                                    "departureTime": "01/06/2024 / 11h45 CEST"
+                                },
+                                {
+                                    "flightID": 4,
+                                    "flightNumber": "AF-017",
+                                    "destination": "Silent Sea / Moon",
+                                    "departureTime": "01/06/2024 / 19h30 CEST"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

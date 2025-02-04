@@ -1,0 +1,48 @@
+form{
+    display: flex;
+    flex-flow: column;
+    width: 50%;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 15px;
+    box-shadow: 0px 2px 4px rgb(130, 130, 130, 0.6);
+}
+
+.search-bar{
+    width: fit-content;
+    flex-flow: row;
+    align-items: center;
+    border: none;
+    box-shadow: none;
+}
+
+h2{
+    text-align: center;
+}
+
+fieldset{
+    display: flex;
+    flex-flow: column;
+    margin: 15px;
+}
+
+legend{
+    font-weight: bold;
+}
+
+label{
+    margin: 5px;
+}
+
+input, select{
+    height: 30px;
+    border-radius: 5px;
+    border-width: 1px;
+}
+
+.button-validate{
+    display: flex;
+    justify-content: center;
+}
+

@@ -1,0 +1,103 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\antho\\Documents\\GitHub\\CDA_2310_MA\\Exercices\\ConsoleQuatreVingtEtUn\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3479AD97-F18F-4175-944B-AB3E495E3781}|QuatreVingtEtUn\\QuatreVingtEtUn.csproj|c:\\users\\antho\\documents\\github\\cda_2310_ma\\exercices\\consolequatrevingtetun\\quatrevingtetun\\partie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3479AD97-F18F-4175-944B-AB3E495E3781}|QuatreVingtEtUn\\QuatreVingtEtUn.csproj|solutionrelative:quatrevingtetun\\partie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3479AD97-F18F-4175-944B-AB3E495E3781}|QuatreVingtEtUn\\QuatreVingtEtUn.csproj|c:\\users\\antho\\documents\\github\\cda_2310_ma\\exercices\\consolequatrevingtetun\\quatrevingtetun\\manche.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3479AD97-F18F-4175-944B-AB3E495E3781}|QuatreVingtEtUn\\QuatreVingtEtUn.csproj|solutionrelative:quatrevingtetun\\manche.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{527C4BD6-79A1-4860-966A-F1F1391628A9}|ConsoleQuatreVingtEtUn\\ConsoleQuatreVingtEtUn.csproj|c:\\users\\antho\\documents\\github\\cda_2310_ma\\exercices\\consolequatrevingtetun\\consolequatrevingtetun\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{527C4BD6-79A1-4860-966A-F1F1391628A9}|ConsoleQuatreVingtEtUn\\ConsoleQuatreVingtEtUn.csproj|solutionrelative:consolequatrevingtetun\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3479AD97-F18F-4175-944B-AB3E495E3781}|QuatreVingtEtUn\\QuatreVingtEtUn.csproj|c:\\users\\antho\\documents\\github\\cda_2310_ma\\exercices\\consolequatrevingtetun\\quatrevingtetun\\alea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3479AD97-F18F-4175-944B-AB3E495E3781}|QuatreVingtEtUn\\QuatreVingtEtUn.csproj|solutionrelative:quatrevingtetun\\alea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3479AD97-F18F-4175-944B-AB3E495E3781}|QuatreVingtEtUn\\QuatreVingtEtUn.csproj|c:\\users\\antho\\documents\\github\\cda_2310_ma\\exercices\\consolequatrevingtetun\\quatrevingtetun\\de.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3479AD97-F18F-4175-944B-AB3E495E3781}|QuatreVingtEtUn\\QuatreVingtEtUn.csproj|solutionrelative:quatrevingtetun\\de.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Partie.cs",
+              "DocumentMoniker": "C:\\Users\\antho\\Documents\\GitHub\\CDA_2310_MA\\Exercices\\ConsoleQuatreVingtEtUn\\QuatreVingtEtUn\\Partie.cs",
+              "RelativeDocumentMoniker": "QuatreVingtEtUn\\Partie.cs",
+              "ToolTip": "C:\\Users\\antho\\Documents\\GitHub\\CDA_2310_MA\\Exercices\\ConsoleQuatreVingtEtUn\\QuatreVingtEtUn\\Partie.cs",
+              "RelativeToolTip": "QuatreVingtEtUn\\Partie.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAxwE0AAABtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T16:48:37.545Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Manche.cs",
+              "DocumentMoniker": "C:\\Users\\antho\\Documents\\GitHub\\CDA_2310_MA\\Exercices\\ConsoleQuatreVingtEtUn\\QuatreVingtEtUn\\Manche.cs",
+              "RelativeDocumentMoniker": "QuatreVingtEtUn\\Manche.cs",
+              "ToolTip": "C:\\Users\\antho\\Documents\\GitHub\\CDA_2310_MA\\Exercices\\ConsoleQuatreVingtEtUn\\QuatreVingtEtUn\\Manche.cs",
+              "RelativeToolTip": "QuatreVingtEtUn\\Manche.cs",
+              "ViewState": "AQIAAD4AAAAAAAAAAAAQwFQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T16:48:37.684Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Alea.cs",
+              "DocumentMoniker": "C:\\Users\\antho\\Documents\\GitHub\\CDA_2310_MA\\Exercices\\ConsoleQuatreVingtEtUn\\QuatreVingtEtUn\\Alea.cs",
+              "RelativeDocumentMoniker": "QuatreVingtEtUn\\Alea.cs",
+              "ToolTip": "C:\\Users\\antho\\Documents\\GitHub\\CDA_2310_MA\\Exercices\\ConsoleQuatreVingtEtUn\\QuatreVingtEtUn\\Alea.cs",
+              "RelativeToolTip": "QuatreVingtEtUn\\Alea.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T16:48:37.714Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "De.cs",
+              "DocumentMoniker": "C:\\Users\\antho\\Documents\\GitHub\\CDA_2310_MA\\Exercices\\ConsoleQuatreVingtEtUn\\QuatreVingtEtUn\\De.cs",
+              "RelativeDocumentMoniker": "QuatreVingtEtUn\\De.cs",
+              "ToolTip": "C:\\Users\\antho\\Documents\\GitHub\\CDA_2310_MA\\Exercices\\ConsoleQuatreVingtEtUn\\QuatreVingtEtUn\\De.cs",
+              "RelativeToolTip": "QuatreVingtEtUn\\De.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T16:48:37.745Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\antho\\Documents\\GitHub\\CDA_2310_MA\\Exercices\\ConsoleQuatreVingtEtUn\\ConsoleQuatreVingtEtUn\\Program.cs",
+              "RelativeDocumentMoniker": "ConsoleQuatreVingtEtUn\\Program.cs",
+              "ToolTip": "C:\\Users\\antho\\Documents\\GitHub\\CDA_2310_MA\\Exercices\\ConsoleQuatreVingtEtUn\\ConsoleQuatreVingtEtUn\\Program.cs",
+              "RelativeToolTip": "ConsoleQuatreVingtEtUn\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T16:48:37.784Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

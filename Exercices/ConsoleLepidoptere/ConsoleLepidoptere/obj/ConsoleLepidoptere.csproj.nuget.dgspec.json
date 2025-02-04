@@ -1,0 +1,132 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleLepidoptere\\ConsoleLepidoptere\\ConsoleLepidoptere.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleLepidoptere\\ConsoleLepidoptere\\ConsoleLepidoptere.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleLepidoptere\\ConsoleLepidoptere\\ConsoleLepidoptere.csproj",
+        "projectName": "ConsoleLepidoptere",
+        "projectPath": "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleLepidoptere\\ConsoleLepidoptere\\ConsoleLepidoptere.csproj",
+        "packagesPath": "C:\\Users\\amaurice\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleLepidoptere\\ConsoleLepidoptere\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\amaurice\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleLepidoptere\\Lepidoptere\\ClassLepidoptere.csproj": {
+                "projectPath": "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleLepidoptere\\Lepidoptere\\ClassLepidoptere.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleLepidoptere\\Lepidoptere\\ClassLepidoptere.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleLepidoptere\\Lepidoptere\\ClassLepidoptere.csproj",
+        "projectName": "ClassLepidoptere",
+        "projectPath": "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleLepidoptere\\Lepidoptere\\ClassLepidoptere.csproj",
+        "packagesPath": "C:\\Users\\amaurice\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\ConsoleLepidoptere\\Lepidoptere\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\amaurice\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

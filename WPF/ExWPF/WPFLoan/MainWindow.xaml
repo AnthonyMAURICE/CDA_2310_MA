@@ -1,0 +1,54 @@
+﻿<Window x:Class="WPFLoan.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:WPFLoan"
+        mc:Ignorable="d"
+        xmlns:viewModels="clr-namespace:WPFLoan.ViewModels"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <viewModels:LoanViewModel/>
+    </Window.DataContext>
+    <Grid Name="MainGrid">
+        <Label Content="Nom" HorizontalAlignment="Left" Margin="25,33,0,0" VerticalAlignment="Top"/>
+        <TextBox Style="{StaticResource ValidatingControl}"  x:Name="textBoxName" HorizontalAlignment="Left" Margin="179,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+        <Label Content="Capital Emprunté" HorizontalAlignment="Left" Margin="25,76,0,0" VerticalAlignment="Top"/>
+        <TextBox Style="{StaticResource ValidatingControl}"  x:Name="textBoxCapital" HorizontalAlignment="Left" Margin="179,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textBoxCapital_TextChanged" Text="{Binding Amount, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+        <GroupBox Header="Taux d'intérêt" Margin="390,23,310,261" Height="150" Width="100">
+            <StackPanel x:Name="radioButtons" Height="124" Width="90">
+                <RadioButton Name="RadioRateSeven" Tag="7" IsChecked="True"  Content="7%" Margin="0,15,0,0" Checked="RadioRate_Checked"/>
+                <RadioButton Name="RadioRateEight" Tag="8" Content="8%" Margin="0,25,0,25" Width="90" Height="15" Checked="RadioRate_Checked"/>
+                <RadioButton Name="RadioRateNine" Tag="9" Content="9%" Checked="RadioRate_Checked"/>
+            </StackPanel>
+        </GroupBox>
+        <Button x:Name="okButton" Content="Local Save" HorizontalAlignment="Left" Margin="526,100,0,0" VerticalAlignment="Top" Width="75" Height="29" Click="okButton_Click" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.198"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="cancelButton" Content="Annuler" HorizontalAlignment="Left" Margin="526,191,0,0" VerticalAlignment="Top" Width="75" Click="cancelButton_Click" Height="26"/>
+        <TextBlock HorizontalAlignment="Left" Margin="25,132,0,0" TextWrapping="Wrap" Text="Durée en mois du remboursement" VerticalAlignment="Top" Width="131"/>
+        <TextBlock x:Name="durationText"  HorizontalAlignment="Left" Margin="179,141,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top"/>
+        <Slider x:Name="durationSlider" Minimum="1" Maximum="200" TickFrequency="1" IsSnapToTickEnabled="True" SmallChange="1" LargeChange="1" HorizontalAlignment="Left" Margin="203,140,0,0" VerticalAlignment="Top" Width="150" ValueChanged="DurationSlider_ValueChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="25,213,0,0" TextWrapping="Wrap" Text="Périodicité de remboursement" VerticalAlignment="Top"/>
+        <ListBox x:Name="listBoxTime" HorizontalAlignment="Left" Height="105" Margin="25,248,0,0" VerticalAlignment="Top" Width="274" SelectionChanged="listBoxTime_SelectionChanged">
+            <ListBoxItem Content="Mensuelle"/>
+            <ListBoxItem Content="Bimestrielle"/>
+            <ListBoxItem Content="Trimestrielle"/>
+            <ListBoxItem Content="Semestrielle"/>
+            <ListBoxItem Content="Annuelle"/>
+        </ListBox>
+        <TextBlock x:Name="refundsNumber" HorizontalAlignment="Left" Margin="415,248,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="Red"/>
+        <TextBlock HorizontalAlignment="Left" Margin="490,248,0,0" TextWrapping="Wrap" Text="Remboursements" VerticalAlignment="Top"/>
+        <TextBlock x:Name="labelRefundAmount" HorizontalAlignment="Left" Margin="490,300,0,0" TextWrapping="Wrap" Text="0 €" VerticalAlignment="Top" Foreground="Red"/>
+        <Button x:Name="saveBtn" Content="Save" HorizontalAlignment="Left" Margin="526,46,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="saveBtn_Click"/>
+        <Button x:Name="localLoad" Content="Local Load" HorizontalAlignment="Left" Margin="526,148,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="localLoad_Click"/>
+    </Grid>
+</Window>

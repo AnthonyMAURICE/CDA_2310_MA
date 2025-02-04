@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr-fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./js/main.js" type="module"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Test API</title>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Pays</h1>
+        </header>
+        <main>
+            <h2>Liste des pays</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2" class="right">CODE</th>
+                        <th colspan="2" class="left">NOM</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(country, index) in countries" :class="index%2 == 0? 'darker' : 'dark'">
+                        <td class="small-cell"><img :src="formatFlagUrl(country.code, 32)" alt="drapeau"></td>
+                        <td class="small-cell">{{ country.code }}</td>
+                        <td>{{ country.name }}</td>
+                        <td><button class="btn" type="button" @click="modalDialogue(country)">Détails</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <dialog id="country-dialog">
+                <button @click="closeDialog" class="close-btn" type="reset">Fermer</button>
+                <div class="dialog-header">
+                    <p>{{ activeCountry.name }}</p>
+                    <img class="dialog-img" :src="formatFlagUrl(activeCountry.code, 64)" alt="drapeau">
+                    <p>Code ISO : {{ activeCountry.code }}</p>
+                </div>
+                <form>
+                    <label for="city-input">Ajouter une ville : </label>
+                    <input v-model="cityInput" type="text" name="city-input" id="city-input" required>
+                    <label class="zip" for="zip-code">Code Postal : </label>
+                    <input v-model="zipCode" type="text" id="zip-code" required>
+                    <input @click="addCity()" type="reset" class="btn" id="add-button" value="Ajouter">
+                </form>
+                <div class="dialog-cities">
+                    <p>{{ getLength(activeCountry.cities) }} ville(s) enregistrée(s)</p>
+                    <ul>
+                        <li v-for="city in activeCountry.cities">{{ city.name }}</li>
+                    </ul>
+                </div>
+            </dialog>
+        </main>
+    </div>
+</body>
+</html>

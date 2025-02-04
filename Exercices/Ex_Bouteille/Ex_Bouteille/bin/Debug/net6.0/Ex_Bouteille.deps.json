@@ -1,0 +1,47 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Ex_Bouteille/1.0.0": {
+        "dependencies": {
+          "ClassLibraryBouteille": "1.0.0",
+          "ClassLibraryBouteille2": "1.0.0"
+        },
+        "runtime": {
+          "Ex_Bouteille.dll": {}
+        }
+      },
+      "ClassLibraryBouteille/1.0.0": {
+        "runtime": {
+          "ClassLibraryBouteille.dll": {}
+        }
+      },
+      "ClassLibraryBouteille2/1.0.0": {
+        "runtime": {
+          "ClassLibraryBouteille2.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Ex_Bouteille/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ClassLibraryBouteille/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ClassLibraryBouteille2/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

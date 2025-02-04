@@ -1,0 +1,12 @@
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleLepidoptere\Lepidoptere\bin\Debug\net6.0\ClassLepidoptere.deps.json
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleLepidoptere\Lepidoptere\bin\Debug\net6.0\ClassLepidoptere.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleLepidoptere\Lepidoptere\bin\Debug\net6.0\ClassLepidoptere.pdb
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleLepidoptere\Lepidoptere\obj\Debug\net6.0\ClassLepidoptere.csproj.AssemblyReference.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleLepidoptere\Lepidoptere\obj\Debug\net6.0\ClassLepidoptere.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleLepidoptere\Lepidoptere\obj\Debug\net6.0\ClassLepidoptere.AssemblyInfoInputs.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleLepidoptere\Lepidoptere\obj\Debug\net6.0\ClassLepidoptere.AssemblyInfo.cs
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleLepidoptere\Lepidoptere\obj\Debug\net6.0\ClassLepidoptere.csproj.CoreCompileInputs.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleLepidoptere\Lepidoptere\obj\Debug\net6.0\ClassLepidoptere.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleLepidoptere\Lepidoptere\obj\Debug\net6.0\refint\ClassLepidoptere.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleLepidoptere\Lepidoptere\obj\Debug\net6.0\ClassLepidoptere.pdb
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\ConsoleLepidoptere\Lepidoptere\obj\Debug\net6.0\ref\ClassLepidoptere.dll

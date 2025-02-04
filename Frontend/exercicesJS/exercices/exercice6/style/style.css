@@ -1,0 +1,25 @@
+form{
+    display: flex;
+    flex-flow: column;
+    width: 50%;
+    background-color: lightgreen;
+}
+
+.form-row{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 5px;
+}
+
+.border{
+    border-top: 1px solid black;
+}
+
+.total{
+    margin: 5px;
+    justify-content: flex-end;
+}
+
+#total{
+    margin: 10px;
+}

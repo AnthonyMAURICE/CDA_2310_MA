@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ExAdditionneur\ExAdditionneur.csproj" />
+    <ProjectReference Include="..\ExCheckRadio\ExCheckRadio.csproj" />
+    <ProjectReference Include="..\ExInputControl\ExInputControl.csproj" />
+    <ProjectReference Include="..\ExLoan\ExLoan.csproj" />
+    <ProjectReference Include="..\FormComboBoxSecond\FormComboBoxSecond.csproj" />
+    <ProjectReference Include="..\FormComboBox\FormComboBox.csproj" />
+    <ProjectReference Include="..\FormList\FormList.csproj" />
+    <ProjectReference Include="..\FormRange\FormRange.csproj" />
+    <ProjectReference Include="..\WFControls\WFControls.csproj" />
+    <ProjectReference Include="..\WFHelloWorld\WFHelloWorld.csproj" />
+  </ItemGroup>
+
+</Project>

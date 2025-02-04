@@ -1,0 +1,11 @@
+name: amaurice-ex-vignoble
+services:
+  apache:
+    image: httpd
+    container_name: amaurice-vignoble
+    restart: "no" # démarre ou non automatiquement le container au démarrage de docker
+    volumes:
+      - './www/:/usr/local/apache2/htdocs' # lien entre le chemin relatif et le chemin du serveur apache
+    ports: 
+      - '3000:80' # lien entre le port "3000" et le port utilisé par le protocole http (80)
+      

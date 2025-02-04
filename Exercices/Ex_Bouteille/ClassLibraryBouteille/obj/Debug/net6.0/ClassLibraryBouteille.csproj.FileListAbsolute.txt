@@ -1,0 +1,12 @@
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Ex_Bouteille\ClassLibraryBouteille\bin\Debug\net6.0\ClassLibraryBouteille.deps.json
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Ex_Bouteille\ClassLibraryBouteille\bin\Debug\net6.0\ClassLibraryBouteille.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Ex_Bouteille\ClassLibraryBouteille\bin\Debug\net6.0\ClassLibraryBouteille.pdb
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Ex_Bouteille\ClassLibraryBouteille\obj\Debug\net6.0\ClassLibraryBouteille.csproj.AssemblyReference.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Ex_Bouteille\ClassLibraryBouteille\obj\Debug\net6.0\ClassLibraryBouteille.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Ex_Bouteille\ClassLibraryBouteille\obj\Debug\net6.0\ClassLibraryBouteille.AssemblyInfoInputs.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Ex_Bouteille\ClassLibraryBouteille\obj\Debug\net6.0\ClassLibraryBouteille.AssemblyInfo.cs
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Ex_Bouteille\ClassLibraryBouteille\obj\Debug\net6.0\ClassLibraryBouteille.csproj.CoreCompileInputs.cache
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Ex_Bouteille\ClassLibraryBouteille\obj\Debug\net6.0\ClassLibraryBouteille.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Ex_Bouteille\ClassLibraryBouteille\obj\Debug\net6.0\refint\ClassLibraryBouteille.dll
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Ex_Bouteille\ClassLibraryBouteille\obj\Debug\net6.0\ClassLibraryBouteille.pdb
+C:\Users\amaurice\Documents\Git\CDA_2310_MA\Exercices\Ex_Bouteille\ClassLibraryBouteille\obj\Debug\net6.0\ref\ClassLibraryBouteille.dll

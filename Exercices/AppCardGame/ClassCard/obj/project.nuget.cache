@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Nvn5/N9DZZhu96bXfu7A1YsQZMY9/jYprKu5L205u+PKHf9Wp9Rm+KCcZTBrxSlhfDdTyAM0pdBro9ULYDXXaw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\amaurice\\Documents\\Git\\CDA_2310_MA\\Exercices\\AppCardGame\\ClassCard\\ClassCard.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\amaurice\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

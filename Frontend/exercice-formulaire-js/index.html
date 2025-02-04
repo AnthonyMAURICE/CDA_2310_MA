@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <title>Evaluation cours JavaScript</title>
+</head>
+<body>
+    <main>
+        <h1>Evaluation cours JavaScript</h1>
+        <h2>Formulaire avec traitement JavaScript</h2>
+        <div class="texte-area">
+            <label for="txt-area">Texte libre</label>
+            <textarea name="txt-area" id="" cols="30" rows="10" placeholder="texte libre"></textarea>
+        </div>
+        <form action="./index.html" method="get">
+            <label for="name">Nom utilisateur</label>
+            <input class="form-element input" type="text" pattern="^[a-zA-ZÀ-ÖØ-öø-ÿ]+$" minlength="3" name="name" id="login">
+            <div class="name-mail">
+                <label for="first-name">Prénom</label>
+                <input class="form-element input" type="text" pattern="^[a-zA-ZÀ-ÖØ-öø-ÿ]+$" minlength="3" name="first-name" id="first-name">
+                <label for="mail">Email</label>
+                <input class="form-element input" type="email" name="mail" id="mail">
+            </div>
+            <div class="dob">
+                <label for="day">Jour</label>
+                <select class="form-element" id="list-days">
+                </select>
+                <label for="month">Mois</label>
+                <select class="form-element list" id="list-month">
+                </select>
+                <label for="year">Année</label>
+                <select class="form-element list" id="list-year">
+                </select>
+            </div>
+            <div class="pseudo">
+                <label for="pseudo">Affichage de votre pseudo</label>
+                <input id="pseudo" type="text" readonly>
+            </div>
+            <div class="buttons">
+                <button id="validate" type="button" disabled>Validation</button>
+                <button id="reset">Annuler</button>
+            </div>
+        </form>
+    </main>
+</body>
+<script src="./scripts/loadingData.js"></script>
+<script src="./scripts/script.js"></script>
+<script src="./scripts/cookie.js"></script>
+</html>

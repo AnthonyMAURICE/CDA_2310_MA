@@ -1,0 +1,44 @@
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  --main-green: rgb(0, 100, 0);
+  --txt-white: white;
+  --txt-blue: blue;
+  --txt-black: black;
+  --txt-yellow: yellow;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+body {
+  min-height: 100vh;
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.6rem;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+li{
+  height: 4.5rem;
+}
+
+input, a{
+  font-size: 1.6rem;
+}
+
+td p{
+  text-align: center;
+}

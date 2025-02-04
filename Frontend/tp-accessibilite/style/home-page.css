@@ -1,0 +1,59 @@
+/* Section 1 */
+
+.presentation-text, .presentation{
+    width: 30%;
+}
+
+h1, h2{
+    text-align: center;
+}
+
+.presentation-text, .presentation > p{
+    font-size: 1.8rem;
+}
+
+/* Section 2 */
+
+section{
+    width: 100%;
+}
+
+.articles{
+    display: flex;
+    justify-content: center;
+}
+
+.principles-boxes{
+    background-color: var(--box-bg);
+    border-radius: 10px;
+    margin: 0 15px;
+    width: 22%;
+    padding: 5px 10px;
+    box-shadow: 0 2px 5px black;
+}
+
+/* Section 3 à 6 Tableaux */
+
+table{
+    text-align: left;
+    border-spacing: 0;
+    width: 75%;
+    margin: auto;
+}
+
+.table-head, .table-categories{
+    background-color: var(--t-bg);
+    color: var(--wl-color);
+}
+
+table, td, th{
+    border: 0.5px solid black;
+}
+
+th, td{
+    padding: 10px;
+}
+
+.conformity, .graphic{
+    text-align: center;
+}

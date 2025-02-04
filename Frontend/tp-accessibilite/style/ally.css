@@ -1,0 +1,36 @@
+.aria-list, .code-snipnet{
+    background-color: black;
+    color: white;
+    padding: 0;
+}
+
+section{
+    width: 60%;
+    margin: auto;
+}
+
+figure, section{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    text-align: center;
+}
+
+img{
+    max-width: 250px;
+}
+
+.aria-list > li{
+    list-style-type: none;
+    text-align: left;
+}
+
+pre{
+    text-align: left;
+}
+
+.last-section > p{
+    margin: 0;
+    height: 25px;
+}
+

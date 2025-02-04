@@ -1,0 +1,60 @@
+*{
+    box-sizing: border-box;
+}
+
+html{
+    font-family: Arial, Helvetica, sans-serif;
+	font-size: 62.5%;
+}
+
+body{
+	font-size: 1.6rem;
+}
+
+header, h2, article, button{
+    background-color: lightblue;
+}
+
+h1, h2, h3, button{
+    width: 100%;
+    margin: 5px 0;
+    height: 50px;
+    padding: 10px;
+    color: darkred;
+}
+
+main{
+    display: flex;
+    justify-content: space-between;
+}
+
+.drinks{
+    width: 66%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.selection{
+    width: 33%;
+}
+
+article{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 48%;
+    margin: 5px;
+    height: 200px;
+}
+
+article > h3{
+    text-align: center;
+}
+
+button{
+    width: 90%;
+    height: 25px;
+    margin: 10px;
+    padding: 0;
+}

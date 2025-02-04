@@ -1,0 +1,49 @@
+html{
+	font-size: 62.5%;
+}
+
+body{
+	font-size: 1.6rem;
+}
+
+table{
+    border-spacing: 0;
+    border: 1px solid black;
+}
+
+th, td{
+    border: 1px solid black;
+    padding: 15px;
+}
+
+button{
+    padding: 10px 5px;
+    margin: 5px;
+    border-radius: 5px;
+    color: white;
+    border: none;
+}
+
+button:active{
+    scale: 1.15;
+}
+
+#salary{
+    background-color: grey;
+}
+
+.delete{
+    background-color: red;
+}
+
+.duplicate{
+    background-color: blue;
+}
+
+.last-row-cell{
+    border: none;
+}
+
+tfoot{
+    font-weight: bold;
+}

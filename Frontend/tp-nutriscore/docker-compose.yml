@@ -1,0 +1,11 @@
+name: amaurice-apache
+services:
+  apache:
+    image: httpd
+    container_name: amaurice-tp-ns
+    restart: unless-stopped
+    volumes:
+      - './www/:/usr/local/apache2/htdocs' # lien entre le chemin relatif et le chemin du serveur apache
+    ports: 
+      - '3000:80' # lien entre le port "3000" et le port utilisé par le protocole http (80)
+      

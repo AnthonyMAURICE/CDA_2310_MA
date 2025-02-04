@@ -1,0 +1,137 @@
+:root{
+    --color-first: #29274c;
+    --color-second: #7e529e;
+    --color-third: #d295be;
+    --color-fourth: #ffffff;
+    --color-fifth: #e6bbcc;
+    --color-sixth: #022937;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+html{
+	font-size: 62.5%;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--color-fifth);
+}
+
+body{
+	font-size: 1.6rem;
+    width: 80%;
+    margin: 10px auto;
+    background-color: var(--color-third);
+}
+
+header{
+    background-color: var(--color-first);
+    height: 20vh;
+    border-radius: 5px 5px 0 0;
+}
+
+.header-first-part{
+    height: 65%;
+}
+
+.header-first-part > h1{
+    color: var(--color-third);
+    padding: 15px;
+    margin: 0;
+}
+
+.header-first-part > h1::first-letter{
+    color: var(--color-fourth);
+}
+
+.other-color{
+    color: var(--color-third);
+}
+
+nav[role="navigation"]{
+    background-color: var(--color-second);
+}
+
+menu, ul{
+    display: flex;
+    padding: 15px;
+    margin: 0;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.nav-element{
+    margin: 10px;
+}
+
+.nav-link{
+    background-color: var(--color-first);
+    text-decoration: none;
+    color: var(--color-fourth);
+    padding: 10px 25px;
+    border-radius: 5px;
+}
+
+.nav-link:hover{
+    background-color: var(--color-third);
+    color: var(--color-first);
+}
+
+main{
+    display: flex;
+    gap: .5rem;
+    height: 57vh;
+    background-color: var(--color-second);
+}
+
+aside{
+    background-color: var(--color-third);
+    flex-basis: 20rem;
+    min-width: 20rem;
+}
+
+aside > h1{
+    color: var(--color-fourth);
+}
+
+section{
+    flex-basis: 100%;
+    background-color: var(--color-fourth);
+}
+
+section > h1{
+    color: var(--color-first);
+}
+
+aside, section{
+    padding: 10px;
+}
+
+footer{
+
+    background-color: var(--color-sixth);
+    border-radius: 0 0 5px 5px;
+    height: 20vh;
+    padding-top: 25px;
+}
+
+.footer-nav{
+    display: flex;
+    justify-content: start;
+}
+
+.footer-ul{
+    width: 30%;
+    flex-flow: column;
+    margin-left: 5%;
+    padding: 10px 0;
+}
+
+.footer-ul > li{
+    padding: 3%;
+}
+
+.footer-link{
+    text-decoration: none;
+    color: var(--color-third);
+}

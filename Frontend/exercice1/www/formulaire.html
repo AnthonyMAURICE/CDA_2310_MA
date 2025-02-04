@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulaire d'inscription en guise d'entrainement">
+    <link rel="stylesheet" href="./style/form.css">
+    <title>Mon premier formulaire</title>
+</head>
+<body>
+    <h1 class="title">Formulaire d'inscription</h1>
+    <h2 class="title under-title">Votre compte configuré en 2 minutes !</h2>
+    <form action="./formulaire.html" method="get">
+        <fieldset class="form-elements">
+            <legend>État civil</legend> 
+            <div class="form-labels">
+                <label for="name">Nom :</label>
+                <input required type="text" id="name" name="name"  placeholder="Doe">
+            </div>
+            <div class="form-labels">
+                <label for="firstname">Prénom :</label>
+                <input required type="text" id="firstname" name="firstname" placeholder="John">
+            </div>
+            <div class="form-labels">
+                <label for="dob">Date de naissance :</label>
+                <input required type="date" id="dob" name="dob" >
+            </div>
+        </fieldset>
+        <fieldset class="form-elements">
+            <legend>Informations de contact</legend> 
+            <div class="form-labels">
+                <label for="mail">Adresse Email :</label>
+                <input required type="email" placeholder="exemple@internet.su" id="mail" name="mail">
+            </div>
+            <div class="form-labels">
+                <label for="phone">Téléphone :</label>
+                <input required pattern="0[1-9][0-9]{8}" type="tel" id="phone" name="user-phone">
+            </div>
+        </fieldset>
+        <fieldset class="form-elements">
+            <div class="form-labels" id="check">
+                <input required type="checkbox" id="cgu" name="cgu">
+                <label for="cgu">J'accepte les <a href="#" target="_blank">conditions d'utilisation</a></label>
+            </div>
+            <div class="form-labels sub-button">
+                <button type="submit">S'inscrire</button>
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>
