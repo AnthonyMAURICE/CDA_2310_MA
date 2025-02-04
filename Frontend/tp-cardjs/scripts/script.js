@@ -88,7 +88,7 @@ function displayCard(_values, _parameter){
     const mainDiv = document.createElement('div')
     mainDiv.setAttribute('class', "main-div")
     const img = document.createElement('img')
-    Object.assign(img, {src: "../assets/armure.png", className: `image-${podium}`})
+    Object.assign(img, {src: "../assets/armure.png", className: `image-${podium}`, alt: "image chevalier"})
     const stats = document.createElement('div')
     stats.setAttribute('class', 'stats-div')
     for(let i = 0; i < 3; i++){
