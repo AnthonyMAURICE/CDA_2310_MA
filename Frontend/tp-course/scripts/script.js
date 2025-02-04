@@ -2,7 +2,7 @@ const body = document.querySelector('body')
 document.addEventListener('DOMContentLoaded', setData)
 
 async function fetchData(){
-    const response = await fetch('testCourse/data/resultat10000metres.json')
+    const response = await fetch('./data/resultat10000metres.json')
     const data = await response.json()
     return data
 }
@@ -23,6 +23,7 @@ function createInputs(_values){
         const input = document.createElement('input')
         input.setAttribute('type', 'text')
         input.setAttribute('class', 'first-inputs')
+        input.setAttribute('readonly', 'true')
         body.appendChild(input)
     }    
     const filterWrapper = document.createElement('div')
